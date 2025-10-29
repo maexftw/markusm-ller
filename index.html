@@ -270,11 +270,11 @@
   <a href="#main-content" class="skip-to-content">Zum Hauptinhalt springen</a>
 
   <!-- Navigation -->
-  <header id="header" class="fixed top-0 left-0 w-full z-[1030] transition-all duration-300" style="height: 80px;">
+  <header id="header" class="fixed top-0 left-0 w-full z-[1030] transition-all duration-300" style="height: 80px; background-color: rgba(255, 255, 255, 0.98); box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.1);">
     <nav class="container mx-auto px-6 h-full flex items-center justify-between">
       <!-- Logo -->
       <a href="#" class="flex items-center gap-3 text-xl font-bold" style="font-family: var(--font-heading); color: var(--text-primary);">
-        <i class="fas fa-hard-hat text-3xl" style="color: var(--primary);"></i>
+        <img src="images/6.png" alt="Bauunternehmung Markus Mueller Logo" class="h-12">
         <span>Bauunternehmung <span style="color: var(--primary);">Müller</span></span>
       </a>
 
@@ -331,10 +331,10 @@
   <!-- Main Content -->
   <main id="main-content">
     <!-- Hero Section -->
-    <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden" style="margin-top: -80px; padding-top: 80px; background-color: #2a2a2a;">
+    <section id="hero" class="relative min-h-[120vh] flex items-center justify-center overflow-hidden" style="margin-top: -80px; padding-top: 80px; background-color: #2a2a2a;">
       <!-- Background Image with Fallback -->
       <div class="absolute inset-0 z-0" style="background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);">
-        <img src="images/hero-3.jpg" alt="" class="hero-bg w-full h-full object-cover" aria-hidden="true">
+        <img src="images/15.png" alt="" class="hero-bg w-full h-full object-cover" aria-hidden="true">
         <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(0,0,0,0.75) 0%, rgba(220,52,46,0.4) 100%);"></div>
       </div>
 
@@ -453,9 +453,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           <!-- Service 1: Neubau & Rohbau -->
           <div class="card-hover rounded-xl overflow-hidden border animate-on-scroll" style="background-color: var(--surface); border-color: var(--border-light); box-shadow: var(--shadow-card);">
-            <div class="h-48 overflow-hidden">
-              <img src="images/service-bau.jpg" alt="Neubau & Rohbau" class="w-full h-full object-cover">
-            </div>
+            <div class="h-48 flex items-center justify-center" style="background: linear-gradient(135deg, var(--surface) 0%, var(--background) 100%);"><i class="fas fa-building text-7xl" style="color: var(--primary);"></i></div>
             <div class="p-6">
               <h3 class="text-xl font-bold mb-2" style="font-family: var(--font-heading); color: var(--text-primary);">
                 Neubau & Rohbau
@@ -463,18 +461,12 @@
               <p class="text-sm mb-4" style="color: var(--text-secondary); line-height: 1.6;">
                 Neue Maßstäbe im Rohbau – Projekte mit größter Sorgfalt und nachhaltigen Materialien.
               </p>
-              <a href="#kontakt" class="text-sm font-semibold flex items-center gap-2" style="color: var(--primary);">
-                Mehr erfahren
-                <i class="fas fa-arrow-right"></i>
-              </a>
             </div>
           </div>
 
           <!-- Service 2: Umbau -->
           <div class="card-hover rounded-xl overflow-hidden border animate-on-scroll" style="background-color: var(--surface); border-color: var(--border-light); box-shadow: var(--shadow-card);">
-            <div class="h-48 overflow-hidden">
-              <img src="images/hero-2.jpg" alt="Umbau" class="w-full h-full object-cover">
-            </div>
+            <div class="h-48 flex items-center justify-center" style="background: linear-gradient(135deg, var(--surface) 0%, var(--background) 100%);"><i class="fas fa-hammer text-7xl" style="color: var(--primary);"></i></div>
             <div class="p-6">
               <h3 class="text-xl font-bold mb-2" style="font-family: var(--font-heading); color: var(--text-primary);">
                 Umbau
@@ -482,18 +474,12 @@
               <p class="text-sm mb-4" style="color: var(--text-secondary); line-height: 1.6;">
                 Kreative Lösungen für Wohnraumerweiterungen mit minimaler Störung des Alltags.
               </p>
-              <a href="#kontakt" class="text-sm font-semibold flex items-center gap-2" style="color: var(--primary);">
-                Mehr erfahren
-                <i class="fas fa-arrow-right"></i>
-              </a>
             </div>
           </div>
 
           <!-- Service 3: Industriebau -->
           <div class="card-hover rounded-xl overflow-hidden border animate-on-scroll" style="background-color: var(--surface); border-color: var(--border-light); box-shadow: var(--shadow-card);">
-            <div class="h-48 overflow-hidden">
-              <img src="images/service-stahl.jpg" alt="Industriebau" class="w-full h-full object-cover">
-            </div>
+            <div class="h-48 flex items-center justify-center" style="background: linear-gradient(135deg, var(--surface) 0%, var(--background) 100%);"><i class="fas fa-industry text-7xl" style="color: var(--primary);"></i></div>
             <div class="p-6">
               <h3 class="text-xl font-bold mb-2" style="font-family: var(--font-heading); color: var(--text-primary);">
                 Industriebau
@@ -501,18 +487,12 @@
               <p class="text-sm mb-4" style="color: var(--text-secondary); line-height: 1.6;">
                 Solide Konstruktionen für langlebige und funktionale Industriebauten.
               </p>
-              <a href="#kontakt" class="text-sm font-semibold flex items-center gap-2" style="color: var(--primary);">
-                Mehr erfahren
-                <i class="fas fa-arrow-right"></i>
-              </a>
             </div>
           </div>
 
           <!-- Service 4: Verblendarbeiten -->
           <div class="card-hover rounded-xl overflow-hidden border animate-on-scroll" style="background-color: var(--surface); border-color: var(--border-light); box-shadow: var(--shadow-card);">
-            <div class="h-48 overflow-hidden">
-              <img src="images/service-ziegel.jpg" alt="Verblendarbeiten" class="w-full h-full object-cover">
-            </div>
+            <div class="h-48 flex items-center justify-center" style="background: linear-gradient(135deg, var(--surface) 0%, var(--background) 100%);"><i class="fas fa-th text-7xl" style="color: var(--primary);"></i></div>
             <div class="p-6">
               <h3 class="text-xl font-bold mb-2" style="font-family: var(--font-heading); color: var(--text-primary);">
                 Verblendarbeiten / Klinker
@@ -520,18 +500,12 @@
               <p class="text-sm mb-4" style="color: var(--text-secondary); line-height: 1.6;">
                 Ästhetische Fassaden mit akkuraten Verblendarbeiten und hochwertigen Klinkern.
               </p>
-              <a href="#kontakt" class="text-sm font-semibold flex items-center gap-2" style="color: var(--primary);">
-                Mehr erfahren
-                <i class="fas fa-arrow-right"></i>
-              </a>
             </div>
           </div>
 
           <!-- Service 5: Maurerarbeiten -->
           <div class="card-hover rounded-xl overflow-hidden border animate-on-scroll" style="background-color: var(--surface); border-color: var(--border-light); box-shadow: var(--shadow-card);">
-            <div class="h-48 overflow-hidden">
-              <img src="images/service-bau.jpg" alt="Maurerarbeiten" class="w-full h-full object-cover">
-            </div>
+            <div class="h-48 flex items-center justify-center" style="background: linear-gradient(135deg, var(--surface) 0%, var(--background) 100%);"><i class="fas fa-trowel-bricks text-7xl" style="color: var(--primary);"></i></div>
             <div class="p-6">
               <h3 class="text-xl font-bold mb-2" style="font-family: var(--font-heading); color: var(--text-primary);">
                 Maurerarbeiten
@@ -539,18 +513,12 @@
               <p class="text-sm mb-4" style="color: var(--text-secondary); line-height: 1.6;">
                 Traditionelles Handwerk trifft moderne Technik – handwerkliche Exzellenz garantiert.
               </p>
-              <a href="#kontakt" class="text-sm font-semibold flex items-center gap-2" style="color: var(--primary);">
-                Mehr erfahren
-                <i class="fas fa-arrow-right"></i>
-              </a>
             </div>
           </div>
 
           <!-- Service 6: Betonarbeiten -->
           <div class="card-hover rounded-xl overflow-hidden border animate-on-scroll" style="background-color: var(--surface); border-color: var(--border-light); box-shadow: var(--shadow-card);">
-            <div class="h-48 overflow-hidden">
-              <img src="images/service-stahl.jpg" alt="Betonarbeiten" class="w-full h-full object-cover">
-            </div>
+            <div class="h-48 flex items-center justify-center" style="background: linear-gradient(135deg, var(--surface) 0%, var(--background) 100%);"><i class="fas fa-cubes text-7xl" style="color: var(--primary);"></i></div>
             <div class="p-6">
               <h3 class="text-xl font-bold mb-2" style="font-family: var(--font-heading); color: var(--text-primary);">
                 Betonarbeiten
@@ -558,18 +526,12 @@
               <p class="text-sm mb-4" style="color: var(--text-secondary); line-height: 1.6;">
                 Fundamente und komplexe Stahlbetonstrukturen – Stabilität und Dauerhaftigkeit.
               </p>
-              <a href="#kontakt" class="text-sm font-semibold flex items-center gap-2" style="color: var(--primary);">
-                Mehr erfahren
-                <i class="fas fa-arrow-right"></i>
-              </a>
             </div>
           </div>
 
           <!-- Service 7: Fachwerke -->
           <div class="card-hover rounded-xl overflow-hidden border animate-on-scroll" style="background-color: var(--surface); border-color: var(--border-light); box-shadow: var(--shadow-card);">
-            <div class="h-48 overflow-hidden">
-              <img src="images/service-ziegel.jpg" alt="Fachwerke ausmauern" class="w-full h-full object-cover">
-            </div>
+            <div class="h-48 flex items-center justify-center" style="background: linear-gradient(135deg, var(--surface) 0%, var(--background) 100%);"><i class="fas fa-th-large text-7xl" style="color: var(--primary);"></i></div>
             <div class="p-6">
               <h3 class="text-xl font-bold mb-2" style="font-family: var(--font-heading); color: var(--text-primary);">
                 Fachwerke ausmauern
@@ -577,18 +539,12 @@
               <p class="text-sm mb-4" style="color: var(--text-secondary); line-height: 1.6;">
                 Traditionelle Baukunst präzise umgesetzt – historische Werte bewahren.
               </p>
-              <a href="#kontakt" class="text-sm font-semibold flex items-center gap-2" style="color: var(--primary);">
-                Mehr erfahren
-                <i class="fas fa-arrow-right"></i>
-              </a>
             </div>
           </div>
 
           <!-- Service 8: Reparaturen -->
           <div class="card-hover rounded-xl overflow-hidden border animate-on-scroll" style="background-color: var(--surface); border-color: var(--border-light); box-shadow: var(--shadow-card);">
-            <div class="h-48 overflow-hidden">
-              <img src="images/service-bau.jpg" alt="Reparaturen" class="w-full h-full object-cover">
-            </div>
+            <div class="h-48 flex items-center justify-center" style="background: linear-gradient(135deg, var(--surface) 0%, var(--background) 100%);"><i class="fas fa-wrench text-7xl" style="color: var(--primary);"></i></div>
             <div class="p-6">
               <h3 class="text-xl font-bold mb-2" style="font-family: var(--font-heading); color: var(--text-primary);">
                 Reparaturen
@@ -596,18 +552,12 @@
               <p class="text-sm mb-4" style="color: var(--text-secondary); line-height: 1.6;">
                 Schnelle und zuverlässige Instandsetzung – Ihre Immobilie in bestem Zustand.
               </p>
-              <a href="#kontakt" class="text-sm font-semibold flex items-center gap-2" style="color: var(--primary);">
-                Mehr erfahren
-                <i class="fas fa-arrow-right"></i>
-              </a>
             </div>
           </div>
 
           <!-- Service 9: Gerüstbau -->
           <div class="card-hover rounded-xl overflow-hidden border animate-on-scroll" style="background-color: var(--surface); border-color: var(--border-light); box-shadow: var(--shadow-card);">
-            <div class="h-48 overflow-hidden">
-              <img src="images/service-stahl.jpg" alt="Gerüstbau" class="w-full h-full object-cover">
-            </div>
+            <div class="h-48 flex items-center justify-center" style="background: linear-gradient(135deg, var(--surface) 0%, var(--background) 100%);"><i class="fas fa-grip-vertical text-7xl" style="color: var(--primary);"></i></div>
             <div class="p-6">
               <h3 class="text-xl font-bold mb-2" style="font-family: var(--font-heading); color: var(--text-primary);">
                 Gerüstbau
@@ -615,18 +565,12 @@
               <p class="text-sm mb-4" style="color: var(--text-secondary); line-height: 1.6;">
                 Sicherheit in jeder Höhe – professioneller Gerüstbau für effizientes Arbeiten.
               </p>
-              <a href="#kontakt" class="text-sm font-semibold flex items-center gap-2" style="color: var(--primary);">
-                Mehr erfahren
-                <i class="fas fa-arrow-right"></i>
-              </a>
             </div>
           </div>
 
           <!-- Service 10: Fundamente -->
           <div class="card-hover rounded-xl overflow-hidden border animate-on-scroll" style="background-color: var(--surface); border-color: var(--border-light); box-shadow: var(--shadow-card);">
-            <div class="h-48 overflow-hidden">
-              <img src="images/service-ziegel.jpg" alt="Fundamente" class="w-full h-full object-cover">
-            </div>
+            <div class="h-48 flex items-center justify-center" style="background: linear-gradient(135deg, var(--surface) 0%, var(--background) 100%);"><i class="fas fa-mountain text-7xl" style="color: var(--primary);"></i></div>
             <div class="p-6">
               <h3 class="text-xl font-bold mb-2" style="font-family: var(--font-heading); color: var(--text-primary);">
                 Fundamente & Betonsohlen
@@ -634,18 +578,12 @@
               <p class="text-sm mb-4" style="color: var(--text-secondary); line-height: 1.6;">
                 Stabiles Fundament für jedes Projekt – Grundlage für langlebige Konstruktionen.
               </p>
-              <a href="#kontakt" class="text-sm font-semibold flex items-center gap-2" style="color: var(--primary);">
-                Mehr erfahren
-                <i class="fas fa-arrow-right"></i>
-              </a>
             </div>
           </div>
 
           <!-- Service 11: Stahlbetondecken -->
           <div class="card-hover rounded-xl overflow-hidden border animate-on-scroll" style="background-color: var(--surface); border-color: var(--border-light); box-shadow: var(--shadow-card);">
-            <div class="h-48 overflow-hidden">
-              <img src="images/service-bau.jpg" alt="Stahlbetondecken" class="w-full h-full object-cover">
-            </div>
+            <div class="h-48 flex items-center justify-center" style="background: linear-gradient(135deg, var(--surface) 0%, var(--background) 100%);"><i class="fas fa-layer-group text-7xl" style="color: var(--primary);"></i></div>
             <div class="p-6">
               <h3 class="text-xl font-bold mb-2" style="font-family: var(--font-heading); color: var(--text-primary);">
                 Stahlbetondecken & -wände
@@ -653,18 +591,12 @@
               <p class="text-sm mb-4" style="color: var(--text-secondary); line-height: 1.6;">
                 Tragende Elemente mit Präzision – Robustheit und Genauigkeit vereint.
               </p>
-              <a href="#kontakt" class="text-sm font-semibold flex items-center gap-2" style="color: var(--primary);">
-                Mehr erfahren
-                <i class="fas fa-arrow-right"></i>
-              </a>
             </div>
           </div>
 
           <!-- Service 12: Filigrandecken -->
           <div class="card-hover rounded-xl overflow-hidden border animate-on-scroll" style="background-color: var(--surface); border-color: var(--border-light); box-shadow: var(--shadow-card);">
-            <div class="h-48 overflow-hidden">
-              <img src="images/service-stahl.jpg" alt="Filigrandecken" class="w-full h-full object-cover">
-            </div>
+            <div class="h-48 flex items-center justify-center" style="background: linear-gradient(135deg, var(--surface) 0%, var(--background) 100%);"><i class="fas fa-border-all text-7xl" style="color: var(--primary);"></i></div>
             <div class="p-6">
               <h3 class="text-xl font-bold mb-2" style="font-family: var(--font-heading); color: var(--text-primary);">
                 Filigrandecken
@@ -672,10 +604,6 @@
               <p class="text-sm mb-4" style="color: var(--text-secondary); line-height: 1.6;">
                 Effiziente Deckensysteme – schnelle Lösung für flexible Gestaltung.
               </p>
-              <a href="#kontakt" class="text-sm font-semibold flex items-center gap-2" style="color: var(--primary);">
-                Mehr erfahren
-                <i class="fas fa-arrow-right"></i>
-              </a>
             </div>
           </div>
         </div>
@@ -690,7 +618,7 @@
 
             <div class="grid md:grid-cols-2 gap-8 p-8">
               <div class="h-64 md:h-full overflow-hidden rounded-xl">
-                <img src="images/service-stahl.jpg" alt="BAMTEC Bewehrungstechnik" class="w-full h-full object-cover">
+                <img src="images/10.jpg" alt="BAMTEC Bewehrungstechnik" class="w-full h-full object-cover">
               </div>
 
               <div class="flex flex-col justify-center">
@@ -733,7 +661,7 @@
           <!-- Image -->
           <div class="animate-on-scroll">
             <div class="rounded-2xl overflow-hidden" style="box-shadow: var(--shadow-xl);">
-              <img src="images/hero-1.jpg" alt="Bauunternehmung Müller Team" class="w-full h-full object-cover">
+              <img src="images/3.jpg" alt="Bauunternehmung Müller Team" class="w-full h-full object-cover">
             </div>
           </div>
 
@@ -866,7 +794,7 @@
             <!-- Image -->
             <div class="animate-on-scroll">
               <div class="rounded-2xl overflow-hidden sticky top-24" style="box-shadow: var(--shadow-xl);">
-                <img src="images/team-1.png" alt="Markus Müller" class="w-full h-full object-cover">
+                <img src="images/5.jpg" alt="Markus Müller" class="w-full h-full object-cover">
               </div>
             </div>
 
@@ -1006,7 +934,7 @@
           <!-- Nicole Bögge -->
           <div class="card-hover rounded-xl overflow-hidden border animate-on-scroll" style="background-color: var(--surface); border-color: var(--border-light); box-shadow: var(--shadow-card);">
             <div class="h-64 overflow-hidden">
-              <img src="images/team-2.png" alt="Nicole Bögge" class="w-full h-full object-cover">
+              <img src="images/4.jpg" alt="Nicole Bögge" class="w-full h-full object-cover">
             </div>
             <div class="p-6 text-center">
               <h3 class="text-2xl font-bold mb-2" style="font-family: var(--font-heading); color: var(--text-primary);">
@@ -1021,7 +949,7 @@
           <!-- Kirsten Koepe-Menzel -->
           <div class="card-hover rounded-xl overflow-hidden border animate-on-scroll" style="background-color: var(--surface); border-color: var(--border-light); box-shadow: var(--shadow-card);">
             <div class="h-64 overflow-hidden">
-              <img src="images/team-3.png" alt="Kirsten Koepe-Menzel" class="w-full h-full object-cover">
+              <img src="images/3.jpg" alt="Kirsten Koepe-Menzel" class="w-full h-full object-cover">
             </div>
             <div class="p-6 text-center">
               <h3 class="text-2xl font-bold mb-2" style="font-family: var(--font-heading); color: var(--text-primary);">
@@ -1095,112 +1023,7 @@
             </div>
           </div>
 
-          <!-- Contact Form -->
-          <div class="max-w-2xl mx-auto mb-12">
-            <div class="p-8 rounded-2xl" style="background-color: rgba(255,255,255,0.95); backdrop-filter: blur(10px);">
-              <h3 class="text-2xl font-bold mb-6 text-center" style="font-family: var(--font-heading); color: var(--text-primary);">
-                Projekt anfragen
-              </h3>
-              <form action="#" method="POST" class="space-y-4">
-                <!-- Name -->
-                <div>
-                  <label for="name" class="block text-sm font-semibold mb-2" style="color: var(--text-primary);">Name *</label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    required
-                    class="w-full rounded-lg border-2 transition-all"
-                    style="
-                      height: 48px;
-                      padding: 0 16px;
-                      border-color: var(--border-medium);
-                      color: var(--text-primary);
-                      font-family: var(--font-body);
-                    "
-                    placeholder="Ihr Name"
-                  >
-                </div>
-
-                <!-- Email -->
-                <div>
-                  <label for="email" class="block text-sm font-semibold mb-2" style="color: var(--text-primary);">E-Mail *</label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    class="w-full rounded-lg border-2 transition-all"
-                    style="
-                      height: 48px;
-                      padding: 0 16px;
-                      border-color: var(--border-medium);
-                      color: var(--text-primary);
-                      font-family: var(--font-body);
-                    "
-                    placeholder="ihre@email.de"
-                  >
-                </div>
-
-                <!-- Phone -->
-                <div>
-                  <label for="phone" class="block text-sm font-semibold mb-2" style="color: var(--text-primary);">Telefon (optional)</label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    class="w-full rounded-lg border-2 transition-all"
-                    style="
-                      height: 48px;
-                      padding: 0 16px;
-                      border-color: var(--border-medium);
-                      color: var(--text-primary);
-                      font-family: var(--font-body);
-                    "
-                    placeholder="0123-456789"
-                  >
-                </div>
-
-                <!-- Message -->
-                <div>
-                  <label for="message" class="block text-sm font-semibold mb-2" style="color: var(--text-primary);">Nachricht *</label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    required
-                    rows="5"
-                    class="w-full rounded-lg border-2 transition-all resize-none"
-                    style="
-                      padding: 16px;
-                      border-color: var(--border-medium);
-                      color: var(--text-primary);
-                      font-family: var(--font-body);
-                      line-height: 1.6;
-                    "
-                    placeholder="Beschreiben Sie Ihr Projekt..."
-                  ></textarea>
-                </div>
-
-                <!-- Submit Button -->
-                <button
-                  type="submit"
-                  class="w-full rounded-lg font-bold text-lg text-white flex items-center justify-center gap-3 transition-all"
-                  style="
-                    background-color: var(--primary);
-                    min-height: 48px;
-                    padding: 12px 24px;
-                  "
-                >
-                  <i class="fas fa-paper-plane"></i>
-                  <span>Anfrage senden</span>
-                </button>
-
-                <p class="text-xs text-center" style="color: var(--text-secondary); margin-top: 12px;">
-                  * Pflichtfelder. Ihre Daten werden vertraulich behandelt.
-                </p>
-              </form>
-            </div>
-          </div>
+          
 
           <!-- CTA Buttons (Alternative Kontaktmöglichkeiten) -->
           <p class="text-white text-lg mb-4 opacity-90">Oder kontaktieren Sie uns direkt:</p>
