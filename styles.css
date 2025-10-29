@@ -1,0 +1,325 @@
+/**
+ * Theme: Bauunternehmung Markus Müller
+ * Style: Clean, Professional, Trustworthy
+ * UX Principles: Laws of UX Applied (Fitts's Law, Aesthetic-Usability, etc.)
+ */
+
+:root {
+  /* ========================================
+     COLORS - Baubranche Farbpalette
+     ======================================== */
+
+  /* Primary - Müller Rot */
+  --primary: #dc342e;
+  --primary-hover: #c42d27;
+  --primary-light: #e85850;
+  --primary-dark: #b42922;
+
+  /* Neutrals - Weiß & Schwarztöne */
+  --background: #fafafa;
+  --surface: #ffffff;
+  --surface-elevated: #ffffff;
+
+  --text-primary: #1a1a1a;
+  --text-secondary: #4a4a4a;
+  --text-tertiary: #6a6a6a;
+  --text-on-primary: #ffffff;
+
+  /* Borders & Dividers */
+  --border-light: #e5e5e5;
+  --border-medium: #d1d1d1;
+  --border-dark: #b8b8b8;
+
+  /* States */
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: #ef4444;
+
+  /* Overlays */
+  --overlay-light: rgba(0, 0, 0, 0.3);
+  --overlay-medium: rgba(0, 0, 0, 0.5);
+  --overlay-dark: rgba(0, 0, 0, 0.7);
+
+  /* ========================================
+     TYPOGRAPHY
+     ======================================== */
+
+  /* Font Families */
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-accent: 'Space Grotesk', sans-serif;
+
+  /* Font Sizes - Fluid Typography */
+  --text-xs: 0.75rem;      /* 12px */
+  --text-sm: 0.875rem;     /* 14px */
+  --text-base: 1rem;       /* 16px */
+  --text-lg: 1.125rem;     /* 18px */
+  --text-xl: 1.25rem;      /* 20px */
+  --text-2xl: 1.5rem;      /* 24px */
+  --text-3xl: 1.875rem;    /* 30px */
+  --text-4xl: 2.25rem;     /* 36px */
+  --text-5xl: 3rem;        /* 48px */
+  --text-6xl: 3.75rem;     /* 60px */
+
+  /* Font Weights */
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+  --font-extrabold: 800;
+
+  /* Line Heights */
+  --leading-tight: 1.25;
+  --leading-snug: 1.375;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+  --leading-loose: 2;
+
+  /* ========================================
+     SPACING - Fitts's Law Applied
+     Großzügige Touch-Targets & Whitespace
+     ======================================== */
+
+  --space-xs: 0.25rem;     /* 4px */
+  --space-sm: 0.5rem;      /* 8px */
+  --space-md: 1rem;        /* 16px */
+  --space-lg: 1.5rem;      /* 24px */
+  --space-xl: 2rem;        /* 32px */
+  --space-2xl: 3rem;       /* 48px */
+  --space-3xl: 4rem;       /* 64px */
+  --space-4xl: 6rem;       /* 96px */
+  --space-5xl: 8rem;       /* 128px */
+
+  /* Section Spacing */
+  --section-padding-y: clamp(3rem, 8vw, 6rem);
+  --section-padding-x: clamp(1rem, 5vw, 3rem);
+
+  /* Container */
+  --container-max: 1280px;
+  --container-padding: var(--space-lg);
+
+  /* ========================================
+     BORDERS & RADIUS
+     ======================================== */
+
+  --radius-sm: 0.25rem;    /* 4px */
+  --radius-md: 0.5rem;     /* 8px */
+  --radius-lg: 0.75rem;    /* 12px */
+  --radius-xl: 1rem;       /* 16px */
+  --radius-2xl: 1.5rem;    /* 24px */
+  --radius-full: 9999px;
+
+  --border-width: 1px;
+  --border-width-thick: 2px;
+
+  /* ========================================
+     SHADOWS - Subtle & Professional
+     ======================================== */
+
+  --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.08),
+               0 1px 2px -1px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08),
+               0 2px 4px -2px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08),
+               0 4px 6px -4px rgba(0, 0, 0, 0.08);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.08),
+               0 8px 10px -6px rgba(0, 0, 0, 0.08);
+
+  /* Card Shadow - Hover Effect */
+  --shadow-card: var(--shadow-sm);
+  --shadow-card-hover: var(--shadow-lg);
+
+  /* ========================================
+     TRANSITIONS & ANIMATIONS
+     ======================================== */
+
+  --transition-fast: 150ms ease-in-out;
+  --transition-base: 250ms ease-in-out;
+  --transition-slow: 350ms ease-in-out;
+
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  /* ========================================
+     COMPONENTS - UX Optimized
+     ======================================== */
+
+  /* Buttons - Fitts's Law (min 48px touch target) */
+  --button-height-sm: 2.5rem;    /* 40px */
+  --button-height-md: 3rem;      /* 48px - Optimal Touch */
+  --button-height-lg: 3.5rem;    /* 56px */
+  --button-padding-x: var(--space-xl);
+  --button-radius: var(--radius-md);
+
+  /* Cards */
+  --card-padding: var(--space-xl);
+  --card-radius: var(--radius-lg);
+  --card-border: var(--border-light);
+
+  /* Input Fields */
+  --input-height: 3rem;          /* 48px - Touch friendly */
+  --input-padding-x: var(--space-lg);
+  --input-radius: var(--radius-md);
+  --input-border: var(--border-medium);
+  --input-border-focus: var(--primary);
+
+  /* Navigation */
+  --nav-height: 5rem;            /* 80px */
+  --nav-link-padding: var(--space-lg);
+
+  /* ========================================
+     Z-INDEX LAYERS
+     ======================================== */
+
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
+}
+
+/* ========================================
+   GLOBAL RESETS & BASE STYLES
+   ======================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--text-primary);
+  background-color: var(--background);
+  overflow-x: hidden;
+}
+
+/* Typography Defaults */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: var(--font-bold);
+  line-height: var(--leading-tight);
+  color: var(--text-primary);
+}
+
+h1 { font-size: var(--text-5xl); }
+h2 { font-size: var(--text-4xl); }
+h3 { font-size: var(--text-3xl); }
+h4 { font-size: var(--text-2xl); }
+h5 { font-size: var(--text-xl); }
+h6 { font-size: var(--text-lg); }
+
+p {
+  margin-bottom: var(--space-md);
+  line-height: var(--leading-relaxed);
+  color: var(--text-secondary);
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--primary-hover);
+}
+
+/* ========================================
+   UTILITY CLASSES - UX Optimized
+   ======================================== */
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-padding);
+}
+
+.section {
+  padding-block: var(--section-padding-y);
+  padding-inline: var(--section-padding-x);
+}
+
+/* Accessibility - Focus States */
+*:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* Skip to Content Link (Accessibility) */
+.skip-to-content {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--primary);
+  color: var(--text-on-primary);
+  padding: var(--space-md) var(--space-xl);
+  border-radius: var(--radius-md);
+  z-index: var(--z-tooltip);
+  transition: top var(--transition-fast);
+}
+
+.skip-to-content:focus {
+  top: var(--space-md);
+}
+
+/* Responsive Images */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Selection Colors */
+::selection {
+  background-color: var(--primary);
+  color: var(--text-on-primary);
+}
+
+::-moz-selection {
+  background-color: var(--primary);
+  color: var(--text-on-primary);
+}
+
+/* ========================================
+   RESPONSIVE BREAKPOINTS
+   ======================================== */
+
+/* Mobile First Approach */
+/* xs: 0-639px */
+/* sm: 640px+ */
+/* md: 768px+ */
+/* lg: 1024px+ */
+/* xl: 1280px+ */
+/* 2xl: 1536px+ */
+
+@media (min-width: 768px) {
+  :root {
+    --text-5xl: 4rem;      /* 64px on desktop */
+    --text-6xl: 4.5rem;    /* 72px on desktop */
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --section-padding-y: 6rem;
+  }
+}

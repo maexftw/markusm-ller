@@ -1,348 +1,1414 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Markus M&uuml;ller Bauunternehmung - Meisterhafte Qualit&auml;t seit 2002</title>
-    <meta name="description" content="Meisterhafte Bauqualit&auml;t seit 2002 - Markus M&uuml;ller Bauunternehmung aus Welver.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bauunternehmung Markus Müller - Meisterhafte Qualität und zuverlässige Handwerkskunst seit 2002. Ihr Partner für Neubau, Umbau, Industriebau und mehr.">
+  <meta name="keywords" content="Bauunternehmung, Maurer, Betonarbeiten, Neubau, Rohbau, Welver, Hamm">
+  <title>Bauunternehmung Markus Müller - Baukompetenz aus Tradition</title>
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏗️</text></svg>">
 
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="../../css/markus-mueller.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Theme CSS -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Custom Styles & Animations -->
+  <style>
+    /* Animation Keyframes */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes fadeInRight {
+      from {
+        opacity: 0;
+        transform: translateX(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes kenBurns {
+      0% {
+        transform: scale(1);
+      }
+      100% {
+        transform: scale(1.05);
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        box-shadow: 0 0 0 0 rgba(220, 52, 46, 0.4);
+      }
+      50% {
+        box-shadow: 0 0 0 15px rgba(220, 52, 46, 0);
+      }
+    }
+
+    @keyframes countUp {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(-5deg); }
+      75% { transform: rotate(5deg); }
+    }
+
+    /* Hero Background Animation */
+    .hero-bg {
+      animation: kenBurns 60s ease-in-out infinite alternate;
+    }
+
+    /* Scroll Animations */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .animate-on-scroll.animated {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Stagger delays */
+    .stagger-1 { animation-delay: 0.2s; }
+    .stagger-2 { animation-delay: 0.4s; }
+    .stagger-3 { animation-delay: 0.6s; }
+    .stagger-4 { animation-delay: 0.8s; }
+
+    /* Hover Effects */
+    .card-hover {
+      transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, border-color 0.3s ease-out;
+    }
+
+    .card-hover:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-card-hover);
+      border-color: var(--primary);
+    }
+
+    .card-hover:focus-within {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-card-hover);
+      border-color: var(--primary);
+      outline: 2px solid var(--primary);
+      outline-offset: 2px;
+    }
+
+    .card-hover:hover img {
+      transform: scale(1.05);
+    }
+
+    .card-hover img {
+      transition: transform 0.4s ease-out;
+    }
+
+    /* Button Animations */
+    .btn-primary {
+      transition: all 0.25s ease-in-out;
+    }
+
+    .btn-primary:hover {
+      transform: scale(1.03);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .btn-primary:active {
+      transform: scale(0.98);
+    }
+
+    .btn-secondary {
+      transition: all 0.25s ease-in-out;
+    }
+
+    .btn-secondary:hover {
+      transform: translateX(4px);
+      background-color: rgba(220, 52, 46, 0.05);
+    }
+
+    /* Nav Link Underline Effect */
+    .nav-link {
+      position: relative;
+      transition: color 0.25s ease-in-out, font-weight 0.2s ease-in-out;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background-color: var(--primary);
+      transition: width 0.3s ease-out, left 0.3s ease-out, height 0.2s ease-out;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+      left: 0;
+    }
+
+    .nav-link.active::after {
+      width: 100%;
+      left: 0;
+      height: 3px;
+    }
+
+    .nav-link.active {
+      color: var(--primary) !important;
+      font-weight: 600 !important;
+    }
+
+    /* Sticky Header - Using padding instead of height to avoid layout shift */
+    .header-scrolled {
+      background-color: rgba(255, 255, 255, 0.98) !important;
+      box-shadow: var(--shadow-md) !important;
+      padding-top: 12px !important;
+      padding-bottom: 12px !important;
+    }
+
+    /* Partner Logo Hover */
+    .partner-logo {
+      filter: grayscale(100%);
+      opacity: 0.6;
+      transition: all 0.3s ease-out;
+    }
+
+    .partner-logo:hover {
+      filter: grayscale(0%);
+      opacity: 1;
+      transform: scale(1.08);
+    }
+
+    /* CTA Pulse */
+    .cta-pulse {
+      animation: pulse 2s infinite;
+    }
+
+    /* Mobile Menu */
+    .mobile-menu {
+      transform: translateX(-100%);
+      transition: transform 0.35s ease-out;
+    }
+
+    .mobile-menu.open {
+      transform: translateX(0);
+    }
+
+    /* Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--background);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--border-medium);
+      border-radius: var(--radius-full);
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--primary);
+    }
+  </style>
 </head>
 <body>
-    <div class="mm">
-        <!-- Header -->
-        <header class="mm-header">
-            <div class="mm-header__top">
-                <div class="mm__container">
-                    <div class="mm-header__top-items">
-                        <span class="mm-header__top-link"><i class="fas fa-map-marker-alt" aria-hidden="true"></i>Vellinghauser Str. 15, 59514 Welver</span>
-                        <span class="mm-header__top-link"><i class="fas fa-clock" aria-hidden="true"></i>Mo-Fr 07:00 - 17:00 Uhr</span>
-                    </div>
-                </div>
+  <!-- Skip to Content (Accessibility) -->
+  <a href="#main-content" class="skip-to-content">Zum Hauptinhalt springen</a>
+
+  <!-- Navigation -->
+  <header id="header" class="fixed top-0 left-0 w-full z-[1030] transition-all duration-300" style="height: 80px;">
+    <nav class="container mx-auto px-6 h-full flex items-center justify-between">
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-3 text-xl font-bold" style="font-family: var(--font-heading); color: var(--text-primary);">
+        <i class="fas fa-hard-hat text-3xl" style="color: var(--primary);"></i>
+        <span>Bauunternehmung <span style="color: var(--primary);">Müller</span></span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden lg:flex items-center gap-8">
+        <a href="#leistungen" class="nav-link" style="color: var(--text-secondary);">Leistungen</a>
+        <a href="#team" class="nav-link" style="color: var(--text-secondary);">Team</a>
+        <a href="#expertise" class="nav-link" style="color: var(--text-secondary);">Expertise</a>
+        <a href="#inhaber" class="nav-link" style="color: var(--text-secondary);">Inhaber</a>
+        <a href="#kontakt" class="nav-link" style="color: var(--text-secondary);">Kontakt</a>
+      </div>
+
+      <!-- CTA Button (Desktop) -->
+      <a href="tel:015117015050" class="hidden lg:flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-white btn-primary" style="background-color: var(--primary); height: 48px;">
+        <i class="fas fa-phone"></i>
+        <span>01511-7015050</span>
+      </a>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-btn" class="lg:hidden text-2xl" style="color: var(--text-primary);" aria-label="Menü öffnen">
+        <i class="fas fa-bars"></i>
+      </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu fixed top-0 left-0 w-full h-screen bg-white z-[1040] lg:hidden">
+      <div class="flex flex-col h-full">
+        <!-- Mobile Menu Header -->
+        <div class="flex items-center justify-between p-6 border-b flex-shrink-0" style="border-color: var(--border-light);">
+          <span class="text-xl font-bold" style="font-family: var(--font-heading);">Menü</span>
+          <button id="mobile-menu-close" class="text-2xl" style="color: var(--text-primary);" aria-label="Menü schließen">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+
+        <!-- Mobile Menu Links - Scrollable with 48px touch targets -->
+        <div class="flex flex-col gap-2 p-6 overflow-y-auto flex-1">
+          <a href="#leistungen" class="mobile-menu-link px-4 py-3 text-lg font-medium rounded-lg transition-colors" style="color: var(--text-primary); min-height: 48px; display: flex; align-items: center;">Leistungen</a>
+          <a href="#team" class="mobile-menu-link px-4 py-3 text-lg font-medium rounded-lg transition-colors" style="color: var(--text-primary); min-height: 48px; display: flex; align-items: center;">Team</a>
+          <a href="#expertise" class="mobile-menu-link px-4 py-3 text-lg font-medium rounded-lg transition-colors" style="color: var(--text-primary); min-height: 48px; display: flex; align-items: center;">Expertise</a>
+          <a href="#inhaber" class="mobile-menu-link px-4 py-3 text-lg font-medium rounded-lg transition-colors" style="color: var(--text-primary); min-height: 48px; display: flex; align-items: center;">Inhaber</a>
+          <a href="#kontakt" class="mobile-menu-link px-4 py-3 text-lg font-medium rounded-lg transition-colors" style="color: var(--text-primary); min-height: 48px; display: flex; align-items: center;">Kontakt</a>
+
+          <!-- Mobile CTA - 48px height -->
+          <a href="tel:015117015050" class="mt-4 flex items-center justify-center gap-2 px-6 rounded-lg font-semibold text-white" style="background-color: var(--primary); min-height: 48px;">
+            <i class="fas fa-phone"></i>
+            <span>01511-7015050</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main-content">
+    <!-- Hero Section -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden" style="margin-top: -80px; padding-top: 80px; background-color: #2a2a2a;">
+      <!-- Background Image with Fallback -->
+      <div class="absolute inset-0 z-0" style="background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);">
+        <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop" alt="" class="hero-bg w-full h-full object-cover" aria-hidden="true">
+        <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(0,0,0,0.75) 0%, rgba(220,52,46,0.4) 100%);"></div>
+      </div>
+
+      <!-- Content -->
+      <div class="container relative z-10 px-6 py-20 text-center text-white">
+        <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 stagger-1" style="animation: fadeInUp 0.6s ease-out 0.2s backwards; font-family: var(--font-heading); line-height: 1.1;">
+          Bauunternehmung Markus Müller
+        </h1>
+        <p class="text-2xl md:text-3xl font-semibold mb-4 stagger-2" style="animation: fadeInUp 0.6s ease-out 0.4s backwards; font-family: var(--font-heading); color: rgba(255,255,255,0.95);">
+          Baukompetenz aus Tradition
+        </p>
+        <p class="text-lg md:text-xl mb-12 max-w-3xl mx-auto stagger-3" style="animation: fadeInUp 0.6s ease-out 0.6s backwards; color: rgba(255,255,255,0.9); line-height: 1.6;">
+          Meisterhafte Qualität und zuverlässige Handwerkskunst seit 2002
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center stagger-4" style="animation: fadeInUp 0.6s ease-out 0.8s backwards;">
+          <a href="#kontakt" class="btn-primary px-8 py-4 rounded-lg font-bold text-lg text-white flex items-center gap-2 cta-pulse" style="background-color: var(--primary); min-width: 200px;">
+            <i class="fas fa-rocket"></i>
+            <span>Projekt anfragen</span>
+          </a>
+          <a href="#leistungen" class="btn-secondary px-8 py-4 rounded-lg font-bold text-lg text-white flex items-center gap-2 border-2" style="border-color: white; min-width: 200px;">
+            <i class="fas fa-tools"></i>
+            <span>Leistungen</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <i class="fas fa-chevron-down text-white text-2xl"></i>
+      </div>
+    </section>
+
+    <!-- Intro / USP Section -->
+    <section class="section" style="background-color: var(--background);">
+      <div class="container mx-auto px-6">
+        <!-- Intro Text -->
+        <div class="max-w-4xl mx-auto text-center mb-16 animate-on-scroll">
+          <p class="text-xl leading-relaxed" style="color: var(--text-secondary);">
+            Entdecken Sie die Stärke handwerklicher Präzision mit der Bauunternehmung Markus Müller. Wir stehen für nachhaltiges Bauen, innovative Lösungen und eine persönliche Betreuung, die Sie von der ersten Kontaktaufnahme bis zur Fertigstellung begleitet. Erleben Sie Service, der bewegt – genau wie unser dynamischer Fuhrpark.
+          </p>
+        </div>
+
+        <!-- USP Stats -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Stat 1 -->
+          <div class="card-hover p-8 rounded-xl text-center border animate-on-scroll" style="background-color: var(--surface); border-color: var(--border-light); box-shadow: var(--shadow-card);">
+            <div class="text-5xl mb-4" style="color: var(--primary);">
+              <i class="fas fa-calendar-check"></i>
+            </div>
+            <div class="text-4xl font-bold mb-2" style="font-family: var(--font-heading); color: var(--text-primary);">
+              Seit 2002
+            </div>
+            <p class="text-sm font-medium" style="color: var(--text-secondary);">
+              Über 20 Jahre Erfahrung
+            </p>
+          </div>
+
+          <!-- Stat 2 -->
+          <div class="card-hover p-8 rounded-xl text-center border animate-on-scroll" style="background-color: var(--surface); border-color: var(--border-light); box-shadow: var(--shadow-card);">
+            <div class="text-5xl mb-4" style="color: var(--primary);">
+              <i class="fas fa-users"></i>
+            </div>
+            <div class="text-4xl font-bold mb-2" style="font-family: var(--font-heading); color: var(--text-primary);">
+              27
+            </div>
+            <p class="text-sm font-medium" style="color: var(--text-secondary);">
+              Team Mitglieder
+            </p>
+          </div>
+
+          <!-- Stat 3 -->
+          <div class="card-hover p-8 rounded-xl text-center border animate-on-scroll" style="background-color: var(--surface); border-color: var(--border-light); box-shadow: var(--shadow-card);">
+            <div class="text-5xl mb-4" style="color: var(--primary);">
+              <i class="fas fa-award"></i>
+            </div>
+            <div class="text-4xl font-bold mb-2" style="font-family: var(--font-heading); color: var(--text-primary);">
+              Meister
+            </div>
+            <p class="text-sm font-medium" style="color: var(--text-secondary);">
+              Maurermeisterbetrieb
+            </p>
+          </div>
+
+          <!-- Stat 4 -->
+          <div class="card-hover p-8 rounded-xl text-center border animate-on-scroll" style="background-color: var(--surface); border-color: var(--border-light); box-shadow: var(--shadow-card);">
+            <div class="text-5xl mb-4" style="color: var(--primary);">
+              <i class="fas fa-heart"></i>
+            </div>
+            <div class="text-4xl font-bold mb-2" style="font-family: var(--font-heading); color: var(--text-primary);">
+              Familie
+            </div>
+            <p class="text-sm font-medium" style="color: var(--text-secondary);">
+              Familienunternehmen
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Leistungen Section -->
+    <section id="leistungen" class="section" style="background-color: var(--surface);">
+      <div class="container mx-auto px-6">
+        <!-- Section Header -->
+        <div class="text-center mb-16 animate-on-scroll">
+          <h2 class="text-4xl md:text-5xl font-bold mb-4" style="font-family: var(--font-heading); color: var(--text-primary);">
+            Unsere Dienstleistungen
+          </h2>
+          <p class="text-xl" style="color: var(--text-secondary);">
+            Vom ersten Spatenstich bis zur Fertigstellung – wir sind Ihr zuverlässiger Ausführungspartner
+          </p>
+        </div>
+
+        <!-- Services Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          <!-- Service 1: Neubau & Rohbau -->
+          <div class="card-hover rounded-xl overflow-hidden border animate-on-scroll" style="background-color: var(--surface); border-color: var(--border-light); box-shadow: var(--shadow-card);">
+            <div class="h-48 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=800&auto=format&fit=crop" alt="Neubau & Rohbau" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2" style="font-family: var(--font-heading); color: var(--text-primary);">
+                Neubau & Rohbau
+              </h3>
+              <p class="text-sm mb-4" style="color: var(--text-secondary); line-height: 1.6;">
+                Neue Maßstäbe im Rohbau – Projekte mit größter Sorgfalt und nachhaltigen Materialien.
+              </p>
+              <a href="#kontakt" class="text-sm font-semibold flex items-center gap-2" style="color: var(--primary);">
+                Mehr erfahren
+                <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Service 2: Umbau -->
+          <div class="card-hover rounded-xl overflow-hidden border animate-on-scroll" style="background-color: var(--surface); border-color: var(--border-light); box-shadow: var(--shadow-card);">
+            <div class="h-48 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=800&auto=format&fit=crop" alt="Umbau" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2" style="font-family: var(--font-heading); color: var(--text-primary);">
+                Umbau
+              </h3>
+              <p class="text-sm mb-4" style="color: var(--text-secondary); line-height: 1.6;">
+                Kreative Lösungen für Wohnraumerweiterungen mit minimaler Störung des Alltags.
+              </p>
+              <a href="#kontakt" class="text-sm font-semibold flex items-center gap-2" style="color: var(--primary);">
+                Mehr erfahren
+                <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Service 3: Industriebau -->
+          <div class="card-hover rounded-xl overflow-hidden border animate-on-scroll" style="background-color: var(--surface); border-color: var(--border-light); box-shadow: var(--shadow-card);">
+            <div class="h-48 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1581094271901-8022df4466f9?q=80&w=800&auto=format&fit=crop" alt="Industriebau" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2" style="font-family: var(--font-heading); color: var(--text-primary);">
+                Industriebau
+              </h3>
+              <p class="text-sm mb-4" style="color: var(--text-secondary); line-height: 1.6;">
+                Solide Konstruktionen für langlebige und funktionale Industriebauten.
+              </p>
+              <a href="#kontakt" class="text-sm font-semibold flex items-center gap-2" style="color: var(--primary);">
+                Mehr erfahren
+                <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Service 4: Verblendarbeiten -->
+          <div class="card-hover rounded-xl overflow-hidden border animate-on-scroll" style="background-color: var(--surface); border-color: var(--border-light); box-shadow: var(--shadow-card);">
+            <div class="h-48 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop" alt="Verblendarbeiten" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2" style="font-family: var(--font-heading); color: var(--text-primary);">
+                Verblendarbeiten / Klinker
+              </h3>
+              <p class="text-sm mb-4" style="color: var(--text-secondary); line-height: 1.6;">
+                Ästhetische Fassaden mit akkuraten Verblendarbeiten und hochwertigen Klinkern.
+              </p>
+              <a href="#kontakt" class="text-sm font-semibold flex items-center gap-2" style="color: var(--primary);">
+                Mehr erfahren
+                <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Service 5: Maurerarbeiten -->
+          <div class="card-hover rounded-xl overflow-hidden border animate-on-scroll" style="background-color: var(--surface); border-color: var(--border-light); box-shadow: var(--shadow-card);">
+            <div class="h-48 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?q=80&w=800&auto=format&fit=crop" alt="Maurerarbeiten" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2" style="font-family: var(--font-heading); color: var(--text-primary);">
+                Maurerarbeiten
+              </h3>
+              <p class="text-sm mb-4" style="color: var(--text-secondary); line-height: 1.6;">
+                Traditionelles Handwerk trifft moderne Technik – handwerkliche Exzellenz garantiert.
+              </p>
+              <a href="#kontakt" class="text-sm font-semibold flex items-center gap-2" style="color: var(--primary);">
+                Mehr erfahren
+                <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Service 6: Betonarbeiten -->
+          <div class="card-hover rounded-xl overflow-hidden border animate-on-scroll" style="background-color: var(--surface); border-color: var(--border-light); box-shadow: var(--shadow-card);">
+            <div class="h-48 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=800&auto=format&fit=crop" alt="Betonarbeiten" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2" style="font-family: var(--font-heading); color: var(--text-primary);">
+                Betonarbeiten
+              </h3>
+              <p class="text-sm mb-4" style="color: var(--text-secondary); line-height: 1.6;">
+                Fundamente und komplexe Stahlbetonstrukturen – Stabilität und Dauerhaftigkeit.
+              </p>
+              <a href="#kontakt" class="text-sm font-semibold flex items-center gap-2" style="color: var(--primary);">
+                Mehr erfahren
+                <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Service 7: Fachwerke -->
+          <div class="card-hover rounded-xl overflow-hidden border animate-on-scroll" style="background-color: var(--surface); border-color: var(--border-light); box-shadow: var(--shadow-card);">
+            <div class="h-48 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=800&auto=format&fit=crop" alt="Fachwerke ausmauern" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2" style="font-family: var(--font-heading); color: var(--text-primary);">
+                Fachwerke ausmauern
+              </h3>
+              <p class="text-sm mb-4" style="color: var(--text-secondary); line-height: 1.6;">
+                Traditionelle Baukunst präzise umgesetzt – historische Werte bewahren.
+              </p>
+              <a href="#kontakt" class="text-sm font-semibold flex items-center gap-2" style="color: var(--primary);">
+                Mehr erfahren
+                <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Service 8: Reparaturen -->
+          <div class="card-hover rounded-xl overflow-hidden border animate-on-scroll" style="background-color: var(--surface); border-color: var(--border-light); box-shadow: var(--shadow-card);">
+            <div class="h-48 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=800&auto=format&fit=crop" alt="Reparaturen" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2" style="font-family: var(--font-heading); color: var(--text-primary);">
+                Reparaturen
+              </h3>
+              <p class="text-sm mb-4" style="color: var(--text-secondary); line-height: 1.6;">
+                Schnelle und zuverlässige Instandsetzung – Ihre Immobilie in bestem Zustand.
+              </p>
+              <a href="#kontakt" class="text-sm font-semibold flex items-center gap-2" style="color: var(--primary);">
+                Mehr erfahren
+                <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Service 9: Gerüstbau -->
+          <div class="card-hover rounded-xl overflow-hidden border animate-on-scroll" style="background-color: var(--surface); border-color: var(--border-light); box-shadow: var(--shadow-card);">
+            <div class="h-48 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1590232768058-94cbfa485e5c?q=80&w=800&auto=format&fit=crop" alt="Gerüstbau" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2" style="font-family: var(--font-heading); color: var(--text-primary);">
+                Gerüstbau
+              </h3>
+              <p class="text-sm mb-4" style="color: var(--text-secondary); line-height: 1.6;">
+                Sicherheit in jeder Höhe – professioneller Gerüstbau für effizientes Arbeiten.
+              </p>
+              <a href="#kontakt" class="text-sm font-semibold flex items-center gap-2" style="color: var(--primary);">
+                Mehr erfahren
+                <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Service 10: Fundamente -->
+          <div class="card-hover rounded-xl overflow-hidden border animate-on-scroll" style="background-color: var(--surface); border-color: var(--border-light); box-shadow: var(--shadow-card);">
+            <div class="h-48 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1597476329744-28ab2e882a12?q=80&w=800&auto=format&fit=crop" alt="Fundamente" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2" style="font-family: var(--font-heading); color: var(--text-primary);">
+                Fundamente & Betonsohlen
+              </h3>
+              <p class="text-sm mb-4" style="color: var(--text-secondary); line-height: 1.6;">
+                Stabiles Fundament für jedes Projekt – Grundlage für langlebige Konstruktionen.
+              </p>
+              <a href="#kontakt" class="text-sm font-semibold flex items-center gap-2" style="color: var(--primary);">
+                Mehr erfahren
+                <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Service 11: Stahlbetondecken -->
+          <div class="card-hover rounded-xl overflow-hidden border animate-on-scroll" style="background-color: var(--surface); border-color: var(--border-light); box-shadow: var(--shadow-card);">
+            <div class="h-48 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498b?q=80&w=800&auto=format&fit=crop" alt="Stahlbetondecken" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2" style="font-family: var(--font-heading); color: var(--text-primary);">
+                Stahlbetondecken & -wände
+              </h3>
+              <p class="text-sm mb-4" style="color: var(--text-secondary); line-height: 1.6;">
+                Tragende Elemente mit Präzision – Robustheit und Genauigkeit vereint.
+              </p>
+              <a href="#kontakt" class="text-sm font-semibold flex items-center gap-2" style="color: var(--primary);">
+                Mehr erfahren
+                <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Service 12: Filigrandecken -->
+          <div class="card-hover rounded-xl overflow-hidden border animate-on-scroll" style="background-color: var(--surface); border-color: var(--border-light); box-shadow: var(--shadow-card);">
+            <div class="h-48 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=800&auto=format&fit=crop" alt="Filigrandecken" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2" style="font-family: var(--font-heading); color: var(--text-primary);">
+                Filigrandecken
+              </h3>
+              <p class="text-sm mb-4" style="color: var(--text-secondary); line-height: 1.6;">
+                Effiziente Deckensysteme – schnelle Lösung für flexible Gestaltung.
+              </p>
+              <a href="#kontakt" class="text-sm font-semibold flex items-center gap-2" style="color: var(--primary);">
+                Mehr erfahren
+                <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Featured: BAMTEC -->
+        <div class="max-w-4xl mx-auto animate-on-scroll">
+          <div class="card-hover rounded-2xl overflow-hidden border-2 relative" style="background: linear-gradient(135deg, var(--surface) 0%, rgba(220,52,46,0.02) 100%); border-color: var(--primary); box-shadow: var(--shadow-lg);">
+            <!-- Featured Badge -->
+            <div class="absolute top-4 right-4 px-4 py-2 rounded-full font-bold text-sm text-white z-10" style="background-color: var(--primary);">
+              <i class="fas fa-star"></i> Featured
             </div>
 
-            <div class="mm-header__main">
-                <div class="mm__container">
-                    <div class="mm-header__content">
-                        <div class="mm-logo">
-                            <a href="/">
-                                <img src="images/logo.png" alt="Markus M&uuml;ller Bauunternehmung Logo">
-                            </a>
-                        </div>
-                        <div class="mm-contact-bar">
-                            <a href="tel:023888008686"><i class="fas fa-phone-alt" aria-hidden="true"></i><span>02388-8008686</span></a>
-                            <span><i class="fab fa-whatsapp" aria-hidden="true"></i><span>01511-7015050</span></span>
-                            <a href="mailto:office@markus-mueller-bau.de"><i class="far fa-envelope" aria-hidden="true"></i><span>office@markus-mueller-bau.de</span></a>
-                        </div>
-                    </div>
+            <div class="grid md:grid-cols-2 gap-8 p-8">
+              <div class="h-64 md:h-full overflow-hidden rounded-xl">
+                <img src="https://images.unsplash.com/photo-1581094271901-8022df4466f9?q=80&w=800&auto=format&fit=crop" alt="BAMTEC Bewehrungstechnik" class="w-full h-full object-cover">
+              </div>
+
+              <div class="flex flex-col justify-center">
+                <h3 class="text-3xl font-bold mb-4" style="font-family: var(--font-heading); color: var(--text-primary);">
+                  <i class="fas fa-cogs" style="color: var(--primary);"></i>
+                  Bewehrungstechnik mit BAMTEC
+                </h3>
+                <p class="text-lg mb-6" style="color: var(--text-secondary); line-height: 1.7;">
+                  Revolutionieren Sie Ihr Bauprojekt mit BAMTEC – der zukunftsorientierten Lösung für Bewehrungsarbeiten. Unsere Technologie ermöglicht es, Bewehrungsmatten exakt nach Ihren Vorgaben vorzufertigen und als Rollmatten auszulegen.
+                </p>
+                <ul class="space-y-3 mb-6">
+                  <li class="flex items-start gap-3">
+                    <i class="fas fa-check-circle text-xl" style="color: var(--primary);"></i>
+                    <span style="color: var(--text-secondary);">Neue Stufe der Effizienz und Qualität</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <i class="fas fa-check-circle text-xl" style="color: var(--primary);"></i>
+                    <span style="color: var(--text-secondary);">Nachhaltigkeit im Bewehrungsbau</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <i class="fas fa-check-circle text-xl" style="color: var(--primary);"></i>
+                    <span style="color: var(--text-secondary);">Für Fundamente, Decken, Wände und mehr</span>
+                  </li>
+                </ul>
+                <a href="#kontakt" class="btn-primary px-8 py-4 rounded-lg font-bold text-white inline-flex items-center gap-2 w-fit" style="background-color: var(--primary);">
+                  <i class="fas fa-rocket"></i>
+                  <span>Mehr über BAMTEC</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="section" style="background-color: var(--background);">
+      <div class="container mx-auto px-6">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <!-- Image -->
+          <div class="animate-on-scroll">
+            <div class="rounded-2xl overflow-hidden" style="box-shadow: var(--shadow-xl);">
+              <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1000&auto=format&fit=crop" alt="Bauunternehmung Müller Team" class="w-full h-full object-cover">
+            </div>
+          </div>
+
+          <!-- Content -->
+          <div class="animate-on-scroll">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6" style="font-family: var(--font-heading); color: var(--text-primary);">
+              Das Team
+            </h2>
+            <p class="text-lg mb-6" style="color: var(--text-secondary); line-height: 1.7;">
+              Wir, die Bauunternehmung Markus Müller, sind ein stolzes Familienunternehmen, das seit über 20 Jahren mit Qualität und Hingabe in der Baubranche überzeugt.
+            </p>
+            <p class="text-lg mb-8" style="color: var(--text-secondary); line-height: 1.7;">
+              Unser 27-köpfiges Team, bestehend aus Fachkräften wie Maurermeistern, erfahrenen Maurern, Bauhelfern, LKW-Fahrern und Büroangestellten, arbeitet Hand in Hand, um Visionen in Realität umzusetzen. Unser Inhaber Markus Müller ist das Herzstück dieses Teams. Er packt nicht nur regelmäßig selbst mit an und überwacht das Fundament unserer Projekte persönlich, sondern seine Leidenschaft zeigt sich auch in seinem direkten Einsatz auf den Baustellen. So bleibt unsere Arbeit stets geprägt von persönlicher Nähe und der Liebe zum Bauhandwerk.
+            </p>
+
+            <!-- Team Stats -->
+            <div class="grid grid-cols-2 gap-4">
+              <div class="p-6 rounded-xl border" style="background-color: var(--surface); border-color: var(--border-light);">
+                <div class="text-3xl font-bold mb-2" style="font-family: var(--font-heading); color: var(--primary);">
+                  27+
                 </div>
+                <p class="text-sm font-medium" style="color: var(--text-secondary);">
+                  Mitarbeiter im Team
+                </p>
+              </div>
+              <div class="p-6 rounded-xl border" style="background-color: var(--surface); border-color: var(--border-light);">
+                <div class="text-3xl font-bold mb-2" style="font-family: var(--font-heading); color: var(--primary);">
+                  20+
+                </div>
+                <p class="text-sm font-medium" style="color: var(--text-secondary);">
+                  Jahre Erfahrung
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section id="expertise" class="section" style="background-color: var(--surface);">
+      <div class="container mx-auto px-6">
+        <!-- Section Header -->
+        <div class="text-center mb-16 animate-on-scroll">
+          <h2 class="text-4xl md:text-5xl font-bold mb-4" style="font-family: var(--font-heading); color: var(--text-primary);">
+            Unsere Expertise
+          </h2>
+          <p class="text-xl max-w-3xl mx-auto" style="color: var(--text-secondary);">
+            Qualität, Sicherheit und verlässliche Partnerschaften bilden das Fundament unseres Erfolgs
+          </p>
+        </div>
+
+        <!-- Expertise Cards -->
+        <div class="grid md:grid-cols-2 gap-8 mb-16">
+          <!-- Sicherheit & Schulung -->
+          <div class="card-hover p-8 rounded-xl border animate-on-scroll" style="background-color: var(--surface); border-color: var(--border-light); box-shadow: var(--shadow-card);">
+            <div class="text-5xl mb-6" style="color: var(--primary);">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-4" style="font-family: var(--font-heading); color: var(--text-primary);">
+              Sicherheit und Schulung
+            </h3>
+            <p class="text-lg mb-4" style="color: var(--text-secondary); line-height: 1.7;">
+              Die Sicherheit unserer Mitarbeiter ist das Fundament unseres Erfolgs. Wir folgen streng den aktuellen Arbeitsschutzvorschriften und investieren in die kontinuierliche Weiterbildung unseres Teams.
+            </p>
+            <p class="text-lg" style="color: var(--text-secondary); line-height: 1.7;">
+              Jährliche Sicherheitsunterweisungen und Erste-Hilfe-Schulungen sind bei uns Standard, denn ein sicherer Arbeitsplatz ist die Basis für herausragende Bauleistungen.
+            </p>
+          </div>
+
+          <!-- Partnerschaft & Kooperation -->
+          <div class="card-hover p-8 rounded-xl border animate-on-scroll" style="background-color: var(--surface); border-color: var(--border-light); box-shadow: var(--shadow-card);">
+            <div class="text-5xl mb-6" style="color: var(--primary);">
+              <i class="fas fa-handshake"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-4" style="font-family: var(--font-heading); color: var(--text-primary);">
+              Partnerschaft und Kooperation
+            </h3>
+            <p class="text-lg mb-4" style="color: var(--text-secondary); line-height: 1.7;">
+              Unser Netzwerk ist unser Kapital. Wir pflegen eine enge Zusammenarbeit mit Architekten und sind stolze Partner von Institutionen wie der BG Bau, Soka Bau und der Handwerkskammer Hellweg-Lippe.
+            </p>
+            <p class="text-lg" style="color: var(--text-secondary); line-height: 1.7;">
+              Unser Engagement in der Ausbildung junger Fachkräfte zeigt sich durch die Kooperation mit lokalen Ausbildungszentren.
+            </p>
+          </div>
+        </div>
+
+        <!-- Partner Logos -->
+        <div class="animate-on-scroll">
+          <h3 class="text-2xl font-bold text-center mb-8" style="font-family: var(--font-heading); color: var(--text-primary);">
+            Unsere Partner
+          </h3>
+          <div class="flex flex-wrap justify-center items-center gap-6">
+            <div class="px-8 py-4 rounded-xl border-2 transition-all hover:border-primary hover:shadow-md" style="border-color: var(--border-light); background-color: var(--surface); min-width: 180px; text-align: center;">
+              <div class="font-bold text-lg" style="font-family: var(--font-heading); color: var(--text-primary);">BG Bau</div>
+              <div class="text-xs" style="color: var(--text-tertiary);">Berufsgenossenschaft</div>
+            </div>
+            <div class="px-8 py-4 rounded-xl border-2 transition-all hover:border-primary hover:shadow-md" style="border-color: var(--border-light); background-color: var(--surface); min-width: 180px; text-align: center;">
+              <div class="font-bold text-lg" style="font-family: var(--font-heading); color: var(--text-primary);">Soka Bau</div>
+              <div class="text-xs" style="color: var(--text-tertiary);">Sozialkasse</div>
+            </div>
+            <div class="px-8 py-4 rounded-xl border-2 transition-all hover:border-primary hover:shadow-md" style="border-color: var(--border-light); background-color: var(--surface); min-width: 180px; text-align: center;">
+              <div class="font-bold text-lg" style="font-family: var(--font-heading); color: var(--text-primary);">HWK Hellweg-Lippe</div>
+              <div class="text-xs" style="color: var(--text-tertiary);">Handwerkskammer</div>
+            </div>
+            <div class="px-8 py-4 rounded-xl border-2 transition-all hover:border-primary hover:shadow-md" style="border-color: var(--border-light); background-color: var(--surface); min-width: 180px; text-align: center;">
+              <div class="font-bold text-lg" style="font-family: var(--font-heading); color: var(--text-primary);">Schöck Tronsole®</div>
+              <div class="text-xs" style="color: var(--text-tertiary);">Zertifiziert</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Inhaber Section -->
+    <section id="inhaber" class="section" style="background-color: var(--background);">
+      <div class="container mx-auto px-6">
+        <div class="max-w-5xl mx-auto">
+          <!-- Section Header -->
+          <div class="text-center mb-12 animate-on-scroll">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4" style="font-family: var(--font-heading); color: var(--text-primary);">
+              Markus Müller
+            </h2>
+            <p class="text-xl" style="color: var(--text-secondary);">
+              Inhaber & Maurermeister
+            </p>
+          </div>
+
+          <div class="grid lg:grid-cols-2 gap-12 items-start">
+            <!-- Image -->
+            <div class="animate-on-scroll">
+              <div class="rounded-2xl overflow-hidden sticky top-24" style="box-shadow: var(--shadow-xl);">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop" alt="Markus Müller" class="w-full h-full object-cover">
+              </div>
             </div>
 
-            <nav class="mm-nav">
-                <div class="mm__container">
-                    <ul class="mm-nav__list">
-                        <li><a class="mm-nav__link" href="#ueber-uns">&Uuml;ber uns</a></li>
-                        <li><a class="mm-nav__link" href="#leistungen">Leistungen</a></li>
-                        <li><a class="mm-nav__link" href="#meilensteine">Referenzen</a></li>
-                        <li><a class="mm-nav__link" href="#team">Karriere</a></li>
-                        <li><a class="mm-nav__link" href="#kontakt">Kontakt</a></li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
+            <!-- Timeline -->
+            <div class="animate-on-scroll">
+              <h3 class="text-2xl font-bold mb-6" style="font-family: var(--font-heading); color: var(--text-primary);">
+                Lebenslauf
+              </h3>
 
-        <!-- Hero -->
-        <section class="mm-hero">
-            <div class="mm-hero__content">
-                <h1>Bauunternehmung Markus M&uuml;ller</h1>
-                <h2>Meisterhafte Qualit&auml;t und zuverl&auml;ssige Handwerkskunst seit 2002</h2>
-                <p>Entdecken Sie die St&auml;rke handwerklicher Pr&auml;zision mit der Bauunternehmung Markus M&uuml;ller. Wir stehen f&uuml;r nachhaltiges Bauen, innovative L&ouml;sungen und eine pers&ouml;nliche Betreuung, die Sie von der ersten Kontaktaufnahme bis zur Fertigstellung begleitet.</p>
-                <div class="mm-cta-group">
-                    <a class="mm-btn mm-btn--primary" href="#kontakt">Jetzt Kontakt aufnehmen</a>
-                    <a class="mm-btn mm-btn--light" href="#leistungen">Unsere Leistungen</a>
+              <div class="space-y-6">
+                <!-- Timeline Item -->
+                <div class="flex gap-4 p-4 rounded-lg transition-all border-l-2" style="border-color: var(--border-light);">
+                  <div class="flex-shrink-0">
+                    <div class="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold" style="background-color: var(--primary);">
+                      <i class="fas fa-graduation-cap"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="font-bold mb-1" style="color: var(--primary);">1991-1993</div>
+                    <div class="font-semibold mb-1" style="color: var(--text-primary);">Ausbildung</div>
+                    <div style="color: var(--text-secondary);">Fa. Siegfried Schleicher, Hamm</div>
+                  </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- Das Team -->
-        <section id="ueber-uns" class="mm-section mm-section--white">
-            <div class="mm__container">
-                <div class="mm-grid-2">
-                    <div>
-                        <h2 class="mm-section__title">Das Team</h2>
-                        <span class="mm-divider">
-                            <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 1 178 8" aria-hidden="true">
-                                <path fill="#DC342E" stroke="#333" stroke-width=".2" d="M0 1h18v8H0zm20 0h18v8H20zm20 0h18v8H40zm20 0h18v8H60zm20 0h18v8H80zm20 0h18v8h-18zm20 0h18v8h-18zm20 0h18v8h-18zm20 0h18v8h-18z"></path>
-                            </svg>
-                        </span>
-                        <p class="mm-section__text">Wir, die Bauunternehmung Markus M&uuml;ller, sind ein stolzes Familienunternehmen, das seit &uuml;ber 20 Jahren mit Qualit&auml;t und Hingabe in der Baubranche &uuml;berzeugt. Unser 27-k&ouml;pfiges Team, bestehend aus Fachkr&auml;ften wie Maurermeistern, erfahrenen Maurern, Bauhelfern, LKW-Fahrern und B&uuml;roangestellten, arbeitet Hand in Hand, um Visionen in Realit&auml;t umzusetzen.</p>
-                        <p class="mm-section__text">Unser Inhaber Markus M&uuml;ller ist das Herzst&uuml;ck dieses Teams. Er packt nicht nur regelm&auml;&szlig;ig selbst mit an und &uuml;berwacht das Fundament unserer Projekte pers&ouml;nlich, sondern seine Leidenschaft zeigt sich auch in seinem direkten Einsatz auf den Baustellen. So bleibt unsere Arbeit stets gepr&auml;gt von pers&ouml;nlicher N&auml;he und der Liebe zum Bauhandwerk.</p>
+                <div class="flex gap-4 p-4 rounded-lg transition-all border-l-2" style="border-color: var(--border-light);">
+                  <div class="flex-shrink-0">
+                    <div class="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold" style="background-color: var(--primary);">
+                      <i class="fas fa-briefcase"></i>
                     </div>
-                    <div>
-                        <img src="images/ziegel-fabrik.jpg" alt="Baustelle mit Ziegeln">
-                    </div>
+                  </div>
+                  <div>
+                    <div class="font-bold mb-1" style="color: var(--primary);">1994-2002</div>
+                    <div class="font-semibold mb-1" style="color: var(--text-primary);">Berufstätigkeit als Maurer</div>
+                    <div style="color: var(--text-secondary);">8 Jahre praktische Erfahrung</div>
+                  </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- Sicherheit -->
-        <section class="mm-section mm-section--light">
-            <div class="mm__container">
-                <div class="mm-grid-2">
-                    <div>
-                        <img src="images/sicherheit.jpg" alt="Sicherheit am Bau">
+                <div class="flex gap-4 p-4 rounded-lg transition-all border-l-2" style="border-color: var(--border-light);">
+                  <div class="flex-shrink-0">
+                    <div class="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold" style="background-color: var(--primary);">
+                      <i class="fas fa-award"></i>
                     </div>
-                    <div>
-                        <h2 class="mm-section__title">Sicherheit und Schulung</h2>
-                        <span class="mm-divider">
-                            <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 1 178 8" aria-hidden="true">
-                                <path fill="#DC342E" stroke="#333" stroke-width=".2" d="M0 1h18v8H0zm20 0h18v8H20zm20 0h18v8H40zm20 0h18v8H60zm20 0h18v8H80zm20 0h18v8h-18zm20 0h18v8h-18zm20 0h18v8h-18zm20 0h18v8h-18z"></path>
-                            </svg>
-                        </span>
-                        <p class="mm-section__text">Die Sicherheit unserer Mitarbeiter ist das Fundament unseres Erfolgs. Wir folgen streng den aktuellen Arbeitsschutzvorschriften und investieren in die kontinuierliche Weiterbildung unseres Teams. J&auml;hrliche Sicherheitsunterweisungen und Erste-Hilfe-Schulungen sind bei uns Standard, denn ein sicherer Arbeitsplatz ist die Basis f&uuml;r herausragende Bauleistungen.</p>
-                    </div>
+                  </div>
+                  <div>
+                    <div class="font-bold mb-1" style="color: var(--primary);">2001</div>
+                    <div class="font-semibold mb-1" style="color: var(--text-primary);">Meisterprüfung</div>
+                    <div style="color: var(--text-secondary);">Maurer- und Betonhandwerk</div>
+                  </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- Partnerschaft -->
-        <section class="mm-section mm-section--white">
-            <div class="mm__container">
-                <div class="mm-grid-2">
-                    <div>
-                        <h2 class="mm-section__title">Partnerschaft und Kooperation</h2>
-                        <span class="mm-divider">
-                            <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 1 178 8" aria-hidden="true">
-                                <path fill="#DC342E" stroke="#333" stroke-width=".2" d="M0 1h18v8H0zm20 0h18v8H20zm20 0h18v8H40zm20 0h18v8H60zm20 0h18v8H80zm20 0h18v8h-18zm20 0h18v8h-18zm20 0h18v8h-18zm20 0h18v8h-18z"></path>
-                            </svg>
-                        </span>
-                        <p class="mm-section__text">Unser Netzwerk ist unser Kapital. Wir pflegen eine enge Zusammenarbeit mit Architekten und sind stolze Partner von Institutionen wie der BG Bau, Soka Bau und der Handwerkskammer Hellweg-Lippe. Unser Engagement in der Ausbildung junger Fachkr&auml;fte zeigt sich durch die Kooperation mit lokalen Ausbildungszentren.</p>
+                <div class="flex gap-4 p-4 rounded-lg transition-all border-l-2" style="border-color: var(--border-light);">
+                  <div class="flex-shrink-0">
+                    <div class="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold" style="background-color: var(--primary);">
+                      <i class="fas fa-rocket"></i>
                     </div>
-                    <div>
-                        <img src="images/stahlbau.jpg" alt="Stahlbau">
-                    </div>
+                  </div>
+                  <div>
+                    <div class="font-bold mb-1" style="color: var(--primary);">2002</div>
+                    <div class="font-semibold mb-1" style="color: var(--text-primary);">Firmengründung in Hamm</div>
+                    <div style="color: var(--text-secondary);">Eintragung in die Handwerksrolle (Maurer- und Betonbauerhandwerk)</div>
+                  </div>
                 </div>
+
+                <div class="flex gap-4 p-4 rounded-lg transition-all border-l-2" style="border-color: var(--border-light);">
+                  <div class="flex-shrink-0">
+                    <div class="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold" style="background-color: var(--primary);">
+                      <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="font-bold mb-1" style="color: var(--primary);">2008</div>
+                    <div class="font-semibold mb-1" style="color: var(--text-primary);">Firmenumzug nach Welver</div>
+                    <div style="color: var(--text-secondary);">Am jetzigen Standort</div>
+                  </div>
+                </div>
+
+                <div class="flex gap-4 p-4 rounded-lg transition-all border-l-2" style="border-color: var(--border-light);">
+                  <div class="flex-shrink-0">
+                    <div class="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold" style="background-color: var(--primary);">
+                      <i class="fas fa-file-alt"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="font-bold mb-1" style="color: var(--primary);">2009</div>
+                    <div class="font-semibold mb-1" style="color: var(--text-primary);">Eintragung Handwerksrolle</div>
+                    <div style="color: var(--text-secondary);">Maurer- und Betonbauerhandwerk (Welver)</div>
+                  </div>
+                </div>
+
+                <div class="flex gap-4 p-4 rounded-lg transition-all border-l-2" style="border-color: var(--border-light);">
+                  <div class="flex-shrink-0">
+                    <div class="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold" style="background-color: var(--primary);">
+                      <i class="fas fa-toolbox"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="font-bold mb-1" style="color: var(--primary);">2020</div>
+                    <div class="font-semibold mb-1" style="color: var(--text-primary);">Zusatzqualifikation Gerüstbau</div>
+                    <div style="color: var(--text-secondary);">Eintragung in die Handwerksrolle (Gerüstbauerhandwerk)</div>
+                  </div>
+                </div>
+
+                <div class="flex gap-4 p-4 rounded-lg transition-all border-l-2" style="border-color: var(--border-light);">
+                  <div class="flex-shrink-0">
+                    <div class="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold" style="background-color: var(--primary);">
+                      <i class="fas fa-certificate"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="font-bold mb-1" style="color: var(--primary);">2020</div>
+                    <div class="font-semibold mb-1" style="color: var(--text-primary);">Zertifizierung Schöck Tronsole®</div>
+                    <div style="color: var(--text-secondary);">Spezialisierung auf innovative Bautechnik</div>
+                  </div>
+                </div>
+              </div>
             </div>
-        </section>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Büroteam Section -->
+    <section class="section" style="background-color: var(--surface);">
+      <div class="container mx-auto px-6">
+        <!-- Section Header -->
+        <div class="text-center mb-16 animate-on-scroll">
+          <h2 class="text-4xl md:text-5xl font-bold mb-4" style="font-family: var(--font-heading); color: var(--text-primary);">
+            Unser Büroteam
+          </h2>
+          <p class="text-xl max-w-3xl mx-auto" style="color: var(--text-secondary);">
+            Treten Sie näher und lernen Sie die Menschen kennen, die den täglichen Betrieb unserer Bauunternehmung mit Leidenschaft und Expertise am Laufen halten.
+          </p>
+        </div>
+
+        <!-- Team Cards -->
+        <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12">
+          <!-- Nicole Bögge -->
+          <div class="card-hover rounded-xl overflow-hidden border animate-on-scroll" style="background-color: var(--surface); border-color: var(--border-light); box-shadow: var(--shadow-card);">
+            <div class="h-64 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop" alt="Nicole Bögge" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6 text-center">
+              <h3 class="text-2xl font-bold mb-2" style="font-family: var(--font-heading); color: var(--text-primary);">
+                Nicole Bögge
+              </h3>
+              <p class="text-lg" style="color: var(--text-secondary);">
+                Büro
+              </p>
+            </div>
+          </div>
+
+          <!-- Kirsten Koepe-Menzel -->
+          <div class="card-hover rounded-xl overflow-hidden border animate-on-scroll" style="background-color: var(--surface); border-color: var(--border-light); box-shadow: var(--shadow-card);">
+            <div class="h-64 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=800&auto=format&fit=crop" alt="Kirsten Koepe-Menzel" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6 text-center">
+              <h3 class="text-2xl font-bold mb-2" style="font-family: var(--font-heading); color: var(--text-primary);">
+                Kirsten Koepe-Menzel
+              </h3>
+              <p class="text-lg" style="color: var(--text-secondary);">
+                Büro
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="text-center animate-on-scroll">
+          <p class="text-xl mb-6" style="color: var(--text-secondary);">
+            Fragen zu unseren Leistungen? Unser Büroteam ist für Sie da!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA / Kontakt Section -->
+    <section id="kontakt" class="section relative overflow-hidden" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);">
+      <div class="container relative z-10 mx-auto px-6 text-center">
+        <div class="max-w-3xl mx-auto animate-on-scroll">
+          <h2 class="text-4xl md:text-5xl font-bold mb-6 text-white" style="font-family: var(--font-heading);">
+            Starten Sie Ihr Projekt
+          </h2>
+          <p class="text-xl md:text-2xl mb-12 text-white opacity-95">
+            Sprechen Sie mit einem Experten!
+          </p>
+
+          <!-- Contact Info -->
+          <div class="grid md:grid-cols-3 gap-8 mb-12">
+            <!-- Address -->
+            <div class="p-6 rounded-xl" style="background-color: rgba(255,255,255,0.1); backdrop-filter: blur(10px);">
+              <div class="text-4xl mb-4 text-white">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <h3 class="font-bold mb-2 text-white" style="font-family: var(--font-heading);">Adresse</h3>
+              <p class="text-white opacity-90">
+                Vellinghauser Str. 15<br>
+                59514 Welver
+              </p>
+            </div>
+
+            <!-- Phone -->
+            <div class="p-6 rounded-xl" style="background-color: rgba(255,255,255,0.1); backdrop-filter: blur(10px);">
+              <div class="text-4xl mb-4 text-white">
+                <i class="fas fa-phone"></i>
+              </div>
+              <h3 class="font-bold mb-2 text-white" style="font-family: var(--font-heading);">Telefon</h3>
+              <a href="tel:015117015050" class="text-white opacity-90 hover:opacity-100 transition-opacity block mb-1">
+                01511-7015050
+              </a>
+              <a href="tel:0170384398" class="text-white opacity-90 hover:opacity-100 transition-opacity block">
+                0170-384398
+              </a>
+            </div>
+
+            <!-- Hours -->
+            <div class="p-6 rounded-xl" style="background-color: rgba(255,255,255,0.1); backdrop-filter: blur(10px);">
+              <div class="text-4xl mb-4 text-white">
+                <i class="fas fa-clock"></i>
+              </div>
+              <h3 class="font-bold mb-2 text-white" style="font-family: var(--font-heading);">Öffnungszeiten</h3>
+              <p class="text-white opacity-90">
+                Mo-Fr: 07:00 - 17:00<br>
+                Sa: Nach Vereinbarung
+              </p>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="max-w-2xl mx-auto mb-12">
+            <div class="p-8 rounded-2xl" style="background-color: rgba(255,255,255,0.95); backdrop-filter: blur(10px);">
+              <h3 class="text-2xl font-bold mb-6 text-center" style="font-family: var(--font-heading); color: var(--text-primary);">
+                Projekt anfragen
+              </h3>
+              <form action="#" method="POST" class="space-y-4">
+                <!-- Name -->
+                <div>
+                  <label for="name" class="block text-sm font-semibold mb-2" style="color: var(--text-primary);">Name *</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    class="w-full rounded-lg border-2 transition-all"
+                    style="
+                      height: 48px;
+                      padding: 0 16px;
+                      border-color: var(--border-medium);
+                      color: var(--text-primary);
+                      font-family: var(--font-body);
+                    "
+                    placeholder="Ihr Name"
+                  >
+                </div>
+
+                <!-- Email -->
+                <div>
+                  <label for="email" class="block text-sm font-semibold mb-2" style="color: var(--text-primary);">E-Mail *</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    class="w-full rounded-lg border-2 transition-all"
+                    style="
+                      height: 48px;
+                      padding: 0 16px;
+                      border-color: var(--border-medium);
+                      color: var(--text-primary);
+                      font-family: var(--font-body);
+                    "
+                    placeholder="ihre@email.de"
+                  >
+                </div>
+
+                <!-- Phone -->
+                <div>
+                  <label for="phone" class="block text-sm font-semibold mb-2" style="color: var(--text-primary);">Telefon (optional)</label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    class="w-full rounded-lg border-2 transition-all"
+                    style="
+                      height: 48px;
+                      padding: 0 16px;
+                      border-color: var(--border-medium);
+                      color: var(--text-primary);
+                      font-family: var(--font-body);
+                    "
+                    placeholder="0123-456789"
+                  >
+                </div>
+
+                <!-- Message -->
+                <div>
+                  <label for="message" class="block text-sm font-semibold mb-2" style="color: var(--text-primary);">Nachricht *</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    required
+                    rows="5"
+                    class="w-full rounded-lg border-2 transition-all resize-none"
+                    style="
+                      padding: 16px;
+                      border-color: var(--border-medium);
+                      color: var(--text-primary);
+                      font-family: var(--font-body);
+                      line-height: 1.6;
+                    "
+                    placeholder="Beschreiben Sie Ihr Projekt..."
+                  ></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <button
+                  type="submit"
+                  class="w-full rounded-lg font-bold text-lg text-white flex items-center justify-center gap-3 transition-all"
+                  style="
+                    background-color: var(--primary);
+                    min-height: 48px;
+                    padding: 12px 24px;
+                  "
+                >
+                  <i class="fas fa-paper-plane"></i>
+                  <span>Anfrage senden</span>
+                </button>
+
+                <p class="text-xs text-center" style="color: var(--text-secondary); margin-top: 12px;">
+                  * Pflichtfelder. Ihre Daten werden vertraulich behandelt.
+                </p>
+              </form>
+            </div>
+          </div>
+
+          <!-- CTA Buttons (Alternative Kontaktmöglichkeiten) -->
+          <p class="text-white text-lg mb-4 opacity-90">Oder kontaktieren Sie uns direkt:</p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="tel:015117015050" class="px-10 py-5 rounded-lg font-bold text-lg flex items-center justify-center gap-3 transition-all" style="background-color: white; color: var(--primary); min-height: 48px;">
+              <i class="fas fa-phone text-2xl"></i>
+              <span>Jetzt anrufen</span>
+            </a>
+            <a href="mailto:info@bauunternehmung-mueller.de?subject=Anfrage%20%C3%BCber%20Website" class="px-10 py-5 rounded-lg font-bold text-lg text-white flex items-center justify-center gap-3 border-2 transition-all" style="border-color: white; min-height: 48px;">
+              <i class="fas fa-envelope text-2xl"></i>
+              <span>E-Mail senden</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Decorative Elements -->
+      <div class="absolute top-0 left-0 w-64 h-64 rounded-full opacity-10" style="background: radial-gradient(circle, white 0%, transparent 70%); transform: translate(-50%, -50%);"></div>
+      <div class="absolute bottom-0 right-0 w-96 h-96 rounded-full opacity-10" style="background: radial-gradient(circle, white 0%, transparent 70%); transform: translate(50%, 50%);"></div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="section" style="background-color: var(--text-primary); color: white;">
+    <div class="container mx-auto px-6">
+      <div class="grid md:grid-cols-3 gap-12 mb-12">
+        <!-- Kontakt -->
+        <div>
+          <h3 class="text-xl font-bold mb-4" style="font-family: var(--font-heading);">Kontakt</h3>
+          <div class="space-y-2">
+            <p>Bauunternehmung Markus Müller</p>
+            <p>Vellinghauser Str. 15</p>
+            <p>59514 Welver</p>
+            <p class="mt-4">
+              <a href="tel:015117015050" class="hover:text-primary transition-colors">Tel: 01511-7015050</a>
+            </p>
+            <p>
+              <a href="tel:0170384398" class="hover:text-primary transition-colors">Mobil: 0170-384398</a>
+            </p>
+          </div>
+        </div>
 
         <!-- Leistungen -->
-        <section id="leistungen" class="mm-section mm-section--light">
-            <div class="mm__container mm-text-center">
-                <h2 class="mm-section__title">Unsere Dienstleistungen</h2>
-                <span class="mm-divider">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 1 178 8" aria-hidden="true">
-                        <path fill="#DC342E" stroke="#333" stroke-width=".2" d="M0 1h18v8H0zm20 0h18v8H20zm20 0h18v8H40zm20 0h18v8H60zm20 0h18v8H80zm20 0h18v8h-18zm20 0h18v8h-18zm20 0h18v8h-18zm20 0h18v8h-18z"></path>
-                    </svg>
-                </span>
-                <p class="mm-section__lead">Vom ersten Spatenstich bis zur Fertigstellung &ndash; wir sind Ihr zuverl&auml;ssiger Ausf&uuml;hrungspartner</p>
-            </div>
-            <div class="mm__container">
-                <div class="mm-grid-3">
-                    <div class="mm-service-card">
-                        <i class="fas fa-building" aria-hidden="true"></i>
-                        <h3>Neubau und Rohbau</h3>
-                        <p>Wir setzen neue Ma&szlig;st&auml;be im Rohbau &ndash; Ihre Projekte realisieren wir mit gr&ouml;&szlig;ter Sorgfalt und Pr&auml;zision.</p>
-                    </div>
+        <div>
+          <h3 class="text-xl font-bold mb-4" style="font-family: var(--font-heading);">Leistungen</h3>
+          <ul class="space-y-2">
+            <li><a href="#leistungen" class="hover:text-primary transition-colors">Neubau & Rohbau</a></li>
+            <li><a href="#leistungen" class="hover:text-primary transition-colors">Umbau</a></li>
+            <li><a href="#leistungen" class="hover:text-primary transition-colors">Industriebau</a></li>
+            <li><a href="#leistungen" class="hover:text-primary transition-colors">Maurerarbeiten</a></li>
+            <li><a href="#leistungen" class="hover:text-primary transition-colors">Betonarbeiten</a></li>
+            <li><a href="#leistungen" class="hover:text-primary transition-colors">Gerüstbau</a></li>
+          </ul>
+        </div>
 
-                    <div class="mm-service-card">
-                        <i class="fas fa-home" aria-hidden="true"></i>
-                        <h3>Umbau</h3>
-                        <p>Ob Wohnraumerweiterung oder Gesch&auml;ftsumgestaltung &ndash; unsere Umbauprojekte zeichnen sich durch kreative L&ouml;sungen aus.</p>
-                    </div>
+        <!-- Rechtliches -->
+        <div>
+          <h3 class="text-xl font-bold mb-4" style="font-family: var(--font-heading);">Rechtliches</h3>
+          <ul class="space-y-2">
+            <li>
+              <span class="opacity-50" style="cursor: not-allowed;" title="In Vorbereitung">Impressum</span>
+              <span class="text-xs opacity-50 block">(In Vorbereitung)</span>
+            </li>
+            <li>
+              <span class="opacity-50" style="cursor: not-allowed;" title="In Vorbereitung">Datenschutz</span>
+              <span class="text-xs opacity-50 block">(In Vorbereitung)</span>
+            </li>
+            <li>
+              <span class="opacity-50" style="cursor: not-allowed;" title="In Vorbereitung">AGB</span>
+              <span class="text-xs opacity-50 block">(In Vorbereitung)</span>
+            </li>
+          </ul>
+          <p class="text-xs opacity-75 mt-4">
+            Für rechtliche Fragen kontaktieren Sie uns bitte direkt.
+          </p>
+        </div>
+      </div>
 
-                    <div class="mm-service-card">
-                        <i class="fas fa-industry" aria-hidden="true"></i>
-                        <h3>Industriebau</h3>
-                        <p>Solide Konstruktionen f&uuml;r die Industrie: Unsere Kompetenz verspricht langlebige und funktionale Industriebauten.</p>
-                    </div>
-
-                    <div class="mm-service-card">
-                        <i class="fas fa-th-large" aria-hidden="true"></i>
-                        <h3>Verblendarbeiten / Klinker</h3>
-                        <p>&Auml;sthetische Fassaden, die Bestand haben: Mit hochwertigen Klinkern geben wir Geb&auml;uden ein dauerhaftes Gesicht.</p>
-                    </div>
-
-                    <div class="mm-service-card">
-                        <i class="fas fa-hammer" aria-hidden="true"></i>
-                        <h3>Maurerarbeiten</h3>
-                        <p>Traditionelles Handwerk trifft moderne Technik: Unsere erfahrenen Maurer garantieren handwerkliche Exzellenz.</p>
-                    </div>
-
-                    <div class="mm-service-card">
-                        <i class="fas fa-cubes" aria-hidden="true"></i>
-                        <h3>Betonarbeiten</h3>
-                        <p>Fundamente und mehr: Unsere Betonarbeiten stehen f&uuml;r Stabilit&auml;t und Dauerhaftigkeit.</p>
-                    </div>
-
-                    <div class="mm-service-card">
-                        <i class="fas fa-warehouse" aria-hidden="true"></i>
-                        <h3>Fachwerke ausmauern</h3>
-                        <p>Traditionelle Baukunst pr&auml;zise umgesetzt: Unser Know-how bewahrt historische Werte.</p>
-                    </div>
-
-                    <div class="mm-service-card">
-                        <i class="fas fa-tools" aria-hidden="true"></i>
-                        <h3>Reparaturen</h3>
-                        <p>Schnelle und zuverl&auml;ssige Instandsetzung: Ihre Immobilie schnell wieder in bestem Zustand.</p>
-                    </div>
-
-                    <div class="mm-service-card">
-                        <i class="fas fa-hard-hat" aria-hidden="true"></i>
-                        <h3>Ger&uuml;stbau</h3>
-                        <p>Sicherheit in jeder H&ouml;he: Unser professioneller Ger&uuml;stbau erm&ouml;glicht sicheres Arbeiten.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Timeline -->
-        <section id="meilensteine" class="mm-section mm-section--white">
-            <div class="mm__container mm-text-center">
-                <h2 class="mm-section__title">Markus M&uuml;ller &ndash; Meilensteine</h2>
-                <span class="mm-divider">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 1 178 8" aria-hidden="true">
-                        <path fill="#DC342E" stroke="#333" stroke-width=".2" d="M0 1h18v8H0zm20 0h18v8H20zm20 0h18v8H40zm20 0h18v8H60zm20 0h18v8H80zm20 0h18v8h-18zm20 0h18v8h-18zm20 0h18v8h-18zm20 0h18v8h-18z"></path>
-                    </svg>
-                </span>
-                <p class="mm-section__text">Vom ersten Ausbildungstag bis zu aktuellen Qualifikationen</p>
-            </div>
-            <div class="mm__container">
-                <div class="mm-timeline">
-                    <div class="mm-timeline__item">
-                        <div class="mm-timeline__year">1991-1993</div>
-                        <div class="mm-timeline__text">Ausbildung, Fa. Siegfried Schleicher, Hamm</div>
-                    </div>
-
-                    <div class="mm-timeline__item">
-                        <div class="mm-timeline__year">1994-2002</div>
-                        <div class="mm-timeline__text">Berufst&auml;tigkeit als Maurer</div>
-                    </div>
-
-                    <div class="mm-timeline__item">
-                        <div class="mm-timeline__year">2001</div>
-                        <div class="mm-timeline__text">Meisterpr&uuml;fung f&uuml;r das Maurer- und Betonhandwerk</div>
-                    </div>
-
-                    <div class="mm-timeline__item">
-                        <div class="mm-timeline__year">2002</div>
-                        <div class="mm-timeline__text">Firmengr&uuml;ndung in Hamm</div>
-                    </div>
-
-                    <div class="mm-timeline__item">
-                        <div class="mm-timeline__year">2002</div>
-                        <div class="mm-timeline__text">Eintragung in die Handwerksrolle (Maurer- und Betonbauerhandwerk)</div>
-                    </div>
-
-                    <div class="mm-timeline__item">
-                        <div class="mm-timeline__year">2008</div>
-                        <div class="mm-timeline__text">Firmenumzug an den jetzigen Standort nach Welver</div>
-                    </div>
-
-                    <div class="mm-timeline__item">
-                        <div class="mm-timeline__year">2009</div>
-                        <div class="mm-timeline__text">Eintragung in die Handwerksrolle (Maurer- und Betonbauerhandwerk)</div>
-                    </div>
-
-                    <div class="mm-timeline__item">
-                        <div class="mm-timeline__year">2020</div>
-                        <div class="mm-timeline__text">Zusatzqualifikation Ger&uuml;stbau</div>
-                    </div>
-
-                    <div class="mm-timeline__item">
-                        <div class="mm-timeline__year">2020</div>
-                        <div class="mm-timeline__text">Eintragung in die Handwerksrolle (Ger&uuml;stbauerhandwerk)</div>
-                    </div>
-
-                    <div class="mm-timeline__item">
-                        <div class="mm-timeline__year">2020</div>
-                        <div class="mm-timeline__text">Zertifizierung f&uuml;r den Einbau der Sch&ouml;ck Tronsole&reg;</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Team -->
-        <section id="team" class="mm-section mm-section--light">
-            <div class="mm__container mm-text-center">
-                <h2 class="mm-section__title">Unser B&uuml;roteam</h2>
-                <span class="mm-divider">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 1 178 8" aria-hidden="true">
-                        <path fill="#DC342E" stroke="#333" stroke-width=".2" d="M0 1h18v8H0zm20 0h18v8H20zm20 0h18v8H40zm20 0h18v8H60zm20 0h18v8H80zm20 0h18v8h-18zm20 0h18v8h-18zm20 0h18v8h-18zm20 0h18v8h-18z"></path>
-                    </svg>
-                </span>
-                <p class="mm-section__text">Treten Sie n&auml;her und lernen Sie die Menschen kennen, die den t&auml;glichen Betrieb unserer Bauunternehmung mit Leidenschaft und Expertise am Laufen halten.</p>
-            </div>
-            <div class="mm__container">
-                <div class="mm-team-grid">
-                    <div class="mm-team-card">
-                        <img src="images/team-nicole.jpg" alt="Portrait von Nicole B&ouml;gge">
-                        <h3>Nicole B&ouml;gge</h3>
-                        <span class="mm-divider">
-                            <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 1 178 8" aria-hidden="true">
-                                <path fill="#DC342E" stroke="#333" stroke-width=".2" d="M0 1h18v8H0zm20 0h18v8H20zm20 0h18v8H40zm20 0h18v8H60zm20 0h18v8H80zm20 0h18v8h-18zm20 0h18v8h-18zm20 0h18v8h-18zm20 0h18v8h-18z"></path>
-                            </svg>
-                        </span>
-                    </div>
-
-                    <div class="mm-team-card">
-                        <img src="images/team-kirsten.jpg" alt="Portrait von Kirsten Koepe-Menzel">
-                        <h3>Kirsten Koepe-Menzel</h3>
-                        <span class="mm-divider">
-                            <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 1 178 8" aria-hidden="true">
-                                <path fill="#DC342E" stroke="#333" stroke-width=".2" d="M0 1h18v8H0zm20 0h18v8H20zm20 0h18v8H40zm20 0h18v8H60zm20 0h18v8H80zm20 0h18v8h-18zm20 0h18v8h-18zm20 0h18v8h-18zm20 0h18v8h-18z"></path>
-                            </svg>
-                        </span>
-                    </div>
-                </div>
-                <div class="mm-team-cta">
-                    <a class="mm-btn mm-btn--primary" href="#kontakt">Termin im B&uuml;ro vereinbaren</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer id="kontakt" class="mm-footer">
-            <div class="mm__container">
-                <div class="mm-footer__grid">
-                    <div>
-                        <h4>Kontakt</h4>
-                        <ul>
-                            <li><i class="fas fa-map-marker-alt" aria-hidden="true"></i>Vellinghauser Str. 15, 59514 Welver</li>
-                            <li><i class="fas fa-phone-alt" aria-hidden="true"></i>Tel: 02388-8008686</li>
-                            <li><i class="fab fa-whatsapp" aria-hidden="true"></i>Mobil: 01511-7015050</li>
-                            <li><i class="far fa-envelope" aria-hidden="true"></i>office@markus-mueller-bau.de</li>
-                        </ul>
-                    </div>
-
-                    <div>
-                        <h4>&Ouml;ffnungszeiten</h4>
-                        <ul>
-                            <li><i class="fas fa-clock" aria-hidden="true"></i>Montag - Freitag: 07:00 - 17:00 Uhr</li>
-                            <li><i class="fas fa-calendar-alt" aria-hidden="true"></i>Samstag: Nach Vereinbarung</li>
-                            <li><i class="fas fa-calendar-times" aria-hidden="true"></i>Sonntag: Geschlossen</li>
-                        </ul>
-                    </div>
-
-                    <div>
-                        <h4>Standort</h4>
-                        <iframe src="https://maps.google.com/maps?q=Vellinghauser%20Str.%2015%2C%2059514%20Welver&t=m&z=13&output=embed" title="Standort Markus M&uuml;ller Bauunternehmung"></iframe>
-                    </div>
-                </div>
-
-                <div class="mm-footer__bottom">
-                    <p>&copy; 2024 Markus M&uuml;ller Bauunternehmung. Alle Rechte vorbehalten.</p>
-                </div>
-            </div>
-        </footer>
+      <!-- Copyright -->
+      <div class="pt-8 border-t text-center" style="border-color: rgba(255,255,255,0.1);">
+        <p class="opacity-75">
+          © 2024 Bauunternehmung Markus Müller | Alle Rechte vorbehalten
+        </p>
+      </div>
     </div>
+  </footer>
+
+  <!-- Scroll to Top Button -->
+  <button id="scroll-to-top" class="fixed bottom-8 right-8 w-14 h-14 rounded-full text-white shadow-xl opacity-0 pointer-events-none transition-all duration-300 z-50" style="background-color: var(--primary);">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <!-- JavaScript -->
+  <script>
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
+    const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+
+    mobileMenuClose.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+
+    mobileMenuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // Sticky Header
+    const header = document.getElementById('header');
+    let lastScroll = 0;
+
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+
+      if (currentScroll > 100) {
+        header.classList.add('header-scrolled');
+      } else {
+        header.classList.remove('header-scrolled');
+      }
+
+      lastScroll = currentScroll;
+    });
+
+    // Scroll Animations
+    const observerOptions = {
+      threshold: 0.2,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animated');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Smooth Scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          const headerHeight = 80;
+          const targetPosition = target.offsetTop - headerHeight;
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Scroll to Top Button
+    const scrollToTopBtn = document.getElementById('scroll-to-top');
+
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 500) {
+        scrollToTopBtn.style.opacity = '1';
+        scrollToTopBtn.style.pointerEvents = 'auto';
+      } else {
+        scrollToTopBtn.style.opacity = '0';
+        scrollToTopBtn.style.pointerEvents = 'none';
+      }
+    });
+
+    scrollToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    // Active Nav Link
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (pageYOffset >= (sectionTop - 200)) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
 </body>
 </html>

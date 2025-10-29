@@ -1,112 +1,111 @@
-# KOST Sicherheitstechnik
+# Bauunternehmung Markus Müller
 
-> Professionelle Sicherheitssysteme für Privat und Gewerbe in Dortmund
+Professionelle Website für die Bauunternehmung Markus Müller aus Welver.
 
-![KOST Banner](https://img.shields.io/badge/Est.-1995-FA0016?style=for-the-badge)
-![Status](https://img.shields.io/badge/Status-Active-success?style=for-the-badge)
+## 🏗️ Über das Unternehmen
 
-## 🔐 Über KOST
+Meisterhafte Qualität und zuverlässige Handwerkskunst seit 2002. Die Bauunternehmung Markus Müller steht für nachhaltiges Bauen, innovative Lösungen und persönliche Betreuung.
 
-KOST Sicherheitstechnik bietet seit über 25 Jahren professionelle Sicherheitslösungen für Privat- und Gewerbekunden in Dortmund und Umgebung.
+## 🎨 Features
 
-### Unsere Leistungen
+- **Responsive Design** - Optimiert für Desktop, Tablet und Mobile
+- **Modern & Clean** - Professionelles Design passend zur Baubranche
+- **Performance** - Schnelle Ladezeiten durch optimierten Code
+- **Accessibility** - WCAG 2.1 AA konform
+- **SEO-optimiert** - Meta Tags und semantisches HTML
 
-- 📹 **Videoüberwachung** - Moderne Kamerasysteme mit Full HD & Nachtsicht
-- 🔔 **Alarmanlagen** - Zertifizierte Systeme mit direkter Aufschaltung
-- 🔑 **Zutrittskontrolle** - Elektronische Schließsysteme
-- 🛡️ **Mechanische Sicherung** - Türen, Fenster & Schlösser nach VdS-Standard
-- 📬 **Briefkastenanlagen** - Moderne Systeme mit Paketboxen
+## 📦 Technologie
 
-## 🎨 Design
+- **HTML5** - Semantische Struktur
+- **CSS3** - Custom Properties (CSS Variables)
+- **Tailwind CSS** - Utility-First Framework
+- **Font Awesome** - Icons
+- **Google Fonts** - Outfit, Inter, Space Grotesk
 
-Diese Website wurde mit einem modernen **Apple-inspirierten Design** erstellt:
+## 🚀 Deployment
 
-- Clean, minimalistisches Layout
-- Glassmorphism-Effekte
-- Smooth Scroll-Animationen
-- Vollständig responsive
-- Optimiert für Performance
+Die Website ist live unter: [maexftw.github.io/markusm-ller](https://maexftw.github.io/markusm-ller)
 
-### Technologie-Stack
+### GitHub Pages Setup
 
-- HTML5
-- CSS3 (Custom Properties)
-- TailwindCSS (CDN)
-- Lucide Icons
-- Vanilla JavaScript
+1. Repository Settings → Pages
+2. Source: "Deploy from a branch"
+3. Branch: `master` → `/` (root)
+4. Save
 
-## 📂 Projekt-Struktur
+Die Website wird automatisch bei jedem Push aktualisiert.
+
+## 📁 Struktur
 
 ```
-KOST/
-├── index.html              # Startseite
-├── css/
-│   └── theme.css          # Apple-Style Theme
-├── pages/
-│   ├── videoueberwachung.html
-│   ├── alarmanlagen.html
-│   ├── zutrittskontrolle.html
-│   ├── briefkasten.html
-│   └── mechanische-sicherung.html
-├── images/                # Produktbilder & Assets
-├── CLAUDE.md              # Design-System Dokumentation
-├── NETLIFY_WORKFLOW.md    # Deployment Guide
-└── README.md              # Diese Datei
+/
+├── index.html          # Haupt-HTML-Datei
+├── styles.css          # Theme & Design System
+└── README.md           # Diese Datei
 ```
 
-## 🚀 Lokale Entwicklung
+## 🎯 Sections
 
-```bash
-# Repository klonen
-git clone https://github.com/maexftw/kost.git
+- **Hero** - Eindrucksvoller Einstieg mit Call-to-Action
+- **USP Stats** - Zahlen & Fakten (Seit 2002, 27 Mitarbeiter, etc.)
+- **Services** - 12+ Dienstleistungen (Neubau, Umbau, Industriebau, etc.)
+- **BAMTEC** - Featured: Innovative Bewehrungstechnik
+- **Team** - Über das 27-köpfige Team
+- **Expertise** - Sicherheit, Schulung, Partnerschaften
+- **Inhaber** - Markus Müller Timeline & Qualifikationen
+- **Büroteam** - Nicole Bögge & Kirsten Koepe-Menzel
+- **Kontakt** - Formular + Kontaktinformationen
+- **Footer** - Navigation & Rechtliches
 
-# In Projektverzeichnis wechseln
-cd kost
+## 🎨 Design System
 
-# Öffne index.html in deinem Browser
-# Keine Build-Steps notwendig!
-```
+### Farben
+- **Primary:** `#dc342e` (Müller Rot)
+- **Background:** `#fafafa` (Off-White)
+- **Text:** `#1a1a1a` / `#4a4a4a`
 
-## 📱 Features
+### Typography
+- **Headings:** Outfit (Google Fonts)
+- **Body:** Inter (Google Fonts)
+- **Accent:** Space Grotesk (Google Fonts)
 
-### Homepage
-- Hero Section mit Gradient Background
-- Service Cards mit Icons
-- Stats Counter (25+ Jahre, 500+ Projekte)
-- Process Timeline
-- Kontaktformular mit Google Maps
-- Footer mit Social Links
+### Breakpoints
+- **Mobile:** 0-639px
+- **Tablet:** 640-1023px
+- **Desktop:** 1024px+
 
-### Unterseiten
-- Detaillierte Service-Beschreibungen
-- Bildergalerien
-- Feature-Listen
-- Call-to-Action Sections
-- Konsistente Navigation
+## ✨ Features im Detail
 
-## 🎯 Browser-Support
+### Accessibility
+- ✅ Keyboard Navigation
+- ✅ Focus States
+- ✅ Skip to Content Link
+- ✅ ARIA Labels
+- ✅ Semantic HTML
+- ✅ Alt Texts
 
-- ✅ Chrome/Edge (letzten 2 Versionen)
-- ✅ Firefox (letzten 2 Versionen)
-- ✅ Safari (letzten 2 Versionen)
-- ✅ Mobile Browsers (iOS & Android)
+### Performance
+- ✅ Optimierte Images (Unsplash CDN)
+- ✅ Minimal Dependencies
+- ✅ CSS Variables statt Inline Styles
+- ✅ Mobile First Approach
+
+### UX
+- ✅ 48px Touch Targets (Fitts's Law)
+- ✅ Smooth Animations
+- ✅ Scroll-triggered Effects
+- ✅ Sticky Navigation
+- ✅ Mobile Menu mit Overlay
 
 ## 📞 Kontakt
 
-**KOST Sicherheitstechnik**
-Hermannstr. 162a
-44263 Dortmund
+**Bauunternehmung Markus Müller**
+Vellinghauser Str. 15
+59514 Welver
 
-📞 Tel: 0231 / 98 98 351
-📱 WhatsApp: [Kontakt](https://wa.me/4923198983 51)
-🌐 Website: [kost-sicherheitstechnik.de](https://kost-sicherheitstechnik.de)
-
-## 📄 Lizenz
-
-© 2025 KOST Sicherheitstechnik. Alle Rechte vorbehalten.
+Tel: [01511-7015050](tel:015117015050)
+Mobil: [0170-384398](tel:0170384398)
 
 ---
 
-**Erstellt mit** [Claude Code](https://claude.com/claude-code) 🤖
-
-Co-Authored-By: Claude <noreply@anthropic.com>
+© 2024 Bauunternehmung Markus Müller | Alle Rechte vorbehalten
