@@ -1,0 +1,799 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Markus Müller - Bauunternehmung</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Roboto Slab', serif;
+            line-height: 1.3;
+        }
+
+        :root {
+            --primary-red: #DC342E;
+            --dark-gray: #32373c;
+            --light-gray: #f5f5f5;
+            --white: #ffffff;
+        }
+
+        /* Header */
+        .top-bar {
+            background: var(--light-gray);
+            padding: 12px 0;
+            font-size: 14px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .top-bar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: flex-end;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .top-bar-content a,
+        .top-bar-content span {
+            color: var(--dark-gray);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .top-bar i {
+            color: var(--primary-red);
+        }
+
+        .header-main {
+            background: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .logo img {
+            max-width: 220px;
+            height: auto;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .contact-info a,
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #333;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        .contact-info i {
+            color: var(--primary-red);
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--dark-gray);
+        }
+
+        nav ul {
+            max-width: 1200px;
+            margin: 0 auto;
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav ul li a {
+            display: block;
+            padding: 16px 24px;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        nav ul li a:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+                        url('https://bb91d3q.myrdbx.io/wp-content/uploads/2024/01/ziegelpfaehle-in-der-fabrik-platziert-1024x683.jpg');
+            background-size: cover;
+            background-position: center;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 80px 20px;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero h2 {
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 40px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            text-decoration: none;
+            font-weight: 500;
+            border-radius: 4px;
+            transition: all 0.3s;
+            font-size: 16px;
+        }
+
+        .btn-primary {
+            background: var(--primary-red);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #c02d27;
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--dark-gray);
+        }
+
+        .btn-secondary:hover {
+            background: var(--light-gray);
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 20px;
+        }
+
+        .section-white {
+            background: white;
+        }
+
+        .section-gray {
+            background: var(--light-gray);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: var(--dark-gray);
+        }
+
+        .divider {
+            display: inline-block;
+            margin: 20px 0;
+        }
+
+        .divider svg {
+            height: 20px;
+        }
+
+        /* Grid Layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 60px;
+            align-items: center;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        section img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+
+        section p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        /* Service Cards */
+        .service-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 4px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .service-card i {
+            font-size: 48px;
+            color: var(--primary-red);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--dark-gray);
+        }
+
+        .service-card p {
+            font-size: 15px;
+            color: #666;
+        }
+
+        /* Timeline */
+        .timeline {
+            max-width: 900px;
+            margin: 60px auto 0;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .timeline-item:last-child {
+            border-bottom: none;
+        }
+
+        .timeline-year {
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--primary-red);
+            padding-top: 5px;
+        }
+
+        .timeline-content {
+            padding-top: 5px;
+        }
+
+        .timeline-content h4 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: var(--dark-gray);
+        }
+
+        /* Team Cards */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .team-card {
+            text-align: center;
+        }
+
+        .team-card img {
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+
+        .team-card h3 {
+            font-size: 20px;
+            margin-bottom: 8px;
+            color: var(--dark-gray);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-gray);
+            color: white;
+            padding: 60px 20px 30px;
+        }
+
+        footer .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        footer h4 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        footer p,
+        footer ul {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #ccc;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer ul li {
+            margin-bottom: 10px;
+        }
+
+        footer i {
+            color: var(--primary-red);
+            margin-right: 8px;
+        }
+
+        footer iframe {
+            width: 100%;
+            height: 250px;
+            border: none;
+            border-radius: 4px;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero h2 {
+                font-size: 20px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .contact-info {
+                justify-content: center;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            .timeline-item {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            section {
+                padding: 60px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Top Bar -->
+<div class="top-bar">
+    <div class="top-bar-content">
+        <span><i class="fas fa-map-marker-alt"></i> Vellinghauser Str. 15, 59514 Welver</span>
+        <span><i class="fas fa-clock"></i> Mo-Fr 07:00 - 17:00 Uhr</span>
+        <a href="tel:023888008686"><i class="fas fa-phone-alt"></i> 02388-8008686</a>
+        <a href="mailto:office@markus-mueller-bau.de"><i class="far fa-envelope"></i> office@markus-mueller-bau.de</a>
+    </div>
+</div>
+
+<!-- Header -->
+<header class="header-main">
+    <div class="header-content">
+        <div class="logo">
+            <a href="/">
+                <img src="https://bb91d3q.myrdbx.io/wp-content/uploads/2022/12/cropped-Markus-Muller-Logo.png" alt="Markus Müller Logo">
+            </a>
+        </div>
+        <div class="contact-info">
+            <a href="tel:023888008686">
+                <i class="fas fa-phone-alt"></i>
+                <span>02388-8008686</span>
+            </a>
+            <span>
+                <i class="fab fa-whatsapp"></i>
+                <span>01511-7015050</span>
+            </span>
+            <a href="mailto:office@markus-mueller-bau.de">
+                <i class="far fa-envelope"></i>
+                <span>office@markus-mueller-bau.de</span>
+            </a>
+        </div>
+    </div>
+</header>
+
+<!-- Navigation -->
+<nav>
+    <ul>
+        <li><a href="#ueber-uns">Über uns</a></li>
+        <li><a href="#leistungen">Leistungen</a></li>
+        <li><a href="#referenzen">Referenzen</a></li>
+        <li><a href="#karriere">Karriere</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Bauunternehmung Markus Müller</h1>
+        <h2>Meisterhafte Qualität und zuverlässige Handwerkskunst seit 2002</h2>
+        <p>Entdecken Sie die Stärke handwerklicher Präzision mit der Bauunternehmung Markus Müller. Wir stehen für nachhaltiges Bauen, innovative Lösungen und eine persönliche Betreuung, die Sie von der ersten Kontaktaufnahme bis zur Fertigstellung begleitet.</p>
+        <div class="cta-buttons">
+            <a href="#kontakt" class="btn btn-primary">Jetzt Kontakt aufnehmen</a>
+            <a href="#leistungen" class="btn btn-secondary">Unsere Leistungen</a>
+        </div>
+    </div>
+</section>
+
+<!-- Das Team Section -->
+<section id="ueber-uns" class="section-white">
+    <div class="container">
+        <div class="grid-2">
+            <div>
+                <h2 class="section-title">Das Team</h2>
+                <div class="divider">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 1 178 8">
+                        <path fill="#DC342E" stroke="#333" stroke-width=".2" d="M0 1h18v8H0zm20 0h18v8H20zm20 0h18v8H40zm20 0h18v8H60zm20 0h18v8H80zm20 0h18v8h-18zm20 0h18v8h-18zm20 0h18v8h-18zm20 0h18v8h-18z"></path>
+                    </svg>
+                </div>
+                <p>Wir, die Bauunternehmung Markus Müller, sind ein stolzes Familienunternehmen, das seit über 20 Jahren mit Qualität und Hingabe in der Baubranche überzeugt. Unser 27-köpfiges Team, bestehend aus Fachkräften wie Maurermeistern, erfahrenen Maurern, Bauhelfern, LKW-Fahrern und Büroangestellten, arbeitet Hand in Hand, um Visionen in Realität umzusetzen.</p>
+                <p style="margin-top: 20px;">Unser Inhaber Markus Müller ist das Herzstück dieses Teams. Er packt nicht nur regelmäßig selbst mit an und überwacht das Fundament unserer Projekte persönlich, sondern seine Leidenschaft zeigt sich auch in seinem direkten Einsatz auf den Baustellen. So bleibt unsere Arbeit stets geprägt von persönlicher Nähe und der Liebe zum Bauhandwerk.</p>
+            </div>
+            <div>
+                <img src="https://bb91d3q.myrdbx.io/wp-content/uploads/2024/01/ziegelpfaehle-in-der-fabrik-platziert-1024x683.jpg" alt="Baustelle">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sicherheit Section -->
+<section class="section-gray">
+    <div class="container">
+        <div class="grid-2">
+            <div>
+                <img src="https://bb91d3q.myrdbx.io/wp-content/uploads/2024/01/der-industriebauer-arbeitet-mit-einem-professionellen-winkelschleifer-um-ziegel-zu-schneiden-und-innenwaende-zu-bauen-elektriker-1024x621.jpg" alt="Bauarbeiter">
+            </div>
+            <div>
+                <h2 class="section-title">Sicherheit und Schulung</h2>
+                <div class="divider">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 1 178 8">
+                        <path fill="#DC342E" stroke="#333" stroke-width=".2" d="M0 1h18v8H0zm20 0h18v8H20zm20 0h18v8H40zm20 0h18v8H60zm20 0h18v8H80zm20 0h18v8h-18zm20 0h18v8h-18zm20 0h18v8h-18zm20 0h18v8h-18z"></path>
+                    </svg>
+                </div>
+                <p>Die Sicherheit unserer Mitarbeiter ist das Fundament unseres Erfolgs. Wir folgen streng den aktuellen Arbeitsschutzvorschriften und investieren in die kontinuierliche Weiterbildung unseres Teams. Jährliche Sicherheitsunterweisungen und Erste-Hilfe-Schulungen sind bei uns Standard, denn ein sicherer Arbeitsplatz ist die Basis für herausragende Bauleistungen.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Partnerschaft Section -->
+<section class="section-white">
+    <div class="container">
+        <div class="grid-2">
+            <div>
+                <h2 class="section-title">Partnerschaft und Kooperation</h2>
+                <div class="divider">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 1 178 8">
+                        <path fill="#DC342E" stroke="#333" stroke-width=".2" d="M0 1h18v8H0zm20 0h18v8H20zm20 0h18v8H40zm20 0h18v8H60zm20 0h18v8H80zm20 0h18v8h-18zm20 0h18v8h-18zm20 0h18v8h-18zm20 0h18v8h-18z"></path>
+                    </svg>
+                </div>
+                <p>Unser Netzwerk ist unser Kapital. Wir pflegen eine enge Zusammenarbeit mit Architekten und sind stolze Partner von Institutionen wie der BG Bau, Soka Bau und der Handwerkskammer Hellweg-Lippe. Unser Engagement in der Ausbildung junger Fachkräfte zeigt sich durch die Kooperation mit lokalen Ausbildungszentren.</p>
+            </div>
+            <div>
+                <img src="https://bb91d3q.myrdbx.io/wp-content/uploads/2024/01/stahlstange-auf-baustelle-1024x683.jpg" alt="Stahlstangen">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Leistungen Section -->
+<section id="leistungen" class="section-gray">
+    <div class="container">
+        <div style="text-align: center; margin-bottom: 60px;">
+            <h2 class="section-title">Unsere Dienstleistungen</h2>
+            <div class="divider">
+                <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 1 178 8">
+                    <path fill="#DC342E" stroke="#333" stroke-width=".2" d="M0 1h18v8H0zm20 0h18v8H20zm20 0h18v8H40zm20 0h18v8H60zm20 0h18v8H80zm20 0h18v8h-18zm20 0h18v8h-18zm20 0h18v8h-18zm20 0h18v8h-18z"></path>
+                </svg>
+            </div>
+            <p style="font-size: 20px; margin-top: 20px; color: #666;">Vom ersten Spatenstich bis zur Fertigstellung – wir sind Ihr zuverlässiger Ausführungspartner</p>
+        </div>
+
+        <div class="grid-3">
+            <div class="service-card">
+                <i class="fas fa-building"></i>
+                <h3>Neubau und Rohbau</h3>
+                <p>Wir setzen neue Maßstäbe im Rohbau – Ihre Projekte realisieren wir mit größter Sorgfalt und Präzision.</p>
+            </div>
+
+            <div class="service-card">
+                <i class="fas fa-home"></i>
+                <h3>Umbau</h3>
+                <p>Ob Wohnraumerweiterung oder Geschäftsumgestaltung – unsere Umbauprojekte zeichnen sich durch kreative Lösungen aus.</p>
+            </div>
+
+            <div class="service-card">
+                <i class="fas fa-industry"></i>
+                <h3>Industriebau</h3>
+                <p>Solide Konstruktionen für die Industrie: Unsere Kompetenz verspricht langlebige und funktionale Industriebauten.</p>
+            </div>
+
+            <div class="service-card">
+                <i class="fas fa-th-large"></i>
+                <h3>Verblendarbeiten / Klinker</h3>
+                <p>Ästhetische Fassaden, die Bestand haben: Mit hochwertigen Klinkern geben wir Gebäuden ein dauerhaftes Gesicht.</p>
+            </div>
+
+            <div class="service-card">
+                <i class="fas fa-hammer"></i>
+                <h3>Maurerarbeiten</h3>
+                <p>Traditionelles Handwerk trifft moderne Technik: Unsere erfahrenen Maurer garantieren handwerkliche Exzellenz.</p>
+            </div>
+
+            <div class="service-card">
+                <i class="fas fa-cubes"></i>
+                <h3>Betonarbeiten</h3>
+                <p>Fundamente und mehr: Unsere Betonarbeiten stehen für Stabilität und Dauerhaftigkeit.</p>
+            </div>
+
+            <div class="service-card">
+                <i class="fas fa-building"></i>
+                <h3>Fachwerke ausmauern</h3>
+                <p>Traditionelle Baukunst präzise umgesetzt: Unser Know-how bewahrt historische Werte.</p>
+            </div>
+
+            <div class="service-card">
+                <i class="fas fa-tools"></i>
+                <h3>Reparaturen</h3>
+                <p>Schnelle und zuverlässige Instandsetzung: Ihre Immobilie schnell wieder in bestem Zustand.</p>
+            </div>
+
+            <div class="service-card">
+                <i class="fas fa-hard-hat"></i>
+                <h3>Gerüstbau</h3>
+                <p>Sicherheit in jeder Höhe: Unser professioneller Gerüstbau ermöglicht sicheres Arbeiten.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Timeline Section -->
+<section id="referenzen" class="section-white">
+    <div class="container">
+        <div style="text-align: center; margin-bottom: 40px;">
+            <h2 class="section-title">Markus Müller – Meilensteine</h2>
+            <div class="divider">
+                <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 1 178 8">
+                    <path fill="#DC342E" stroke="#333" stroke-width=".2" d="M0 1h18v8H0zm20 0h18v8H20zm20 0h18v8H40zm20 0h18v8H60zm20 0h18v8H80zm20 0h18v8h-18zm20 0h18v8h-18zm20 0h18v8h-18zm20 0h18v8h-18z"></path>
+                </svg>
+            </div>
+            <p style="margin-top: 20px;">Vom ersten Ausbildungstag bis zu aktuellen Qualifikationen</p>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-year">1991-1993</div>
+                <div class="timeline-content">
+                    <p>Ausbildung, Fa. Siegfried Schleicher, Hamm</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">1994-2002</div>
+                <div class="timeline-content">
+                    <p>Berufstätigkeit als Maurer</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">2001</div>
+                <div class="timeline-content">
+                    <p>Meisterprüfung für das Maurer- und Betonhandwerk</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">2002</div>
+                <div class="timeline-content">
+                    <p>Firmengründung in Hamm</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">2002</div>
+                <div class="timeline-content">
+                    <p>Eintragung in die Handwerksrolle (Maurer- und Betonbauerhandwerk)</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">2008</div>
+                <div class="timeline-content">
+                    <p>Firmenumzug an den jetzigen Standort nach Welver</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">2009</div>
+                <div class="timeline-content">
+                    <p>Eintragung in die Handwerksrolle (Maurer- und Betonbauerhandwerk)</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">2020</div>
+                <div class="timeline-content">
+                    <p>Zusatzqualifikation Gerüstbau</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">2020</div>
+                <div class="timeline-content">
+                    <p>Eintragung in die Handwerksrolle (Gerüstbauerhandwerk)</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">2020</div>
+                <div class="timeline-content">
+                    <p>Zertifizierung für den Einbau der Schöck Tronsole®</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Büroteam Section -->
+<section id="karriere" class="section-gray">
+    <div class="container">
+        <div style="text-align: center; margin-bottom: 40px;">
+            <h2 class="section-title">Unser Büroteam</h2>
+            <div class="divider">
+                <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 1 178 8">
+                    <path fill="#DC342E" stroke="#333" stroke-width=".2" d="M0 1h18v8H0zm20 0h18v8H20zm20 0h18v8H40zm20 0h18v8H60zm20 0h18v8H80zm20 0h18v8h-18zm20 0h18v8h-18zm20 0h18v8h-18zm20 0h18v8h-18z"></path>
+                </svg>
+            </div>
+            <p style="margin-top: 20px;">Treten Sie näher und lernen Sie die Menschen kennen, die den täglichen Betrieb unserer Bauunternehmung mit Leidenschaft und Expertise am Laufen halten.</p>
+        </div>
+
+        <div class="team-grid">
+            <div class="team-card">
+                <img src="https://bb91d3q.myrdbx.io/wp-content/uploads/2024/01/ziegelpfaehle-in-der-fabrik-platziert-1024x683.jpg" alt="Nicole Bögge">
+                <h3>Nicole Bögge</h3>
+                <div class="divider">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 1 178 8">
+                        <path fill="#DC342E" stroke="#333" stroke-width=".2" d="M0 1h18v8H0zm20 0h18v8H20zm20 0h18v8H40zm20 0h18v8H60zm20 0h18v8H80zm20 0h18v8h-18zm20 0h18v8h-18zm20 0h18v8h-18zm20 0h18v8h-18z"></path>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="team-card">
+                <img src="https://bb91d3q.myrdbx.io/wp-content/uploads/2024/01/ziegelpfaehle-in-der-fabrik-platziert-1024x683.jpg" alt="Kirsten Koepe-Menzel">
+                <h3>Kirsten Koepe-Menzel</h3>
+                <div class="divider">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 1 178 8">
+                        <path fill="#DC342E" stroke="#333" stroke-width=".2" d="M0 1h18v8H0zm20 0h18v8H20zm20 0h18v8H40zm20 0h18v8H60zm20 0h18v8H80zm20 0h18v8h-18zm20 0h18v8h-18zm20 0h18v8h-18zm20 0h18v8h-18z"></path>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="#kontakt" class="btn btn-primary">Termin im Büro vereinbaren</a>
+        </div>
+    </div>
+</section>
+
+<!-- Footer / Kontakt -->
+<footer id="kontakt">
+    <div class="container">
+        <div>
+            <h4>Kontakt</h4>
+            <ul>
+                <li><i class="fas fa-map-marker-alt"></i> Vellinghauser Str. 15, 59514 Welver</li>
+                <li><i class="fas fa-phone-alt"></i> Tel: 02388-8008686</li>
+                <li><i class="fab fa-whatsapp"></i> Mobil: 01511-7015050</li>
+                <li><i class="far fa-envelope"></i> office@markus-mueller-bau.de</li>
+            </ul>
+        </div>
+
+        <div>
+            <h4>Öffnungszeiten</h4>
+            <ul>
+                <li>Montag - Freitag: 07:00 - 17:00 Uhr</li>
+                <li>Samstag: Nach Vereinbarung</li>
+                <li>Sonntag: Geschlossen</li>
+            </ul>
+        </div>
+
+        <div>
+            <h4>Standort</h4>
+            <iframe src="https://maps.google.com/maps?q=Vellinghauser%20Str.%2015%2C%2059514%20Welver&t=m&z=10&output=embed&iwloc=near" title="Standort" aria-label="Vellinghauser Str. 15, 59514 Welver"></iframe>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 40px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); color: #999; font-size: 14px;">
+        <p>&copy; 2024 Markus Müller Bauunternehmung. Alle Rechte vorbehalten.</p>
+    </div>
+</footer>
+
+</body>
+</html>

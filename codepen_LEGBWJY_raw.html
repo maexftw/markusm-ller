@@ -1,0 +1,3122 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  
+
+  <title>[threejs/gsap] ❍ Interactive Glass Lens Effect with Sound FX</title>
+
+  
+
+<style type="text/css">@font-face {font-family:Lato;font-style:normal;font-weight:400;src:url(/cf-fonts/s/lato/5.0.18/latin/400/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Lato;font-style:normal;font-weight:400;src:url(/cf-fonts/s/lato/5.0.18/latin-ext/400/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Lato;font-style:normal;font-weight:700;src:url(/cf-fonts/s/lato/5.0.18/latin-ext/700/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Lato;font-style:normal;font-weight:700;src:url(/cf-fonts/s/lato/5.0.18/latin/700/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Lato;font-style:normal;font-weight:900;src:url(/cf-fonts/s/lato/5.0.18/latin/900/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Lato;font-style:normal;font-weight:900;src:url(/cf-fonts/s/lato/5.0.18/latin-ext/900/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Lato;font-style:italic;font-weight:400;src:url(/cf-fonts/s/lato/5.0.18/latin-ext/400/italic.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Lato;font-style:italic;font-weight:400;src:url(/cf-fonts/s/lato/5.0.18/latin/400/italic.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Lato;font-style:italic;font-weight:700;src:url(/cf-fonts/s/lato/5.0.18/latin-ext/700/italic.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Lato;font-style:italic;font-weight:700;src:url(/cf-fonts/s/lato/5.0.18/latin/700/italic.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Lato;font-style:italic;font-weight:900;src:url(/cf-fonts/s/lato/5.0.18/latin/900/italic.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Lato;font-style:italic;font-weight:900;src:url(/cf-fonts/s/lato/5.0.18/latin-ext/900/italic.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}</style>
+      <meta name="twitter:title" content="[threejs/gsap] ❍ Interactive Glass Lens Effect with Sound FX">
+    <meta name="twitter:description" content="...">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://shots.codepen.io/username/pen/LEGBWJY-800.jpg?version=1761658308">
+
+
+    <meta property="og:image" content="https://shots.codepen.io/username/pen/LEGBWJY-800.jpg?version=1761658308" itemprop="thumbnailUrl">
+    <meta property="og:title" content="[threejs/gsap] ❍ Interactive Glass Lens Effect with Sound FX">
+    <meta property="og:url" content="https://codepen.io/Maximilian-Unverricht-the-looper/details/LEGBWJY">
+    <meta property="og:description" content="...">
+
+
+  <link rel="alternate" type="application/json+oembed"
+  href="https://codepen.io/api/oembed?url=https%3A%2F%2Fcodepen.io%2FMaximilian-Unverricht-the-looper%2Fpen%2FLEGBWJY&format=json"
+  title="[threejs/gsap] ❍ Interactive Glass Lens Effect with Sound FX" />
+
+
+  <link rel="stylesheet" href="https://cpwebassets.codepen.io/assets/global/global-4c552521fc67172f930c95c8ef149c2b154f64fa33836c56c785fec636b1354e.css" media="all" />
+  <link rel="stylesheet" href="https://cpwebassets.codepen.io/assets/packs/css/everypage-836032f2.css" />
+  <link rel="stylesheet" href="https://cpwebassets.codepen.io/assets/editor/editor-74e9b05132d1286c2791b1bfde8ed3c2f6517e22230829453b1c02fc6fe88b04.css" media="all" />
+
+  
+  <meta name="description" content="...">
+
+  
+
+
+<link rel="stylesheet" href="https://cpwebassets.codepen.io/assets/editor/themes/twilight-5624f2aa0a9e5ad3c27da1db150d791e788247e197af02b4cd6db6fbc40f7354.css" id="cm-theme" />
+
+<style id="cm-font-family" class="cm-font-family" nonce="cs0PLxy2izw=">
+  
+  .CodeMirror,
+  .console-logs .console-line,
+  .console-command-line-input,
+  .console-message,
+  .CodeMirror-hint {
+    font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo,
+  monospace;
+  }
+</style>
+
+<style id="cm-font-size" nonce="cs0PLxy2izw=">
+  .CodeMirror,
+  .console-logs .console-line,
+  .console-command-line-input,
+  .console-message,
+  .CodeMirror-hint {
+    font-size: 14px;
+  }
+</style>
+
+
+
+
+
+
+  
+
+    <link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
+
+    <meta name="apple-mobile-web-app-title" content="CodePen">
+
+    <link rel="icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
+
+    <link rel="mask-icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-b4b4269c16397ad2f0f7a01bcdf513a1994f4c94b8af2f191c09eb0d601762b1.svg" color="#111" />
+
+
+
+
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="ZAjVZGVohQu4V6_pv5ITmLHD93IqxOfEbz2EEfFFDxCBYCJtNQTQgwcjjKQMFam1m3GoZvlXTqUNWWe_cHGTPw" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+</head>
+
+<body class="room-editor editor state-htmlOn-cssOn-jsOn twilight preload prelayout
+  layout-top
+ logged-out
+">
+  
+
+  
+<header class="main-header" id="main-header">
+</header>
+<div class="item-settings-modal tab-layout tab-layout-modal pen  item-settings-modal-half" id="item-settings-modal">
+
+  <header class="item-settings-modal-header tab-layout-header">
+    <h2 class="item-settings-modal-header-title tab-layout-header-title">Pen Settings</h2>
+    <div class="save-and-close-wrap">
+      <button type="button" class="button mini-button button-no-right-margin close" id="top-close-settings">
+        <svg class="icon-x" viewBox="0 0 100 100">
+          <path d="M96.8 83.7L63.1 50l33.7-33.7c3.6-3.6 3.6-9.4 0-13.1s-9.5-3.6-13.1 0L50 36.9 16.3 3.2C12.7-.4 6.9-.4 3.2 3.2s-3.6 9.5 0 13.1L36.9 50 3.2 83.7c-3.6 3.6-3.6 9.4 0 13.1s9.5 3.6 13.1 0L50 63.1l33.7 33.7c3.6 3.6 9.4 3.6 13.1 0s3.6-9.5 0-13.1z"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="tabs tab-layout-wrapper settings-tabs-wrapper">
+
+    <nav id="settings-tabs" class="no-mobile-nav tab-layout-tabs item-settings-tabs  notranslate" translate="no">
+
+      <div class="tab-layout-tab-group">
+            <a
+              id="settings-html-tab"
+              href="#settings-html"
+              class="settings-tab-html"
+              data-type="html">
+              HTML
+            </a>
+            <a
+              id="settings-css-tab"
+              href="#settings-css"
+              class="settings-tab-css"
+              data-type="css">
+              CSS
+            </a>
+            <a
+              id="settings-js-tab"
+              href="#settings-js"
+              class="settings-tab-js"
+              data-type="js">
+              JS
+            </a>
+
+      </div>
+
+      <div class="tab-layout-tab-group">
+            <a
+              id="settings-behavior-tab"
+              href="#settings-behavior"
+              class="settings-tab-behavior"
+              data-type="behavior">
+              Behavior
+            </a>
+            <a
+              id="settings-editor-tab"
+              href="#settings-editor"
+              class="settings-tab-editor"
+              data-type="editor">
+              Editor
+            </a>
+      </div>
+    </nav>
+
+      <div class="settings tab-page" id="settings-html">
+        <h3 aria-label="HTML">HTML</h3>
+
+<div class="settings-row top-label-form normal-labels">
+
+  <h4>
+    <label for="html-preprocessor">
+      HTML Preprocessor
+    </label>
+  </h4>
+
+  <div class="help-flyout-link">
+    <svg class="icon-help" viewBox="0 0 100 100">
+      <path d="M75,0H25C11.19,0,0,11.193,0,25v50c0,13.802,11.19,25,25,25h50c13.811,0,25-11.198,25-25V25C100,11.193,88.811,0,75,0z
+   M57.203,85.067H41.504V72.542h15.699V85.067L57.203,85.067z M73.357,42.041c-0.84,2.066-1.873,3.834-3.102,5.298
+  c-1.235,1.474-2.604,2.718-4.101,3.751c-1.498,1.035-2.922,2.066-4.249,3.101c-1.333,1.034-1.553,2.214-2.596,3.547
+  c-1.025,1.335-0.977,3.004-0.977,5.006v3.924H41.668v-4.623c0-2.864,1.366-5.265,2.27-7.202c0.896-1.935,2.255-3.581,3.459-4.947
+  c1.196-1.367,2.62-2.556,3.955-3.557c1.327-0.993,2.637-1.993,3.776-2.995c1.123-1.001,2.083-2.1,2.783-3.304
+  c0.7-1.197,1.043-2.694,0.977-4.5c0-3.06-0.74-5.33-2.245-6.795c-1.498-1.465-3.582-2.206-6.25-2.206c-1.8,0-3.337,0.351-4.639,1.05
+  c-1.303,0.7-2.369,1.635-3.199,2.808c-0.837,1.163-1.448,3.593-1.847,5.156c-0.407,1.57-0.602,6.115-0.602,6.115H25.399
+  c0.073-8.333,0.684-7.963,1.855-10.965c1.164-2.995,2.8-6.132,4.899-8.33c2.099-2.197,4.63-4.179,7.601-5.417
+  c2.962-1.228,6.283-1.977,9.945-1.977c4.736,0,8.683,0.581,11.856,1.876c3.167,1.302,5.713,2.889,7.65,4.817
+  c1.929,1.937,3.312,4.004,4.149,6.234c0.831,2.237,1.245,4.313,1.245,6.242C74.601,37.354,74.187,39.975,73.357,42.041z"/>
+    </svg>
+    <div class="help-flyout help-flyout-reverse">
+      <h5>About HTML Preprocessors</h5>
+      <svg class="icon-x" viewBox="0 0 100 100">
+        <path d="M96.8 83.7L63.1 50l33.7-33.7c3.6-3.6 3.6-9.4 0-13.1s-9.5-3.6-13.1 0L50 36.9 16.3 3.2C12.7-.4 6.9-.4 3.2 3.2s-3.6 9.5 0 13.1L36.9 50 3.2 83.7c-3.6 3.6-3.6 9.4 0 13.1s9.5 3.6 13.1 0L50 63.1l33.7 33.7c3.6 3.6 9.4 3.6 13.1 0s3.6-9.5 0-13.1z"/>
+      </svg>
+      <p>HTML preprocessors can make writing HTML more powerful or convenient. For instance, Markdown is designed to be easier to write and read for text documents and you could write a loop in Pug.</p>
+      <p><a href="https://blog.codepen.io/documentation/editor/using-html-preprocessors/" target="_blank" rel="noopener">Learn more</a> &middot; <a href="/versions/" target="_blank" rel="noopener">Versions</a></p>
+    </div>
+  </div>
+
+  <div class="custom-select-wrap">
+    <select name="html-preprocessor" id="html-preprocessor" class="fullwidth">
+          <option value="none">None</option>
+          <option value="haml">Haml</option>
+          <option value="markdown">Markdown</option>
+          <option value="slim">Slim</option>
+          <option value="pug">Pug</option>
+    </select>
+    <div class="select-icon">
+      <svg viewBox="-122.9 121.1 105.9 61.9" class="icon-arrow-down-mini">
+        <path d="M-63.2,180.3l43.5-43.5c1.7-1.7,2.7-4,2.7-6.5s-1-4.8-2.7-6.5c-1.7-1.7-4-2.7-6.5-2.7s-4.8,1-6.5,2.7l-37.2,37.2l-37.2-37.2
+        c-1.7-1.7-4-2.7-6.5-2.7s-4.8,1-6.5,2.6c-1.9,1.8-2.8,4.2-2.8,6.6c0,2.3,0.9,4.6,2.6,6.5l0,0c11.4,11.5,41,41.2,43,43.3l0.2,0.2
+        C-73.5,183.9-66.8,183.9-63.2,180.3z"/>
+      </svg>
+      <svg viewBox="-122.9 121.1 105.9 61.9" class="icon-arrow-down-mini">
+        <path d="M-63.2,180.3l43.5-43.5c1.7-1.7,2.7-4,2.7-6.5s-1-4.8-2.7-6.5c-1.7-1.7-4-2.7-6.5-2.7s-4.8,1-6.5,2.7l-37.2,37.2l-37.2-37.2
+        c-1.7-1.7-4-2.7-6.5-2.7s-4.8,1-6.5,2.6c-1.9,1.8-2.8,4.2-2.8,6.6c0,2.3,0.9,4.6,2.6,6.5l0,0c11.4,11.5,41,41.2,43,43.3l0.2,0.2
+        C-73.5,183.9-66.8,183.9-63.2,180.3z"/>
+      </svg>
+    </div>
+  </div>
+
+</div>
+
+<div class="settings-row top-label-form normal-labels">
+
+  <h4>
+    <label for="html-classes">Add Class(es) to &lt;html></label>
+  </h4>
+
+  <div class="help-flyout-link">
+    <svg class="icon-help" viewBox="0 0 100 100">
+      <path d="M75,0H25C11.19,0,0,11.193,0,25v50c0,13.802,11.19,25,25,25h50c13.811,0,25-11.198,25-25V25C100,11.193,88.811,0,75,0z
+   M57.203,85.067H41.504V72.542h15.699V85.067L57.203,85.067z M73.357,42.041c-0.84,2.066-1.873,3.834-3.102,5.298
+  c-1.235,1.474-2.604,2.718-4.101,3.751c-1.498,1.035-2.922,2.066-4.249,3.101c-1.333,1.034-1.553,2.214-2.596,3.547
+  c-1.025,1.335-0.977,3.004-0.977,5.006v3.924H41.668v-4.623c0-2.864,1.366-5.265,2.27-7.202c0.896-1.935,2.255-3.581,3.459-4.947
+  c1.196-1.367,2.62-2.556,3.955-3.557c1.327-0.993,2.637-1.993,3.776-2.995c1.123-1.001,2.083-2.1,2.783-3.304
+  c0.7-1.197,1.043-2.694,0.977-4.5c0-3.06-0.74-5.33-2.245-6.795c-1.498-1.465-3.582-2.206-6.25-2.206c-1.8,0-3.337,0.351-4.639,1.05
+  c-1.303,0.7-2.369,1.635-3.199,2.808c-0.837,1.163-1.448,3.593-1.847,5.156c-0.407,1.57-0.602,6.115-0.602,6.115H25.399
+  c0.073-8.333,0.684-7.963,1.855-10.965c1.164-2.995,2.8-6.132,4.899-8.33c2.099-2.197,4.63-4.179,7.601-5.417
+  c2.962-1.228,6.283-1.977,9.945-1.977c4.736,0,8.683,0.581,11.856,1.876c3.167,1.302,5.713,2.889,7.65,4.817
+  c1.929,1.937,3.312,4.004,4.149,6.234c0.831,2.237,1.245,4.313,1.245,6.242C74.601,37.354,74.187,39.975,73.357,42.041z"/>
+    </svg>
+    <div class="help-flyout help-flyout-reverse">
+      <h5>Adding Classes</h5>
+      <svg class="icon-x" viewBox="0 0 100 100">
+        <path d="M96.8 83.7L63.1 50l33.7-33.7c3.6-3.6 3.6-9.4 0-13.1s-9.5-3.6-13.1 0L50 36.9 16.3 3.2C12.7-.4 6.9-.4 3.2 3.2s-3.6 9.5 0 13.1L36.9 50 3.2 83.7c-3.6 3.6-3.6 9.4 0 13.1s9.5 3.6 13.1 0L50 63.1l33.7 33.7c3.6 3.6 9.4 3.6 13.1 0s3.6-9.5 0-13.1z"/>
+      </svg>
+      <p>In CodePen, whatever you write in the HTML editor is what goes within the <code>&lt;body></code> tags in <a target="_blank" rel="noopener" href="https://blog.codepen.io/documentation/features/preview-template/">a basic HTML5 template</a>. So you don't have access to higher-up elements like the <code>&lt;html></code> tag. If you want to add classes there that can affect the whole document, this is the place to do it.</p>
+    </div>
+  </div>
+
+  <input type="text" id="html-classes" name="html-classes" class="fullwidth" placeholder="e.g. single post post-1234" maxlength="250">
+
+</div>
+
+<div class="settings-row top-label-form normal-labels">
+
+  <h4>
+    <label for="head-content">Stuff for &lt;head></label>
+  </h4>
+
+  <div class="help-flyout-link">
+    <svg class="icon-help" viewBox="0 0 100 100">
+      <path d="M75,0H25C11.19,0,0,11.193,0,25v50c0,13.802,11.19,25,25,25h50c13.811,0,25-11.198,25-25V25C100,11.193,88.811,0,75,0z
+   M57.203,85.067H41.504V72.542h15.699V85.067L57.203,85.067z M73.357,42.041c-0.84,2.066-1.873,3.834-3.102,5.298
+  c-1.235,1.474-2.604,2.718-4.101,3.751c-1.498,1.035-2.922,2.066-4.249,3.101c-1.333,1.034-1.553,2.214-2.596,3.547
+  c-1.025,1.335-0.977,3.004-0.977,5.006v3.924H41.668v-4.623c0-2.864,1.366-5.265,2.27-7.202c0.896-1.935,2.255-3.581,3.459-4.947
+  c1.196-1.367,2.62-2.556,3.955-3.557c1.327-0.993,2.637-1.993,3.776-2.995c1.123-1.001,2.083-2.1,2.783-3.304
+  c0.7-1.197,1.043-2.694,0.977-4.5c0-3.06-0.74-5.33-2.245-6.795c-1.498-1.465-3.582-2.206-6.25-2.206c-1.8,0-3.337,0.351-4.639,1.05
+  c-1.303,0.7-2.369,1.635-3.199,2.808c-0.837,1.163-1.448,3.593-1.847,5.156c-0.407,1.57-0.602,6.115-0.602,6.115H25.399
+  c0.073-8.333,0.684-7.963,1.855-10.965c1.164-2.995,2.8-6.132,4.899-8.33c2.099-2.197,4.63-4.179,7.601-5.417
+  c2.962-1.228,6.283-1.977,9.945-1.977c4.736,0,8.683,0.581,11.856,1.876c3.167,1.302,5.713,2.889,7.65,4.817
+  c1.929,1.937,3.312,4.004,4.149,6.234c0.831,2.237,1.245,4.313,1.245,6.242C74.601,37.354,74.187,39.975,73.357,42.041z"/>
+    </svg>
+    <div class="help-flyout help-flyout-reverse">
+      <h5>About the &lt;head></h5>
+      <svg class="icon-x" viewBox="0 0 100 100">
+        <path d="M96.8 83.7L63.1 50l33.7-33.7c3.6-3.6 3.6-9.4 0-13.1s-9.5-3.6-13.1 0L50 36.9 16.3 3.2C12.7-.4 6.9-.4 3.2 3.2s-3.6 9.5 0 13.1L36.9 50 3.2 83.7c-3.6 3.6-3.6 9.4 0 13.1s9.5 3.6 13.1 0L50 63.1l33.7 33.7c3.6 3.6 9.4 3.6 13.1 0s3.6-9.5 0-13.1z"/>
+      </svg>
+      <p>In CodePen, whatever you write in the HTML editor is what goes within the <code>&lt;body></code> tags in <a target="_blank" rel="noopener" href="https://blog.codepen.io/documentation/features/preview-template/">a basic HTML5 template</a>. If you need things in the <code>&lt;head></code> of the document, put that code here.</p>
+    </div>
+  </div>
+
+  <div class="head-content-wrapper">
+    <textarea id="head-content" name="head-content" class="fullwidth is-code head-content notranslate" translate="no" placeholder="e.g. &lt;meta>, &lt;link>, &lt;script>"></textarea>
+    <span class="insecure-resource-tooltip resource-problem-tooltip">
+      <div class="help-flyout-link">
+        <span class="icon-help">!</span>
+        <div class="help-flyout help-flyout-reverse">
+          <svg class="icon-x" viewBox="0 0 100 100">
+            <path d="M96.8 83.7L63.1 50l33.7-33.7c3.6-3.6 3.6-9.4 0-13.1s-9.5-3.6-13.1 0L50 36.9 16.3 3.2C12.7-.4 6.9-.4 3.2 3.2s-3.6 9.5 0 13.1L36.9 50 3.2 83.7c-3.6 3.6-3.6 9.4 0 13.1s9.5 3.6 13.1 0L50 63.1l33.7 33.7c3.6 3.6 9.4 3.6 13.1 0s3.6-9.5 0-13.1z"/>
+          </svg>
+          <h5>Insecure Resource</h5>
+          <p>The resource you are linking to is using the 'http' protocol, which may not work when the browser is using https.</p>
+        </div>
+      </div>
+    </span>
+  </div>
+
+  <button class="button mini-button button-medium" id="meta-tag-insert">↑ Insert the most common viewport meta tag</button>
+
+</div>
+
+      </div>
+      <div class="settings tab-page" id="settings-css">
+        <h3 aria-label="CSS">CSS</h3>
+
+<div class="settings-row top-label-form normal-labels">
+
+  <h4>
+    <label for="css-preprocessor">
+      CSS Preprocessor
+    </label>
+  </h4>
+
+  <div class="help-flyout-link">
+    <svg class="icon-help" viewBox="0 0 100 100">
+      <path d="M75,0H25C11.19,0,0,11.193,0,25v50c0,13.802,11.19,25,25,25h50c13.811,0,25-11.198,25-25V25C100,11.193,88.811,0,75,0z
+   M57.203,85.067H41.504V72.542h15.699V85.067L57.203,85.067z M73.357,42.041c-0.84,2.066-1.873,3.834-3.102,5.298
+  c-1.235,1.474-2.604,2.718-4.101,3.751c-1.498,1.035-2.922,2.066-4.249,3.101c-1.333,1.034-1.553,2.214-2.596,3.547
+  c-1.025,1.335-0.977,3.004-0.977,5.006v3.924H41.668v-4.623c0-2.864,1.366-5.265,2.27-7.202c0.896-1.935,2.255-3.581,3.459-4.947
+  c1.196-1.367,2.62-2.556,3.955-3.557c1.327-0.993,2.637-1.993,3.776-2.995c1.123-1.001,2.083-2.1,2.783-3.304
+  c0.7-1.197,1.043-2.694,0.977-4.5c0-3.06-0.74-5.33-2.245-6.795c-1.498-1.465-3.582-2.206-6.25-2.206c-1.8,0-3.337,0.351-4.639,1.05
+  c-1.303,0.7-2.369,1.635-3.199,2.808c-0.837,1.163-1.448,3.593-1.847,5.156c-0.407,1.57-0.602,6.115-0.602,6.115H25.399
+  c0.073-8.333,0.684-7.963,1.855-10.965c1.164-2.995,2.8-6.132,4.899-8.33c2.099-2.197,4.63-4.179,7.601-5.417
+  c2.962-1.228,6.283-1.977,9.945-1.977c4.736,0,8.683,0.581,11.856,1.876c3.167,1.302,5.713,2.889,7.65,4.817
+  c1.929,1.937,3.312,4.004,4.149,6.234c0.831,2.237,1.245,4.313,1.245,6.242C74.601,37.354,74.187,39.975,73.357,42.041z"/>
+    </svg>
+    <div class="help-flyout help-flyout-reverse">
+      <h5>About CSS Preprocessors</h5>
+      <svg class="icon-x" viewBox="0 0 100 100">
+        <path d="M96.8 83.7L63.1 50l33.7-33.7c3.6-3.6 3.6-9.4 0-13.1s-9.5-3.6-13.1 0L50 36.9 16.3 3.2C12.7-.4 6.9-.4 3.2 3.2s-3.6 9.5 0 13.1L36.9 50 3.2 83.7c-3.6 3.6-3.6 9.4 0 13.1s9.5 3.6 13.1 0L50 63.1l33.7 33.7c3.6 3.6 9.4 3.6 13.1 0s3.6-9.5 0-13.1z"/>
+      </svg>
+      <p>CSS preprocessors help make authoring CSS easier. All of them offer things like variables and mixins to provide convenient abstractions.</p>
+      <p><a href="https://blog.codepen.io/documentation/editor/using-css-preprocessors/" target="_blank">Learn more</a> &middot; <a href="/versions/" target="_blank">Versions</a></p>
+    </div>
+  </div>
+
+  <div class="custom-select-wrap">
+    <select name="css-preprocessor" id="css-preprocessor" class="fullwidth css-preprocessor">
+        <option value="none">None</option>
+        <option value="less">Less</option>
+        <option value="scss">SCSS</option>
+        <option value="sass">Sass</option>
+        <option value="stylus">Stylus</option>
+        <option value="postcss">PostCSS</option>
+    </select>
+    <div class="select-icon">
+      <svg viewBox="-122.9 121.1 105.9 61.9" class="icon-arrow-down-mini">
+        <path d="M-63.2,180.3l43.5-43.5c1.7-1.7,2.7-4,2.7-6.5s-1-4.8-2.7-6.5c-1.7-1.7-4-2.7-6.5-2.7s-4.8,1-6.5,2.7l-37.2,37.2l-37.2-37.2
+        c-1.7-1.7-4-2.7-6.5-2.7s-4.8,1-6.5,2.6c-1.9,1.8-2.8,4.2-2.8,6.6c0,2.3,0.9,4.6,2.6,6.5l0,0c11.4,11.5,41,41.2,43,43.3l0.2,0.2
+        C-73.5,183.9-66.8,183.9-63.2,180.3z"/>
+      </svg>
+      <svg viewBox="-122.9 121.1 105.9 61.9" class="icon-arrow-down-mini">
+        <path d="M-63.2,180.3l43.5-43.5c1.7-1.7,2.7-4,2.7-6.5s-1-4.8-2.7-6.5c-1.7-1.7-4-2.7-6.5-2.7s-4.8,1-6.5,2.7l-37.2,37.2l-37.2-37.2
+        c-1.7-1.7-4-2.7-6.5-2.7s-4.8,1-6.5,2.6c-1.9,1.8-2.8,4.2-2.8,6.6c0,2.3,0.9,4.6,2.6,6.5l0,0c11.4,11.5,41,41.2,43,43.3l0.2,0.2
+        C-73.5,183.9-66.8,183.9-63.2,180.3z"/>
+      </svg>
+    </div>
+  </div>
+
+  <div id="need-an-addon" class="align-right hide">
+    <a id="css-need-an-addon-button" href="#0" class="button button-medium mini-button need-an-addon-button">
+      Need an add-on?
+    </a>
+  </div>
+
+  <div class="add-ons add-ons-scss hide" id="add-ons"></div>
+
+</div>
+
+<div id="startercss-options-form" class="settings-row top-label-form">
+
+  <h4>
+    CSS Base
+  </h4>
+
+  <div class="help-flyout-link">
+    <svg class="icon-help" viewBox="0 0 100 100">
+      <path d="M75,0H25C11.19,0,0,11.193,0,25v50c0,13.802,11.19,25,25,25h50c13.811,0,25-11.198,25-25V25C100,11.193,88.811,0,75,0z
+   M57.203,85.067H41.504V72.542h15.699V85.067L57.203,85.067z M73.357,42.041c-0.84,2.066-1.873,3.834-3.102,5.298
+  c-1.235,1.474-2.604,2.718-4.101,3.751c-1.498,1.035-2.922,2.066-4.249,3.101c-1.333,1.034-1.553,2.214-2.596,3.547
+  c-1.025,1.335-0.977,3.004-0.977,5.006v3.924H41.668v-4.623c0-2.864,1.366-5.265,2.27-7.202c0.896-1.935,2.255-3.581,3.459-4.947
+  c1.196-1.367,2.62-2.556,3.955-3.557c1.327-0.993,2.637-1.993,3.776-2.995c1.123-1.001,2.083-2.1,2.783-3.304
+  c0.7-1.197,1.043-2.694,0.977-4.5c0-3.06-0.74-5.33-2.245-6.795c-1.498-1.465-3.582-2.206-6.25-2.206c-1.8,0-3.337,0.351-4.639,1.05
+  c-1.303,0.7-2.369,1.635-3.199,2.808c-0.837,1.163-1.448,3.593-1.847,5.156c-0.407,1.57-0.602,6.115-0.602,6.115H25.399
+  c0.073-8.333,0.684-7.963,1.855-10.965c1.164-2.995,2.8-6.132,4.899-8.33c2.099-2.197,4.63-4.179,7.601-5.417
+  c2.962-1.228,6.283-1.977,9.945-1.977c4.736,0,8.683,0.581,11.856,1.876c3.167,1.302,5.713,2.889,7.65,4.817
+  c1.929,1.937,3.312,4.004,4.149,6.234c0.831,2.237,1.245,4.313,1.245,6.242C74.601,37.354,74.187,39.975,73.357,42.041z"/>
+    </svg>
+    <div class="help-flyout help-flyout-reverse">
+      <h5>About CSS Base</h5>
+      <svg class="icon-x" viewBox="0 0 100 100">
+        <path d="M96.8 83.7L63.1 50l33.7-33.7c3.6-3.6 3.6-9.4 0-13.1s-9.5-3.6-13.1 0L50 36.9 16.3 3.2C12.7-.4 6.9-.4 3.2 3.2s-3.6 9.5 0 13.1L36.9 50 3.2 83.7c-3.6 3.6-3.6 9.4 0 13.1s9.5 3.6 13.1 0L50 63.1l33.7 33.7c3.6 3.6 9.4 3.6 13.1 0s3.6-9.5 0-13.1z"/>
+      </svg>
+      <p>It's a common practice to apply CSS to a page that styles elements such that they are consistent across all browsers. We offer two of the most popular choices: <a href="http://necolas.github.io/normalize.css/" target="_blank" rel="noopener">normalize.css</a> and a <a href="http://meyerweb.com/eric/tools/css/reset/" target="_blank" rel="noopener">reset</a>. Or, choose <b>Neither</b> and nothing will be applied.</p>
+    </div>
+  </div>
+
+  <ul class="radio-list">
+      <li>
+        <input type="radio" id="startercss-normalize" name="startercss" checked value="normalize">
+        <label for="startercss-normalize" class="small-inline">Normalize</label>
+      </li>
+      <li>
+        <input type="radio" id="startercss-reset" name="startercss" checked value="reset">
+        <label for="startercss-reset" class="small-inline">Reset</label>
+      </li>
+      <li>
+        <input type="radio" id="startercss-neither" name="startercss" checked value="neither">
+        <label for="startercss-neither" class="small-inline">Neither</label>
+      </li>
+  </ul>
+
+</div>
+
+<div id="prefix-options-form" class="settings-row top-label-form">
+
+  <h4>
+    Vendor Prefixing
+  </h4>
+
+  <div class="help-flyout-link">
+    <svg class="icon-help" viewBox="0 0 100 100">
+      <path d="M75,0H25C11.19,0,0,11.193,0,25v50c0,13.802,11.19,25,25,25h50c13.811,0,25-11.198,25-25V25C100,11.193,88.811,0,75,0z
+   M57.203,85.067H41.504V72.542h15.699V85.067L57.203,85.067z M73.357,42.041c-0.84,2.066-1.873,3.834-3.102,5.298
+  c-1.235,1.474-2.604,2.718-4.101,3.751c-1.498,1.035-2.922,2.066-4.249,3.101c-1.333,1.034-1.553,2.214-2.596,3.547
+  c-1.025,1.335-0.977,3.004-0.977,5.006v3.924H41.668v-4.623c0-2.864,1.366-5.265,2.27-7.202c0.896-1.935,2.255-3.581,3.459-4.947
+  c1.196-1.367,2.62-2.556,3.955-3.557c1.327-0.993,2.637-1.993,3.776-2.995c1.123-1.001,2.083-2.1,2.783-3.304
+  c0.7-1.197,1.043-2.694,0.977-4.5c0-3.06-0.74-5.33-2.245-6.795c-1.498-1.465-3.582-2.206-6.25-2.206c-1.8,0-3.337,0.351-4.639,1.05
+  c-1.303,0.7-2.369,1.635-3.199,2.808c-0.837,1.163-1.448,3.593-1.847,5.156c-0.407,1.57-0.602,6.115-0.602,6.115H25.399
+  c0.073-8.333,0.684-7.963,1.855-10.965c1.164-2.995,2.8-6.132,4.899-8.33c2.099-2.197,4.63-4.179,7.601-5.417
+  c2.962-1.228,6.283-1.977,9.945-1.977c4.736,0,8.683,0.581,11.856,1.876c3.167,1.302,5.713,2.889,7.65,4.817
+  c1.929,1.937,3.312,4.004,4.149,6.234c0.831,2.237,1.245,4.313,1.245,6.242C74.601,37.354,74.187,39.975,73.357,42.041z"/>
+    </svg>
+    <div class="help-flyout help-flyout-reverse">
+      <h5>About Vendor Prefixing</h5>
+      <svg class="icon-x" viewBox="0 0 100 100">
+        <path d="M96.8 83.7L63.1 50l33.7-33.7c3.6-3.6 3.6-9.4 0-13.1s-9.5-3.6-13.1 0L50 36.9 16.3 3.2C12.7-.4 6.9-.4 3.2 3.2s-3.6 9.5 0 13.1L36.9 50 3.2 83.7c-3.6 3.6-3.6 9.4 0 13.1s9.5 3.6 13.1 0L50 63.1l33.7 33.7c3.6 3.6 9.4 3.6 13.1 0s3.6-9.5 0-13.1z"/>
+      </svg>
+      <p>To get the best cross-browser support, it is a common practice to apply vendor prefixes to CSS properties and values that require them to work. For instance <code>-webkit-</code> or <code>-moz-</code>.</p>
+      <p>We offer two popular choices: <a href="https://github.com/postcss/autoprefixer" target="blank" rel="noopener">Autoprefixer</a> (which processes your CSS server-side) and <a href="http://leaverou.github.io/prefixfree/" target="_blank" rel="noopener">-prefix-free</a> (which applies prefixes via a script, client-side).</p>
+    </div>
+  </div>
+
+  <ul class="radio-list">
+      <li>
+        <input type="radio" id="prefix-autoprefixer" name="prefix" value="autoprefixer">
+        <label for="prefix-autoprefixer" class="small-inline">Autoprefixer</label>
+      </li>
+      <li>
+        <input type="radio" id="prefix-prefixfree" name="prefix" value="prefixfree">
+        <label for="prefix-prefixfree" class="small-inline">Prefixfree</label>
+      </li>
+      <li>
+        <input type="radio" id="prefix-neither" name="prefix" value="neither">
+        <label for="prefix-neither" class="small-inline">Neither</label>
+      </li>
+  </ul>
+</div>
+
+<div id="external-css-resources" class="settings-row">
+
+  <h4>
+    Add External Stylesheets/Pens
+  </h4>
+
+  <p>Any URLs added here will be added as <code>&lt;link></code>s in order, and before the CSS in the editor. You can use the CSS from another Pen by using its URL and the proper <a href="https://blog.codepen.io/documentation/url-extensions/">URL extension</a>.</p>
+
+  <div class="resource-search-bar">
+    <svg class="icon icon-mag" viewBox="0 0 56.7 56.7">
+      <path d="M42.8,7.3C33-2.4,17.1-2.4,7.3,7.3c-9.8,9.8-9.8,25.7,0,35.5c8.7,8.7,22.2,9.7,32,2.9l9.6,9.6c1.8,1.8,4.7,1.8,6.4,0
+	c1.8-1.8,1.8-4.7,0-6.4l-9.6-9.6C52.5,29.5,51.5,16,42.8,7.3z M36.6,36.6c-6.4,6.4-16.7,6.4-23.1,0s-6.4-16.7,0-23.1
+	c6.4-6.4,16.7-6.4,23.1,0C43,19.9,43,30.3,36.6,36.6z"/>
+    </svg>
+
+    <input id="external-css-search" type="text" value="" placeholder="Search for resources (Bootstrap, Foundation, Animate.css...)">
+  </div>
+
+  <div class="algolia-shoutout">
+    <a href="https://www.algolia.com/?utm_source=react-instantsearch&utm_medium=website&utm_content=codepen.io&utm_campaign=poweredby" target="_blank">
+      Powered by <img alt="Algolia" src="https://cpwebassets.codepen.io/assets/settings/algolia-9e1c0c887f4db420704b2a79926864019ef156bcecc9d5774a7e4eaa731fc5b5.svg" />
+    </a>
+  </div>
+
+  <div class="help-flyout-link">
+    <svg class="icon-help" viewBox="0 0 100 100">
+      <path d="M75,0H25C11.19,0,0,11.193,0,25v50c0,13.802,11.19,25,25,25h50c13.811,0,25-11.198,25-25V25C100,11.193,88.811,0,75,0z
+   M57.203,85.067H41.504V72.542h15.699V85.067L57.203,85.067z M73.357,42.041c-0.84,2.066-1.873,3.834-3.102,5.298
+  c-1.235,1.474-2.604,2.718-4.101,3.751c-1.498,1.035-2.922,2.066-4.249,3.101c-1.333,1.034-1.553,2.214-2.596,3.547
+  c-1.025,1.335-0.977,3.004-0.977,5.006v3.924H41.668v-4.623c0-2.864,1.366-5.265,2.27-7.202c0.896-1.935,2.255-3.581,3.459-4.947
+  c1.196-1.367,2.62-2.556,3.955-3.557c1.327-0.993,2.637-1.993,3.776-2.995c1.123-1.001,2.083-2.1,2.783-3.304
+  c0.7-1.197,1.043-2.694,0.977-4.5c0-3.06-0.74-5.33-2.245-6.795c-1.498-1.465-3.582-2.206-6.25-2.206c-1.8,0-3.337,0.351-4.639,1.05
+  c-1.303,0.7-2.369,1.635-3.199,2.808c-0.837,1.163-1.448,3.593-1.847,5.156c-0.407,1.57-0.602,6.115-0.602,6.115H25.399
+  c0.073-8.333,0.684-7.963,1.855-10.965c1.164-2.995,2.8-6.132,4.899-8.33c2.099-2.197,4.63-4.179,7.601-5.417
+  c2.962-1.228,6.283-1.977,9.945-1.977c4.736,0,8.683,0.581,11.856,1.876c3.167,1.302,5.713,2.889,7.65,4.817
+  c1.929,1.937,3.312,4.004,4.149,6.234c0.831,2.237,1.245,4.313,1.245,6.242C74.601,37.354,74.187,39.975,73.357,42.041z"/>
+    </svg>
+    <div class="help-flyout help-flyout-reverse">
+      <h5>About External Resources</h5>
+      <svg class="icon-x" viewBox="0 0 100 100">
+        <path d="M96.8 83.7L63.1 50l33.7-33.7c3.6-3.6 3.6-9.4 0-13.1s-9.5-3.6-13.1 0L50 36.9 16.3 3.2C12.7-.4 6.9-.4 3.2 3.2s-3.6 9.5 0 13.1L36.9 50 3.2 83.7c-3.6 3.6-3.6 9.4 0 13.1s9.5 3.6 13.1 0L50 63.1l33.7 33.7c3.6 3.6 9.4 3.6 13.1 0s3.6-9.5 0-13.1z"/>
+      </svg>
+      <p>You can apply CSS to your Pen from any stylesheet on the web. Just put a URL to it here and we'll apply it, in the order you have them, before the CSS in the Pen itself.</p>
+      <p>You can also link to another Pen here (use the <code>.css</code> <a href="https://blog.codepen.io/documentation/url-extensions/">URL Extension</a>) and we'll pull the CSS from that Pen and include it. If it's using a <em>matching</em> preprocessor, use the appropriate URL Extension and we'll combine the code before preprocessing, so you can use the linked Pen as a true dependency.</p>
+      <p><a href="https://blog.codepen.io/documentation/editor/adding-external-resources/" target="_blank" rel="noopener">Learn more</a></p>
+    </div>
+  </div>
+
+  <div id="css-external-resources" class="external-resource-wrapper">
+</div>
+
+<script id="css-external-resources-template" nonce="cs0PLxy2izw=" type="text/template">
+  <div data-view-id="<%= view_id %>" class="external-resource-url-row <%= insecure_resource %>">
+
+    <span class="move-external-url">
+      <svg viewBox="0 0 17 20" class="icon-drag-handle" width="20" height="17">
+        <path d="m1.5 3a1.5 1.5 0 0 1 0-3h17a1.5 1.5 0 0 1 0 3zm0 7a1.5 1.5 0 0 1 0-3h17a1.5 1.5 0 0 1 0 3zm0 7a1.5 1.5 0 0 1 0-3h17a1.5 1.5 0 0 1 0 3z"/>
+      </svg>
+    </span>
+
+    <input
+      id="external-resource-input-<%= view_id %>"
+      class="fullwidth css-resource external-resource"
+      type="text"
+      pattern="^((ftp|http|https):)?\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?$"
+      name="external-css"
+      placeholder="<%= placeholder %>"
+      value="<%= url %>"
+      data-view-id="<%= view_id %>">
+
+    <span class="insecure-resource-tooltip resource-problem-tooltip">
+      <div class="help-flyout-link">
+        <span class="icon-help">?</span>
+        <div class="help-flyout help-flyout-reverse">
+          <svg class="icon-x" viewBox="0 0 100 100">
+            <path d="M96.8 83.7L63.1 50l33.7-33.7c3.6-3.6 3.6-9.4 0-13.1s-9.5-3.6-13.1 0L50 36.9 16.3 3.2C12.7-.4 6.9-.4 3.2 3.2s-3.6 9.5 0 13.1L36.9 50 3.2 83.7c-3.6 3.6-3.6 9.4 0 13.1s9.5 3.6 13.1 0L50 63.1l33.7 33.7c3.6 3.6 9.4 3.6 13.1 0s3.6-9.5 0-13.1z"/>
+          </svg>
+          <h5>Insecure Resource</h5>
+          <p>You are linking to a resource using the non-secure http:// protocol, which may not work when the browser is using https:// like CodePen enforces.</p>
+        </div>
+      </div>
+    </span>
+
+    <span class="not-using-url-extension-tooltip resource-problem-tooltip">
+      <div class="help-flyout-link">
+        <span class="icon-help">?</span>
+        <div class="help-flyout help-flyout-reverse">
+          <svg class="icon-x" viewBox="0 0 100 100">
+            <path d="M96.8 83.7L63.1 50l33.7-33.7c3.6-3.6 3.6-9.4 0-13.1s-9.5-3.6-13.1 0L50 36.9 16.3 3.2C12.7-.4 6.9-.4 3.2 3.2s-3.6 9.5 0 13.1L36.9 50 3.2 83.7c-3.6 3.6-3.6 9.4 0 13.1s9.5 3.6 13.1 0L50 63.1l33.7 33.7c3.6 3.6 9.4 3.6 13.1 0s3.6-9.5 0-13.1z"/>
+          </svg>
+          <h5>URL Extension Required</h5>
+          <p>When linking another Pen as a resource, make sure you use a <a href="https://blog.codepen.io/documentation/url-extensions/">URL Extension</a> of the type of code you want to link to. Either <code>.css</code>, <code>.js</code>, or the extension of a matching code processor.</p>
+        </div>
+      </div>
+    </span>
+
+    <div class="resource-actions">
+      <span class="remove-external-url external-url-option" data-view-id="<%= view_id %>">
+        <svg class="icon-x" viewBox="0 0 100 100" width="12" height="12">
+          <path d="M96.8 83.7L63.1 50l33.7-33.7c3.6-3.6 3.6-9.4 0-13.1s-9.5-3.6-13.1 0L50 36.9 16.3 3.2C12.7-.4 6.9-.4 3.2 3.2s-3.6 9.5 0 13.1L36.9 50 3.2 83.7c-3.6 3.6-3.6 9.4 0 13.1s9.5 3.6 13.1 0L50 63.1l33.7 33.7c3.6 3.6 9.4 3.6 13.1 0s3.6-9.5 0-13.1z"/>
+        </svg>
+      </span>
+
+      <a id="external-resource-input-view-link-<%= view_id %>" class="open-external-url external-url-option" target="_blank" rel="noopener" data-view-id="<%= view_id %>" href="<%= url %>">
+        <svg viewBox="0 0 30.5 16.5" id="icon-eye" width="14" height="14">
+          <path d="M15.3,0C8.9,0,3.3,3.3,0,8.3c3.3,5,8.9,8.3,15.3,8.3c6.4,0,12-3.3,15.3-8.3C27.3,3.3,21.7,0,15.3,0z M15.3,14.5 c-3.4,0-6.2-2.8-6.2-6.2C9,4.8,11.8,2,15.3,2c3.4,0,6.2,2.8,6.2,6.2C21.5,11.7,18.7,14.5,15.3,14.5z"/>
+        </svg>
+      </a>
+    </div>
+
+  </div>
+</script>
+
+
+  <div class="external-resource-actions group">
+    <span id="add-css-resource" class="button mini-button button-medium add-resource" data-type="css">
+      <span data-type="css">+ add another resource</span>
+    </span>
+  </div>
+
+</div>
+
+      </div>
+      <div class="settings tab-page" id="settings-js">
+        <div class="item-settings-javascript normal-labels">
+
+
+    <h3>
+      JavaScript
+    </h3>
+
+    <div class="item-settings-javascript-preprocessor settings-row">
+
+      <h4>
+        <label for="js-preprocessor">
+          JavaScript Preprocessor
+        </label>
+      </h4>
+
+      <div class="help-flyout-link">
+        <svg class="icon-help" viewBox="0 0 100 100" width="14" height="14">
+          <path d="M75,0H25C11.19,0,0,11.193,0,25v50c0,13.802,11.19,25,25,25h50c13.811,0,25-11.198,25-25V25C100,11.193,88.811,0,75,0z
+   M57.203,85.067H41.504V72.542h15.699V85.067L57.203,85.067z M73.357,42.041c-0.84,2.066-1.873,3.834-3.102,5.298
+  c-1.235,1.474-2.604,2.718-4.101,3.751c-1.498,1.035-2.922,2.066-4.249,3.101c-1.333,1.034-1.553,2.214-2.596,3.547
+  c-1.025,1.335-0.977,3.004-0.977,5.006v3.924H41.668v-4.623c0-2.864,1.366-5.265,2.27-7.202c0.896-1.935,2.255-3.581,3.459-4.947
+  c1.196-1.367,2.62-2.556,3.955-3.557c1.327-0.993,2.637-1.993,3.776-2.995c1.123-1.001,2.083-2.1,2.783-3.304
+  c0.7-1.197,1.043-2.694,0.977-4.5c0-3.06-0.74-5.33-2.245-6.795c-1.498-1.465-3.582-2.206-6.25-2.206c-1.8,0-3.337,0.351-4.639,1.05
+  c-1.303,0.7-2.369,1.635-3.199,2.808c-0.837,1.163-1.448,3.593-1.847,5.156c-0.407,1.57-0.602,6.115-0.602,6.115H25.399
+  c0.073-8.333,0.684-7.963,1.855-10.965c1.164-2.995,2.8-6.132,4.899-8.33c2.099-2.197,4.63-4.179,7.601-5.417
+  c2.962-1.228,6.283-1.977,9.945-1.977c4.736,0,8.683,0.581,11.856,1.876c3.167,1.302,5.713,2.889,7.65,4.817
+  c1.929,1.937,3.312,4.004,4.149,6.234c0.831,2.237,1.245,4.313,1.245,6.242C74.601,37.354,74.187,39.975,73.357,42.041z"/>
+        </svg>
+        <div class="help-flyout help-flyout-reverse">
+          <h5>About JavaScript Preprocessors</h5>
+          <svg class="icon-x" viewBox="0 0 100 100" width="12" height="12">
+            <path d="M96.8 83.7L63.1 50l33.7-33.7c3.6-3.6 3.6-9.4 0-13.1s-9.5-3.6-13.1 0L50 36.9 16.3 3.2C12.7-.4 6.9-.4 3.2 3.2s-3.6 9.5 0 13.1L36.9 50 3.2 83.7c-3.6 3.6-3.6 9.4 0 13.1s9.5 3.6 13.1 0L50 63.1l33.7 33.7c3.6 3.6 9.4 3.6 13.1 0s3.6-9.5 0-13.1z"/>
+          </svg>
+          <p>JavaScript preprocessors can help make authoring JavaScript easier and more convenient.</p>
+          <p><a href="https://blog.codepen.io/documentation/editor/using-js-preprocessors/" target="_blank" rel="noopener">Learn more</a> &middot; <a href="/versions/" target="_blank">Versions</a></p>
+        </div>
+      </div>
+
+      <div class="custom-select-wrap">
+        <select name="js-preprocessor" id="js-preprocessor" class="fullwidth">
+            <option value="none">None</option>
+            <option value="babel">Babel</option>
+            <option value="typescript">TypeScript</option>
+            <option value="coffeescript">CoffeeScript</option>
+            <option value="livescript">LiveScript</option>
+        </select>
+        <div class="select-icon">
+          <svg viewBox="-122.9 121.1 105.9 61.9" class="icon-arrow-down-mini">
+            <path d="M-63.2,180.3l43.5-43.5c1.7-1.7,2.7-4,2.7-6.5s-1-4.8-2.7-6.5c-1.7-1.7-4-2.7-6.5-2.7s-4.8,1-6.5,2.7l-37.2,37.2l-37.2-37.2
+        c-1.7-1.7-4-2.7-6.5-2.7s-4.8,1-6.5,2.6c-1.9,1.8-2.8,4.2-2.8,6.6c0,2.3,0.9,4.6,2.6,6.5l0,0c11.4,11.5,41,41.2,43,43.3l0.2,0.2
+        C-73.5,183.9-66.8,183.9-63.2,180.3z"/>
+          </svg>
+          <svg viewBox="-122.9 121.1 105.9 61.9" class="icon-arrow-down-mini">
+            <path d="M-63.2,180.3l43.5-43.5c1.7-1.7,2.7-4,2.7-6.5s-1-4.8-2.7-6.5c-1.7-1.7-4-2.7-6.5-2.7s-4.8,1-6.5,2.7l-37.2,37.2l-37.2-37.2
+        c-1.7-1.7-4-2.7-6.5-2.7s-4.8,1-6.5,2.6c-1.9,1.8-2.8,4.2-2.8,6.6c0,2.3,0.9,4.6,2.6,6.5l0,0c11.4,11.5,41,41.2,43,43.3l0.2,0.2
+        C-73.5,183.9-66.8,183.9-63.2,180.3z"/>
+          </svg>
+        </div>
+      </div>
+
+      <p><small>Babel includes JSX processing.</small></p>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="external-js-resources" class="item-settings-javascript-external settings-row external-js-resources top-label-form">
+
+      <h4>
+        Add External Scripts/Pens
+      </h4>
+
+      <p>Any URL's added here will be added as <code>&lt;script></code>s in order, and run <em>before</em> the JavaScript in the editor. You can use the URL of any other Pen and it will include the JavaScript from that Pen.</p>
+
+      <div class="resource-search-bar">
+        <svg viewBox="0 0 56.7 56.7" class="icon icon-mag" width="18" height="18">
+          <path d="M42.8,7.3C33-2.4,17.1-2.4,7.3,7.3c-9.8,9.8-9.8,25.7,0,35.5c8.7,8.7,22.2,9.7,32,2.9l9.6,9.6c1.8,1.8,4.7,1.8,6.4,0
+	c1.8-1.8,1.8-4.7,0-6.4l-9.6-9.6C52.5,29.5,51.5,16,42.8,7.3z M36.6,36.6c-6.4,6.4-16.7,6.4-23.1,0s-6.4-16.7,0-23.1
+	c6.4-6.4,16.7-6.4,23.1,0C43,19.9,43,30.3,36.6,36.6z"/>
+        </svg>
+
+        <input id="external-js-search" type="text" value="" placeholder="Search CDNjs (jQuery, Lodash, React, Angular, Vue.js, Ember...)">
+      </div>
+
+      <div class="algolia-shoutout">
+        <a href="https://www.algolia.com/?utm_source=react-instantsearch&utm_medium=website&utm_content=codepen.io&utm_campaign=poweredby" target="_blank">
+          Powered by <img alt="Algolia" src="https://cpwebassets.codepen.io/assets/settings/algolia-9e1c0c887f4db420704b2a79926864019ef156bcecc9d5774a7e4eaa731fc5b5.svg" />
+        </a>
+      </div>
+
+      <div class="help-flyout-link">
+        <svg class="icon-help" viewBox="0 0 100 100" width="14" height="14">
+          <path d="M75,0H25C11.19,0,0,11.193,0,25v50c0,13.802,11.19,25,25,25h50c13.811,0,25-11.198,25-25V25C100,11.193,88.811,0,75,0z
+   M57.203,85.067H41.504V72.542h15.699V85.067L57.203,85.067z M73.357,42.041c-0.84,2.066-1.873,3.834-3.102,5.298
+  c-1.235,1.474-2.604,2.718-4.101,3.751c-1.498,1.035-2.922,2.066-4.249,3.101c-1.333,1.034-1.553,2.214-2.596,3.547
+  c-1.025,1.335-0.977,3.004-0.977,5.006v3.924H41.668v-4.623c0-2.864,1.366-5.265,2.27-7.202c0.896-1.935,2.255-3.581,3.459-4.947
+  c1.196-1.367,2.62-2.556,3.955-3.557c1.327-0.993,2.637-1.993,3.776-2.995c1.123-1.001,2.083-2.1,2.783-3.304
+  c0.7-1.197,1.043-2.694,0.977-4.5c0-3.06-0.74-5.33-2.245-6.795c-1.498-1.465-3.582-2.206-6.25-2.206c-1.8,0-3.337,0.351-4.639,1.05
+  c-1.303,0.7-2.369,1.635-3.199,2.808c-0.837,1.163-1.448,3.593-1.847,5.156c-0.407,1.57-0.602,6.115-0.602,6.115H25.399
+  c0.073-8.333,0.684-7.963,1.855-10.965c1.164-2.995,2.8-6.132,4.899-8.33c2.099-2.197,4.63-4.179,7.601-5.417
+  c2.962-1.228,6.283-1.977,9.945-1.977c4.736,0,8.683,0.581,11.856,1.876c3.167,1.302,5.713,2.889,7.65,4.817
+  c1.929,1.937,3.312,4.004,4.149,6.234c0.831,2.237,1.245,4.313,1.245,6.242C74.601,37.354,74.187,39.975,73.357,42.041z"/>
+        </svg>
+        <div class="help-flyout help-flyout-reverse">
+          <h5>About External Resources</h5>
+          <svg class="icon-x" viewBox="0 0 100 100" height="12" width="12">
+            <path d="M96.8 83.7L63.1 50l33.7-33.7c3.6-3.6 3.6-9.4 0-13.1s-9.5-3.6-13.1 0L50 36.9 16.3 3.2C12.7-.4 6.9-.4 3.2 3.2s-3.6 9.5 0 13.1L36.9 50 3.2 83.7c-3.6 3.6-3.6 9.4 0 13.1s9.5 3.6 13.1 0L50 63.1l33.7 33.7c3.6 3.6 9.4 3.6 13.1 0s3.6-9.5 0-13.1z"/>
+          </svg>
+          <p>You can apply a script from anywhere on the web to your Pen. Just put a URL to it here and we'll add it, in the order you have them, before the JavaScript in the Pen itself.</p>
+          <p>If the script you link to has the file extension of a preprocessor, we'll attempt to process it before applying.</p>
+          <p>You can also link to another Pen here, and we'll pull the JavaScript from that Pen and include it. If it's using a matching preprocessor, we'll combine the code before preprocessing, so you can use the linked Pen as a true dependency.</p>
+          <p><a href="https://blog.codepen.io/documentation/adding-external-resources/" rel="noopener" target="_blank">Learn more</a></p>
+        </div>
+      </div>
+
+      <div id="js-external-resources" class="external-resource-wrapper">
+</div>
+
+<script id="js-external-resources-template" nonce="cs0PLxy2izw=" type="text/template">
+  <div data-view-id="<%= view_id %>" class="external-resource-url-row <%= insecure_resource %>">
+
+    <span class="move-external-url">
+      <svg viewBox="0 0 17 20" class="icon-drag-handle" width="20" height="17">
+        <path d="m1.5 3a1.5 1.5 0 0 1 0-3h17a1.5 1.5 0 0 1 0 3zm0 7a1.5 1.5 0 0 1 0-3h17a1.5 1.5 0 0 1 0 3zm0 7a1.5 1.5 0 0 1 0-3h17a1.5 1.5 0 0 1 0 3z"/>
+      </svg>
+    </span>
+
+    <input
+      id="external-resource-input-<%= view_id %>"
+      class="fullwidth js-resource external-resource"
+      type="text"
+      pattern="^((ftp|http|https):)?\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?$"
+      name="external-js"
+      placeholder="<%= placeholder %>"
+      value="<%= url %>"
+      data-view-id="<%= view_id %>">
+
+    <span class="insecure-resource-tooltip resource-problem-tooltip">
+      <div class="help-flyout-link">
+        <span class="icon-help">?</span>
+        <div class="help-flyout help-flyout-reverse">
+          <svg class="icon-x" viewBox="0 0 100 100">
+            <path d="M96.8 83.7L63.1 50l33.7-33.7c3.6-3.6 3.6-9.4 0-13.1s-9.5-3.6-13.1 0L50 36.9 16.3 3.2C12.7-.4 6.9-.4 3.2 3.2s-3.6 9.5 0 13.1L36.9 50 3.2 83.7c-3.6 3.6-3.6 9.4 0 13.1s9.5 3.6 13.1 0L50 63.1l33.7 33.7c3.6 3.6 9.4 3.6 13.1 0s3.6-9.5 0-13.1z"/>
+          </svg>
+          <h5>Insecure Resource</h5>
+          <p>You are linking to a resource using the non-secure http:// protocol, which may not work when the browser is using https:// like CodePen enforces.</p>
+        </div>
+      </div>
+    </span>
+
+    <span class="not-using-url-extension-tooltip resource-problem-tooltip">
+      <div class="help-flyout-link">
+        <span class="icon-help">?</span>
+        <div class="help-flyout help-flyout-reverse">
+          <svg class="icon-x" viewBox="0 0 100 100">
+            <path d="M96.8 83.7L63.1 50l33.7-33.7c3.6-3.6 3.6-9.4 0-13.1s-9.5-3.6-13.1 0L50 36.9 16.3 3.2C12.7-.4 6.9-.4 3.2 3.2s-3.6 9.5 0 13.1L36.9 50 3.2 83.7c-3.6 3.6-3.6 9.4 0 13.1s9.5 3.6 13.1 0L50 63.1l33.7 33.7c3.6 3.6 9.4 3.6 13.1 0s3.6-9.5 0-13.1z"/>
+          </svg>
+          <h5>URL Extension Required</h5>
+          <p>When linking another Pen as a resource, make sure you use a <a href="https://blog.codepen.io/documentation/url-extensions/">URL Extension</a> of the type of code you want to link to. Either <code>.css</code>, <code>.js</code>, or the extension of a matching code processor.</p>
+        </div>
+      </div>
+    </span>
+
+    <div class="resource-actions">
+      <span class="remove-external-url external-url-option" data-view-id="<%= view_id %>">
+        <svg class="icon-x" viewBox="0 0 100 100" width="12" height="12">
+          <path d="M96.8 83.7L63.1 50l33.7-33.7c3.6-3.6 3.6-9.4 0-13.1s-9.5-3.6-13.1 0L50 36.9 16.3 3.2C12.7-.4 6.9-.4 3.2 3.2s-3.6 9.5 0 13.1L36.9 50 3.2 83.7c-3.6 3.6-3.6 9.4 0 13.1s9.5 3.6 13.1 0L50 63.1l33.7 33.7c3.6 3.6 9.4 3.6 13.1 0s3.6-9.5 0-13.1z"/>
+        </svg>
+      </span>
+
+      <a id="external-resource-input-view-link-<%= view_id %>" class="open-external-url external-url-option" target="_blank" rel="noopener" data-view-id="<%= view_id %>" href="<%= url %>">
+        <svg viewBox="0 0 30.5 16.5" id="icon-eye" width="14" height="14">
+          <path d="M15.3,0C8.9,0,3.3,3.3,0,8.3c3.3,5,8.9,8.3,15.3,8.3c6.4,0,12-3.3,15.3-8.3C27.3,3.3,21.7,0,15.3,0z M15.3,14.5 c-3.4,0-6.2-2.8-6.2-6.2C9,4.8,11.8,2,15.3,2c3.4,0,6.2,2.8,6.2,6.2C21.5,11.7,18.7,14.5,15.3,14.5z"/>
+        </svg>
+      </a>
+    </div>
+
+  </div>
+</script>
+
+
+      <div class="external-resource-actions group">
+        <span id="add-js-resource" class="button button-medium mini-button add-resource" data-type="js">
+          <span data-type="js">+ add another resource</span>
+        </span>
+      </div>
+    </div>
+
+  <h3 aria-label="Packages">Packages</h3>
+
+  <div class="item-settings-packages settings-row" id="item-settings-packages">
+
+    <h4>Add Packages</h4>
+
+    <p>Search for and use JavaScript packages from <a href="https://www.npmjs.com/" target="blank" rel="noopener">npm</a> here. By selecting a package, an <code>import</code> statement will be added to the top of the JavaScript editor for this package.</p>
+
+    <div class="resource-search-bar">
+      <svg viewBox="0 0 56.7 56.7" class="icon icon-mag" width="18" height="18">
+        <path d="M42.8,7.3C33-2.4,17.1-2.4,7.3,7.3c-9.8,9.8-9.8,25.7,0,35.5c8.7,8.7,22.2,9.7,32,2.9l9.6,9.6c1.8,1.8,4.7,1.8,6.4,0
+c1.8-1.8,1.8-4.7,0-6.4l-9.6-9.6C52.5,29.5,51.5,16,42.8,7.3z M36.6,36.6c-6.4,6.4-16.7,6.4-23.1,0s-6.4-16.7,0-23.1
+c6.4-6.4,16.7-6.4,23.1,0C43,19.9,43,30.3,36.6,36.6z"/>
+      </svg>
+      <input id="packages-search" type="text" value="" placeholder="Search npm and add a package...">
+    </div>
+
+    <div class="algolia-shoutout">
+      <a href="https://www.algolia.com/?utm_source=react-instantsearch&utm_medium=website&utm_content=codepen.io&utm_campaign=poweredby" target="_blank">
+        Powered by <img alt="Algolia" src="https://cpwebassets.codepen.io/assets/settings/algolia-9e1c0c887f4db420704b2a79926864019ef156bcecc9d5774a7e4eaa731fc5b5.svg" />
+      </a>
+    </div>
+
+    <div class="help-flyout-link">
+      <svg class="icon-help" viewBox="0 0 100 100" width="14" height="14">
+        <path d="M75,0H25C11.19,0,0,11.193,0,25v50c0,13.802,11.19,25,25,25h50c13.811,0,25-11.198,25-25V25C100,11.193,88.811,0,75,0z
+   M57.203,85.067H41.504V72.542h15.699V85.067L57.203,85.067z M73.357,42.041c-0.84,2.066-1.873,3.834-3.102,5.298
+  c-1.235,1.474-2.604,2.718-4.101,3.751c-1.498,1.035-2.922,2.066-4.249,3.101c-1.333,1.034-1.553,2.214-2.596,3.547
+  c-1.025,1.335-0.977,3.004-0.977,5.006v3.924H41.668v-4.623c0-2.864,1.366-5.265,2.27-7.202c0.896-1.935,2.255-3.581,3.459-4.947
+  c1.196-1.367,2.62-2.556,3.955-3.557c1.327-0.993,2.637-1.993,3.776-2.995c1.123-1.001,2.083-2.1,2.783-3.304
+  c0.7-1.197,1.043-2.694,0.977-4.5c0-3.06-0.74-5.33-2.245-6.795c-1.498-1.465-3.582-2.206-6.25-2.206c-1.8,0-3.337,0.351-4.639,1.05
+  c-1.303,0.7-2.369,1.635-3.199,2.808c-0.837,1.163-1.448,3.593-1.847,5.156c-0.407,1.57-0.602,6.115-0.602,6.115H25.399
+  c0.073-8.333,0.684-7.963,1.855-10.965c1.164-2.995,2.8-6.132,4.899-8.33c2.099-2.197,4.63-4.179,7.601-5.417
+  c2.962-1.228,6.283-1.977,9.945-1.977c4.736,0,8.683,0.581,11.856,1.876c3.167,1.302,5.713,2.889,7.65,4.817
+  c1.929,1.937,3.312,4.004,4.149,6.234c0.831,2.237,1.245,4.313,1.245,6.242C74.601,37.354,74.187,39.975,73.357,42.041z"/>
+      </svg>
+      <div class="help-flyout help-flyout-reverse">
+        <h5>About Packages</h5>
+        <svg class="icon-x" viewBox="0 0 100 100" width="12" height="12">
+          <path d="M96.8 83.7L63.1 50l33.7-33.7c3.6-3.6 3.6-9.4 0-13.1s-9.5-3.6-13.1 0L50 36.9 16.3 3.2C12.7-.4 6.9-.4 3.2 3.2s-3.6 9.5 0 13.1L36.9 50 3.2 83.7c-3.6 3.6-3.6 9.4 0 13.1s9.5 3.6 13.1 0L50 63.1l33.7 33.7c3.6 3.6 9.4 3.6 13.1 0s3.6-9.5 0-13.1z"/>
+        </svg>
+        <p>Using packages here is powered by <a href="https://esm.sh/">esm.sh</a>, which makes packages from npm not only available on a CDN, but prepares them for native JavaScript ESM usage.</p>
+        <p>All packages are different, so refer to their docs for how they work.</p>
+        <p>If you're using React / ReactDOM, make sure to turn on Babel for the JSX processing.</p>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+      </div>
+
+      <div class="settings tab-page" id="settings-behavior">
+        <h3 aria-label="Pen Behavior">Behavior</h3>
+
+<div class="settings-row">
+
+  <h4>Auto Save</h4>
+
+  <div>
+    <p class="hint">If active, Pens will autosave every 30 seconds after being saved once.</p>
+
+    <div class="ios-toggle-mega-label-wrap">
+      <span class="ios-toggle ios-toggle-reverse">
+        <input type="checkbox" id="auto-save" name="auto-save" checked>
+        <label for="auto-save"></label>
+        <label for="auto-save" class="ios-toggle-mega-label"></label>
+      </span>
+    </div>
+  </div>
+
+</div>
+
+<div class="settings-row">
+
+  <h4>Auto-Updating Preview</h4>
+
+  <p class="hint">If enabled, the preview panel updates automatically as you code. If disabled, use the "Run" button to update.</p>
+
+  <div class="ios-toggle-mega-label-wrap">
+    <span class="ios-toggle ios-toggle-reverse">
+      <input type="checkbox" id="auto-run" name="auto-run" checked>
+      <label for="auto-run"></label>
+      <label for="auto-run" class="ios-toggle-mega-label"></label>
+    </span>
+  </div>
+
+</div>
+
+<div class="settings-row">
+
+  <h4>Format on Save</h4>
+
+  <p class="hint">If enabled, your code will be formatted when you actively save your Pen. <strong><span class="inline-note">Note:</span> your code becomes un-folded during formatting.</strong></p>
+
+  <div class="ios-toggle-mega-label-wrap">
+    <span class="ios-toggle ios-toggle-reverse">
+      <input type="checkbox" id="format_on_save" name="format_on_save">
+      <label for="format_on_save"></label>
+      <label for="format_on_save" class="ios-toggle-mega-label"></label>
+    </span>
+  </div>
+
+
+</div>
+
+      </div>
+      <div class="settings tab-page" id="settings-editor">
+        <h3 aria-label="Editor Settings">Editor Settings</h3>
+
+<div id="editor-settings-form" class="settings-row top-label-form">
+
+  <h4>
+    Code Indentation
+  </h4>
+
+  <ul class="radio-list">
+    <li>
+      <input type="radio" id="indent-with-spaces" name="indent-with" value="spaces" checked>
+      <label for="indent-with-spaces" class="small-inline">Spaces</label>
+    </li>
+    <li>
+      <input type="radio" id="indent-with-tabs" name="indent-with" value="tabs">
+      <label for="indent-with-tabs" class="small-inline">Tabs</label>
+    </li>
+  </ul>
+
+</div>
+
+<div class="settings-row top-label-form normal-labels">
+
+  <h4>
+    <label for="tab-size">
+      Code Indent width
+    </label>
+  </h4>
+
+  <div class="custom-select-wrap">
+    <select id="tab-size" class="fullwidth" name="tab-size">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+    </select>
+    <div class="select-icon">
+      <svg viewBox="-122.9 121.1 105.9 61.9" class="icon-arrow-down-mini">
+        <path d="M-63.2,180.3l43.5-43.5c1.7-1.7,2.7-4,2.7-6.5s-1-4.8-2.7-6.5c-1.7-1.7-4-2.7-6.5-2.7s-4.8,1-6.5,2.7l-37.2,37.2l-37.2-37.2
+        c-1.7-1.7-4-2.7-6.5-2.7s-4.8,1-6.5,2.6c-1.9,1.8-2.8,4.2-2.8,6.6c0,2.3,0.9,4.6,2.6,6.5l0,0c11.4,11.5,41,41.2,43,43.3l0.2,0.2
+        C-73.5,183.9-66.8,183.9-63.2,180.3z"/>
+      </svg>
+      <svg viewBox="-122.9 121.1 105.9 61.9" class="icon-arrow-down-mini">
+        <path d="M-63.2,180.3l43.5-43.5c1.7-1.7,2.7-4,2.7-6.5s-1-4.8-2.7-6.5c-1.7-1.7-4-2.7-6.5-2.7s-4.8,1-6.5,2.7l-37.2,37.2l-37.2-37.2
+        c-1.7-1.7-4-2.7-6.5-2.7s-4.8,1-6.5,2.6c-1.9,1.8-2.8,4.2-2.8,6.6c0,2.3,0.9,4.6,2.6,6.5l0,0c11.4,11.5,41,41.2,43,43.3l0.2,0.2
+        C-73.5,183.9-66.8,183.9-63.2,180.3z"/>
+      </svg>
+    </div>
+  </div>
+
+</div>
+
+<div class="settings-row">
+
+  <h4>Want to change your Syntax Highlighting theme, Fonts and more?</h4>
+
+  <p>Visit <a href="/settings/editor" target="_blank">your global Editor Settings</a>.</p>
+
+</div>
+
+      </div>
+  </div>
+
+  <footer>
+    <div class="save-and-close-wrap">
+        <input type="button" class="button button-small green button-no-right-margin close" value="Close" id="close-settings">
+    </div>
+  </footer>
+</div>
+
+
+<div class="page-wrap">
+
+  <div class="boxes">
+
+    <div class="mobile-editor-nav">
+          <button id="html-toggle" class="selected"><span>HTML</span></button>
+          <button id="css-toggle" ><span>CSS</span></button>
+          <button id="js-toggle" ><span>JS</span></button>
+      <button id="result-toggle" class="selected"><span>Result</span></button>
+    </div>
+
+    <div class="top-boxes editor-parent" data-number-of-editors="3" elementtiming="pen-editors">
+
+
+
+        <div class="editor-resizer html-editor-resizer" title="Double-click to expand."></div>
+
+        <div id="box-html" class="box box-html" data-type="html">
+
+          <div class="powers">
+            <div class="powers-drag-handle" title="Double-click to expand."></div>
+
+            <div class="editor-actions-left">
+              <h2 class="box-title html-editor-title" id="html-editor-title">
+
+                  <svg viewBox="0 0 15 15" class="file-type-icon" id="icon-file-html">
+    <rect fill="#FF3C41" width="15" height="15" rx="4"/>
+    <path d="M10.97 2.29a.563.563 0 0 0-.495-.29.572.572 0 0 0-.488.277l-5.905 9.86a.565.565 0 0 0-.007.574c.102.18.287.289.495.289a.572.572 0 0 0 .488-.277l5.905-9.86a.565.565 0 0 0 .007-.574" fill="#28282B"/>
+  </svg>
+
+
+                <span class="box-title-name">
+                  HTML
+                </span>
+                <span class="box-title-preprocessor-name "></span>
+              </h2>
+
+            </div>
+
+            <div class="editor-actions-right">
+              <div class="collaborators-indicators"></div>
+
+              <button id="settings-pane-html" class="button button-medium mini-button settings-nub" data-type="html" title="Open HTML Settings">
+                <svg viewBox="0 0 100 100" id="icon-gear" width="10" height="10">
+                  <path d="M87.687,45.077c-0.313-2.433-0.816-4.807-1.542-7.079l8.145-11.73l-5.827-7.515l-0.094-0.123l-5.824-7.514
+                    l-12.955,5.577c-2.041-1.265-4.192-2.362-6.459-3.219L59.42,0h-9.34h-0.153h-9.341l-3.709,13.474
+                    c-2.27,0.857-4.421,1.955-6.463,3.222l-12.957-5.577l-5.825,7.514l-0.097,0.124l-5.822,7.517l8.146,11.731
+                    c-0.726,2.271-1.233,4.645-1.544,7.079L0,52.032l2.08,9.375l0.033,0.15l2.08,9.375l14.001,0.761c1.295,2.028,2.771,3.926,4.4,5.668
+                    l-2.396,14.227l8.416,4.173l0.138,0.067L37.169,100l9.309-10.796c1.161,0.109,2.335,0.173,3.524,0.173s2.358-0.074,3.52-0.184
+                    l9.317,10.804l8.415-4.173l0.141-0.066l8.413-4.172l-2.396-14.228c1.628-1.741,3.104-3.64,4.4-5.672l14-0.759l2.078-9.375
+                    l0.035-0.154L100,52.025L87.687,45.077z M50.003,34.51c8.435,0,15.272,7.035,15.272,15.719c0,8.679-6.839,15.717-15.272,15.717
+                    c-8.436,0-15.272-7.038-15.272-15.717C34.731,41.545,41.569,34.51,50.003,34.51z"/>
+                </svg>
+              </button>
+
+              <button class="button mini-button button-medium editor-dropdown-button editor-dropdown-button-html" data-dropdown="#editor-dropdown-html" aria-haspopup="true" aria-expanded="false">
+  <span class="visually-hidden">
+    HTML Options
+  </span>
+  <svg viewBox="-122.9 121.1 105.9 61.9" class="icon-arrow-down-mini" width="10" height="10">
+    <path d="M-63.2,180.3l43.5-43.5c1.7-1.7,2.7-4,2.7-6.5s-1-4.8-2.7-6.5c-1.7-1.7-4-2.7-6.5-2.7s-4.8,1-6.5,2.7l-37.2,37.2l-37.2-37.2
+    c-1.7-1.7-4-2.7-6.5-2.7s-4.8,1-6.5,2.6c-1.9,1.8-2.8,4.2-2.8,6.6c0,2.3,0.9,4.6,2.6,6.5l0,0c11.4,11.5,41,41.2,43,43.3l0.2,0.2
+    C-73.5,183.9-66.8,183.9-63.2,180.3z"/>
+  </svg>
+</button>
+
+
+              <ul id="editor-dropdown-html" class="link-list is-dropdown editor-dropdown editor-dropdown-html" data-dropdown-position="css" data-dropdown-type="html">
+    <li class="editor-dropdown-list-item">
+      <button
+        id="tidy-html"
+        class="invisible-button tidy-code-button"
+        data-editor-type="html"
+      >
+        Format HTML
+      </button>
+    </li>
+    <li class="editor-dropdown-list-item">
+      <button
+        id="view-compiled-html"
+        class="invisible-button view-compiled-button"
+        data-editor-type="html"
+      >
+        View Compiled HTML
+      </button>
+    </li>
+    <li class="editor-dropdown-list-item">
+      <button
+        id="analyze-html"
+        class="invisible-button analyze-button"
+        data-editor-type="html"
+      >
+        Analyze HTML
+      </button>
+    </li>
+    <li class="editor-dropdown-list-item">
+      <button
+        id="maximize-html-editor"
+        class="invisible-button maximize-button"
+        data-editor-type="html"
+      >
+        Maximize HTML Editor
+      </button>
+    </li>
+    <li class="editor-dropdown-list-item">
+      <button
+        id="minimize-html-editor"
+        class="invisible-button minimize-button"
+        data-editor-type="html"
+      >
+        Minimize HTML Editor
+      </button>
+    </li>
+    <li class="editor-dropdown-list-item">
+      <button
+        id="fold-all-html"
+        class="invisible-button fold-all-button"
+        data-editor-type="html"
+      >
+        Fold All
+      </button>
+    </li>
+    <li class="editor-dropdown-list-item">
+      <button
+        id="unfold-all-html"
+        class="invisible-button unfold-all-button"
+        data-editor-type="html"
+      >
+        Unfold All
+      </button>
+    </li>
+</ul>
+
+            </div>
+          </div>
+
+          <div class="code-wrap notranslate" translate="no">
+            <pre id="html" class="code-box" aria-labelledby="html-editor-title">
+              <code>
+                &lt;div class=&quot;error-message&quot; id=&quot;errorMessage&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;fallback-bg&quot; id=&quot;fallbackBg&quot;&gt;&lt;/div&gt;
+
+&lt;div class=&quot;audio-enable&quot;&gt;
+  &lt;p&gt;ENTER EXPERIENCE&lt;br /&gt;WITH AUDIO&lt;/p&gt;
+  &lt;button class=&quot;enable-button&quot; id=&quot;enableBtn&quot;&gt;START&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;preloader&quot; id=&quot;preloader&quot;&gt;
+  &lt;span id=&quot;counter&quot;&gt;[000]&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;canvas id=&quot;canvas&quot;&gt;&lt;/canvas&gt;
+
+&lt;p class=&quot;text-element description&quot;&gt;THE ARCHIVE COLLECTS RECORDS OF ABANDONED WORLDS AND LOST TECHNOLOGIES, WAITING TO BE DISCOVERED.&lt;/p&gt;
+
+&lt;nav class=&quot;text-element nav-links&quot;&gt;
+  &lt;a href=&quot;#&quot;&gt;_DATA VAULTS&lt;/a&gt;
+  &lt;a href=&quot;#&quot;&gt;_DEEP SPACE&lt;/a&gt;
+  &lt;a href=&quot;#&quot;&gt;_FORBIDDEN ZONES&lt;/a&gt;
+  &lt;a href=&quot;#&quot;&gt;_EXODUS LOGS&lt;/a&gt;
+&lt;/nav&gt;
+
+&lt;div class=&quot;text-element footer&quot;&gt;
+  &lt;p&gt;Err: [404 - SIGNAL LOST]&lt;br /&gt;
+    SYSTEM TIME: CYCLE 2187.42&lt;br /&gt;
+    &lt;span style=&quot;opacity: 0.7; font-size: 0.6rem;&quot;&gt;PRESS &#39;H&#39; TO TOGGLE REFRACTION CONTROLS&lt;/span&gt;
+  &lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p class=&quot;text-element division&quot;&gt;
+  PERFORMANCE ANALYSIS: &lt;span id=&quot;fpsCounter&quot;&gt;&lt;/span&gt; FPS&lt;br&gt;
+  OPTICAL REFRACTION ENGINE: ONLINE&lt;br&gt;
+  ACCESS LEVEL: RESTRICTED.&lt;br&gt;
+  TRACE INITIATED: SOURCE UNKNOWN.
+&lt;/p&gt;
+
+&lt;p class=&quot;text-element signal&quot;&gt;_Uplink Pending...&lt;/p&gt;
+
+&lt;div class=&quot;text-element central-text&quot;&gt;
+  THE VAULT RETAINS ECHOES OF CIVILIZATIONS ERASED BY TIME&lt;br&gt;
+  DEAD SYSTEMS. BROKEN SIGNALS. MYTHS WRITTEN IN CODE.
+&lt;/div&gt;
+
+&lt;audio id=&quot;startClickSound&quot; preload=&quot;auto&quot;&gt;
+  &lt;source src=&quot;https://assets.codepen.io/7558/preloader-2s-001.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
+&lt;/audio&gt;
+
+&lt;audio id=&quot;preloaderSound&quot; preload=&quot;auto&quot;&gt;
+  &lt;source src=&quot;https://assets.codepen.io/7558/preloader-3s-002.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
+&lt;/audio&gt;
+
+&lt;audio id=&quot;hoverSound&quot; preload=&quot;auto&quot;&gt;
+  &lt;source src=&quot;https://assets.codepen.io/7558/preloader-2s-001.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
+&lt;/audio&gt;
+
+&lt;audio id=&quot;backgroundMusic&quot; loop preload=&quot;auto&quot;&gt;
+  &lt;source src=&quot;https://assets.codepen.io/7558/cinematic-02.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
+&lt;/audio&gt;
+              </code>
+            </pre>
+            <div class="error-bar" id="error-bar-html">
+              <span class="error-icon" data-type="html">
+                !
+              </span>
+            </div>
+            <span class="code-editor-status"></span>
+          </div>
+
+        </div>
+
+
+
+
+        <div class="editor-resizer css-editor-resizer" title="Double-click to expand."></div>
+
+        <div id="box-css" class="box box-css" data-type="css">
+
+          <div class="powers">
+            <div class="powers-drag-handle" title="Double-click to expand."></div>
+
+            <div class="editor-actions-left">
+              <h2 class="box-title css-editor-title" id="css-editor-title">
+
+                  <svg viewBox="0 0 15 15" class="file-type-icon" id="icon-file-css">
+    <rect fill="#0EBEFF" width="15" height="15" rx="4"/><path d="M8 8.366l1.845 1.065a.507.507 0 0 0 .686-.181.507.507 0 0 0-.186-.685L8.5 7.5l1.845-1.065a.507.507 0 0 0 .186-.685.507.507 0 0 0-.686-.181L8 6.634v-2.13A.507.507 0 0 0 7.5 4c-.268 0-.5.225-.5.503v2.131L5.155 5.569a.507.507 0 0 0-.686.181.507.507 0 0 0 .186.685L6.5 7.5 4.655 8.565a.507.507 0 0 0-.186.685c.134.232.445.32.686.181L7 8.366v2.13c0 .271.224.504.5.504.268 0 .5-.225.5-.503V8.366z" fill="#282828"/>
+  </svg>
+
+
+                <span class="box-title-name">
+                  CSS
+                </span>
+                <span class="box-title-preprocessor-name "></span>
+              </h2>
+
+            </div>
+
+            <div class="editor-actions-right">
+              <div class="collaborators-indicators"></div>
+
+              <button id="settings-pane-css" class="button button-medium mini-button settings-nub" data-type="css" title="Open CSS Settings">
+                <svg viewBox="0 0 100 100" id="icon-gear" width="10" height="10">
+                  <path d="M87.687,45.077c-0.313-2.433-0.816-4.807-1.542-7.079l8.145-11.73l-5.827-7.515l-0.094-0.123l-5.824-7.514
+                    l-12.955,5.577c-2.041-1.265-4.192-2.362-6.459-3.219L59.42,0h-9.34h-0.153h-9.341l-3.709,13.474
+                    c-2.27,0.857-4.421,1.955-6.463,3.222l-12.957-5.577l-5.825,7.514l-0.097,0.124l-5.822,7.517l8.146,11.731
+                    c-0.726,2.271-1.233,4.645-1.544,7.079L0,52.032l2.08,9.375l0.033,0.15l2.08,9.375l14.001,0.761c1.295,2.028,2.771,3.926,4.4,5.668
+                    l-2.396,14.227l8.416,4.173l0.138,0.067L37.169,100l9.309-10.796c1.161,0.109,2.335,0.173,3.524,0.173s2.358-0.074,3.52-0.184
+                    l9.317,10.804l8.415-4.173l0.141-0.066l8.413-4.172l-2.396-14.228c1.628-1.741,3.104-3.64,4.4-5.672l14-0.759l2.078-9.375
+                    l0.035-0.154L100,52.025L87.687,45.077z M50.003,34.51c8.435,0,15.272,7.035,15.272,15.719c0,8.679-6.839,15.717-15.272,15.717
+                    c-8.436,0-15.272-7.038-15.272-15.717C34.731,41.545,41.569,34.51,50.003,34.51z"/>
+                </svg>
+              </button>
+
+              <button class="button mini-button button-medium editor-dropdown-button editor-dropdown-button-css" data-dropdown="#editor-dropdown-css" aria-haspopup="true" aria-expanded="false">
+  <span class="visually-hidden">
+    CSS Options
+  </span>
+  <svg viewBox="-122.9 121.1 105.9 61.9" class="icon-arrow-down-mini" width="10" height="10">
+    <path d="M-63.2,180.3l43.5-43.5c1.7-1.7,2.7-4,2.7-6.5s-1-4.8-2.7-6.5c-1.7-1.7-4-2.7-6.5-2.7s-4.8,1-6.5,2.7l-37.2,37.2l-37.2-37.2
+    c-1.7-1.7-4-2.7-6.5-2.7s-4.8,1-6.5,2.6c-1.9,1.8-2.8,4.2-2.8,6.6c0,2.3,0.9,4.6,2.6,6.5l0,0c11.4,11.5,41,41.2,43,43.3l0.2,0.2
+    C-73.5,183.9-66.8,183.9-63.2,180.3z"/>
+  </svg>
+</button>
+
+
+              <ul id="editor-dropdown-css" class="link-list is-dropdown editor-dropdown editor-dropdown-css" data-dropdown-position="css" data-dropdown-type="css">
+    <li class="editor-dropdown-list-item">
+      <button
+        id="tidy-css"
+        class="invisible-button tidy-code-button"
+        data-editor-type="css"
+      >
+        Format CSS
+      </button>
+    </li>
+    <li class="editor-dropdown-list-item">
+      <button
+        id="view-compiled-css"
+        class="invisible-button view-compiled-button"
+        data-editor-type="css"
+      >
+        View Compiled CSS
+      </button>
+    </li>
+    <li class="editor-dropdown-list-item">
+      <button
+        id="analyze-css"
+        class="invisible-button analyze-button"
+        data-editor-type="css"
+      >
+        Analyze CSS
+      </button>
+    </li>
+    <li class="editor-dropdown-list-item">
+      <button
+        id="maximize-css-editor"
+        class="invisible-button maximize-button"
+        data-editor-type="css"
+      >
+        Maximize CSS Editor
+      </button>
+    </li>
+    <li class="editor-dropdown-list-item">
+      <button
+        id="minimize-css-editor"
+        class="invisible-button minimize-button"
+        data-editor-type="css"
+      >
+        Minimize CSS Editor
+      </button>
+    </li>
+    <li class="editor-dropdown-list-item">
+      <button
+        id="fold-all-css"
+        class="invisible-button fold-all-button"
+        data-editor-type="css"
+      >
+        Fold All
+      </button>
+    </li>
+    <li class="editor-dropdown-list-item">
+      <button
+        id="unfold-all-css"
+        class="invisible-button unfold-all-button"
+        data-editor-type="css"
+      >
+        Unfold All
+      </button>
+    </li>
+</ul>
+
+            </div>
+          </div>
+
+          <div class="code-wrap notranslate" translate="no">
+            <pre id="css" class="code-box" aria-labelledby="css-editor-title">
+              <code>
+                @font-face {
+  font-family: &quot;PPSupplyMono&quot;;
+  src: url(&quot;https://assets.codepen.io/7558/PPSupplyMono-Regular.ttf&quot;)
+    format(&quot;truetype&quot;);
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color--background: rgb(60, 60, 60);
+  --color--foreground: #c4d5bc;
+  --color--accent: rgb(170, 170, 170);
+  --font-primary: &quot;PPSupplyMono&quot;, &quot;Courier New&quot;, monospace;
+  --font-secondary: &quot;PPSupplyMono&quot;, &quot;Courier New&quot;, monospace;
+  --margin: 32px;
+  --gutter: 16px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-primary);
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgb(230, 230, 230) 0%,
+    rgb(180, 180, 180) 45%,
+    rgb(100, 100, 100) 90%
+  );
+  color: var(--color--foreground);
+  letter-spacing: -0.03em;
+  position: relative;
+  overflow: hidden;
+}
+
+body.loading-active {
+  overflow: hidden !important;
+}
+
+body::before {
+  content: &quot;&quot;;
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: transparent url(&quot;https://assets.codepen.io/7558/noise.png&quot;) repeat
+    0 0;
+  background-size: 300px 300px;
+  animation: noise-animation 0.3s steps(5) infinite;
+  opacity: 0.9;
+  will-change: transform;
+  z-index: 100;
+  pointer-events: none;
+}
+
+@keyframes noise-animation {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  10% {
+    transform: translate(-2%, -3%);
+  }
+
+  20% {
+    transform: translate(-4%, 2%);
+  }
+
+  30% {
+    transform: translate(2%, -4%);
+  }
+
+  40% {
+    transform: translate(-2%, 5%);
+  }
+
+  50% {
+    transform: translate(-4%, 2%);
+  }
+
+  60% {
+    transform: translate(3%, 0);
+  }
+
+  70% {
+    transform: translate(0, 3%);
+  }
+
+  80% {
+    transform: translate(-3%, 0);
+  }
+
+  90% {
+    transform: translate(2%, 2%);
+  }
+
+  100% {
+    transform: translate(1%, 0);
+  }
+}
+
+#canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: transparent;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+}
+
+#canvas.ready {
+  opacity: 1;
+}
+
+.fallback-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(&quot;https://assets.codepen.io/7558/red-protocol-poster-03-bg.jpg&quot;);
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 1s ease-out;
+}
+
+.fallback-bg.active {
+  opacity: 1;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  padding: var(--gutter);
+  position: relative;
+  z-index: 10;
+  transition: filter 0.1s ease-out;
+}
+
+.text-element {
+  position: fixed;
+  font-family: var(--font-primary);
+  color: var(--color--foreground);
+  text-transform: uppercase;
+  z-index: 10;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.audio-enable {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #0a0a0a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  font-family: var(--font-primary);
+  font-size: 12px;
+  color: #c4d5bc;
+  text-transform: uppercase;
+  gap: 2rem;
+  text-align: center;
+  padding: 1rem;
+}
+
+.enable-button {
+  border: 1px solid #c4d5bc;
+  background: transparent;
+  color: #c4d5bc;
+  padding: 1rem 2rem;
+  font-family: var(--font-primary);
+  font-size: 12px;
+  text-transform: uppercase;
+  cursor: pointer;
+  letter-spacing: 0.1em;
+  transition: all 0.3s ease;
+}
+
+.enable-button:hover {
+  background: #c4d5bc;
+  color: #0a0a0a;
+}
+
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #0a0a0a;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  font-family: var(--font-primary);
+  font-size: 12px;
+  color: #c4d5bc;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 1;
+  transition: opacity 0.8s ease-out;
+}
+
+.preloader.fade-out {
+  opacity: 0;
+}
+
+.error-message {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: rgba(255, 0, 0, 0.8);
+  color: white;
+  padding: 10px;
+  font-size: 12px;
+  display: none;
+  z-index: 3000;
+}
+
+.description {
+  top: 120px;
+  left: 50px;
+  width: 360px;
+  font-size: 0.75rem;
+  line-height: 1.2;
+}
+
+.nav-links {
+  top: 50%;
+  left: 50px;
+  transform: translateY(-50%);
+}
+
+.nav-links a {
+  position: relative;
+  display: block;
+  margin-bottom: 8px;
+  color: var(--color--foreground);
+  text-decoration: none;
+  z-index: 1;
+  transition: color 0.3s ease;
+  padding: 4px 8px;
+}
+
+.nav-links a::after {
+  content: &quot;&quot;;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: var(--color--foreground);
+  z-index: -1;
+  transition: width 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-links a:hover {
+  color: #1a1a1a;
+}
+
+.footer {
+  bottom: 120px;
+  right: 50px;
+  font-size: 0.625rem;
+}
+
+.division {
+  bottom: 120px;
+  left: 50px;
+  font-size: 0.625rem;
+}
+
+.signal {
+  top: 50%;
+  right: 100px;
+  font-size: 0.625rem;
+  transform: translateY(-50%);
+}
+
+.central-text {
+  bottom: 30%;
+  left: 50%;
+  transform: translateX(-50%) translateY(0);
+  text-align: center;
+  font-size: 1.25rem;
+  line-height: 1.1;
+  white-space: nowrap;
+  width: max-content;
+}
+
+.dg.ac {
+  z-index: 3000 !important;
+  position: fixed !important;
+  top: 10px !important;
+  right: 10px !important;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .description,
+  .nav-links,
+  .division,
+  .performance {
+    left: 20px;
+  }
+
+  .footer,
+  .signal {
+    right: 20px;
+  }
+
+  .central-text {
+    font-size: 1rem;
+    white-space: normal;
+    max-width: 90%;
+  }
+
+  .description {
+    width: calc(100vw - 40px);
+    max-width: 300px;
+  }
+
+  /* Optimize GUI for mobile */
+  .dg.ac {
+    transform: scale(0.8);
+    transform-origin: top right;
+  }
+}
+
+@media (max-width: 480px) {
+  .central-text {
+    font-size: 0.9rem;
+  }
+
+  .description {
+    font-size: 0.7rem;
+  }
+
+  /* Further scale down GUI on very small screens */
+  .dg.ac {
+    transform: scale(0.7);
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .nav-links a:hover::after {
+    width: 0;
+  }
+
+  .nav-links a:active::after {
+    width: 100%;
+  }
+
+  .enable-button:hover {
+    background: transparent;
+    color: #c4d5bc;
+  }
+
+  .enable-button:active {
+    background: #c4d5bc;
+    color: #0a0a0a;
+  }
+}
+
+              </code>
+            </pre>
+            <div class="error-bar" id="error-bar-css">
+              <span class="error-icon" data-type="css">
+                !
+              </span>
+            </div>
+            <span class="code-editor-status"></span>
+          </div>
+
+        </div>
+
+
+
+
+        <div class="editor-resizer js-editor-resizer" title="Double-click to expand."></div>
+
+        <div id="box-js" class="box box-js" data-type="js">
+
+          <div class="powers">
+            <div class="powers-drag-handle" title="Double-click to expand."></div>
+
+            <div class="editor-actions-left">
+              <h2 class="box-title js-editor-title" id="js-editor-title">
+
+                  <svg viewBox="0 0 15 15" class="file-type-icon" id="icon-file-js">
+    <rect fill="#FCD000" width="15" height="15" rx="4"/>
+    <path d="M6.554 3.705c0 .267-.19.496-.452.543-1.2.217-2.12 1.61-2.12 3.275 0 1.665.92 3.057 2.12 3.274a.554.554 0 0 1-.205 1.087c-1.733-.322-3.022-2.175-3.022-4.361 0-2.187 1.289-4.04 3.022-4.362a.554.554 0 0 1 .657.544zm1.892 0c0-.347.316-.607.657-.544 1.733.322 3.022 2.175 3.022 4.362 0 2.186-1.289 4.04-3.022 4.361a.554.554 0 0 1-.205-1.087c1.2-.217 2.12-1.61 2.12-3.274 0-1.665-.92-3.058-2.12-3.275a.551.551 0 0 1-.452-.543z" fill="#282828"/>
+  </svg>
+
+
+                <span class="box-title-name">
+                  JS
+                </span>
+                <span class="box-title-preprocessor-name "></span>
+              </h2>
+
+            </div>
+
+            <div class="editor-actions-right">
+              <div class="collaborators-indicators"></div>
+
+              <button id="settings-pane-js" class="button button-medium mini-button settings-nub" data-type="js" title="Open JS Settings">
+                <svg viewBox="0 0 100 100" id="icon-gear" width="10" height="10">
+                  <path d="M87.687,45.077c-0.313-2.433-0.816-4.807-1.542-7.079l8.145-11.73l-5.827-7.515l-0.094-0.123l-5.824-7.514
+                    l-12.955,5.577c-2.041-1.265-4.192-2.362-6.459-3.219L59.42,0h-9.34h-0.153h-9.341l-3.709,13.474
+                    c-2.27,0.857-4.421,1.955-6.463,3.222l-12.957-5.577l-5.825,7.514l-0.097,0.124l-5.822,7.517l8.146,11.731
+                    c-0.726,2.271-1.233,4.645-1.544,7.079L0,52.032l2.08,9.375l0.033,0.15l2.08,9.375l14.001,0.761c1.295,2.028,2.771,3.926,4.4,5.668
+                    l-2.396,14.227l8.416,4.173l0.138,0.067L37.169,100l9.309-10.796c1.161,0.109,2.335,0.173,3.524,0.173s2.358-0.074,3.52-0.184
+                    l9.317,10.804l8.415-4.173l0.141-0.066l8.413-4.172l-2.396-14.228c1.628-1.741,3.104-3.64,4.4-5.672l14-0.759l2.078-9.375
+                    l0.035-0.154L100,52.025L87.687,45.077z M50.003,34.51c8.435,0,15.272,7.035,15.272,15.719c0,8.679-6.839,15.717-15.272,15.717
+                    c-8.436,0-15.272-7.038-15.272-15.717C34.731,41.545,41.569,34.51,50.003,34.51z"/>
+                </svg>
+              </button>
+
+              <button class="button mini-button button-medium editor-dropdown-button editor-dropdown-button-js" data-dropdown="#editor-dropdown-js" aria-haspopup="true" aria-expanded="false">
+  <span class="visually-hidden">
+    JS Options
+  </span>
+  <svg viewBox="-122.9 121.1 105.9 61.9" class="icon-arrow-down-mini" width="10" height="10">
+    <path d="M-63.2,180.3l43.5-43.5c1.7-1.7,2.7-4,2.7-6.5s-1-4.8-2.7-6.5c-1.7-1.7-4-2.7-6.5-2.7s-4.8,1-6.5,2.7l-37.2,37.2l-37.2-37.2
+    c-1.7-1.7-4-2.7-6.5-2.7s-4.8,1-6.5,2.6c-1.9,1.8-2.8,4.2-2.8,6.6c0,2.3,0.9,4.6,2.6,6.5l0,0c11.4,11.5,41,41.2,43,43.3l0.2,0.2
+    C-73.5,183.9-66.8,183.9-63.2,180.3z"/>
+  </svg>
+</button>
+
+
+              <ul id="editor-dropdown-js" class="link-list is-dropdown editor-dropdown editor-dropdown-js" data-dropdown-position="css" data-dropdown-type="js">
+    <li class="editor-dropdown-list-item">
+      <button
+        id="tidy-js"
+        class="invisible-button tidy-code-button"
+        data-editor-type="js"
+      >
+        Format JavaScript
+      </button>
+    </li>
+    <li class="editor-dropdown-list-item">
+      <button
+        id="view-compiled-js"
+        class="invisible-button view-compiled-button"
+        data-editor-type="js"
+      >
+        View Compiled JavaScript
+      </button>
+    </li>
+    <li class="editor-dropdown-list-item">
+      <button
+        id="analyze-js"
+        class="invisible-button analyze-button"
+        data-editor-type="js"
+      >
+        Analyze JavaScript
+      </button>
+    </li>
+    <li class="editor-dropdown-list-item">
+      <button
+        id="maximize-js-editor"
+        class="invisible-button maximize-button"
+        data-editor-type="js"
+      >
+        Maximize JavaScript Editor
+      </button>
+    </li>
+    <li class="editor-dropdown-list-item">
+      <button
+        id="minimize-js-editor"
+        class="invisible-button minimize-button"
+        data-editor-type="js"
+      >
+        Minimize JavaScript Editor
+      </button>
+    </li>
+    <li class="editor-dropdown-list-item">
+      <button
+        id="fold-all-js"
+        class="invisible-button fold-all-button"
+        data-editor-type="js"
+      >
+        Fold All
+      </button>
+    </li>
+    <li class="editor-dropdown-list-item">
+      <button
+        id="unfold-all-js"
+        class="invisible-button unfold-all-button"
+        data-editor-type="js"
+      >
+        Unfold All
+      </button>
+    </li>
+</ul>
+
+            </div>
+          </div>
+
+          <div class="code-wrap notranslate" translate="no">
+            <pre id="js" class="code-box" aria-labelledby="js-editor-title">
+              <code>
+                import * as THREE from &quot;https://esm.sh/three@0.177.0&quot;;
+import { EffectComposer } from &quot;https://esm.sh/three@0.177.0/examples/jsm/postprocessing/EffectComposer.js&quot;;
+import { RenderPass } from &quot;https://esm.sh/three@0.177.0/examples/jsm/postprocessing/RenderPass.js&quot;;
+import { ShaderPass } from &quot;https://esm.sh/three@0.177.0/examples/jsm/postprocessing/ShaderPass.js&quot;;
+import { Pane } from &quot;https://cdn.skypack.dev/tweakpane@4.0.4&quot;;
+
+(function () {
+  &quot;use strict&quot;;
+
+  const supportsWebGL = () =&gt; {
+    try {
+      const c = document.createElement(&quot;canvas&quot;);
+      return !!(
+        window.WebGLRenderingContext &amp;&amp;
+        (c.getContext(&quot;webgl&quot;) || c.getContext(&quot;experimental-webgl&quot;))
+      );
+    } catch {
+      return false;
+    }
+  };
+
+  if (!Array.prototype.forEach) {
+    Array.prototype.forEach = function (cb, ctx) {
+      for (let i = 0; i &lt; this.length; i++) cb.call(ctx, this[i], i, this);
+    };
+  }
+
+  if (!window.requestAnimationFrame) {
+    window.requestAnimationFrame = (cb) =&gt; setTimeout(cb, 16.67);
+  }
+
+  const App = {
+    PARAMS: {
+      distortion: {
+        strength: 0.15,
+        radius: 0.2,
+        size: 1,
+        edgeWidth: 0.05,
+        edgeOpacity: 0.2,
+        rimLightIntensity: 0.3,
+        rimLightWidth: 0.08,
+        chromaticAberration: 0.03,
+        reflectionIntensity: 0.3,
+        waveDistortion: 0.08,
+        waveSpeed: 1.2,
+        lensBlur: 0.15,
+        clearCenterSize: 0.3,
+        followMouse: true,
+        animationSpeed: 1,
+        overallIntensity: 1,
+        preset: &quot;Classic Glass&quot;
+      },
+      presets: {
+        Minimal: {
+          strength: 0.05,
+          radius: 0.12,
+          size: 0.8,
+          edgeWidth: 0.02,
+          edgeOpacity: 0.1,
+          rimLightIntensity: 0.1,
+          rimLightWidth: 0.04,
+          chromaticAberration: 0.01,
+          reflectionIntensity: 0.15,
+          waveDistortion: 0.02,
+          waveSpeed: 0.8,
+          lensBlur: 0.05,
+          clearCenterSize: 0.5
+        },
+        Subtle: {
+          strength: 0.08,
+          radius: 0.16,
+          size: 0.9,
+          edgeWidth: 0.03,
+          edgeOpacity: 0.15,
+          rimLightIntensity: 0.2,
+          rimLightWidth: 0.06,
+          chromaticAberration: 0.02,
+          reflectionIntensity: 0.2,
+          waveDistortion: 0.04,
+          waveSpeed: 1,
+          lensBlur: 0.08,
+          clearCenterSize: 0.4
+        },
+        &quot;Classic Glass&quot;: {
+          strength: 0.12,
+          radius: 0.18,
+          size: 1,
+          edgeWidth: 0.04,
+          edgeOpacity: 0.25,
+          rimLightIntensity: 0.3,
+          rimLightWidth: 0.08,
+          chromaticAberration: 0.025,
+          reflectionIntensity: 0.35,
+          waveDistortion: 0.03,
+          waveSpeed: 0.5,
+          lensBlur: 0.12,
+          clearCenterSize: 0.2
+        },
+        Dramatic: {
+          strength: 0.25,
+          radius: 0.35,
+          size: 1.2,
+          edgeWidth: 0.08,
+          edgeOpacity: 0.4,
+          rimLightIntensity: 0.5,
+          rimLightWidth: 0.1,
+          chromaticAberration: 0.06,
+          reflectionIntensity: 0.5,
+          waveDistortion: 0.15,
+          waveSpeed: 1.8,
+          lensBlur: 0.25,
+          clearCenterSize: 0.15
+        },
+        &quot;Chromatic Focus&quot;: {
+          strength: 0.1,
+          radius: 0.22,
+          size: 1,
+          edgeWidth: 0.06,
+          edgeOpacity: 0.3,
+          rimLightIntensity: 0.25,
+          rimLightWidth: 0.07,
+          chromaticAberration: 0.08,
+          reflectionIntensity: 0.2,
+          waveDistortion: 0.05,
+          waveSpeed: 0.8,
+          lensBlur: 0.1,
+          clearCenterSize: 0.25
+        },
+        &quot;Liquid Wave&quot;: {
+          strength: 0.18,
+          radius: 0.28,
+          size: 1.1,
+          edgeWidth: 0.05,
+          edgeOpacity: 0.2,
+          rimLightIntensity: 0.4,
+          rimLightWidth: 0.09,
+          chromaticAberration: 0.04,
+          reflectionIntensity: 0.4,
+          waveDistortion: 0.2,
+          waveSpeed: 2.5,
+          lensBlur: 0.15,
+          clearCenterSize: 0.1
+        },
+        Gigantic: {
+          strength: 0.4,
+          radius: 0.65,
+          size: 1.8,
+          edgeWidth: 0.12,
+          edgeOpacity: 0.6,
+          rimLightIntensity: 0.8,
+          rimLightWidth: 0.15,
+          chromaticAberration: 0.1,
+          reflectionIntensity: 0.7,
+          waveDistortion: 0.25,
+          waveSpeed: 1.5,
+          lensBlur: 0.35,
+          clearCenterSize: 0.05
+        }
+      }
+    },
+
+    scene: null,
+    camera: null,
+    renderer: null,
+    composer: null,
+    customPass: null,
+    backgroundTexture: null,
+    backgroundMesh: null,
+    aspect: 1,
+    backgroundScene: null,
+    backgroundCamera: null,
+    mousePosition: { x: 0.5, y: 0.5 },
+    targetMousePosition: { x: 0.5, y: 0.5 },
+    staticMousePosition: { x: 0.5, y: 0.5 },
+    performanceMonitor: { frameCount: 0, lastTime: 0, fps: 60 },
+    pane: null,
+    isBackgroundPlaying: false,
+    paneVisible: false,
+    paneInitialized: false,
+    isSceneReady: false,
+    isTextureLoaded: false,
+    webglSupported: supportsWebGL(),
+
+    init() {
+      this.setupAudio();
+      this.setupKeyboardControls();
+      this.bindEvents();
+      if (!this.webglSupported) {
+        this.showFallback();
+        return;
+      }
+      this.waitForDependencies();
+    },
+
+    waitForDependencies() {
+      const chk = setInterval(() =&gt; {
+        if (window.gsap &amp;&amp; window.SplitText) {
+          clearInterval(chk);
+          this.onDependenciesReady();
+        }
+      }, 100);
+      setTimeout(() =&gt; {
+        clearInterval(chk);
+        this.onDependenciesReady();
+      }, 10000);
+    },
+
+    onDependenciesReady() {},
+
+    showError(m) {
+      const el = document.getElementById(&quot;errorMessage&quot;);
+      if (!el) return;
+      el.textContent = m;
+      el.style.display = &quot;block&quot;;
+      setTimeout(() =&gt; (el.style.display = &quot;none&quot;), 5000);
+    },
+
+    showFallback() {
+      document.getElementById(&quot;fallbackBg&quot;).classList.add(&quot;active&quot;);
+      this.finishPreloader();
+    },
+
+    setupAudio() {
+      this.startClickSound = document.getElementById(&quot;startClickSound&quot;);
+      this.preloaderSound = document.getElementById(&quot;preloaderSound&quot;);
+      this.hoverSound = document.getElementById(&quot;hoverSound&quot;);
+      this.backgroundMusic = document.getElementById(&quot;backgroundMusic&quot;);
+    },
+
+    bindEvents() {
+      document.getElementById(&quot;enableBtn&quot;).onclick = () =&gt; this.onStartClick();
+    },
+
+    onStartClick() {
+      document.body.classList.add(&quot;loading-active&quot;);
+      this.startClickSound?.play().catch(() =&gt; {});
+      document.querySelector(&quot;.audio-enable&quot;).style.display = &quot;none&quot;;
+      document.getElementById(&quot;preloader&quot;).style.display = &quot;flex&quot;;
+      this.preloaderSound?.play().catch(() =&gt; {});
+      setTimeout(() =&gt; {
+        if (this.backgroundMusic) {
+          this.backgroundMusic.volume = 0.3;
+          this.backgroundMusic.play().catch(() =&gt; {});
+          this.isBackgroundPlaying = true;
+        }
+      }, 500);
+      this.webglSupported ? this.initializeScene() : this.showFallback();
+      this.startPreloader();
+    },
+
+    startPreloader() {
+      let c = 0;
+      const timer = setInterval(() =&gt; {
+        const el = document.getElementById(&quot;counter&quot;);
+        if (el)
+          el.textContent =
+            &quot;[&quot; + (c &lt; 10 ? &quot;00&quot; : c &lt; 100 ? &quot;0&quot; : &quot;&quot;) + ++c + &quot;]&quot;;
+        if (c &gt;= 100) {
+          clearInterval(timer);
+          setTimeout(() =&gt; {
+            this.preloaderSound?.pause();
+            if (this.preloaderSound) this.preloaderSound.currentTime = 0;
+            this.finishPreloader();
+          }, 200);
+        }
+      }, 30);
+    },
+
+    finishPreloader() {
+      const wait = () =&gt; {
+        if (
+          (this.isSceneReady &amp;&amp; this.isTextureLoaded) ||
+          !this.webglSupported
+        ) {
+          const pre = document.getElementById(&quot;preloader&quot;);
+          pre.classList.add(&quot;fade-out&quot;);
+          if (this.webglSupported)
+            document.getElementById(&quot;canvas&quot;).classList.add(&quot;ready&quot;);
+          setTimeout(() =&gt; {
+            document.body.classList.remove(&quot;loading-active&quot;);
+            pre.style.display = &quot;none&quot;;
+            pre.classList.remove(&quot;fade-out&quot;);
+            this.animateTextElements();
+          }, 800);
+        } else setTimeout(wait, 50);
+      };
+      wait();
+    },
+
+    animateTextElements() {
+      if (!window.gsap || !window.SplitText) {
+        this.fallbackTextAnimation();
+        return;
+      }
+
+      const ease = window.CustomEase
+        ? (CustomEase.create(&quot;customOut&quot;, &quot;0.65,0.05,0.36,1&quot;), &quot;customOut&quot;)
+        : &quot;power2.out&quot;;
+      const containers = [
+        &quot;.description&quot;,
+        &quot;.division&quot;,
+        &quot;.signal&quot;,
+        &quot;.central-text&quot;,
+        &quot;.footer&quot;
+      ];
+
+      gsap.set(containers.concat(&quot;.nav-links&quot;), { opacity: 0 });
+
+      const splits = containers.map(
+        (sel) =&gt;
+          SplitText.create(sel, { type: &quot;lines&quot;, linesClass: &quot;line&quot; }).lines
+      );
+      const [descLines, divLines, sigLines, centralLines, footerLines] = splits;
+
+      gsap.set(containers, { opacity: 1 });
+      gsap.set(splits.flat().concat(&quot;.nav-links a&quot;), { opacity: 0, y: 30 });
+
+      const tl = gsap.timeline();
+      tl.to(descLines, { opacity: 1, y: 0, duration: 0.8, ease, stagger: 0.18 })
+        .to(&quot;.nav-links&quot;, { opacity: 1, duration: 0.2 }, 0.12)
+        .to(
+          &quot;.nav-links a&quot;,
+          { opacity: 1, y: 0, duration: 0.8, ease, stagger: 0.15 },
+          0.12
+        )
+        .to(
+          centralLines,
+          { opacity: 1, y: 0, duration: 0.8, ease, stagger: 0.22 },
+          0.25
+        )
+        .to(
+          footerLines,
+          { opacity: 1, y: 0, duration: 0.8, ease, stagger: 0.18 },
+          0.4
+        )
+        .to(
+          divLines,
+          { opacity: 1, y: 0, duration: 0.8, ease, stagger: 0.18 },
+          0.55
+        )
+        .to(
+          sigLines,
+          { opacity: 1, y: 0, duration: 0.8, ease, stagger: 0.18 },
+          0.55
+        );
+    },
+
+    fallbackTextAnimation() {
+      let d = 0;
+      document.querySelectorAll(&quot;.text-element&quot;).forEach((el) =&gt; {
+        setTimeout(() =&gt; {
+          el.style.opacity = &quot;1&quot;;
+          el.style.transform = el.classList.contains(&quot;central-text&quot;)
+            ? &quot;translateX(-50%) translateY(0)&quot;
+            : &quot;translateY(0)&quot;;
+        }, d);
+        d += 250;
+      });
+    },
+
+    initializeScene() {
+      if (!this.webglSupported) {
+        this.isSceneReady = this.isTextureLoaded = true;
+        return;
+      }
+
+      const canvas = document.getElementById(&quot;canvas&quot;);
+      this.renderer = new THREE.WebGLRenderer({
+        canvas,
+        antialias: true,
+        alpha: true,
+        premultipliedAlpha: false
+      });
+      this.renderer.setSize(window.innerWidth, window.innerHeight);
+      this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      this.renderer.autoClear = false;
+
+      this.aspect = window.innerWidth / window.innerHeight;
+
+      this.backgroundScene = new THREE.Scene();
+      this.backgroundCamera = new THREE.OrthographicCamera(
+        -this.aspect,
+        this.aspect,
+        1,
+        -1,
+        0.1,
+        10
+      );
+      this.backgroundCamera.position.z = 1;
+
+      this.scene = new THREE.Scene();
+      this.camera = new THREE.OrthographicCamera(
+        -this.aspect,
+        this.aspect,
+        1,
+        -1,
+        0.1,
+        10
+      );
+      this.camera.position.z = 1;
+
+      this.loadBackgroundTexture();
+      this.setupPostProcessing();
+      this.setupPane();
+      this.setupNavHoverSounds();
+
+      const onResize = this.onWindowResize.bind(this);
+      const onMouseMove = this.onMouseMove.bind(this);
+      const onTouchMove = this.onTouchMove.bind(this);
+      const onTouchStart = this.onTouchStart.bind(this);
+
+      window.addEventListener(&quot;resize&quot;, onResize);
+      document.addEventListener(&quot;mousemove&quot;, onMouseMove);
+      document.addEventListener(&quot;touchmove&quot;, onTouchMove);
+      document.addEventListener(&quot;touchstart&quot;, onTouchStart);
+
+      this.animate();
+      this.isSceneReady = true;
+    },
+
+    onMouseMove(e) {
+      if (this.PARAMS.distortion.followMouse) {
+        this.targetMousePosition.x = e.clientX / window.innerWidth;
+        this.targetMousePosition.y = 1 - e.clientY / window.innerHeight;
+      }
+    },
+
+    onTouchStart(e) {
+      e.preventDefault();
+      if (e.touches.length) this.onTouchMove(e);
+    },
+
+    onTouchMove(e) {
+      e.preventDefault();
+      if (this.PARAMS.distortion.followMouse &amp;&amp; e.touches.length) {
+        const t = e.touches[0];
+        this.targetMousePosition.x = t.clientX / window.innerWidth;
+        this.targetMousePosition.y = 1 - t.clientY / window.innerHeight;
+      }
+    },
+
+    loadBackgroundTexture() {
+      new THREE.TextureLoader().load(
+        &quot;https://assets.codepen.io/7558/red-protocol-poster-03-bg.jpg&quot;,
+        (tex) =&gt; {
+          this.backgroundTexture = tex;
+          this.createBackgroundMesh();
+          this.isTextureLoaded = true;
+        },
+        undefined,
+        () =&gt; (this.isTextureLoaded = true)
+      );
+    },
+
+    createBackgroundMesh() {
+      if (this.backgroundMesh) this.backgroundScene.remove(this.backgroundMesh);
+
+      const imgAspect =
+        this.backgroundTexture.image.width /
+        this.backgroundTexture.image.height;
+      const scAspect = window.innerWidth / window.innerHeight;
+      let sx, sy;
+
+      if (scAspect &gt; imgAspect) {
+        sx = scAspect * 2;
+        sy = sx / imgAspect;
+      } else {
+        sy = 2;
+        sx = sy * imgAspect;
+      }
+
+      const g = new THREE.PlaneGeometry(sx, sy);
+      const m = new THREE.MeshBasicMaterial({ map: this.backgroundTexture });
+      this.backgroundMesh = new THREE.Mesh(g, m);
+      this.backgroundScene.add(this.backgroundMesh);
+    },
+
+    setupPostProcessing() {
+      this.composer = new EffectComposer(this.renderer);
+      const rp = new RenderPass(this.backgroundScene, this.backgroundCamera);
+      this.composer.addPass(rp);
+      this.setupDistortionPass();
+    },
+
+    setupDistortionPass() {
+      const v = `varying vec2 vUv;void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}`;
+      const f = `uniform sampler2D tDiffuse;uniform vec2 uMouse;uniform float uRadius;uniform float uSize;uniform float uStrength;uniform float uEdgeWidth;uniform float uEdgeOpacity;uniform float uRimLightIntensity;uniform float uRimLightWidth;uniform float uChromaticAberration;uniform float uReflectionIntensity;uniform float uWaveDistortion;uniform float uWaveSpeed;uniform float uLensBlur;uniform float uClearCenterSize;uniform float uOverallIntensity;uniform float uAspect;uniform float uTime;varying vec2 vUv;
+
+vec4 blur(sampler2D i,vec2 uv,vec2 r,vec2 d,float it){vec4 c=vec4(0.);vec2 o=1.3333333*d*it;c+=texture2D(i,uv)*.2941176;c+=texture2D(i,uv+(o/r))*.3529412;c+=texture2D(i,uv-(o/r))*.3529412;return c;}
+
+void main(){
+  vec2 c=uMouse;
+  vec2 a=vUv;
+  a.x*=uAspect;
+  c.x*=uAspect;
+  float dist=distance(a,c);
+  float rad=uRadius*uSize;
+  vec4 orig=texture2D(tDiffuse,vUv);
+  
+  // Calculate the effect for all pixels
+  float nd=dist/rad;
+  vec2 dir=normalize(a-c);
+  float cl=uClearCenterSize*rad;
+  float df=smoothstep(cl,rad,dist);
+  float powd=1.+nd*2.;
+  vec2 dUv=a-dir*uStrength*pow(df,powd);
+  float w1=sin(nd*8.-uTime*uWaveSpeed)*uWaveDistortion;
+  float w2=cos(nd*12.-uTime*uWaveSpeed*.7)*uWaveDistortion*.5;
+  dUv+=dir*(w1+w2)*df;
+  dUv.x/=uAspect;
+  float ab=uChromaticAberration*df*(1.+nd);
+  vec2 rO=dir*ab*1.2/vec2(uAspect,1.);
+  vec2 bO=dir*ab*0.8/vec2(uAspect,1.);
+  vec4 colR=texture2D(tDiffuse,dUv+rO);
+  vec4 colG=texture2D(tDiffuse,dUv);
+  vec4 colB=texture2D(tDiffuse,dUv-bO);
+  vec4 ref1=texture2D(tDiffuse,vUv+dir*0.08*df);
+  vec4 ref2=texture2D(tDiffuse,vUv+dir*0.15*df);
+  vec4 ref=mix(ref1,ref2,.6);
+  vec4 col=vec4(colR.r,colG.g,colB.b,1.);
+  col=mix(col,ref,uReflectionIntensity*df);
+  float bl=uLensBlur*df*(1.+nd*.5);
+  vec4 blr=blur(tDiffuse,dUv,vec2(1./uAspect,1.),vec2(1.),bl);
+  col=mix(col,blr,df*.7);
+  float edge=smoothstep(rad-uEdgeWidth,rad,dist);
+  vec3 eCol=mix(vec3(1.),vec3(.8,.9,1.),nd);
+  col=mix(col,vec4(eCol,1.),edge*uEdgeOpacity);
+  float rimD=rad-uRimLightWidth;
+  float rim=smoothstep(rimD-0.02,rimD+0.02,dist);
+  rim*=(1.-smoothstep(rad-0.01,rad,dist));
+  col=mix(col,vec4(1.),rim*uRimLightIntensity);
+  float br=1.+sin(nd*6.-uTime*2.)*.1*df;
+  col.rgb*=br;
+  
+  // Replace hard cutoff with ultra-tight smoothstep to fix jagged edges
+  float effectMask = 1.0 - smoothstep(rad - 0.001, rad + 0.001, dist);
+  
+  gl_FragColor=mix(orig, mix(orig,col,uOverallIntensity), effectMask);
+}`;
+
+      this.customPass = new ShaderPass({
+        uniforms: {
+          tDiffuse: { value: null },
+          uMouse: { value: new THREE.Vector2(0.5, 0.5) },
+          uRadius: { value: this.PARAMS.distortion.radius },
+          uSize: { value: this.PARAMS.distortion.size },
+          uStrength: { value: this.PARAMS.distortion.strength },
+          uEdgeWidth: { value: this.PARAMS.distortion.edgeWidth },
+          uEdgeOpacity: { value: this.PARAMS.distortion.edgeOpacity },
+          uRimLightIntensity: {
+            value: this.PARAMS.distortion.rimLightIntensity
+          },
+          uRimLightWidth: { value: this.PARAMS.distortion.rimLightWidth },
+          uChromaticAberration: {
+            value: this.PARAMS.distortion.chromaticAberration
+          },
+          uReflectionIntensity: {
+            value: this.PARAMS.distortion.reflectionIntensity
+          },
+          uWaveDistortion: { value: this.PARAMS.distortion.waveDistortion },
+          uWaveSpeed: { value: this.PARAMS.distortion.waveSpeed },
+          uLensBlur: { value: this.PARAMS.distortion.lensBlur },
+          uClearCenterSize: { value: this.PARAMS.distortion.clearCenterSize },
+          uOverallIntensity: { value: this.PARAMS.distortion.overallIntensity },
+          uAspect: { value: this.aspect },
+          uTime: { value: 0 }
+        },
+        vertexShader: v,
+        fragmentShader: f
+      });
+
+      this.customPass.renderToScreen = true;
+      this.composer.addPass(this.customPass);
+    },
+
+    setupNavHoverSounds() {
+      document.querySelectorAll(&quot;.nav-links a&quot;).forEach((a) =&gt; {
+        a.addEventListener(&quot;mouseenter&quot;, () =&gt; {
+          if (this.hoverSound &amp;&amp; this.isBackgroundPlaying) {
+            this.hoverSound.currentTime = 0;
+            this.hoverSound.volume = 0.4;
+            this.hoverSound.play().catch(() =&gt; {});
+          }
+        });
+      });
+    },
+
+    setupKeyboardControls() {
+      document.addEventListener(&quot;keydown&quot;, (e) =&gt; {
+        if (e.key.toLowerCase() === &quot;h&quot;) {
+          e.preventDefault();
+          this.togglePane();
+        }
+      });
+    },
+
+    togglePane() {
+      if (!this.paneInitialized) this.setupPane();
+      if (this.pane) {
+        this.paneVisible = !this.paneVisible;
+        this.pane.hidden = !this.paneVisible;
+      }
+    },
+
+    setupPane() {
+      if (this.paneInitialized) return;
+
+      const p = (this.pane = new Pane({
+        title: &quot;Glass Refraction Controls&quot;,
+        expanded: true
+      }));
+
+      p.addBinding(this.PARAMS.distortion, &quot;preset&quot;, {
+        label: &quot;Presets&quot;,
+        options: {
+          Minimal: &quot;Minimal&quot;,
+          Subtle: &quot;Subtle&quot;,
+          &quot;Classic Glass&quot;: &quot;Classic Glass&quot;,
+          Dramatic: &quot;Dramatic&quot;,
+          &quot;Chromatic Focus&quot;: &quot;Chromatic Focus&quot;,
+          &quot;Liquid Wave&quot;: &quot;Liquid Wave&quot;,
+          Gigantic: &quot;Gigantic&quot;
+        }
+      }).on(&quot;change&quot;, (ev) =&gt; this.loadPreset(ev.value));
+
+      p.addButton({ title: &quot;Reload Preset&quot; }).on(&quot;click&quot;, () =&gt;
+        this.loadPreset(this.PARAMS.distortion.preset)
+      );
+
+      const addBinding = (prop, opts) =&gt;
+        p.addBinding(this.PARAMS.distortion, prop, opts).on(&quot;change&quot;, (ev) =&gt; {
+          const uniformName =
+            &quot;u&quot; + prop.charAt(0).toUpperCase() + prop.slice(1);
+          if (this.customPass?.uniforms[uniformName])
+            this.customPass.uniforms[uniformName].value = ev.value;
+        });
+
+      addBinding(&quot;overallIntensity&quot;, {
+        min: 0,
+        max: 2,
+        step: 0.01,
+        label: &quot;Overall Intensity&quot;
+      });
+      p.addBinding(this.PARAMS.distortion, &quot;followMouse&quot;, {
+        label: &quot;Follow Mouse&quot;
+      }).on(&quot;change&quot;, (ev) =&gt; {
+        if (!ev.value) this.staticMousePosition = { x: 0.5, y: 0.5 };
+      });
+      addBinding(&quot;animationSpeed&quot;, {
+        min: 0,
+        max: 3,
+        step: 0.1,
+        label: &quot;Animation Speed&quot;
+      });
+
+      const f1 = p.addFolder({ title: &quot;Size Controls&quot; });
+      f1.addBinding(this.PARAMS.distortion, &quot;size&quot;, {
+        min: 0.2,
+        max: 3,
+        step: 0.1,
+        label: &quot;Effect Size&quot;
+      }).on(
+        &quot;change&quot;,
+        (ev) =&gt; (this.customPass.uniforms.uSize.value = ev.value)
+      );
+      f1.addBinding(this.PARAMS.distortion, &quot;radius&quot;, {
+        min: 0.05,
+        max: 0.8,
+        step: 0.01,
+        label: &quot;Base Radius&quot;
+      }).on(
+        &quot;change&quot;,
+        (ev) =&gt; (this.customPass.uniforms.uRadius.value = ev.value)
+      );
+
+      const f2 = p.addFolder({ title: &quot;Refraction Properties&quot; });
+      f2.addBinding(this.PARAMS.distortion, &quot;strength&quot;, {
+        min: 0,
+        max: 0.5,
+        step: 0.01,
+        label: &quot;Refraction Strength&quot;
+      }).on(
+        &quot;change&quot;,
+        (ev) =&gt; (this.customPass.uniforms.uStrength.value = ev.value)
+      );
+      f2.addBinding(this.PARAMS.distortion, &quot;clearCenterSize&quot;, {
+        min: 0,
+        max: 1,
+        step: 0.01,
+        label: &quot;Clear Center&quot;
+      }).on(
+        &quot;change&quot;,
+        (ev) =&gt; (this.customPass.uniforms.uClearCenterSize.value = ev.value)
+      );
+
+      const f3 = p.addFolder({ title: &quot;Visual Effects&quot; });
+      f3.addBinding(this.PARAMS.distortion, &quot;chromaticAberration&quot;, {
+        min: 0,
+        max: 0.15,
+        step: 0.001,
+        label: &quot;Chromatic Aberration&quot;
+      }).on(
+        &quot;change&quot;,
+        (ev) =&gt; (this.customPass.uniforms.uChromaticAberration.value = ev.value)
+      );
+      f3.addBinding(this.PARAMS.distortion, &quot;reflectionIntensity&quot;, {
+        min: 0,
+        max: 1,
+        step: 0.01,
+        label: &quot;Reflections&quot;
+      }).on(
+        &quot;change&quot;,
+        (ev) =&gt; (this.customPass.uniforms.uReflectionIntensity.value = ev.value)
+      );
+      f3.addBinding(this.PARAMS.distortion, &quot;lensBlur&quot;, {
+        min: 0,
+        max: 0.5,
+        step: 0.01,
+        label: &quot;Lens Blur&quot;
+      }).on(
+        &quot;change&quot;,
+        (ev) =&gt; (this.customPass.uniforms.uLensBlur.value = ev.value)
+      );
+
+      const f4 = p.addFolder({ title: &quot;Wave Animation&quot; });
+      f4.addBinding(this.PARAMS.distortion, &quot;waveDistortion&quot;, {
+        min: 0,
+        max: 0.3,
+        step: 0.01,
+        label: &quot;Wave Strength&quot;
+      }).on(
+        &quot;change&quot;,
+        (ev) =&gt; (this.customPass.uniforms.uWaveDistortion.value = ev.value)
+      );
+      f4.addBinding(this.PARAMS.distortion, &quot;waveSpeed&quot;, {
+        min: 0,
+        max: 5,
+        step: 0.1,
+        label: &quot;Wave Speed&quot;
+      }).on(
+        &quot;change&quot;,
+        (ev) =&gt; (this.customPass.uniforms.uWaveSpeed.value = ev.value)
+      );
+
+      const f5 = p.addFolder({ title: &quot;Edge Effects&quot; });
+      f5.addBinding(this.PARAMS.distortion, &quot;edgeWidth&quot;, {
+        min: 0,
+        max: 0.2,
+        step: 0.01,
+        label: &quot;Edge Width&quot;
+      }).on(
+        &quot;change&quot;,
+        (ev) =&gt; (this.customPass.uniforms.uEdgeWidth.value = ev.value)
+      );
+      f5.addBinding(this.PARAMS.distortion, &quot;edgeOpacity&quot;, {
+        min: 0,
+        max: 1,
+        step: 0.01,
+        label: &quot;Edge Opacity&quot;
+      }).on(
+        &quot;change&quot;,
+        (ev) =&gt; (this.customPass.uniforms.uEdgeOpacity.value = ev.value)
+      );
+
+      const f6 = p.addFolder({ title: &quot;Rim Lighting&quot; });
+      f6.addBinding(this.PARAMS.distortion, &quot;rimLightIntensity&quot;, {
+        min: 0,
+        max: 1,
+        step: 0.01,
+        label: &quot;Rim Light Intensity&quot;
+      }).on(
+        &quot;change&quot;,
+        (ev) =&gt; (this.customPass.uniforms.uRimLightIntensity.value = ev.value)
+      );
+      f6.addBinding(this.PARAMS.distortion, &quot;rimLightWidth&quot;, {
+        min: 0,
+        max: 0.3,
+        step: 0.01,
+        label: &quot;Rim Light Width&quot;
+      }).on(
+        &quot;change&quot;,
+        (ev) =&gt; (this.customPass.uniforms.uRimLightWidth.value = ev.value)
+      );
+
+      Object.assign(p.element.style, {
+        position: &quot;fixed&quot;,
+        top: &quot;10px&quot;,
+        right: &quot;10px&quot;,
+        zIndex: &quot;3000&quot;
+      });
+      p.hidden = true;
+      this.paneVisible = false;
+      this.paneInitialized = true;
+      this.loadPreset(&quot;Classic Glass&quot;);
+    },
+
+    loadPreset(name) {
+      const preset = this.PARAMS.presets[name];
+      if (!preset) return;
+
+      Object.entries(preset).forEach(([k, v]) =&gt; {
+        if (k in this.PARAMS.distortion) {
+          this.PARAMS.distortion[k] = v;
+          const uniformName = &quot;u&quot; + k.charAt(0).toUpperCase() + k.slice(1);
+          if (this.customPass?.uniforms[uniformName])
+            this.customPass.uniforms[uniformName].value = v;
+        }
+      });
+
+      this.PARAMS.distortion.preset = name;
+      this.pane?.refresh();
+    },
+
+    onWindowResize() {
+      this.aspect = window.innerWidth / window.innerHeight;
+
+      if (this.camera) {
+        this.camera.left = this.camera.right = this.backgroundCamera.left = this.backgroundCamera.right = null;
+        [this.camera, this.backgroundCamera].forEach((cam) =&gt; {
+          cam.left = -this.aspect;
+          cam.right = this.aspect;
+          cam.updateProjectionMatrix();
+        });
+      }
+
+      this.renderer?.setSize(window.innerWidth, window.innerHeight);
+      this.composer?.setSize(window.innerWidth, window.innerHeight);
+
+      if (this.customPass) this.customPass.uniforms.uAspect.value = this.aspect;
+      if (this.backgroundTexture) this.createBackgroundMesh();
+    },
+
+    animate(time = 0) {
+      requestAnimationFrame((t) =&gt; this.animate(t));
+      if (!this.webglSupported || !this.renderer) return;
+
+      this.performanceMonitor.frameCount++;
+      if (time - this.performanceMonitor.lastTime &gt;= 1000) {
+        this.performanceMonitor.fps = this.performanceMonitor.frameCount;
+        this.performanceMonitor.frameCount = 0;
+        this.performanceMonitor.lastTime = time;
+
+        const fpsElement = document.getElementById(&quot;fpsCounter&quot;);
+        if (fpsElement)
+          fpsElement.textContent = String(this.performanceMonitor.fps);
+      }
+
+      const tgt = this.PARAMS.distortion.followMouse
+        ? this.targetMousePosition
+        : this.staticMousePosition;
+      this.mousePosition.x += (tgt.x - this.mousePosition.x) * 0.1;
+      this.mousePosition.y += (tgt.y - this.mousePosition.y) * 0.1;
+
+      if (this.customPass) {
+        this.customPass.uniforms.uMouse.value.set(
+          this.mousePosition.x,
+          this.mousePosition.y
+        );
+        this.customPass.uniforms.uTime.value =
+          time * 0.001 * this.PARAMS.distortion.animationSpeed;
+      }
+
+      this.composer
+        ? this.composer.render()
+        : (this.renderer.clear(),
+          this.renderer.render(this.backgroundScene, this.backgroundCamera));
+    }
+  };
+
+  window.addEventListener(&quot;error&quot;, (e) =&gt; {
+    let m = &quot;An error occurred&quot;;
+    if (e.error?.message) m += &quot;: &quot; + e.error.message;
+    if (e.filename) m += &quot; in &quot; + e.filename;
+    App.showError(m + &quot;. Some features may not work properly.&quot;);
+  });
+
+  window.addEventListener(&quot;unhandledrejection&quot;, (e) =&gt; {
+    App.showError(
+      &quot;Loading failed: &quot; + (e.reason || &quot;Unknown error&quot;) + &quot;. Retrying...&quot;
+    );
+  });
+
+  if (document.readyState === &quot;loading&quot;) {
+    document.addEventListener(&quot;DOMContentLoaded&quot;, () =&gt; App.init());
+  } else {
+    App.init();
+  }
+
+  window.App = App;
+})();
+
+              </code>
+            </pre>
+            <div class="error-bar" id="error-bar-js">
+              <span class="error-icon" data-type="js">
+                !
+              </span>
+            </div>
+            <span class="code-editor-status"></span>
+          </div>
+
+            <div class="react-pen-editor-imports" data-props-type="js"></div>
+        </div>
+
+
+
+    </div>
+
+    <div id="resizer" class="resizer">
+      <span></span>
+      <div id="width-readout" class="width-readout">999px</div>
+      <div id="pen-ad"></div>
+    </div>
+
+      <section id="drawer" class="comments">
+
+      </section>
+
+    <div class="output-container">
+      <div class="output-sizer"> 
+        <div id="result_div" class="result">
+          <iframe id="result"
+            name="CodePen"
+            title="CodePen Preview"
+            src="https://codepen.io/Maximilian-Unverricht-the-looper/fullpage/LEGBWJY?anon=true&amp;view="
+            sandbox="allow-downloads allow-forms allow-modals allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
+            allow="accelerometer *; bluetooth *; camera *; clipboard-read *; clipboard-write *; display-capture *; encrypted-media *; geolocation *; gyroscope *; language-detector *; language-model *; microphone *; midi *; rewriter *; serial *; summarizer *; translator *; web-share *; writer *; xr-spatial-tracking *"
+            scrolling="auto" allowTransparency="true" allowpaymentrequest="true" allowfullscreen="true"
+            class="result-iframe "
+            loading="lazy"
+          >
+          </iframe>
+
+
+          <div id="editor-drag-cover" class="drag-cover"></div>
+
+        </div>
+
+        <div id="box-console" class="box box-console notranslate" translate="no">
+
+  <div class="editor-resizer editor-resizer-console" title="Drag to resize. Double-click to expand."></div>
+
+  <div class="powers">
+    <div class="powers-drag-handle" title="Drag to resize. Double-click to expand."></div>
+    <div class="editor-actions-left">
+      <h2 class="box-title"><span class="box-title-name">Console</span></h2>
+    </div>
+    <div class="editor-actions-right">
+        <button class="button button-medium mini-button console-clear-button" title="Clear">
+          Clear
+        </button>
+        <button class="button button-medium mini-button close-editor-button" data-type="console" title="Close">
+          <svg class="icon-x" viewBox="0 0 100 100">
+            <path d="M96.8 83.7L63.1 50l33.7-33.7c3.6-3.6 3.6-9.4 0-13.1s-9.5-3.6-13.1 0L50 36.9 16.3 3.2C12.7-.4 6.9-.4 3.2 3.2s-3.6 9.5 0 13.1L36.9 50 3.2 83.7c-3.6 3.6-3.6 9.4 0 13.1s9.5 3.6 13.1 0L50 63.1l33.7 33.7c3.6 3.6 9.4 3.6 13.1 0s3.6-9.5 0-13.1z"/>
+          </svg>
+        </button>
+      </div>
+  </div>
+
+  <div class="console-wrap">
+    <div class="console-entries short-no-scroll"></div>
+    <div class="console-command-line">
+      <span class="console-arrow forwards"></span>
+      <textarea class="console-command-line-input auto-expand" rows="1" data-min-rows="1"></textarea>
+    </div>
+  </div>
+
+</div>
+
+
+      </div> 
+
+    </div>
+
+  </div>
+
+</div>
+
+<div id="asset-bin-goes-here"></div>
+
+  <footer id="react-pen-footer" class="site-footer editor-footer"></footer>
+
+<div id="keycommands" class="modal modal-neutral">
+<div class="keycommands-container">
+
+  <section class="editor-commands inline-editor-commands">
+
+    <h2>Editor Commands</h2>
+
+    <div class="key-group">
+      <kbd class="keycommand">
+        <span class="key pc_only">Ctrl</span>
+        <span class="key mac_only">Ctrl</span>
+        <span class="key">Space</span>
+      </kbd>
+      Autocomplete
+    </div>
+    <div class="key-group">
+      <kbd class="keycommand">
+        <span class="key -command"></span>
+        <span class="key">F</span>
+      </kbd>
+      Find
+    </div>
+    <div class="key-group">
+      <kbd class="keycommand">
+        <span class="key -command"></span>
+        <span class="key">G</span>
+      </kbd>
+      Find Next
+    </div>
+    <div class="key-group">
+      <kbd class="keycommand">
+        <span class="key -command"></span>
+        <span class="key" title="Shift">⇧</span>
+        <span class="key">G</span>
+      </kbd>
+      Find Previous
+    </div>
+    <div class="key-group">
+      <kbd class="keycommand">
+        <span class="key -command"></span>
+        <span class="key pc_only" title="Shift">⇧</span>
+        <span class="key mac_only">Opt</span>
+        <span class="key">F</span>
+      </kbd>
+      Find & Replace
+    </div>
+    <div class="key-group mac_only">
+      <kbd class="keycommand">
+        <span class="key -command"></span>
+        <span class="key" title="Shift">⇧</span>
+        <span class="key">F</span>
+      </kbd>
+      Format Code
+    </div>
+    <div class="key-group">
+      <kbd class="keycommand">
+        <span class="key -command"></span>
+        <span class="key">[</span>
+      </kbd>
+      Indent Code Right
+    </div>
+    <div class="key-group">
+      <kbd class="keycommand">
+        <span class="key -command"></span>
+        <span class="key">]</span>
+      </kbd>
+      Indent Code Left
+    </div>
+    <div class="key-group">
+      <kbd class="keycommand">
+        <span class="key" title="Shift">⇧</span>
+        <span class="key">Tab</span>
+      </kbd>
+      Auto Indent Code
+    </div>
+    <div class="key-group">
+      <kbd class="keycommand">
+        <span class="key -command"></span>
+        <span class="key">/</span>
+      </kbd>
+      Line Comment
+    </div>
+    <div class="key-group">
+      <kbd class="keycommand">
+        <span class="key -command"></span>
+        <span class="key pc_only" title="Shift">⇧</span>
+        <span class="key mac_only">Opt</span>
+        <span class="key">/</span>
+      </kbd>
+      Block Comment
+    </div>
+
+    <p class="inline-tab-triggers">Also see: <a href="https://blog.codepen.io/documentation/features/tab-triggers/" target="_blank" rel="noopener">Tab Triggers</a></p>
+
+  </section>
+
+  <section class="editor-commands">
+
+    <h2>Editor Focus</h2>
+
+    <div class="key-group">
+      <kbd class="keycommand">
+        <span class="key -command"></span>
+        <span class="key pc_only">Alt</span>
+        <span class="key mac_only">Opt</span>
+        <span class="key">1</span>
+      </kbd>
+      HTML Editor
+    </div>
+
+
+    <div class="key-group">
+      <kbd class="keycommand">
+        <span class="key -command"></span>
+        <span class="key pc_only">Alt</span>
+        <span class="key mac_only">Opt</span>
+        <span class="key">2</span>
+      </kbd>
+      CSS Editor
+    </div>
+
+    <div class="key-group">
+      <kbd class="keycommand">
+        <span class="key -command"></span>
+        <span class="key pc_only">Alt</span>
+        <span class="key mac_only">Opt</span>
+        <span class="key">3</span>
+      </kbd>
+      JS Editor
+    </div>
+
+    <div class="key-group">
+      <kbd class="keycommand">
+        <span class="key -command"></span>
+        <span class="key pc_only">Alt</span>
+        <span class="key mac_only">Opt</span>
+        <span class="key">4</span>
+      </kbd>
+      Toggle Console
+    </div>
+
+    <div class="key-group">
+      <kbd class="keycommand">
+        <span class="key -command"></span>
+        <span class="key pc_only">Alt</span>
+        <span class="key mac_only">Opt</span>
+        <span class="key">0</span>
+      </kbd>
+      Preview
+    </div>
+
+
+    <div class="key-group">
+
+      <kbd class="keycommand">
+        <span class="key">Esc</span>
+      </kbd>
+
+      Exit currently focused editor
+    </div>
+  </section>
+
+
+  <section class="editor-commands">
+
+    <h2>Misc</h2>
+
+    <div class="key-group">
+      <kbd class="keycommand">
+        <span class="key -command"></span>
+        <span class="key" title="Shift">⇧</span>
+        <span class="key">7</span>
+      </kbd>
+      Re-run Preview
+    </div>
+
+    <div class="key-group">
+      <kbd class="keycommand">
+        <span class="key -command"></span>
+        <span class="key" title="Shift">⇧</span>
+        <span class="key">8</span>
+      </kbd>
+      Clear All Analyze Errors
+    </div>
+
+    <div class="key-group">
+      <kbd class="keycommand">
+        <span class="key -command"></span>
+        <span class="key" title="Shift">⇧</span>
+        <span class="key">9</span>
+      </kbd>
+      Open This Dialog
+    </div>
+
+    <div class="key-group">
+      <kbd class="keycommand">
+        <span class="key -command"></span>
+        <span class="key" title="Shift">⇧</span>
+        <span class="key">0</span>
+      </kbd>
+      Open Debug View
+    </div>
+
+    <h2>HTML Specific</h2>
+
+    <div class="key-group">
+
+      <kbd class="keycommand">
+        <span class="key -command"></span>
+        <span class="key" title="Shift">⇧</span>
+        <span class="key">A</span>
+      </kbd>
+      Wrap With...
+    </div>
+
+    <h2>Pen Actions</h2>
+
+    <div class="key-group">
+      <kbd class="keycommand">
+        <span class="key -command"></span>
+        <span class="key">P</span>
+      </kbd>
+      Create New Pen
+    </div>
+
+    <div class="key-group">
+      <kbd class="keycommand">
+        <span class="key -command"></span>
+        <span class="key">S</span>
+      </kbd>
+      Save
+    </div>
+
+    <div class="key-group">
+      <kbd class="keycommand">
+        <span class="key -command"></span>
+        <span class="key" title="Shift">⇧</span>
+        <span class="key">S</span>
+      </kbd>
+      Save As Private <span style="border-radius: 2px; padding: 1px 6px 2px 5px; color: black !important; background: var(--cp-color-yellow); white-space: nowrap; text-shadow: none; letter-spacing: 0; font-size: 71%; position: relative; top: -1px;">PRO</span>
+    </div>
+
+    <div class="key-group">
+      <kbd class="keycommand">
+        <span class="key -command"></span>
+        <span class="key">I</span>
+      </kbd>
+      Info Panel (if owned)
+    </div>
+
+  </section>
+</div>
+</div>
+
+
+  
+
+
+
+  <div id="popup-overlay" class="overlay popup-overlay"></div>
+  <div id="modal-overlay" class="overlay modal-overlay"></div>
+
+  <noscript>
+
+  <input type="checkbox" class="modal-closing-trick" id="modal-closing-trick">
+
+  <div class="overlay noscript-overlay" style="display: block;"></div>
+
+  <div class="modal modal-message group modal-warning">
+
+    <div class="modal-title">CodePen requires JavaScript to render the code and preview areas in this view.</div>
+
+    <p>Trying <a href="https://codepen.io/Maximilian-Unverricht-the-looper/debug/LEGBWJY">viewing this Pen in Debug Mode</a>, which is the preview area without any iframe and does not require JavaScript. Although what the preview is of might!</p>
+
+    <p>Need to know how to enable JavaScript? <a href="http://enable-javascript.com/" target="_blank" rel="noopener">Go here.</a></p>
+
+    <label class="button button-medium" for="modal-closing-trick">Close this, use anyway.</label>
+
+  </div>
+
+</noscript>
+
+
+   <textarea id="init-data" style="display:none">{&quot;__browser&quot;:{&quot;country&quot;:&quot;DE&quot;,&quot;device&quot;:&quot;unknown_device&quot;,&quot;mobile&quot;:false,&quot;name&quot;:&quot;chrome&quot;,&quot;platform&quot;:&quot;pc&quot;,&quot;version&quot;:&quot;120&quot;},&quot;__constants&quot;:{},&quot;__CPDATA&quot;:{&quot;domain_iframe&quot;:&quot;https://cdpn.io&quot;,&quot;environment&quot;:&quot;production&quot;,&quot;host&quot;:&quot;codepen.io&quot;,&quot;iframe_allow&quot;:&quot;accelerometer *; bluetooth *; camera *; clipboard-read *; clipboard-write *; display-capture *; encrypted-media *; geolocation *; gyroscope *; language-detector *; language-model *; microphone *; midi *; rewriter *; serial *; summarizer *; translator *; web-share *; writer *; xr-spatial-tracking *&quot;,&quot;iframe_sandbox&quot;:&quot;allow-downloads allow-forms allow-modals allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation-by-user-activation&quot;},&quot;__graphql&quot;:{&quot;data&quot;:{&quot;data&quot;:{&quot;sessionUser&quot;:{&quot;id&quot;:&quot;VoDkNZ&quot;,&quot;name&quot;:&quot;Captain Anonymous&quot;,&quot;title&quot;:&quot;Captain Anonymous&quot;,&quot;avatar&quot;:&quot;https://assets.codepen.io/t-1/user-default-avatar.jpg?format=auto&amp;version=0&quot;,&quot;currentContext&quot;:{&quot;id&quot;:&quot;VoDkNZ&quot;,&quot;title&quot;:&quot;Captain Anonymous&quot;,&quot;name&quot;:&quot;Captain Anonymous&quot;,&quot;avatar&quot;:&quot;https://assets.codepen.io/t-1/user-default-avatar.jpg?format=auto&amp;version=0&quot;,&quot;username&quot;:&quot;anon&quot;,&quot;__typename&quot;:&quot;User&quot;},&quot;currentTeamId&quot;:null,&quot;username&quot;:&quot;anon&quot;,&quot;admin&quot;:false,&quot;anon&quot;:true,&quot;pro&quot;:false,&quot;verified&quot;:false,&quot;featureFlags&quot;:[],&quot;teams&quot;:[],&quot;__typename&quot;:&quot;User&quot;}}},&quot;url&quot;:&quot;https://codepen.io/graphql&quot;,&quot;api&quot;:&quot;cprails&quot;},&quot;__user&quot;:{&quot;anon&quot;:true,&quot;base_url&quot;:&quot;/anon/&quot;,&quot;cohorts&quot;:[],&quot;current_team_hashid&quot;:null,&quot;current_team_id&quot;:0,&quot;hashid&quot;:&quot;VoDkNZ&quot;,&quot;id&quot;:1,&quot;itemType&quot;:&quot;user&quot;,&quot;name&quot;:&quot;Captain Anonymous&quot;,&quot;paid&quot;:false,&quot;tier&quot;:0,&quot;username&quot;:&quot;anon&quot;,&quot;created_at&quot;:null,&quot;email_verified&quot;:null,&quot;collections_count&quot;:0,&quot;collections_private_count&quot;:0,&quot;followers_count&quot;:0,&quot;followings_count&quot;:0,&quot;pens_count&quot;:0,&quot;pens_private_count&quot;:0,&quot;projects_count&quot;:0,&quot;projects_private_count&quot;:0},&quot;__firebase&quot;:{&quot;config&quot;:{&quot;apiKey&quot;:&quot;AIzaSyBgLAe7N_MdFpuVofMkcQLGwwhUu5tuxls&quot;,&quot;authDomain&quot;:&quot;codepen-store-production.firebaseapp.com&quot;,&quot;databaseURL&quot;:&quot;https://codepen-store-production.firebaseio.com&quot;,&quot;disabled&quot;:false,&quot;projectId&quot;:&quot;codepen-store-production&quot;},&quot;token&quot;:&quot;eyJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJodHRwczovL2lkZW50aXR5dG9vbGtpdC5nb29nbGVhcGlzLmNvbS9nb29nbGUuaWRlbnRpdHkuaWRlbnRpdHl0b29sa2l0LnYxLklkZW50aXR5VG9vbGtpdCIsImNsYWltcyI6eyJvd25lcklkIjoiVm9Ea05aIiwiYWRtaW4iOmZhbHNlfSwiZXhwIjoxNzYxNjYyMTAwLCJpYXQiOjE3NjE2NTg1MDAsImlzcyI6ImZpcmViYXNlLWFkbWluc2RrLThva3lsQGNvZGVwZW4tc3RvcmUtcHJvZHVjdGlvbi5pYW0uZ3NlcnZpY2VhY2NvdW50LmNvbSIsInN1YiI6ImZpcmViYXNlLWFkbWluc2RrLThva3lsQGNvZGVwZW4tc3RvcmUtcHJvZHVjdGlvbi5pYW0uZ3NlcnZpY2VhY2NvdW50LmNvbSIsInVpZCI6IlZvRGtOWiJ9.8v9xBdLa05m6xtbgva96qnm8Yo8QHSq1b_5a98RhQzNqifdMJjlPX9vyOMQCBsMIjDKjOC9Qpv5umVh1jLQIiOAqTZmLChZiwQLYDESFZctIPOJ4CoW7-nfTjFr15mItBnNiYItSyFiTIlJXdw1ubVtEMglAFIV5ivwzoRZJzha-FWH6SBfu2-7n4xXWisnShqLl0mm84nqkIYI51YU52Hp--EvZfuMvUyM7wOi_oPWafxbsZEGAVjEcCWaOcBMCiKIOXHHfl5zRJd6XOIU_Ipaj6WgbHwp3vBvBUK3YZBsJnVz9TMfdhXB8icbhxEU6FJU6-b3G1FSG1JqscbPvxw&quot;},&quot;__pay_stripe_public_key&quot;:&quot;pk_live_2GndomDfiklqpSNQn8FrGuwZSMIMzha7DkLJqlYe7IR0ihKAlKdiHg68JJc5eVPt68rzAjzAAVXcUwjySHRCsgjQQ00gtRBUFNH&quot;,&quot;__pay_braintree_env&quot;:&quot;production&quot;,&quot;__boomboom&quot;:{&quot;serve_url&quot;:&quot;https://cdpn.io/cpe/boomboom&quot;,&quot;store_url&quot;:&quot;https://codepen.io/cpe/boomboom/store&quot;},&quot;__editor_config&quot;:{&quot;id&quot;:&quot;classic&quot;,&quot;editors&quot;:[{&quot;id&quot;:&quot;html&quot;,&quot;type&quot;:&quot;html&quot;,&quot;name&quot;:&quot;HTML&quot;,&quot;showEditor&quot;:true,&quot;showSettings&quot;:true,&quot;showProcessors&quot;:true,&quot;embeds&quot;:{&quot;showViewCompiled&quot;:true},&quot;settings&quot;:[{&quot;id&quot;:&quot;processor&quot;,&quot;name&quot;:&quot;HTML Preprocessor&quot;,&quot;type&quot;:&quot;select&quot;,&quot;visible&quot;:true,&quot;values&quot;:[{&quot;id&quot;:&quot;none&quot;,&quot;name&quot;:&quot;None&quot;,&quot;value&quot;:&quot;none&quot;,&quot;default&quot;:true},{&quot;id&quot;:&quot;haml&quot;,&quot;name&quot;:&quot;Haml&quot;,&quot;value&quot;:&quot;haml&quot;},{&quot;id&quot;:&quot;markdown&quot;,&quot;name&quot;:&quot;Markdown&quot;,&quot;value&quot;:&quot;markdown&quot;},{&quot;id&quot;:&quot;slim&quot;,&quot;name&quot;:&quot;Slim&quot;,&quot;value&quot;:&quot;slim&quot;},{&quot;id&quot;:&quot;pug&quot;,&quot;name&quot;:&quot;Pug&quot;,&quot;value&quot;:&quot;pug&quot;}]},{&quot;id&quot;:&quot;html_classes&quot;,&quot;name&quot;:&quot;Add Class(es) to &lt;html&gt;&quot;,&quot;type&quot;:&quot;input&quot;,&quot;placeholder&quot;:&quot;e.g. single post post-1234&quot;,&quot;visible&quot;:true},{&quot;id&quot;:&quot;head&quot;,&quot;name&quot;:&quot;Stuff for &lt;head&gt;&quot;,&quot;type&quot;:&quot;textarea&quot;,&quot;placeholder&quot;:&quot;e.g. &lt;meta&gt;, &lt;link&gt;, &lt;script&gt;&quot;,&quot;visible&quot;:true}],&quot;actions&quot;:[{&quot;id&quot;:&quot;tidy_html&quot;,&quot;type&quot;:&quot;tidy_code&quot;,&quot;name&quot;:&quot;Format HTML&quot;,&quot;disabled_processors&quot;:[&quot;haml&quot;,&quot;slim&quot;]},{&quot;id&quot;:&quot;view_compiled_html&quot;,&quot;type&quot;:&quot;view_compiled&quot;,&quot;name&quot;:&quot;View Compiled HTML&quot;,&quot;disabled_processors&quot;:[&quot;none&quot;],&quot;showInEmbeds&quot;:true},{&quot;id&quot;:&quot;analyze_html&quot;,&quot;type&quot;:&quot;analyze&quot;,&quot;name&quot;:&quot;Analyze HTML&quot;},{&quot;id&quot;:&quot;maximize_html_editor&quot;,&quot;type&quot;:&quot;maximize&quot;,&quot;name&quot;:&quot;Maximize HTML Editor&quot;},{&quot;id&quot;:&quot;minimize_html_editor&quot;,&quot;type&quot;:&quot;minimize&quot;,&quot;name&quot;:&quot;Minimize HTML Editor&quot;},{&quot;id&quot;:&quot;fold_all_html&quot;,&quot;type&quot;:&quot;fold_all&quot;,&quot;name&quot;:&quot;Fold All&quot;},{&quot;id&quot;:&quot;unfold_all_html&quot;,&quot;type&quot;:&quot;unfold_all&quot;,&quot;name&quot;:&quot;Unfold All&quot;}],&quot;processors&quot;:[{&quot;id&quot;:&quot;none&quot;,&quot;name&quot;:&quot;None&quot;},{&quot;id&quot;:&quot;haml&quot;,&quot;name&quot;:&quot;Haml&quot;},{&quot;id&quot;:&quot;markdown&quot;,&quot;name&quot;:&quot;Markdown&quot;},{&quot;id&quot;:&quot;slim&quot;,&quot;name&quot;:&quot;Slim&quot;},{&quot;id&quot;:&quot;pug&quot;,&quot;name&quot;:&quot;Pug&quot;}]},{&quot;id&quot;:&quot;css&quot;,&quot;type&quot;:&quot;css&quot;,&quot;name&quot;:&quot;CSS&quot;,&quot;showEditor&quot;:true,&quot;showSettings&quot;:true,&quot;showProcessors&quot;:true,&quot;showVendorPrefixing&quot;:true,&quot;embeds&quot;:{&quot;showViewCompiled&quot;:true},&quot;actions&quot;:[{&quot;id&quot;:&quot;tidy_css&quot;,&quot;type&quot;:&quot;tidy_code&quot;,&quot;name&quot;:&quot;Format CSS&quot;,&quot;disabled_processors&quot;:[&quot;sass&quot;,&quot;stylus&quot;]},{&quot;id&quot;:&quot;view_compiled_css&quot;,&quot;type&quot;:&quot;view_compiled&quot;,&quot;name&quot;:&quot;View Compiled CSS&quot;,&quot;disabled_processors&quot;:[&quot;none&quot;],&quot;disabled_prefixes&quot;:[&quot;neither&quot;,&quot;prefixfree&quot;]},{&quot;id&quot;:&quot;analyze_css&quot;,&quot;type&quot;:&quot;analyze&quot;,&quot;name&quot;:&quot;Analyze CSS&quot;},{&quot;id&quot;:&quot;maximize_css_editor&quot;,&quot;type&quot;:&quot;maximize&quot;,&quot;name&quot;:&quot;Maximize CSS Editor&quot;},{&quot;id&quot;:&quot;minimize_css_editor&quot;,&quot;type&quot;:&quot;minimize&quot;,&quot;name&quot;:&quot;Minimize CSS Editor&quot;},{&quot;id&quot;:&quot;fold_all_css&quot;,&quot;type&quot;:&quot;fold_all&quot;,&quot;name&quot;:&quot;Fold All&quot;,&quot;disabled_processors&quot;:[&quot;sass&quot;]},{&quot;id&quot;:&quot;unfold_all_css&quot;,&quot;type&quot;:&quot;unfold_all&quot;,&quot;name&quot;:&quot;Unfold All&quot;,&quot;disabled_processors&quot;:[&quot;sass&quot;]}],&quot;processors&quot;:[{&quot;id&quot;:&quot;none&quot;,&quot;name&quot;:&quot;None&quot;},{&quot;id&quot;:&quot;less&quot;,&quot;name&quot;:&quot;Less&quot;},{&quot;id&quot;:&quot;scss&quot;,&quot;name&quot;:&quot;SCSS&quot;},{&quot;id&quot;:&quot;sass&quot;,&quot;name&quot;:&quot;Sass&quot;},{&quot;id&quot;:&quot;stylus&quot;,&quot;name&quot;:&quot;Stylus&quot;},{&quot;id&quot;:&quot;postcss&quot;,&quot;name&quot;:&quot;PostCSS&quot;}],&quot;parSuffixes&quot;:[&quot;less&quot;,&quot;scss&quot;,&quot;sass&quot;,&quot;styl&quot;]},{&quot;id&quot;:&quot;js&quot;,&quot;type&quot;:&quot;js&quot;,&quot;name&quot;:&quot;JS&quot;,&quot;showEditor&quot;:true,&quot;showSettings&quot;:true,&quot;showProcessors&quot;:true,&quot;detectImports&quot;:true,&quot;externalResourcesHidden&quot;:false,&quot;embeds&quot;:{&quot;showViewCompiled&quot;:true},&quot;actions&quot;:[{&quot;id&quot;:&quot;tidy_js&quot;,&quot;type&quot;:&quot;tidy_code&quot;,&quot;name&quot;:&quot;Format JavaScript&quot;,&quot;disabled_processors&quot;:[&quot;coffeescript, livescript&quot;]},{&quot;id&quot;:&quot;view_compiled_js&quot;,&quot;type&quot;:&quot;view_compiled&quot;,&quot;name&quot;:&quot;View Compiled JavaScript&quot;,&quot;disabled_processors&quot;:[&quot;none&quot;]},{&quot;id&quot;:&quot;analyze_js&quot;,&quot;type&quot;:&quot;analyze&quot;,&quot;name&quot;:&quot;Analyze JavaScript&quot;},{&quot;id&quot;:&quot;maximize_js_editor&quot;,&quot;type&quot;:&quot;maximize&quot;,&quot;name&quot;:&quot;Maximize JavaScript Editor&quot;},{&quot;id&quot;:&quot;minimize_js_editor&quot;,&quot;type&quot;:&quot;minimize&quot;,&quot;name&quot;:&quot;Minimize JavaScript Editor&quot;},{&quot;id&quot;:&quot;fold_all_js&quot;,&quot;type&quot;:&quot;fold_all&quot;,&quot;name&quot;:&quot;Fold All&quot;},{&quot;id&quot;:&quot;unfold_all_js&quot;,&quot;type&quot;:&quot;unfold_all&quot;,&quot;name&quot;:&quot;Unfold All&quot;}],&quot;processors&quot;:[{&quot;id&quot;:&quot;none&quot;,&quot;name&quot;:&quot;None&quot;},{&quot;id&quot;:&quot;babel&quot;,&quot;name&quot;:&quot;Babel&quot;},{&quot;id&quot;:&quot;typescript&quot;,&quot;name&quot;:&quot;TypeScript&quot;},{&quot;id&quot;:&quot;coffeescript&quot;,&quot;name&quot;:&quot;CoffeeScript&quot;},{&quot;id&quot;:&quot;livescript&quot;,&quot;name&quot;:&quot;LiveScript&quot;}]}],&quot;formatters&quot;:[{&quot;id&quot;:&quot;classic&quot;,&quot;name&quot;:&quot;Classic&quot;,&quot;runOn&quot;:[{&quot;eventType&quot;:&quot;demand&quot;}],&quot;url&quot;:&quot;https://fi593g2v2a.execute-api.us-west-2.amazonaws.com/production/format&quot;}],&quot;layout&quot;:{&quot;default&quot;:&quot;top&quot;},&quot;linters&quot;:[{&quot;id&quot;:&quot;classic&quot;,&quot;name&quot;:&quot;Classic&quot;,&quot;runOn&quot;:[{&quot;eventType&quot;:&quot;demand&quot;}],&quot;url&quot;:&quot;https://fi593g2v2a.execute-api.us-west-2.amazonaws.com/production/lint&quot;}],&quot;preview&quot;:{&quot;intervalMaxWaitMS&quot;:3500,&quot;intervalMS&quot;:1200},&quot;settings&quot;:[{&quot;id&quot;:&quot;behavior&quot;,&quot;name&quot;:&quot;Behavior&quot;,&quot;type&quot;:&quot;setting&quot;},{&quot;id&quot;:&quot;editor&quot;,&quot;name&quot;:&quot;Editor&quot;,&quot;type&quot;:&quot;setting&quot;}]},&quot;__item&quot;:&quot;{\&quot;editor_settings\&quot;:{\&quot;auto_run\&quot;:true,\&quot;autocomplete\&quot;:false,\&quot;code_folding\&quot;:true,\&quot;css_pre_processor\&quot;:\&quot;none\&quot;,\&quot;css_prefix\&quot;:\&quot;neither\&quot;,\&quot;css_starter\&quot;:\&quot;neither\&quot;,\&quot;emmet_active\&quot;:true,\&quot;font_size\&quot;:14,\&quot;font_type\&quot;:\&quot;system\&quot;,\&quot;format_on_save\&quot;:true,\&quot;html_pre_processor\&quot;:\&quot;none\&quot;,\&quot;indent_with\&quot;:\&quot;spaces\&quot;,\&quot;js_pre_processor\&quot;:\&quot;none\&quot;,\&quot;key_bindings\&quot;:\&quot;normal\&quot;,\&quot;line_numbers\&quot;:true,\&quot;line_wrapping\&quot;:true,\&quot;match_brackets\&quot;:true,\&quot;snippets\&quot;:{\&quot;markupSnippets\&quot;:{},\&quot;stylesheetSnippets\&quot;:{}},\&quot;tab_size\&quot;:2,\&quot;theme\&quot;:\&quot;twilight\&quot;,\&quot;id\&quot;:\&quot;LEGBWJY\&quot;,\&quot;auto_save\&quot;:true},\&quot;hashid\&quot;:\&quot;LEGBWJY\&quot;,\&quot;itemType\&quot;:\&quot;pen\&quot;,\&quot;resources\&quot;:[{\&quot;url\&quot;:\&quot;https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js\&quot;,\&quot;order\&quot;:0,\&quot;resource_type\&quot;:\&quot;js\&quot;,\&quot;par_content\&quot;:\&quot;\&quot;},{\&quot;url\&quot;:\&quot;https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js\&quot;,\&quot;order\&quot;:1,\&quot;resource_type\&quot;:\&quot;js\&quot;,\&quot;par_content\&quot;:\&quot;\&quot;}],\&quot;tags\&quot;:[\&quot;threejs\&quot;,\&quot;gsap\&quot;,\&quot;glass\&quot;,\&quot;refraction\&quot;,\&quot;sound\&quot;],\&quot;id\&quot;:85003744,\&quot;user_id\&quot;:15145773,\&quot;html\&quot;:\&quot;&lt;div class=\\\&quot;error-message\\\&quot; id=\\\&quot;errorMessage\\\&quot;&gt;&lt;/div&gt;\\n&lt;div class=\\\&quot;fallback-bg\\\&quot; id=\\\&quot;fallbackBg\\\&quot;&gt;&lt;/div&gt;\\n\\n&lt;div class=\\\&quot;audio-enable\\\&quot;&gt;\\n  &lt;p&gt;ENTER EXPERIENCE&lt;br /&gt;WITH AUDIO&lt;/p&gt;\\n  &lt;button class=\\\&quot;enable-button\\\&quot; id=\\\&quot;enableBtn\\\&quot;&gt;START&lt;/button&gt;\\n&lt;/div&gt;\\n\\n&lt;div class=\\\&quot;preloader\\\&quot; id=\\\&quot;preloader\\\&quot;&gt;\\n  &lt;span id=\\\&quot;counter\\\&quot;&gt;[000]&lt;/span&gt;\\n&lt;/div&gt;\\n\\n&lt;canvas id=\\\&quot;canvas\\\&quot;&gt;&lt;/canvas&gt;\\n\\n&lt;p class=\\\&quot;text-element description\\\&quot;&gt;THE ARCHIVE COLLECTS RECORDS OF ABANDONED WORLDS AND LOST TECHNOLOGIES, WAITING TO BE DISCOVERED.&lt;/p&gt;\\n\\n&lt;nav class=\\\&quot;text-element nav-links\\\&quot;&gt;\\n  &lt;a href=\\\&quot;#\\\&quot;&gt;_DATA VAULTS&lt;/a&gt;\\n  &lt;a href=\\\&quot;#\\\&quot;&gt;_DEEP SPACE&lt;/a&gt;\\n  &lt;a href=\\\&quot;#\\\&quot;&gt;_FORBIDDEN ZONES&lt;/a&gt;\\n  &lt;a href=\\\&quot;#\\\&quot;&gt;_EXODUS LOGS&lt;/a&gt;\\n&lt;/nav&gt;\\n\\n&lt;div class=\\\&quot;text-element footer\\\&quot;&gt;\\n  &lt;p&gt;Err: [404 - SIGNAL LOST]&lt;br /&gt;\\n    SYSTEM TIME: CYCLE 2187.42&lt;br /&gt;\\n    &lt;span style=\\\&quot;opacity: 0.7; font-size: 0.6rem;\\\&quot;&gt;PRESS &#39;H&#39; TO TOGGLE REFRACTION CONTROLS&lt;/span&gt;\\n  &lt;/p&gt;\\n&lt;/div&gt;\\n\\n&lt;p class=\\\&quot;text-element division\\\&quot;&gt;\\n  PERFORMANCE ANALYSIS: &lt;span id=\\\&quot;fpsCounter\\\&quot;&gt;&lt;/span&gt; FPS&lt;br&gt;\\n  OPTICAL REFRACTION ENGINE: ONLINE&lt;br&gt;\\n  ACCESS LEVEL: RESTRICTED.&lt;br&gt;\\n  TRACE INITIATED: SOURCE UNKNOWN.\\n&lt;/p&gt;\\n\\n&lt;p class=\\\&quot;text-element signal\\\&quot;&gt;_Uplink Pending...&lt;/p&gt;\\n\\n&lt;div class=\\\&quot;text-element central-text\\\&quot;&gt;\\n  THE VAULT RETAINS ECHOES OF CIVILIZATIONS ERASED BY TIME&lt;br&gt;\\n  DEAD SYSTEMS. BROKEN SIGNALS. MYTHS WRITTEN IN CODE.\\n&lt;/div&gt;\\n\\n&lt;audio id=\\\&quot;startClickSound\\\&quot; preload=\\\&quot;auto\\\&quot;&gt;\\n  &lt;source src=\\\&quot;https://assets.codepen.io/7558/preloader-2s-001.mp3\\\&quot; type=\\\&quot;audio/mpeg\\\&quot;&gt;\\n&lt;/audio&gt;\\n\\n&lt;audio id=\\\&quot;preloaderSound\\\&quot; preload=\\\&quot;auto\\\&quot;&gt;\\n  &lt;source src=\\\&quot;https://assets.codepen.io/7558/preloader-3s-002.mp3\\\&quot; type=\\\&quot;audio/mpeg\\\&quot;&gt;\\n&lt;/audio&gt;\\n\\n&lt;audio id=\\\&quot;hoverSound\\\&quot; preload=\\\&quot;auto\\\&quot;&gt;\\n  &lt;source src=\\\&quot;https://assets.codepen.io/7558/preloader-2s-001.mp3\\\&quot; type=\\\&quot;audio/mpeg\\\&quot;&gt;\\n&lt;/audio&gt;\\n\\n&lt;audio id=\\\&quot;backgroundMusic\\\&quot; loop preload=\\\&quot;auto\\\&quot;&gt;\\n  &lt;source src=\\\&quot;https://assets.codepen.io/7558/cinematic-02.mp3\\\&quot; type=\\\&quot;audio/mpeg\\\&quot;&gt;\\n&lt;/audio&gt;\&quot;,\&quot;css\&quot;:\&quot;@font-face {\\n  font-family: \\\&quot;PPSupplyMono\\\&quot;;\\n  src: url(\\\&quot;https://assets.codepen.io/7558/PPSupplyMono-Regular.ttf\\\&quot;)\\n    format(\\\&quot;truetype\\\&quot;);\\n  font-weight: normal;\\n  font-style: normal;\\n  font-display: swap;\\n}\\n\\n*,\\n*::after,\\n*::before {\\n  margin: 0;\\n  padding: 0;\\n  box-sizing: border-box;\\n}\\n\\n:root {\\n  --color--background: rgb(60, 60, 60);\\n  --color--foreground: #c4d5bc;\\n  --color--accent: rgb(170, 170, 170);\\n  --font-primary: \\\&quot;PPSupplyMono\\\&quot;, \\\&quot;Courier New\\\&quot;, monospace;\\n  --font-secondary: \\\&quot;PPSupplyMono\\\&quot;, \\\&quot;Courier New\\\&quot;, monospace;\\n  --margin: 32px;\\n  --gutter: 16px;\\n}\\n\\nbody {\\n  display: flex;\\n  flex-direction: column;\\n  justify-content: space-between;\\n  align-items: center;\\n  min-height: 100vh;\\n  margin: 0;\\n  padding: 0;\\n  font-family: var(--font-primary);\\n  background: radial-gradient(\\n    circle at 10% 20%,\\n    rgb(230, 230, 230) 0%,\\n    rgb(180, 180, 180) 45%,\\n    rgb(100, 100, 100) 90%\\n  );\\n  color: var(--color--foreground);\\n  letter-spacing: -0.03em;\\n  position: relative;\\n  overflow: hidden;\\n}\\n\\nbody.loading-active {\\n  overflow: hidden !important;\\n}\\n\\nbody::before {\\n  content: \\\&quot;\\\&quot;;\\n  position: fixed;\\n  top: -50%;\\n  left: -50%;\\n  width: 200%;\\n  height: 200%;\\n  background: transparent url(\\\&quot;https://assets.codepen.io/7558/noise.png\\\&quot;) repeat\\n    0 0;\\n  background-size: 300px 300px;\\n  animation: noise-animation 0.3s steps(5) infinite;\\n  opacity: 0.9;\\n  will-change: transform;\\n  z-index: 100;\\n  pointer-events: none;\\n}\\n\\n@keyframes noise-animation {\\n  0% {\\n    transform: translate(0, 0);\\n  }\\n\\n  10% {\\n    transform: translate(-2%, -3%);\\n  }\\n\\n  20% {\\n    transform: translate(-4%, 2%);\\n  }\\n\\n  30% {\\n    transform: translate(2%, -4%);\\n  }\\n\\n  40% {\\n    transform: translate(-2%, 5%);\\n  }\\n\\n  50% {\\n    transform: translate(-4%, 2%);\\n  }\\n\\n  60% {\\n    transform: translate(3%, 0);\\n  }\\n\\n  70% {\\n    transform: translate(0, 3%);\\n  }\\n\\n  80% {\\n    transform: translate(-3%, 0);\\n  }\\n\\n  90% {\\n    transform: translate(2%, 2%);\\n  }\\n\\n  100% {\\n    transform: translate(1%, 0);\\n  }\\n}\\n\\n#canvas {\\n  width: 100%;\\n  height: 100%;\\n  display: block;\\n  position: fixed;\\n  top: 0;\\n  left: 0;\\n  background: transparent;\\n  z-index: 1;\\n  pointer-events: none;\\n  opacity: 0;\\n  transition: opacity 0.5s ease-out;\\n}\\n\\n#canvas.ready {\\n  opacity: 1;\\n}\\n\\n.fallback-bg {\\n  position: fixed;\\n  top: 0;\\n  left: 0;\\n  width: 100%;\\n  height: 100%;\\n  background-image: url(\\\&quot;https://assets.codepen.io/7558/red-protocol-poster-03-bg.jpg\\\&quot;);\\n  background-size: cover;\\n  background-position: center;\\n  z-index: 0;\\n  opacity: 0;\\n  transition: opacity 1s ease-out;\\n}\\n\\n.fallback-bg.active {\\n  opacity: 1;\\n}\\n\\n.container {\\n  display: flex;\\n  width: 100%;\\n  height: 100vh;\\n  padding: var(--gutter);\\n  position: relative;\\n  z-index: 10;\\n  transition: filter 0.1s ease-out;\\n}\\n\\n.text-element {\\n  position: fixed;\\n  font-family: var(--font-primary);\\n  color: var(--color--foreground);\\n  text-transform: uppercase;\\n  z-index: 10;\\n  opacity: 0;\\n  transform: translateY(30px);\\n}\\n\\n.audio-enable {\\n  position: fixed;\\n  top: 0;\\n  left: 0;\\n  width: 100vw;\\n  height: 100vh;\\n  background: #0a0a0a;\\n  display: flex;\\n  flex-direction: column;\\n  align-items: center;\\n  justify-content: center;\\n  z-index: 2000;\\n  font-family: var(--font-primary);\\n  font-size: 12px;\\n  color: #c4d5bc;\\n  text-transform: uppercase;\\n  gap: 2rem;\\n  text-align: center;\\n  padding: 1rem;\\n}\\n\\n.enable-button {\\n  border: 1px solid #c4d5bc;\\n  background: transparent;\\n  color: #c4d5bc;\\n  padding: 1rem 2rem;\\n  font-family: var(--font-primary);\\n  font-size: 12px;\\n  text-transform: uppercase;\\n  cursor: pointer;\\n  letter-spacing: 0.1em;\\n  transition: all 0.3s ease;\\n}\\n\\n.enable-button:hover {\\n  background: #c4d5bc;\\n  color: #0a0a0a;\\n}\\n\\n.preloader {\\n  position: fixed;\\n  top: 0;\\n  left: 0;\\n  width: 100vw;\\n  height: 100vh;\\n  background: #0a0a0a;\\n  display: none;\\n  align-items: center;\\n  justify-content: center;\\n  z-index: 2000;\\n  font-family: var(--font-primary);\\n  font-size: 12px;\\n  color: #c4d5bc;\\n  letter-spacing: 0.1em;\\n  text-transform: uppercase;\\n  opacity: 1;\\n  transition: opacity 0.8s ease-out;\\n}\\n\\n.preloader.fade-out {\\n  opacity: 0;\\n}\\n\\n.error-message {\\n  position: fixed;\\n  top: 20px;\\n  left: 20px;\\n  background: rgba(255, 0, 0, 0.8);\\n  color: white;\\n  padding: 10px;\\n  font-size: 12px;\\n  display: none;\\n  z-index: 3000;\\n}\\n\\n.description {\\n  top: 120px;\\n  left: 50px;\\n  width: 360px;\\n  font-size: 0.75rem;\\n  line-height: 1.2;\\n}\\n\\n.nav-links {\\n  top: 50%;\\n  left: 50px;\\n  transform: translateY(-50%);\\n}\\n\\n.nav-links a {\\n  position: relative;\\n  display: block;\\n  margin-bottom: 8px;\\n  color: var(--color--foreground);\\n  text-decoration: none;\\n  z-index: 1;\\n  transition: color 0.3s ease;\\n  padding: 4px 8px;\\n}\\n\\n.nav-links a::after {\\n  content: \\\&quot;\\\&quot;;\\n  position: absolute;\\n  top: 0;\\n  left: 0;\\n  width: 0;\\n  height: 100%;\\n  background-color: var(--color--foreground);\\n  z-index: -1;\\n  transition: width 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);\\n}\\n\\n.nav-links a:hover::after {\\n  width: 100%;\\n}\\n\\n.nav-links a:hover {\\n  color: #1a1a1a;\\n}\\n\\n.footer {\\n  bottom: 120px;\\n  right: 50px;\\n  font-size: 0.625rem;\\n}\\n\\n.division {\\n  bottom: 120px;\\n  left: 50px;\\n  font-size: 0.625rem;\\n}\\n\\n.signal {\\n  top: 50%;\\n  right: 100px;\\n  font-size: 0.625rem;\\n  transform: translateY(-50%);\\n}\\n\\n.central-text {\\n  bottom: 30%;\\n  left: 50%;\\n  transform: translateX(-50%) translateY(0);\\n  text-align: center;\\n  font-size: 1.25rem;\\n  line-height: 1.1;\\n  white-space: nowrap;\\n  width: max-content;\\n}\\n\\n.dg.ac {\\n  z-index: 3000 !important;\\n  position: fixed !important;\\n  top: 10px !important;\\n  right: 10px !important;\\n}\\n\\n/* Responsive design */\\n@media (max-width: 768px) {\\n  .description,\\n  .nav-links,\\n  .division,\\n  .performance {\\n    left: 20px;\\n  }\\n\\n  .footer,\\n  .signal {\\n    right: 20px;\\n  }\\n\\n  .central-text {\\n    font-size: 1rem;\\n    white-space: normal;\\n    max-width: 90%;\\n  }\\n\\n  .description {\\n    width: calc(100vw - 40px);\\n    max-width: 300px;\\n  }\\n\\n  /* Optimize GUI for mobile */\\n  .dg.ac {\\n    transform: scale(0.8);\\n    transform-origin: top right;\\n  }\\n}\\n\\n@media (max-width: 480px) {\\n  .central-text {\\n    font-size: 0.9rem;\\n  }\\n\\n  .description {\\n    font-size: 0.7rem;\\n  }\\n\\n  /* Further scale down GUI on very small screens */\\n  .dg.ac {\\n    transform: scale(0.7);\\n  }\\n}\\n\\n/* Touch device optimizations */\\n@media (hover: none) and (pointer: coarse) {\\n  .nav-links a:hover::after {\\n    width: 0;\\n  }\\n\\n  .nav-links a:active::after {\\n    width: 100%;\\n  }\\n\\n  .enable-button:hover {\\n    background: transparent;\\n    color: #c4d5bc;\\n  }\\n\\n  .enable-button:active {\\n    background: #c4d5bc;\\n    color: #0a0a0a;\\n  }\\n}\\n\&quot;,\&quot;js\&quot;:\&quot;import * as THREE from \\\&quot;https://esm.sh/three@0.177.0\\\&quot;;\\nimport { EffectComposer } from \\\&quot;https://esm.sh/three@0.177.0/examples/jsm/postprocessing/EffectComposer.js\\\&quot;;\\nimport { RenderPass } from \\\&quot;https://esm.sh/three@0.177.0/examples/jsm/postprocessing/RenderPass.js\\\&quot;;\\nimport { ShaderPass } from \\\&quot;https://esm.sh/three@0.177.0/examples/jsm/postprocessing/ShaderPass.js\\\&quot;;\\nimport { Pane } from \\\&quot;https://cdn.skypack.dev/tweakpane@4.0.4\\\&quot;;\\n\\n(function () {\\n  \\\&quot;use strict\\\&quot;;\\n\\n  const supportsWebGL = () =&gt; {\\n    try {\\n      const c = document.createElement(\\\&quot;canvas\\\&quot;);\\n      return !!(\\n        window.WebGLRenderingContext &amp;&amp;\\n        (c.getContext(\\\&quot;webgl\\\&quot;) || c.getContext(\\\&quot;experimental-webgl\\\&quot;))\\n      );\\n    } catch {\\n      return false;\\n    }\\n  };\\n\\n  if (!Array.prototype.forEach) {\\n    Array.prototype.forEach = function (cb, ctx) {\\n      for (let i = 0; i &lt; this.length; i++) cb.call(ctx, this[i], i, this);\\n    };\\n  }\\n\\n  if (!window.requestAnimationFrame) {\\n    window.requestAnimationFrame = (cb) =&gt; setTimeout(cb, 16.67);\\n  }\\n\\n  const App = {\\n    PARAMS: {\\n      distortion: {\\n        strength: 0.15,\\n        radius: 0.2,\\n        size: 1,\\n        edgeWidth: 0.05,\\n        edgeOpacity: 0.2,\\n        rimLightIntensity: 0.3,\\n        rimLightWidth: 0.08,\\n        chromaticAberration: 0.03,\\n        reflectionIntensity: 0.3,\\n        waveDistortion: 0.08,\\n        waveSpeed: 1.2,\\n        lensBlur: 0.15,\\n        clearCenterSize: 0.3,\\n        followMouse: true,\\n        animationSpeed: 1,\\n        overallIntensity: 1,\\n        preset: \\\&quot;Classic Glass\\\&quot;\\n      },\\n      presets: {\\n        Minimal: {\\n          strength: 0.05,\\n          radius: 0.12,\\n          size: 0.8,\\n          edgeWidth: 0.02,\\n          edgeOpacity: 0.1,\\n          rimLightIntensity: 0.1,\\n          rimLightWidth: 0.04,\\n          chromaticAberration: 0.01,\\n          reflectionIntensity: 0.15,\\n          waveDistortion: 0.02,\\n          waveSpeed: 0.8,\\n          lensBlur: 0.05,\\n          clearCenterSize: 0.5\\n        },\\n        Subtle: {\\n          strength: 0.08,\\n          radius: 0.16,\\n          size: 0.9,\\n          edgeWidth: 0.03,\\n          edgeOpacity: 0.15,\\n          rimLightIntensity: 0.2,\\n          rimLightWidth: 0.06,\\n          chromaticAberration: 0.02,\\n          reflectionIntensity: 0.2,\\n          waveDistortion: 0.04,\\n          waveSpeed: 1,\\n          lensBlur: 0.08,\\n          clearCenterSize: 0.4\\n        },\\n        \\\&quot;Classic Glass\\\&quot;: {\\n          strength: 0.12,\\n          radius: 0.18,\\n          size: 1,\\n          edgeWidth: 0.04,\\n          edgeOpacity: 0.25,\\n          rimLightIntensity: 0.3,\\n          rimLightWidth: 0.08,\\n          chromaticAberration: 0.025,\\n          reflectionIntensity: 0.35,\\n          waveDistortion: 0.03,\\n          waveSpeed: 0.5,\\n          lensBlur: 0.12,\\n          clearCenterSize: 0.2\\n        },\\n        Dramatic: {\\n          strength: 0.25,\\n          radius: 0.35,\\n          size: 1.2,\\n          edgeWidth: 0.08,\\n          edgeOpacity: 0.4,\\n          rimLightIntensity: 0.5,\\n          rimLightWidth: 0.1,\\n          chromaticAberration: 0.06,\\n          reflectionIntensity: 0.5,\\n          waveDistortion: 0.15,\\n          waveSpeed: 1.8,\\n          lensBlur: 0.25,\\n          clearCenterSize: 0.15\\n        },\\n        \\\&quot;Chromatic Focus\\\&quot;: {\\n          strength: 0.1,\\n          radius: 0.22,\\n          size: 1,\\n          edgeWidth: 0.06,\\n          edgeOpacity: 0.3,\\n          rimLightIntensity: 0.25,\\n          rimLightWidth: 0.07,\\n          chromaticAberration: 0.08,\\n          reflectionIntensity: 0.2,\\n          waveDistortion: 0.05,\\n          waveSpeed: 0.8,\\n          lensBlur: 0.1,\\n          clearCenterSize: 0.25\\n        },\\n        \\\&quot;Liquid Wave\\\&quot;: {\\n          strength: 0.18,\\n          radius: 0.28,\\n          size: 1.1,\\n          edgeWidth: 0.05,\\n          edgeOpacity: 0.2,\\n          rimLightIntensity: 0.4,\\n          rimLightWidth: 0.09,\\n          chromaticAberration: 0.04,\\n          reflectionIntensity: 0.4,\\n          waveDistortion: 0.2,\\n          waveSpeed: 2.5,\\n          lensBlur: 0.15,\\n          clearCenterSize: 0.1\\n        },\\n        Gigantic: {\\n          strength: 0.4,\\n          radius: 0.65,\\n          size: 1.8,\\n          edgeWidth: 0.12,\\n          edgeOpacity: 0.6,\\n          rimLightIntensity: 0.8,\\n          rimLightWidth: 0.15,\\n          chromaticAberration: 0.1,\\n          reflectionIntensity: 0.7,\\n          waveDistortion: 0.25,\\n          waveSpeed: 1.5,\\n          lensBlur: 0.35,\\n          clearCenterSize: 0.05\\n        }\\n      }\\n    },\\n\\n    scene: null,\\n    camera: null,\\n    renderer: null,\\n    composer: null,\\n    customPass: null,\\n    backgroundTexture: null,\\n    backgroundMesh: null,\\n    aspect: 1,\\n    backgroundScene: null,\\n    backgroundCamera: null,\\n    mousePosition: { x: 0.5, y: 0.5 },\\n    targetMousePosition: { x: 0.5, y: 0.5 },\\n    staticMousePosition: { x: 0.5, y: 0.5 },\\n    performanceMonitor: { frameCount: 0, lastTime: 0, fps: 60 },\\n    pane: null,\\n    isBackgroundPlaying: false,\\n    paneVisible: false,\\n    paneInitialized: false,\\n    isSceneReady: false,\\n    isTextureLoaded: false,\\n    webglSupported: supportsWebGL(),\\n\\n    init() {\\n      this.setupAudio();\\n      this.setupKeyboardControls();\\n      this.bindEvents();\\n      if (!this.webglSupported) {\\n        this.showFallback();\\n        return;\\n      }\\n      this.waitForDependencies();\\n    },\\n\\n    waitForDependencies() {\\n      const chk = setInterval(() =&gt; {\\n        if (window.gsap &amp;&amp; window.SplitText) {\\n          clearInterval(chk);\\n          this.onDependenciesReady();\\n        }\\n      }, 100);\\n      setTimeout(() =&gt; {\\n        clearInterval(chk);\\n        this.onDependenciesReady();\\n      }, 10000);\\n    },\\n\\n    onDependenciesReady() {},\\n\\n    showError(m) {\\n      const el = document.getElementById(\\\&quot;errorMessage\\\&quot;);\\n      if (!el) return;\\n      el.textContent = m;\\n      el.style.display = \\\&quot;block\\\&quot;;\\n      setTimeout(() =&gt; (el.style.display = \\\&quot;none\\\&quot;), 5000);\\n    },\\n\\n    showFallback() {\\n      document.getElementById(\\\&quot;fallbackBg\\\&quot;).classList.add(\\\&quot;active\\\&quot;);\\n      this.finishPreloader();\\n    },\\n\\n    setupAudio() {\\n      this.startClickSound = document.getElementById(\\\&quot;startClickSound\\\&quot;);\\n      this.preloaderSound = document.getElementById(\\\&quot;preloaderSound\\\&quot;);\\n      this.hoverSound = document.getElementById(\\\&quot;hoverSound\\\&quot;);\\n      this.backgroundMusic = document.getElementById(\\\&quot;backgroundMusic\\\&quot;);\\n    },\\n\\n    bindEvents() {\\n      document.getElementById(\\\&quot;enableBtn\\\&quot;).onclick = () =&gt; this.onStartClick();\\n    },\\n\\n    onStartClick() {\\n      document.body.classList.add(\\\&quot;loading-active\\\&quot;);\\n      this.startClickSound?.play().catch(() =&gt; {});\\n      document.querySelector(\\\&quot;.audio-enable\\\&quot;).style.display = \\\&quot;none\\\&quot;;\\n      document.getElementById(\\\&quot;preloader\\\&quot;).style.display = \\\&quot;flex\\\&quot;;\\n      this.preloaderSound?.play().catch(() =&gt; {});\\n      setTimeout(() =&gt; {\\n        if (this.backgroundMusic) {\\n          this.backgroundMusic.volume = 0.3;\\n          this.backgroundMusic.play().catch(() =&gt; {});\\n          this.isBackgroundPlaying = true;\\n        }\\n      }, 500);\\n      this.webglSupported ? this.initializeScene() : this.showFallback();\\n      this.startPreloader();\\n    },\\n\\n    startPreloader() {\\n      let c = 0;\\n      const timer = setInterval(() =&gt; {\\n        const el = document.getElementById(\\\&quot;counter\\\&quot;);\\n        if (el)\\n          el.textContent =\\n            \\\&quot;[\\\&quot; + (c &lt; 10 ? \\\&quot;00\\\&quot; : c &lt; 100 ? \\\&quot;0\\\&quot; : \\\&quot;\\\&quot;) + ++c + \\\&quot;]\\\&quot;;\\n        if (c &gt;= 100) {\\n          clearInterval(timer);\\n          setTimeout(() =&gt; {\\n            this.preloaderSound?.pause();\\n            if (this.preloaderSound) this.preloaderSound.currentTime = 0;\\n            this.finishPreloader();\\n          }, 200);\\n        }\\n      }, 30);\\n    },\\n\\n    finishPreloader() {\\n      const wait = () =&gt; {\\n        if (\\n          (this.isSceneReady &amp;&amp; this.isTextureLoaded) ||\\n          !this.webglSupported\\n        ) {\\n          const pre = document.getElementById(\\\&quot;preloader\\\&quot;);\\n          pre.classList.add(\\\&quot;fade-out\\\&quot;);\\n          if (this.webglSupported)\\n            document.getElementById(\\\&quot;canvas\\\&quot;).classList.add(\\\&quot;ready\\\&quot;);\\n          setTimeout(() =&gt; {\\n            document.body.classList.remove(\\\&quot;loading-active\\\&quot;);\\n            pre.style.display = \\\&quot;none\\\&quot;;\\n            pre.classList.remove(\\\&quot;fade-out\\\&quot;);\\n            this.animateTextElements();\\n          }, 800);\\n        } else setTimeout(wait, 50);\\n      };\\n      wait();\\n    },\\n\\n    animateTextElements() {\\n      if (!window.gsap || !window.SplitText) {\\n        this.fallbackTextAnimation();\\n        return;\\n      }\\n\\n      const ease = window.CustomEase\\n        ? (CustomEase.create(\\\&quot;customOut\\\&quot;, \\\&quot;0.65,0.05,0.36,1\\\&quot;), \\\&quot;customOut\\\&quot;)\\n        : \\\&quot;power2.out\\\&quot;;\\n      const containers = [\\n        \\\&quot;.description\\\&quot;,\\n        \\\&quot;.division\\\&quot;,\\n        \\\&quot;.signal\\\&quot;,\\n        \\\&quot;.central-text\\\&quot;,\\n        \\\&quot;.footer\\\&quot;\\n      ];\\n\\n      gsap.set(containers.concat(\\\&quot;.nav-links\\\&quot;), { opacity: 0 });\\n\\n      const splits = containers.map(\\n        (sel) =&gt;\\n          SplitText.create(sel, { type: \\\&quot;lines\\\&quot;, linesClass: \\\&quot;line\\\&quot; }).lines\\n      );\\n      const [descLines, divLines, sigLines, centralLines, footerLines] = splits;\\n\\n      gsap.set(containers, { opacity: 1 });\\n      gsap.set(splits.flat().concat(\\\&quot;.nav-links a\\\&quot;), { opacity: 0, y: 30 });\\n\\n      const tl = gsap.timeline();\\n      tl.to(descLines, { opacity: 1, y: 0, duration: 0.8, ease, stagger: 0.18 })\\n        .to(\\\&quot;.nav-links\\\&quot;, { opacity: 1, duration: 0.2 }, 0.12)\\n        .to(\\n          \\\&quot;.nav-links a\\\&quot;,\\n          { opacity: 1, y: 0, duration: 0.8, ease, stagger: 0.15 },\\n          0.12\\n        )\\n        .to(\\n          centralLines,\\n          { opacity: 1, y: 0, duration: 0.8, ease, stagger: 0.22 },\\n          0.25\\n        )\\n        .to(\\n          footerLines,\\n          { opacity: 1, y: 0, duration: 0.8, ease, stagger: 0.18 },\\n          0.4\\n        )\\n        .to(\\n          divLines,\\n          { opacity: 1, y: 0, duration: 0.8, ease, stagger: 0.18 },\\n          0.55\\n        )\\n        .to(\\n          sigLines,\\n          { opacity: 1, y: 0, duration: 0.8, ease, stagger: 0.18 },\\n          0.55\\n        );\\n    },\\n\\n    fallbackTextAnimation() {\\n      let d = 0;\\n      document.querySelectorAll(\\\&quot;.text-element\\\&quot;).forEach((el) =&gt; {\\n        setTimeout(() =&gt; {\\n          el.style.opacity = \\\&quot;1\\\&quot;;\\n          el.style.transform = el.classList.contains(\\\&quot;central-text\\\&quot;)\\n            ? \\\&quot;translateX(-50%) translateY(0)\\\&quot;\\n            : \\\&quot;translateY(0)\\\&quot;;\\n        }, d);\\n        d += 250;\\n      });\\n    },\\n\\n    initializeScene() {\\n      if (!this.webglSupported) {\\n        this.isSceneReady = this.isTextureLoaded = true;\\n        return;\\n      }\\n\\n      const canvas = document.getElementById(\\\&quot;canvas\\\&quot;);\\n      this.renderer = new THREE.WebGLRenderer({\\n        canvas,\\n        antialias: true,\\n        alpha: true,\\n        premultipliedAlpha: false\\n      });\\n      this.renderer.setSize(window.innerWidth, window.innerHeight);\\n      this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));\\n      this.renderer.autoClear = false;\\n\\n      this.aspect = window.innerWidth / window.innerHeight;\\n\\n      this.backgroundScene = new THREE.Scene();\\n      this.backgroundCamera = new THREE.OrthographicCamera(\\n        -this.aspect,\\n        this.aspect,\\n        1,\\n        -1,\\n        0.1,\\n        10\\n      );\\n      this.backgroundCamera.position.z = 1;\\n\\n      this.scene = new THREE.Scene();\\n      this.camera = new THREE.OrthographicCamera(\\n        -this.aspect,\\n        this.aspect,\\n        1,\\n        -1,\\n        0.1,\\n        10\\n      );\\n      this.camera.position.z = 1;\\n\\n      this.loadBackgroundTexture();\\n      this.setupPostProcessing();\\n      this.setupPane();\\n      this.setupNavHoverSounds();\\n\\n      const onResize = this.onWindowResize.bind(this);\\n      const onMouseMove = this.onMouseMove.bind(this);\\n      const onTouchMove = this.onTouchMove.bind(this);\\n      const onTouchStart = this.onTouchStart.bind(this);\\n\\n      window.addEventListener(\\\&quot;resize\\\&quot;, onResize);\\n      document.addEventListener(\\\&quot;mousemove\\\&quot;, onMouseMove);\\n      document.addEventListener(\\\&quot;touchmove\\\&quot;, onTouchMove);\\n      document.addEventListener(\\\&quot;touchstart\\\&quot;, onTouchStart);\\n\\n      this.animate();\\n      this.isSceneReady = true;\\n    },\\n\\n    onMouseMove(e) {\\n      if (this.PARAMS.distortion.followMouse) {\\n        this.targetMousePosition.x = e.clientX / window.innerWidth;\\n        this.targetMousePosition.y = 1 - e.clientY / window.innerHeight;\\n      }\\n    },\\n\\n    onTouchStart(e) {\\n      e.preventDefault();\\n      if (e.touches.length) this.onTouchMove(e);\\n    },\\n\\n    onTouchMove(e) {\\n      e.preventDefault();\\n      if (this.PARAMS.distortion.followMouse &amp;&amp; e.touches.length) {\\n        const t = e.touches[0];\\n        this.targetMousePosition.x = t.clientX / window.innerWidth;\\n        this.targetMousePosition.y = 1 - t.clientY / window.innerHeight;\\n      }\\n    },\\n\\n    loadBackgroundTexture() {\\n      new THREE.TextureLoader().load(\\n        \\\&quot;https://assets.codepen.io/7558/red-protocol-poster-03-bg.jpg\\\&quot;,\\n        (tex) =&gt; {\\n          this.backgroundTexture = tex;\\n          this.createBackgroundMesh();\\n          this.isTextureLoaded = true;\\n        },\\n        undefined,\\n        () =&gt; (this.isTextureLoaded = true)\\n      );\\n    },\\n\\n    createBackgroundMesh() {\\n      if (this.backgroundMesh) this.backgroundScene.remove(this.backgroundMesh);\\n\\n      const imgAspect =\\n        this.backgroundTexture.image.width /\\n        this.backgroundTexture.image.height;\\n      const scAspect = window.innerWidth / window.innerHeight;\\n      let sx, sy;\\n\\n      if (scAspect &gt; imgAspect) {\\n        sx = scAspect * 2;\\n        sy = sx / imgAspect;\\n      } else {\\n        sy = 2;\\n        sx = sy * imgAspect;\\n      }\\n\\n      const g = new THREE.PlaneGeometry(sx, sy);\\n      const m = new THREE.MeshBasicMaterial({ map: this.backgroundTexture });\\n      this.backgroundMesh = new THREE.Mesh(g, m);\\n      this.backgroundScene.add(this.backgroundMesh);\\n    },\\n\\n    setupPostProcessing() {\\n      this.composer = new EffectComposer(this.renderer);\\n      const rp = new RenderPass(this.backgroundScene, this.backgroundCamera);\\n      this.composer.addPass(rp);\\n      this.setupDistortionPass();\\n    },\\n\\n    setupDistortionPass() {\\n      const v = `varying vec2 vUv;void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}`;\\n      const f = `uniform sampler2D tDiffuse;uniform vec2 uMouse;uniform float uRadius;uniform float uSize;uniform float uStrength;uniform float uEdgeWidth;uniform float uEdgeOpacity;uniform float uRimLightIntensity;uniform float uRimLightWidth;uniform float uChromaticAberration;uniform float uReflectionIntensity;uniform float uWaveDistortion;uniform float uWaveSpeed;uniform float uLensBlur;uniform float uClearCenterSize;uniform float uOverallIntensity;uniform float uAspect;uniform float uTime;varying vec2 vUv;\\n\\nvec4 blur(sampler2D i,vec2 uv,vec2 r,vec2 d,float it){vec4 c=vec4(0.);vec2 o=1.3333333*d*it;c+=texture2D(i,uv)*.2941176;c+=texture2D(i,uv+(o/r))*.3529412;c+=texture2D(i,uv-(o/r))*.3529412;return c;}\\n\\nvoid main(){\\n  vec2 c=uMouse;\\n  vec2 a=vUv;\\n  a.x*=uAspect;\\n  c.x*=uAspect;\\n  float dist=distance(a,c);\\n  float rad=uRadius*uSize;\\n  vec4 orig=texture2D(tDiffuse,vUv);\\n  \\n  // Calculate the effect for all pixels\\n  float nd=dist/rad;\\n  vec2 dir=normalize(a-c);\\n  float cl=uClearCenterSize*rad;\\n  float df=smoothstep(cl,rad,dist);\\n  float powd=1.+nd*2.;\\n  vec2 dUv=a-dir*uStrength*pow(df,powd);\\n  float w1=sin(nd*8.-uTime*uWaveSpeed)*uWaveDistortion;\\n  float w2=cos(nd*12.-uTime*uWaveSpeed*.7)*uWaveDistortion*.5;\\n  dUv+=dir*(w1+w2)*df;\\n  dUv.x/=uAspect;\\n  float ab=uChromaticAberration*df*(1.+nd);\\n  vec2 rO=dir*ab*1.2/vec2(uAspect,1.);\\n  vec2 bO=dir*ab*0.8/vec2(uAspect,1.);\\n  vec4 colR=texture2D(tDiffuse,dUv+rO);\\n  vec4 colG=texture2D(tDiffuse,dUv);\\n  vec4 colB=texture2D(tDiffuse,dUv-bO);\\n  vec4 ref1=texture2D(tDiffuse,vUv+dir*0.08*df);\\n  vec4 ref2=texture2D(tDiffuse,vUv+dir*0.15*df);\\n  vec4 ref=mix(ref1,ref2,.6);\\n  vec4 col=vec4(colR.r,colG.g,colB.b,1.);\\n  col=mix(col,ref,uReflectionIntensity*df);\\n  float bl=uLensBlur*df*(1.+nd*.5);\\n  vec4 blr=blur(tDiffuse,dUv,vec2(1./uAspect,1.),vec2(1.),bl);\\n  col=mix(col,blr,df*.7);\\n  float edge=smoothstep(rad-uEdgeWidth,rad,dist);\\n  vec3 eCol=mix(vec3(1.),vec3(.8,.9,1.),nd);\\n  col=mix(col,vec4(eCol,1.),edge*uEdgeOpacity);\\n  float rimD=rad-uRimLightWidth;\\n  float rim=smoothstep(rimD-0.02,rimD+0.02,dist);\\n  rim*=(1.-smoothstep(rad-0.01,rad,dist));\\n  col=mix(col,vec4(1.),rim*uRimLightIntensity);\\n  float br=1.+sin(nd*6.-uTime*2.)*.1*df;\\n  col.rgb*=br;\\n  \\n  // Replace hard cutoff with ultra-tight smoothstep to fix jagged edges\\n  float effectMask = 1.0 - smoothstep(rad - 0.001, rad + 0.001, dist);\\n  \\n  gl_FragColor=mix(orig, mix(orig,col,uOverallIntensity), effectMask);\\n}`;\\n\\n      this.customPass = new ShaderPass({\\n        uniforms: {\\n          tDiffuse: { value: null },\\n          uMouse: { value: new THREE.Vector2(0.5, 0.5) },\\n          uRadius: { value: this.PARAMS.distortion.radius },\\n          uSize: { value: this.PARAMS.distortion.size },\\n          uStrength: { value: this.PARAMS.distortion.strength },\\n          uEdgeWidth: { value: this.PARAMS.distortion.edgeWidth },\\n          uEdgeOpacity: { value: this.PARAMS.distortion.edgeOpacity },\\n          uRimLightIntensity: {\\n            value: this.PARAMS.distortion.rimLightIntensity\\n          },\\n          uRimLightWidth: { value: this.PARAMS.distortion.rimLightWidth },\\n          uChromaticAberration: {\\n            value: this.PARAMS.distortion.chromaticAberration\\n          },\\n          uReflectionIntensity: {\\n            value: this.PARAMS.distortion.reflectionIntensity\\n          },\\n          uWaveDistortion: { value: this.PARAMS.distortion.waveDistortion },\\n          uWaveSpeed: { value: this.PARAMS.distortion.waveSpeed },\\n          uLensBlur: { value: this.PARAMS.distortion.lensBlur },\\n          uClearCenterSize: { value: this.PARAMS.distortion.clearCenterSize },\\n          uOverallIntensity: { value: this.PARAMS.distortion.overallIntensity },\\n          uAspect: { value: this.aspect },\\n          uTime: { value: 0 }\\n        },\\n        vertexShader: v,\\n        fragmentShader: f\\n      });\\n\\n      this.customPass.renderToScreen = true;\\n      this.composer.addPass(this.customPass);\\n    },\\n\\n    setupNavHoverSounds() {\\n      document.querySelectorAll(\\\&quot;.nav-links a\\\&quot;).forEach((a) =&gt; {\\n        a.addEventListener(\\\&quot;mouseenter\\\&quot;, () =&gt; {\\n          if (this.hoverSound &amp;&amp; this.isBackgroundPlaying) {\\n            this.hoverSound.currentTime = 0;\\n            this.hoverSound.volume = 0.4;\\n            this.hoverSound.play().catch(() =&gt; {});\\n          }\\n        });\\n      });\\n    },\\n\\n    setupKeyboardControls() {\\n      document.addEventListener(\\\&quot;keydown\\\&quot;, (e) =&gt; {\\n        if (e.key.toLowerCase() === \\\&quot;h\\\&quot;) {\\n          e.preventDefault();\\n          this.togglePane();\\n        }\\n      });\\n    },\\n\\n    togglePane() {\\n      if (!this.paneInitialized) this.setupPane();\\n      if (this.pane) {\\n        this.paneVisible = !this.paneVisible;\\n        this.pane.hidden = !this.paneVisible;\\n      }\\n    },\\n\\n    setupPane() {\\n      if (this.paneInitialized) return;\\n\\n      const p = (this.pane = new Pane({\\n        title: \\\&quot;Glass Refraction Controls\\\&quot;,\\n        expanded: true\\n      }));\\n\\n      p.addBinding(this.PARAMS.distortion, \\\&quot;preset\\\&quot;, {\\n        label: \\\&quot;Presets\\\&quot;,\\n        options: {\\n          Minimal: \\\&quot;Minimal\\\&quot;,\\n          Subtle: \\\&quot;Subtle\\\&quot;,\\n          \\\&quot;Classic Glass\\\&quot;: \\\&quot;Classic Glass\\\&quot;,\\n          Dramatic: \\\&quot;Dramatic\\\&quot;,\\n          \\\&quot;Chromatic Focus\\\&quot;: \\\&quot;Chromatic Focus\\\&quot;,\\n          \\\&quot;Liquid Wave\\\&quot;: \\\&quot;Liquid Wave\\\&quot;,\\n          Gigantic: \\\&quot;Gigantic\\\&quot;\\n        }\\n      }).on(\\\&quot;change\\\&quot;, (ev) =&gt; this.loadPreset(ev.value));\\n\\n      p.addButton({ title: \\\&quot;Reload Preset\\\&quot; }).on(\\\&quot;click\\\&quot;, () =&gt;\\n        this.loadPreset(this.PARAMS.distortion.preset)\\n      );\\n\\n      const addBinding = (prop, opts) =&gt;\\n        p.addBinding(this.PARAMS.distortion, prop, opts).on(\\\&quot;change\\\&quot;, (ev) =&gt; {\\n          const uniformName =\\n            \\\&quot;u\\\&quot; + prop.charAt(0).toUpperCase() + prop.slice(1);\\n          if (this.customPass?.uniforms[uniformName])\\n            this.customPass.uniforms[uniformName].value = ev.value;\\n        });\\n\\n      addBinding(\\\&quot;overallIntensity\\\&quot;, {\\n        min: 0,\\n        max: 2,\\n        step: 0.01,\\n        label: \\\&quot;Overall Intensity\\\&quot;\\n      });\\n      p.addBinding(this.PARAMS.distortion, \\\&quot;followMouse\\\&quot;, {\\n        label: \\\&quot;Follow Mouse\\\&quot;\\n      }).on(\\\&quot;change\\\&quot;, (ev) =&gt; {\\n        if (!ev.value) this.staticMousePosition = { x: 0.5, y: 0.5 };\\n      });\\n      addBinding(\\\&quot;animationSpeed\\\&quot;, {\\n        min: 0,\\n        max: 3,\\n        step: 0.1,\\n        label: \\\&quot;Animation Speed\\\&quot;\\n      });\\n\\n      const f1 = p.addFolder({ title: \\\&quot;Size Controls\\\&quot; });\\n      f1.addBinding(this.PARAMS.distortion, \\\&quot;size\\\&quot;, {\\n        min: 0.2,\\n        max: 3,\\n        step: 0.1,\\n        label: \\\&quot;Effect Size\\\&quot;\\n      }).on(\\n        \\\&quot;change\\\&quot;,\\n        (ev) =&gt; (this.customPass.uniforms.uSize.value = ev.value)\\n      );\\n      f1.addBinding(this.PARAMS.distortion, \\\&quot;radius\\\&quot;, {\\n        min: 0.05,\\n        max: 0.8,\\n        step: 0.01,\\n        label: \\\&quot;Base Radius\\\&quot;\\n      }).on(\\n        \\\&quot;change\\\&quot;,\\n        (ev) =&gt; (this.customPass.uniforms.uRadius.value = ev.value)\\n      );\\n\\n      const f2 = p.addFolder({ title: \\\&quot;Refraction Properties\\\&quot; });\\n      f2.addBinding(this.PARAMS.distortion, \\\&quot;strength\\\&quot;, {\\n        min: 0,\\n        max: 0.5,\\n        step: 0.01,\\n        label: \\\&quot;Refraction Strength\\\&quot;\\n      }).on(\\n        \\\&quot;change\\\&quot;,\\n        (ev) =&gt; (this.customPass.uniforms.uStrength.value = ev.value)\\n      );\\n      f2.addBinding(this.PARAMS.distortion, \\\&quot;clearCenterSize\\\&quot;, {\\n        min: 0,\\n        max: 1,\\n        step: 0.01,\\n        label: \\\&quot;Clear Center\\\&quot;\\n      }).on(\\n        \\\&quot;change\\\&quot;,\\n        (ev) =&gt; (this.customPass.uniforms.uClearCenterSize.value = ev.value)\\n      );\\n\\n      const f3 = p.addFolder({ title: \\\&quot;Visual Effects\\\&quot; });\\n      f3.addBinding(this.PARAMS.distortion, \\\&quot;chromaticAberration\\\&quot;, {\\n        min: 0,\\n        max: 0.15,\\n        step: 0.001,\\n        label: \\\&quot;Chromatic Aberration\\\&quot;\\n      }).on(\\n        \\\&quot;change\\\&quot;,\\n        (ev) =&gt; (this.customPass.uniforms.uChromaticAberration.value = ev.value)\\n      );\\n      f3.addBinding(this.PARAMS.distortion, \\\&quot;reflectionIntensity\\\&quot;, {\\n        min: 0,\\n        max: 1,\\n        step: 0.01,\\n        label: \\\&quot;Reflections\\\&quot;\\n      }).on(\\n        \\\&quot;change\\\&quot;,\\n        (ev) =&gt; (this.customPass.uniforms.uReflectionIntensity.value = ev.value)\\n      );\\n      f3.addBinding(this.PARAMS.distortion, \\\&quot;lensBlur\\\&quot;, {\\n        min: 0,\\n        max: 0.5,\\n        step: 0.01,\\n        label: \\\&quot;Lens Blur\\\&quot;\\n      }).on(\\n        \\\&quot;change\\\&quot;,\\n        (ev) =&gt; (this.customPass.uniforms.uLensBlur.value = ev.value)\\n      );\\n\\n      const f4 = p.addFolder({ title: \\\&quot;Wave Animation\\\&quot; });\\n      f4.addBinding(this.PARAMS.distortion, \\\&quot;waveDistortion\\\&quot;, {\\n        min: 0,\\n        max: 0.3,\\n        step: 0.01,\\n        label: \\\&quot;Wave Strength\\\&quot;\\n      }).on(\\n        \\\&quot;change\\\&quot;,\\n        (ev) =&gt; (this.customPass.uniforms.uWaveDistortion.value = ev.value)\\n      );\\n      f4.addBinding(this.PARAMS.distortion, \\\&quot;waveSpeed\\\&quot;, {\\n        min: 0,\\n        max: 5,\\n        step: 0.1,\\n        label: \\\&quot;Wave Speed\\\&quot;\\n      }).on(\\n        \\\&quot;change\\\&quot;,\\n        (ev) =&gt; (this.customPass.uniforms.uWaveSpeed.value = ev.value)\\n      );\\n\\n      const f5 = p.addFolder({ title: \\\&quot;Edge Effects\\\&quot; });\\n      f5.addBinding(this.PARAMS.distortion, \\\&quot;edgeWidth\\\&quot;, {\\n        min: 0,\\n        max: 0.2,\\n        step: 0.01,\\n        label: \\\&quot;Edge Width\\\&quot;\\n      }).on(\\n        \\\&quot;change\\\&quot;,\\n        (ev) =&gt; (this.customPass.uniforms.uEdgeWidth.value = ev.value)\\n      );\\n      f5.addBinding(this.PARAMS.distortion, \\\&quot;edgeOpacity\\\&quot;, {\\n        min: 0,\\n        max: 1,\\n        step: 0.01,\\n        label: \\\&quot;Edge Opacity\\\&quot;\\n      }).on(\\n        \\\&quot;change\\\&quot;,\\n        (ev) =&gt; (this.customPass.uniforms.uEdgeOpacity.value = ev.value)\\n      );\\n\\n      const f6 = p.addFolder({ title: \\\&quot;Rim Lighting\\\&quot; });\\n      f6.addBinding(this.PARAMS.distortion, \\\&quot;rimLightIntensity\\\&quot;, {\\n        min: 0,\\n        max: 1,\\n        step: 0.01,\\n        label: \\\&quot;Rim Light Intensity\\\&quot;\\n      }).on(\\n        \\\&quot;change\\\&quot;,\\n        (ev) =&gt; (this.customPass.uniforms.uRimLightIntensity.value = ev.value)\\n      );\\n      f6.addBinding(this.PARAMS.distortion, \\\&quot;rimLightWidth\\\&quot;, {\\n        min: 0,\\n        max: 0.3,\\n        step: 0.01,\\n        label: \\\&quot;Rim Light Width\\\&quot;\\n      }).on(\\n        \\\&quot;change\\\&quot;,\\n        (ev) =&gt; (this.customPass.uniforms.uRimLightWidth.value = ev.value)\\n      );\\n\\n      Object.assign(p.element.style, {\\n        position: \\\&quot;fixed\\\&quot;,\\n        top: \\\&quot;10px\\\&quot;,\\n        right: \\\&quot;10px\\\&quot;,\\n        zIndex: \\\&quot;3000\\\&quot;\\n      });\\n      p.hidden = true;\\n      this.paneVisible = false;\\n      this.paneInitialized = true;\\n      this.loadPreset(\\\&quot;Classic Glass\\\&quot;);\\n    },\\n\\n    loadPreset(name) {\\n      const preset = this.PARAMS.presets[name];\\n      if (!preset) return;\\n\\n      Object.entries(preset).forEach(([k, v]) =&gt; {\\n        if (k in this.PARAMS.distortion) {\\n          this.PARAMS.distortion[k] = v;\\n          const uniformName = \\\&quot;u\\\&quot; + k.charAt(0).toUpperCase() + k.slice(1);\\n          if (this.customPass?.uniforms[uniformName])\\n            this.customPass.uniforms[uniformName].value = v;\\n        }\\n      });\\n\\n      this.PARAMS.distortion.preset = name;\\n      this.pane?.refresh();\\n    },\\n\\n    onWindowResize() {\\n      this.aspect = window.innerWidth / window.innerHeight;\\n\\n      if (this.camera) {\\n        this.camera.left = this.camera.right = this.backgroundCamera.left = this.backgroundCamera.right = null;\\n        [this.camera, this.backgroundCamera].forEach((cam) =&gt; {\\n          cam.left = -this.aspect;\\n          cam.right = this.aspect;\\n          cam.updateProjectionMatrix();\\n        });\\n      }\\n\\n      this.renderer?.setSize(window.innerWidth, window.innerHeight);\\n      this.composer?.setSize(window.innerWidth, window.innerHeight);\\n\\n      if (this.customPass) this.customPass.uniforms.uAspect.value = this.aspect;\\n      if (this.backgroundTexture) this.createBackgroundMesh();\\n    },\\n\\n    animate(time = 0) {\\n      requestAnimationFrame((t) =&gt; this.animate(t));\\n      if (!this.webglSupported || !this.renderer) return;\\n\\n      this.performanceMonitor.frameCount++;\\n      if (time - this.performanceMonitor.lastTime &gt;= 1000) {\\n        this.performanceMonitor.fps = this.performanceMonitor.frameCount;\\n        this.performanceMonitor.frameCount = 0;\\n        this.performanceMonitor.lastTime = time;\\n\\n        const fpsElement = document.getElementById(\\\&quot;fpsCounter\\\&quot;);\\n        if (fpsElement)\\n          fpsElement.textContent = String(this.performanceMonitor.fps);\\n      }\\n\\n      const tgt = this.PARAMS.distortion.followMouse\\n        ? this.targetMousePosition\\n        : this.staticMousePosition;\\n      this.mousePosition.x += (tgt.x - this.mousePosition.x) * 0.1;\\n      this.mousePosition.y += (tgt.y - this.mousePosition.y) * 0.1;\\n\\n      if (this.customPass) {\\n        this.customPass.uniforms.uMouse.value.set(\\n          this.mousePosition.x,\\n          this.mousePosition.y\\n        );\\n        this.customPass.uniforms.uTime.value =\\n          time * 0.001 * this.PARAMS.distortion.animationSpeed;\\n      }\\n\\n      this.composer\\n        ? this.composer.render()\\n        : (this.renderer.clear(),\\n          this.renderer.render(this.backgroundScene, this.backgroundCamera));\\n    }\\n  };\\n\\n  window.addEventListener(\\\&quot;error\\\&quot;, (e) =&gt; {\\n    let m = \\\&quot;An error occurred\\\&quot;;\\n    if (e.error?.message) m += \\\&quot;: \\\&quot; + e.error.message;\\n    if (e.filename) m += \\\&quot; in \\\&quot; + e.filename;\\n    App.showError(m + \\\&quot;. Some features may not work properly.\\\&quot;);\\n  });\\n\\n  window.addEventListener(\\\&quot;unhandledrejection\\\&quot;, (e) =&gt; {\\n    App.showError(\\n      \\\&quot;Loading failed: \\\&quot; + (e.reason || \\\&quot;Unknown error\\\&quot;) + \\\&quot;. Retrying...\\\&quot;\\n    );\\n  });\\n\\n  if (document.readyState === \\\&quot;loading\\\&quot;) {\\n    document.addEventListener(\\\&quot;DOMContentLoaded\\\&quot;, () =&gt; App.init());\\n  } else {\\n    App.init();\\n  }\\n\\n  window.App = App;\\n})();\\n\&quot;,\&quot;html_pre_processor\&quot;:\&quot;none\&quot;,\&quot;css_pre_processor\&quot;:\&quot;none\&quot;,\&quot;js_pre_processor\&quot;:\&quot;none\&quot;,\&quot;html_classes\&quot;:\&quot;\&quot;,\&quot;css_starter\&quot;:\&quot;normalize\&quot;,\&quot;js_library\&quot;:null,\&quot;created_at\&quot;:\&quot;2025-10-28T13:31:48.478Z\&quot;,\&quot;updated_at\&quot;:\&quot;2025-10-28T13:31:48.511Z\&quot;,\&quot;title\&quot;:\&quot;[threejs/gsap] ❍ Interactive Glass Lens Effect with Sound FX\&quot;,\&quot;description\&quot;:\&quot;\&quot;,\&quot;slug_hash\&quot;:\&quot;LEGBWJY\&quot;,\&quot;head\&quot;:\&quot;\&quot;,\&quot;private\&quot;:false,\&quot;has_animation\&quot;:true,\&quot;team_id\&quot;:0,\&quot;css_prefix\&quot;:\&quot;autoprefixer\&quot;,\&quot;template\&quot;:false,\&quot;parent_id\&quot;:82471949,\&quot;comments_count\&quot;:0,\&quot;custom_screenshot_filename\&quot;:null,\&quot;loves_count\&quot;:0,\&quot;pick\&quot;:false,\&quot;popularity\&quot;:0,\&quot;views_count\&quot;:0,\&quot;pick_visible_at\&quot;:null,\&quot;cpid\&quot;:\&quot;019a2b04-877f-7a1c-90a4-df494a08bdf8\&quot;,\&quot;is_new_editor_pen\&quot;:false,\&quot;access\&quot;:\&quot;Public\&quot;,\&quot;pen_hash\&quot;:null}&quot;,&quot;__layoutType&quot;:&quot;top&quot;,&quot;__pageType&quot;:&quot;pen&quot;,&quot;__profiled&quot;:{&quot;base_url&quot;:&quot;/Maximilian-Unverricht-the-looper&quot;,&quot;hashid&quot;:&quot;aWQygA&quot;,&quot;id&quot;:15145773,&quot;name&quot;:&quot;Maximilian Unverricht&quot;,&quot;type&quot;:&quot;user&quot;,&quot;username&quot;:&quot;Maximilian-Unverricht-the-looper&quot;},&quot;__processorsMap&quot;:{&quot;autoprefixer&quot;:&quot;autoprefixer-10&quot;,&quot;babel&quot;:&quot;babel-7&quot;,&quot;coffeescript&quot;:&quot;coffeescript-2&quot;,&quot;format-1&quot;:&quot;format-1&quot;,&quot;flutter&quot;:&quot;flutter-1&quot;,&quot;haml&quot;:&quot;haml-4&quot;,&quot;less&quot;:&quot;less-3&quot;,&quot;lint-1&quot;:&quot;lint-1&quot;,&quot;livescript&quot;:&quot;livescript-1&quot;,&quot;markdown&quot;:&quot;markdown-11&quot;,&quot;postcss&quot;:&quot;postcss-7&quot;,&quot;pug&quot;:&quot;pug-2&quot;,&quot;sass&quot;:&quot;sass-1&quot;,&quot;scss&quot;:&quot;sass-1&quot;,&quot;sass-ruby-3&quot;:&quot;sass-ruby-3&quot;,&quot;sass-ruby-compass-3&quot;:&quot;sass-ruby-compass-3&quot;,&quot;slim&quot;:&quot;slim-3&quot;,&quot;stylus&quot;:&quot;stylus-0&quot;,&quot;typescript&quot;:&quot;typescript-4&quot;,&quot;vue&quot;:&quot;vue-2&quot;,&quot;vue3&quot;:&quot;vue-3&quot;},&quot;__rtData&quot;:&quot;{\&quot;maxMembers\&quot;:0,\&quot;roomID\&quot;:\&quot;LEGBWJY/live\&quot;,\&quot;roomType\&quot;:\&quot;live\&quot;,\&quot;updatedAt\&quot;:1761658308,\&quot;user\&quot;:{\&quot;id\&quot;:\&quot;VoDkNZ\&quot;,\&quot;hashid\&quot;:\&quot;VoDkNZ\&quot;,\&quot;name\&quot;:\&quot;Captain Anonymous\&quot;,\&quot;username\&quot;:\&quot;anon\&quot;,\&quot;role\&quot;:\&quot;editor\&quot;}}&quot;,&quot;__eijs&quot;:&quot;https://public.codepenassets.com/embed/index.js&quot;,&quot;__favicon_mask_icon&quot;:&quot;https://cpwebassets.codepen.io/assets/favicon/logo-pin-b4b4269c16397ad2f0f7a01bcdf513a1994f4c94b8af2f191c09eb0d601762b1.svg&quot;,&quot;__favicon_shortcut_icon&quot;:&quot;https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico&quot;,&quot;__path_to_iframe_console_runner&quot;:&quot;https://cpwebassets.codepen.io/assets/editor/iframe/iframeConsoleRunner-6d8bf8b4b479137260842506acbb12717dace0823c023e08b96360e60b0840d9.js&quot;,&quot;__path_to_iframe_refresh_css&quot;:&quot;https://cpwebassets.codepen.io/assets/editor/iframe/iframeRefreshCSS-44fe83e49b63affec96918c9af88c0d80b209a862cf87ac46bc933074b8c557d.js&quot;,&quot;__path_to_iframe_runtime_errors&quot;:&quot;https://cpwebassets.codepen.io/assets/editor/iframe/iframeRuntimeErrors-4f205f2c14e769b448bcf477de2938c681660d5038bc464e3700256713ebe261.js&quot;,&quot;__path_to_processor_worker&quot;:&quot;https://cpwebassets.codepen.io/assets/packs/router.js&quot;,&quot;__path_to_stop_execution_on_timeout&quot;:&quot;https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js&quot;,&quot;__pen_normalize_css_url&quot;:&quot;https://public.codepenassets.com/css/normalize-5.0.0.min.css&quot;,&quot;__pen_prefix_free_url&quot;:&quot;https://public.codepenassets.com/js/prefixfree-1.0.7.min.js&quot;,&quot;__pen_reset_css_url&quot;:&quot;https://public.codepenassets.com/css/reset-2.0.min.css&quot;,&quot;__theme_url_twilight&quot;:&quot;https://cpwebassets.codepen.io/assets/editor/themes/twilight-5624f2aa0a9e5ad3c27da1db150d791e788247e197af02b4cd6db6fbc40f7354.css&quot;,&quot;__theme_url_solarized_dark&quot;:&quot;https://cpwebassets.codepen.io/assets/editor/themes/solarized-dark-5524d7672bd3f4191755f2f06eb52d9e90e3ae41b4919b94b68e336ee6f8e908.css&quot;,&quot;__theme_url_tomorrow_night&quot;:&quot;https://cpwebassets.codepen.io/assets/editor/themes/tomorrow-night-b24eeddae48ecd6c977bf2059ba10ad91efd3680a1ba93f2e33ce76d5889b3ed.css&quot;,&quot;__theme_url_oceanic_dark&quot;:&quot;https://cpwebassets.codepen.io/assets/editor/themes/oceanic-dark-6c860318d2c1c7700ca3f7a51ac9bf2847699c097f3219d4bdad14426c91df51.css&quot;,&quot;__theme_url_panda&quot;:&quot;https://cpwebassets.codepen.io/assets/editor/themes/panda-aede9c039e179a2c374a5256861d53b097137008ca7fc1ce4b019c66dd0e2fd1.css&quot;,&quot;__theme_url_duotone_dark&quot;:&quot;https://cpwebassets.codepen.io/assets/editor/themes/duotone-dark-47344b940707cb4e6850cef429b6d844aa969b31e4a4741299e4926c036cfc6d.css&quot;,&quot;__theme_url_highcontrast_dark&quot;:&quot;https://cpwebassets.codepen.io/assets/editor/themes/highcontrast-dark-47187de4142cc38f6f5a1e9f846225ded7136f4761bf6a3ec0ed89c8ce9b7382.css&quot;,&quot;__theme_url_classic&quot;:&quot;https://cpwebassets.codepen.io/assets/editor/themes/classic-45c43b72fafc606f79eb802d819ada14ee27946fe25dfe189da767500cc78cf9.css&quot;,&quot;__theme_url_solarized_light&quot;:&quot;https://cpwebassets.codepen.io/assets/editor/themes/solarized-light-81bc654a0e146841fcfbec1f085308252d35f1b9daef8ca23b1ff91cb32b1862.css&quot;,&quot;__theme_url_xq_light&quot;:&quot;https://cpwebassets.codepen.io/assets/editor/themes/xq-light-b4ef10af805d69aee43b581c024e201f80d911d6cc638a309edd2242a2b77565.css&quot;,&quot;__theme_url_oceanic_light&quot;:&quot;https://cpwebassets.codepen.io/assets/editor/themes/oceanic-light-d441824dd2db1a08b893f344b6cf56731c6af6adef3e12c4eaa652e2db553d35.css&quot;,&quot;__theme_url_mdn_like&quot;:&quot;https://cpwebassets.codepen.io/assets/editor/themes/mdn-like-d5ee28ea8d118f387e9c19f0aac088b13655f3e4725cd597296e08d7167a43ae.css&quot;,&quot;__theme_url_duotone_light&quot;:&quot;https://cpwebassets.codepen.io/assets/editor/themes/duotone-light-f63768bb645798048a0e1eef9795b405a351a9edca2d722c0cada0d3672c94dd.css&quot;,&quot;__theme_url_highcontrast_light&quot;:&quot;https://cpwebassets.codepen.io/assets/editor/themes/highcontrast-light-cb745e3989e02d3701df587f5fefa5e9707157de3a129e3d86f1ca7ce6cc4bff.css&quot;}</textarea>
+
+  <script src="https://cpwebassets.codepen.io/assets/common/browser_support-2c1a3d31dbc6b5746fb7dacdbc81dd613906db219f13147c66864a6c3448246c.js"></script>
+  <script src="https://cpwebassets.codepen.io/assets/common/everypage-c0439686246cf4a1465a9bf7bcc4b0a7a720b9724e1e14b3aa3bec47880049c4.js"></script>
+  <script src="https://cpwebassets.codepen.io/assets/packs/js/referrer-tracking-3023957ef831854a1933.js"></script>
+
+
+  <script src="https://cpwebassets.codepen.io/assets/packs/js/vendor-86cf3ca7c141ece8e9f9.chunk.js"></script>
+<script src="https://cpwebassets.codepen.io/assets/packs/js/3-1a61f8fcfb5bb832c2f7.chunk.js"></script>
+<script src="https://cpwebassets.codepen.io/assets/packs/js/everypage-f54cc99606cd8fd5f489.js"></script>
+  <script src="https://cpwebassets.codepen.io/assets/packs/js/vendor-86cf3ca7c141ece8e9f9.chunk.js"></script>
+<script src="https://cpwebassets.codepen.io/assets/packs/js/processorRouter-47c986879fbf35ba5bcc.js"></script>
+    <script src="https://static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
+  <script src="https://cpwebassets.codepen.io/assets/editor/global/commonLibs-18d595d95e5894ceae5661c7e40deeca7df254309b42f89edce76949b15a0f31.js"></script>
+
+<script src="https://cpwebassets.codepen.io/assets/editor/global/codemirror-e628acccbc140ed80f9daa48b5e64c775855e64a41d7fad48e7583a7819aa9d6.js"></script>
+  <script src="https://cpwebassets.codepen.io/assets/libs/emmet-codemirror-plugin-96396a4ad085138a7f4e501477590b84cedf5a10d5298bdeb2da448cada82d11.js"></script>
+
+
+  <script src="https://cpwebassets.codepen.io/assets/editor/pen/index-55b299fe333a1da28c1f1e9ed36f96a66a8f73684bad271c59bb387d3c9625a7.js"></script>
+
+
+
+
+<script nonce="cs0PLxy2izw=">(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.nonce='cs0PLxy2izw=';d.innerHTML="window.__CF$cv$params={r:'995ad05adc7a0eaf',t:'MTc2MTY1ODUwMC4wMDAwMDA='};var a=document.createElement('script');a.nonce='cs0PLxy2izw=';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+
+</html>

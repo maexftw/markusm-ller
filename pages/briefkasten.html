@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Briefkasten-Anlagen - Sichere und hochwertige Briefkastensysteme">
+    <title>Briefkasten-Anlagen - KOST</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <link rel="stylesheet" href="../css/theme.css">
+    <style>
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            z-index: 9998;
+            padding: 6rem 2rem 2rem;
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            overflow-y: auto;
+        }
+        .mobile-menu.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .mobile-menu-link {
+            display: block;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--foreground, #1d1d1f);
+            text-decoration: none;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            transition: color 0.2s ease;
+        }
+        .mobile-menu-link:hover {
+            color: var(--kost-red, #FA0016);
+        }
+        .mobile-dropdown {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        .mobile-dropdown.active {
+            max-height: 500px;
+        }
+        .mobile-dropdown-link {
+            display: block;
+            font-size: 1.125rem;
+            font-weight: 400;
+            color: var(--muted-foreground, #86868b);
+            text-decoration: none;
+            padding: 1rem 0 1rem 2rem;
+            transition: color 0.2s ease;
+        }
+        .mobile-dropdown-link:hover {
+            color: var(--kost-red, #FA0016);
+        }
+        .mobile-dropdown-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            cursor: pointer;
+        }
+        .mobile-dropdown-toggle i {
+            transition: transform 0.3s ease;
+        }
+        .mobile-dropdown-toggle.active i {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="nav-apple" id="mainNav">
+        <div class="container">
+            <div class="flex justify-between items-center">
+                <a href="../index.html" class="text-xl font-semibold" style="color: var(--foreground, #1d1d1f); text-decoration: none;" aria-label="KOST Sicherheitstechnik Homepage">
+                    KOST<span style="color: var(--kost-red, #FA0016);">.</span>
+                </a>
+
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="../index.html" class="nav-link-apple">Startseite</a>
+                    <div class="relative group">
+                        <a href="../index.html#services" class="nav-link-apple flex items-center gap-1">
+                            Leistungen
+                            <i data-lucide="chevron-down" style="width: 16px; height: 16px;"></i>
+                        </a>
+                        <div class="absolute top-full left-0 mt-2 w-64 bg-white rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300" style="border: 1px solid rgba(0,0,0,0.08);">
+                            <a href="videoueberwachung.html" class="block px-4 py-3 text-sm hover:bg-gray-50 transition-colors" style="color: var(--foreground, #1d1d1f); text-decoration: none;">Videoüberwachung</a>
+                            <a href="alarmanlagen.html" class="block px-4 py-3 text-sm hover:bg-gray-50 transition-colors" style="color: var(--foreground, #1d1d1f); text-decoration: none;">Alarmanlagen</a>
+                            <a href="zutrittskontrolle.html" class="block px-4 py-3 text-sm hover:bg-gray-50 transition-colors" style="color: var(--foreground, #1d1d1f); text-decoration: none;">Zutrittskontrolle</a>
+                            <a href="briefkasten.html" class="block px-4 py-3 text-sm hover:bg-gray-50 transition-colors" style="color: var(--foreground, #1d1d1f); text-decoration: none;">Briefkastenanlagen</a>
+                            <a href="mechanische-sicherung.html" class="block px-4 py-3 text-sm hover:bg-gray-50 transition-colors" style="color: var(--foreground, #1d1d1f); text-decoration: none; border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;">Mechanische Sicherung</a>
+                        </div>
+                    </div>
+                    <a href="../index.html#about" class="nav-link-apple">Über uns</a>
+                    <a href="../index.html#contact" class="nav-link-apple">Kontakt</a>
+                </div>
+
+                <button class="md:hidden" id="mobileToggle" aria-label="Navigation öffnen" aria-expanded="false" style="background: none; border: none; cursor: pointer;">
+                    <i data-lucide="menu" style="width: 24px; height: 24px; color: var(--foreground, #1d1d1f);"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button id="mobileClose" aria-label="Navigation schließen" style="position: absolute; top: 1.5rem; right: 2rem; background: none; border: none; cursor: pointer;">
+            <i data-lucide="x" style="width: 32px; height: 32px; color: var(--foreground, #1d1d1f);"></i>
+        </button>
+        <nav>
+            <a href="../index.html" class="mobile-menu-link">Startseite</a>
+            <div>
+                <div class="mobile-menu-link mobile-dropdown-toggle" id="mobileDropdownToggle">
+                    <span>Leistungen</span>
+                    <i data-lucide="chevron-down" style="width: 24px; height: 24px;"></i>
+                </div>
+                <div class="mobile-dropdown" id="mobileDropdown">
+                    <a href="videoueberwachung.html" class="mobile-dropdown-link">Videoüberwachung</a>
+                    <a href="alarmanlagen.html" class="mobile-dropdown-link">Alarmanlagen</a>
+                    <a href="zutrittskontrolle.html" class="mobile-dropdown-link">Zutrittskontrolle</a>
+                    <a href="briefkasten.html" class="mobile-dropdown-link">Briefkastenanlagen</a>
+                    <a href="mechanische-sicherung.html" class="mobile-dropdown-link">Mechanische Sicherung</a>
+                </div>
+            </div>
+            <a href="../index.html#about" class="mobile-menu-link">Über uns</a>
+            <a href="../index.html#contact" class="mobile-menu-link">Kontakt</a>
+        </nav>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section class="section-apple" style="padding-top: 6rem; padding-bottom: 4rem; background: linear-gradient(180deg, #fff 0%, #f5f5f7 100%);">
+        <div class="container">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="hero-eyebrow mb-md">Professionelle Lösungen</div>
+                <h1 class="display-xl mb-lg">Briefkasten-Anlagen</h1>
+                <p class="body-lg" style="max-width: 680px; margin: 0 auto;">Sichere und hochwertige Briefkastensysteme für jede Immobilie</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTRO SECTION -->
+    <section class="section-apple">
+        <div class="max-w-4xl mx-auto text-center scroll-reveal">
+            <h2 class="display-md mb-lg">Professionelle Briefkastenanlagen</h2>
+            <p class="body-md mb-md">
+                KOST Sicherheitstechnik plant und installiert Briefkastenanlagen für Wohnanlagen, Mehrfamilienhäuser und gewerbliche Objekte. Wir setzen auf hochwertige Systeme, die Funktionalität, Sicherheit und Design vereinen.
+            </p>
+            <p class="body-md">
+                Von Einzelbriefkästen bis zu komplexen Briefkastenanlagen mit integrierter Paketbox und Sprechanlage – wir realisieren maßgeschneiderte Lösungen.
+            </p>
+        </div>
+    </section>
+
+    <!-- IMAGE GALLERY -->
+    <section class="section-apple" style="background: #f5f5f7;">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-3 gap-6 scroll-reveal">
+                <img src="../images/briefkaesten-db-01-20-zu-10.jpg" alt="Briefkastenanlage" class="w-full h-64 object-cover rounded-2xl shadow-md">
+                <img src="../images/briefkaesten-bb-01-KOMPO-22-zu-10.jpg" alt="Briefkasten Detail" class="w-full h-64 object-cover rounded-2xl shadow-md">
+                <img src="../images/briefkaesten-db-02-20-zu-10.jpg" alt="Moderne Briefkastenanlage" class="w-full h-64 object-cover rounded-2xl shadow-md">
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section class="section-apple">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-2xl scroll-reveal">
+                <h2 class="display-md mb-lg">Unsere Briefkastensysteme</h2>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="card-apple scroll-reveal">
+                    <div class="flex items-start gap-4">
+                        <div style="width: 48px; height: 48px; border-radius: 12px; background: linear-gradient(135deg, #FA0016, #c00012); display: flex; align-items: center; justify-content: center;">
+                            <i data-lucide="mailbox" style="width: 24px; height: 24px; color: white;"></i>
+                        </div>
+                        <div>
+                            <h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem;">Einzelbriefkästen</h3>
+                            <p style="font-size: 1rem; line-height: 1.6; color: #86868b;">Hochwertige Briefkästen für Einfamilienhäuser und Gewerbeimmobilien in verschiedenen Designs und Materialien.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-apple scroll-reveal">
+                    <div class="flex items-start gap-4">
+                        <div style="width: 48px; height: 48px; border-radius: 12px; background: linear-gradient(135deg, #FA0016, #c00012); display: flex; align-items: center; justify-content: center;">
+                            <i data-lucide="package" style="width: 24px; height: 24px; color: white;"></i>
+                        </div>
+                        <div>
+                            <h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem;">Briefkastenanlagen</h3>
+                            <p style="font-size: 1rem; line-height: 1.6; color: #86868b;">Mehrfach-Briefkastenanlagen für Wohnanlagen und Bürogebäude – modular erweiterbar und individuell beschriftbar.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-apple scroll-reveal">
+                    <div class="flex items-start gap-4">
+                        <div style="width: 48px; height: 48px; border-radius: 12px; background: linear-gradient(135deg, #FA0016, #c00012); display: flex; align-items: center; justify-content: center;">
+                            <i data-lucide="box" style="width: 24px; height: 24px; color: white;"></i>
+                        </div>
+                        <div>
+                            <h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem;">Paketboxen</h3>
+                            <p style="font-size: 1rem; line-height: 1.6; color: #86868b;">Sichere Paketkästen für kontaktlose Zustellung – auch bei Abwesenheit. Integrierbar in Briefkastenanlagen.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-apple scroll-reveal">
+                    <div class="flex items-start gap-4">
+                        <div style="width: 48px; height: 48px; border-radius: 12px; background: linear-gradient(135deg, #FA0016, #c00012); display: flex; align-items: center; justify-content: center;">
+                            <i data-lucide="phone" style="width: 24px; height: 24px; color: white;"></i>
+                        </div>
+                        <div>
+                            <h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem;">Mit Sprechanlage</h3>
+                            <p style="font-size: 1rem; line-height: 1.6; color: #86868b;">Integration von Video-Sprechanlagen und Türöffnern für maximalen Komfort und Sicherheit.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-apple scroll-reveal">
+                    <div class="flex items-start gap-4">
+                        <div style="width: 48px; height: 48px; border-radius: 12px; background: linear-gradient(135deg, #FA0016, #c00012); display: flex; align-items: center; justify-content: center;">
+                            <i data-lucide="shield" style="width: 24px; height: 24px; color: white;"></i>
+                        </div>
+                        <div>
+                            <h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem;">Manipulationssicher</h3>
+                            <p style="font-size: 1rem; line-height: 1.6; color: #86868b;">Robuste Konstruktion aus Edelstahl oder verzinktem Stahl – witterungsbeständig und einbruchsicher.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-apple scroll-reveal">
+                    <div class="flex items-start gap-4">
+                        <div style="width: 48px; height: 48px; border-radius: 12px; background: linear-gradient(135deg, #FA0016, #c00012); display: flex; align-items: center; justify-content: center;">
+                            <i data-lucide="palette" style="width: 24px; height: 24px; color: white;"></i>
+                        </div>
+                        <div>
+                            <h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem;">Individuelle Gestaltung</h3>
+                            <p style="font-size: 1rem; line-height: 1.6; color: #86868b;">Verschiedene Farben, Oberflächen und Designs – passend zur Architektur Ihres Gebäudes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ADVANTAGES SECTION -->
+    <section class="section-apple" style="background: #f5f5f7;">
+        <div class="max-w-4xl mx-auto">
+            <div class="card-apple scroll-reveal">
+                <h3 class="display-sm mb-lg">Vorteile unserer Briefkastenanlagen</h3>
+                <ul style="list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem;">
+                    <li style="display: flex; align-items: start; gap: 1rem;">
+                        <i data-lucide="check" style="width: 24px; height: 24px; color: #FA0016; flex-shrink: 0; margin-top: 2px;"></i>
+                        <span style="font-size: 1rem; line-height: 1.6; color: #1d1d1f;"><strong>Hochwertige Materialien</strong> – Langlebig und witterungsbeständig</span>
+                    </li>
+                    <li style="display: flex; align-items: start; gap: 1rem;">
+                        <i data-lucide="check" style="width: 24px; height: 24px; color: #FA0016; flex-shrink: 0; margin-top: 2px;"></i>
+                        <span style="font-size: 1rem; line-height: 1.6; color: #1d1d1f;"><strong>Normgerecht</strong> – Erfüllt alle DIN-Normen und postalischen Anforderungen</span>
+                    </li>
+                    <li style="display: flex; align-items: start; gap: 1rem;">
+                        <i data-lucide="check" style="width: 24px; height: 24px; color: #FA0016; flex-shrink: 0; margin-top: 2px;"></i>
+                        <span style="font-size: 1rem; line-height: 1.6; color: #1d1d1f;"><strong>Erweiterbar</strong> – Modularer Aufbau ermöglicht spätere Erweiterungen</span>
+                    </li>
+                    <li style="display: flex; align-items: start; gap: 1rem;">
+                        <i data-lucide="check" style="width: 24px; height: 24px; color: #FA0016; flex-shrink: 0; margin-top: 2px;"></i>
+                        <span style="font-size: 1rem; line-height: 1.6; color: #1d1d1f;"><strong>Barrierefreie Montage</strong> – Auf Wunsch in rollstuhlgerechter Höhe</span>
+                    </li>
+                    <li style="display: flex; align-items: start; gap: 1rem;">
+                        <i data-lucide="check" style="width: 24px; height: 24px; color: #FA0016; flex-shrink: 0; margin-top: 2px;"></i>
+                        <span style="font-size: 1rem; line-height: 1.6; color: #1d1d1f;"><strong>Professionelle Installation</strong> – Fachgerechte Montage durch unser Team</span>
+                    </li>
+                    <li style="display: flex; align-items: start; gap: 1rem;">
+                        <i data-lucide="check" style="width: 24px; height: 24px; color: #FA0016; flex-shrink: 0; margin-top: 2px;"></i>
+                        <span style="font-size: 1rem; line-height: 1.6; color: #1d1d1f;"><strong>Namenschilder</strong> – Individuelle Beschriftung inklusive</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- USE CASES SECTION -->
+    <section class="section-apple">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-2xl scroll-reveal">
+                <h2 class="display-md mb-lg">Einsatzbereiche</h2>
+            </div>
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="card-apple scroll-reveal text-center">
+                    <i data-lucide="building" style="width: 48px; height: 48px; color: #FA0016; margin: 0 auto 1rem;"></i>
+                    <h4 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem;">Wohnanlagen</h4>
+                    <p style="font-size: 0.875rem; color: #86868b;">Mehrfamilienhäuser</p>
+                </div>
+                <div class="card-apple scroll-reveal text-center">
+                    <i data-lucide="building-2" style="width: 48px; height: 48px; color: #FA0016; margin: 0 auto 1rem;"></i>
+                    <h4 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem;">Bürogebäude</h4>
+                    <p style="font-size: 0.875rem; color: #86868b;">Geschäftsadressen</p>
+                </div>
+                <div class="card-apple scroll-reveal text-center">
+                    <i data-lucide="home" style="width: 48px; height: 48px; color: #FA0016; margin: 0 auto 1rem;"></i>
+                    <h4 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem;">Privathäuser</h4>
+                    <p style="font-size: 0.875rem; color: #86868b;">Einzelimmobilien</p>
+                </div>
+                <div class="card-apple scroll-reveal text-center">
+                    <i data-lucide="store" style="width: 48px; height: 48px; color: #FA0016; margin: 0 auto 1rem;"></i>
+                    <h4 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem;">Gewerbeobjekte</h4>
+                    <p style="font-size: 0.875rem; color: #86868b;">Industriegebiete</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="section-apple" style="background: #f5f5f7;">
+        <div class="text-center scroll-reveal">
+            <h2 class="display-md mb-lg">Bereit für Ihre neue Briefkastenanlage?</h2>
+            <p class="body-lg mb-2xl">Vereinbaren Sie jetzt ein Beratungsgespräch</p>
+            <a href="../index.html#contact" class="btn-apple btn-primary">
+                <i data-lucide="phone" style="width: 20px; height: 20px;"></i> Angebot anfordern
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer-apple">
+        <div class="footer-grid">
+            <div class="footer-section">
+                <h4>Leistungen</h4>
+                <a href="videoueberwachung.html" class="footer-link">Videoüberwachung</a>
+                <a href="alarmanlagen.html" class="footer-link">Alarmanlagen</a>
+                <a href="zutrittskontrolle.html" class="footer-link">Zutrittskontrolle</a>
+                <a href="briefkasten.html" class="footer-link">Briefkastenanlagen</a>
+                <a href="mechanische-sicherung.html" class="footer-link">Mechanische Sicherung</a>
+            </div>
+            <div class="footer-section">
+                <h4>Unternehmen</h4>
+                <a href="../index.html#about" class="footer-link">Über uns</a>
+                <a href="../index.html#contact" class="footer-link">Kontakt</a>
+            </div>
+            <div class="footer-section">
+                <h4>Kontakt</h4>
+                <p class="footer-link">Hermannstr. 162a<br>44263 Dortmund</p>
+                <p class="footer-link">Tel: 0231 / 98 98 351</p>
+            </div>
+            <div class="footer-section">
+                <h4>Rechtliches</h4>
+                <a href="#impressum" class="footer-link">Impressum</a>
+                <a href="#datenschutz" class="footer-link">Datenschutz</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 KOST Sicherheitstechnik</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Navigation scroll effect
+        const nav = document.getElementById('mainNav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.pageYOffset > 50);
+        });
+
+        // Scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+        document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+
+        // Mobile menu toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileClose = document.getElementById('mobileClose');
+
+        if (mobileToggle && mobileMenu) {
+            mobileToggle.addEventListener('click', () => {
+                mobileMenu.classList.add('active');
+                mobileToggle.setAttribute('aria-expanded', 'true');
+                document.body.style.overflow = 'hidden';
+            });
+        }
+
+        if (mobileClose && mobileMenu) {
+            mobileClose.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                mobileToggle.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            });
+        }
+
+        // Mobile dropdown toggle
+        const mobileDropdownToggle = document.getElementById('mobileDropdownToggle');
+        const mobileDropdown = document.getElementById('mobileDropdown');
+
+        if (mobileDropdownToggle && mobileDropdown) {
+            mobileDropdownToggle.addEventListener('click', () => {
+                mobileDropdown.classList.toggle('active');
+                mobileDropdownToggle.classList.toggle('active');
+            });
+        }
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.mobile-menu-link:not(.mobile-dropdown-toggle), .mobile-dropdown-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (mobileMenu) {
+                    mobileMenu.classList.remove('active');
+                    mobileToggle.setAttribute('aria-expanded', 'false');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

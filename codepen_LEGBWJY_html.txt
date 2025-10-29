@@ -1,0 +1,61 @@
+
+                <div class="error-message" id="errorMessage"></div>
+<div class="fallback-bg" id="fallbackBg"></div>
+
+<div class="audio-enable">
+  <p>ENTER EXPERIENCE<br />WITH AUDIO</p>
+  <button class="enable-button" id="enableBtn">START</button>
+</div>
+
+<div class="preloader" id="preloader">
+  <span id="counter">[000]</span>
+</div>
+
+<canvas id="canvas"></canvas>
+
+<p class="text-element description">THE ARCHIVE COLLECTS RECORDS OF ABANDONED WORLDS AND LOST TECHNOLOGIES, WAITING TO BE DISCOVERED.</p>
+
+<nav class="text-element nav-links">
+  <a href="#">_DATA VAULTS</a>
+  <a href="#">_DEEP SPACE</a>
+  <a href="#">_FORBIDDEN ZONES</a>
+  <a href="#">_EXODUS LOGS</a>
+</nav>
+
+<div class="text-element footer">
+  <p>Err: [404 - SIGNAL LOST]<br />
+    SYSTEM TIME: CYCLE 2187.42<br />
+    <span style="opacity: 0.7; font-size: 0.6rem;">PRESS 'H' TO TOGGLE REFRACTION CONTROLS</span>
+  </p>
+</div>
+
+<p class="text-element division">
+  PERFORMANCE ANALYSIS: <span id="fpsCounter"></span> FPS<br>
+  OPTICAL REFRACTION ENGINE: ONLINE<br>
+  ACCESS LEVEL: RESTRICTED.<br>
+  TRACE INITIATED: SOURCE UNKNOWN.
+</p>
+
+<p class="text-element signal">_Uplink Pending...</p>
+
+<div class="text-element central-text">
+  THE VAULT RETAINS ECHOES OF CIVILIZATIONS ERASED BY TIME<br>
+  DEAD SYSTEMS. BROKEN SIGNALS. MYTHS WRITTEN IN CODE.
+</div>
+
+<audio id="startClickSound" preload="auto">
+  <source src="https://assets.codepen.io/7558/preloader-2s-001.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="preloaderSound" preload="auto">
+  <source src="https://assets.codepen.io/7558/preloader-3s-002.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="hoverSound" preload="auto">
+  <source src="https://assets.codepen.io/7558/preloader-2s-001.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="backgroundMusic" loop preload="auto">
+  <source src="https://assets.codepen.io/7558/cinematic-02.mp3" type="audio/mpeg">
+</audio>
+              

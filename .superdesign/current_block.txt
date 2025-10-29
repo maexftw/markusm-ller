@@ -1,0 +1,38 @@
+            <div class="firecrawl-hero__content">
+                <div class="firecrawl-badge firecrawl-reveal">
+                    <span class="firecrawl-indicator"></span>
+                    graphiks · Firecrawl Build Unit
+                </div>
+                <h1 class="firecrawl-hero__title firecrawl-reveal">
+                    Wir verwandeln Firecrawl-Rohdaten in <span class="firecrawl-highlight firecrawl-shine">Websites, die sofort liefern</span>.
+                </h1>
+                <p class="firecrawl-hero__subtitle firecrawl-reveal">
+                    Du bekommst saubere Datenpipelines, klare UX und eine Seite, die schnell lädt. Kein Agentur-Bingo. Kein Warten auf Freigaben. Einfach Ergebnisse, die dein Team versteht und selbst pflegen kann.
+                </p>
+                <form class="firecrawl-hero__form firecrawl-reveal" action="javascript:void(0);">
+                    <label for="url" class="sr-only">Domain oder Use Case</label>
+                    <div class="firecrawl-hero__input">
+                        <span class="firecrawl-hero__label">Projekt checken</span>
+                        <div class="firecrawl-hero__field">
+                            <span class="firecrawl-hero__prefix">https://</span>
+                            <input id="url" name="url" type="text" placeholder="deine-domain.de" autocomplete="off" />
+                            <span class="firecrawl-hero__cursor"></span>
+                        </div>
+                        <button type="submit">Link droppen</button>
+                    </div>
+                    <p class="firecrawl-hero__hint">Innerhalb von 48 Stunden bekommst du ein Firecrawl-Datenlayer + UX-Snippet, das zeigt, wo wir ansetzen.</p>
+                </form>
+                <div class="firecrawl-hero__chips firecrawl-reveal">
+                    <span>Firecrawl Setups</span>
+                    <span>Webflow / Headless</span>
+                    <span>LLM Content Layer</span>
+                    <span>Conversion UX</span>
+                </div>
+                <div class="firecrawl-hero__logos firecrawl-reveal" aria-label="Technologien & Partner">
+                    <span>Notion</span>
+                    <span>Next.js</span>
+                    <span>OpenAI</span>
+                    <span>Supabase</span>
+                    <span>Webflow</span>
+                </div>
+            </div>

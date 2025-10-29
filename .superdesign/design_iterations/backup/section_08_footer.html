@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Section 8: Footer</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Flowbite -->
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.0.0/dist/flowbite.min.js"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --red: #DC342E;
+            --dark: #32373c;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif !important;
+            line-height: 1.6 !important;
+            color: #333 !important;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Roboto Slab', serif !important;
+            font-weight: 600 !important;
+            line-height: 1.3 !important;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        /* Lucide Icons Styling */
+        svg.lucide {
+            width: 1em;
+            height: 1em;
+            display: inline-block;
+            vertical-align: middle;
+            color: var(--red) !important;
+            stroke: var(--red) !important;
+        }
+
+        footer svg.lucide {
+            width: 20px !important;
+            height: 20px !important;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 20px 30px;
+        }
+
+        footer .grid-3 {
+            gap: 50px;
+        }
+
+        footer h4 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        footer p,
+        footer li {
+            font-size: 15px;
+            line-height: 2;
+            color: #ccc;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer i {
+            color: var(--red);
+            margin-right: 10px;
+            width: 20px;
+        }
+
+        footer iframe {
+            width: 100%;
+            height: 280px;
+            border: none;
+            border-radius: 4px;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #999;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Footer -->
+<footer id="kontakt">
+    <div class="container">
+        <div class="grid-3">
+            <div>
+                <h4>Kontakt</h4>
+                <ul>
+                    <li><i data-lucide="map-pin"></i>Vellinghauser Str. 15, 59514 Welver</li>
+                    <li><i data-lucide="phone"></i>Tel: 02388-8008686</li>
+                    <li><i data-lucide="message-circle"></i>Mobil: 01511-7015050</li>
+                    <li><i data-lucide="mail"></i>office@markus-mueller-bau.de</li>
+                </ul>
+            </div>
+
+            <div>
+                <h4>Öffnungszeiten</h4>
+                <ul>
+                    <li><i data-lucide="clock"></i>Montag - Freitag: 07:00 - 17:00 Uhr</li>
+                    <li><i data-lucide="calendar"></i>Samstag: Nach Vereinbarung</li>
+                    <li><i data-lucide="calendar-x"></i>Sonntag: Geschlossen</li>
+                </ul>
+            </div>
+
+            <div>
+                <h4>Standort</h4>
+                <iframe src="https://maps.google.com/maps?q=Vellinghauser%20Str.%2015%2C%2059514%20Welver&t=m&z=13&output=embed" title="Standort Markus Müller Bauunternehmung"></iframe>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>&copy; 2024 Markus Müller Bauunternehmung. Alle Rechte vorbehalten.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+// Lucide Icons initialisieren
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+# OS Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.sublime-*
+
+# Temp
+*.tmp
+*.bak
+*.swp
+*~
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment
+.env
+.env.local
+
+# Development/Private Files
+CLAUDE.md
+NETLIFY_WORKFLOW.md
+.superdesign/backup_other_projects_20251029/
+.superdesign/text_source_graphiks.html

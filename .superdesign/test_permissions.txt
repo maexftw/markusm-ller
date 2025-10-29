@@ -1,0 +1,3 @@
+Permission Test - Write Tool funktioniert ohne Prompt!
+Edit Tool funktioniert auch ohne Prompt!
+ALLE PERMISSIONS FUNKTIONIEREN! 🎉

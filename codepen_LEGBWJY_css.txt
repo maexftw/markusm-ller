@@ -1,0 +1,398 @@
+
+                @font-face {
+  font-family: "PPSupplyMono";
+  src: url("https://assets.codepen.io/7558/PPSupplyMono-Regular.ttf")
+    format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color--background: rgb(60, 60, 60);
+  --color--foreground: #c4d5bc;
+  --color--accent: rgb(170, 170, 170);
+  --font-primary: "PPSupplyMono", "Courier New", monospace;
+  --font-secondary: "PPSupplyMono", "Courier New", monospace;
+  --margin: 32px;
+  --gutter: 16px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-primary);
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgb(230, 230, 230) 0%,
+    rgb(180, 180, 180) 45%,
+    rgb(100, 100, 100) 90%
+  );
+  color: var(--color--foreground);
+  letter-spacing: -0.03em;
+  position: relative;
+  overflow: hidden;
+}
+
+body.loading-active {
+  overflow: hidden !important;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: transparent url("https://assets.codepen.io/7558/noise.png") repeat
+    0 0;
+  background-size: 300px 300px;
+  animation: noise-animation 0.3s steps(5) infinite;
+  opacity: 0.9;
+  will-change: transform;
+  z-index: 100;
+  pointer-events: none;
+}
+
+@keyframes noise-animation {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  10% {
+    transform: translate(-2%, -3%);
+  }
+
+  20% {
+    transform: translate(-4%, 2%);
+  }
+
+  30% {
+    transform: translate(2%, -4%);
+  }
+
+  40% {
+    transform: translate(-2%, 5%);
+  }
+
+  50% {
+    transform: translate(-4%, 2%);
+  }
+
+  60% {
+    transform: translate(3%, 0);
+  }
+
+  70% {
+    transform: translate(0, 3%);
+  }
+
+  80% {
+    transform: translate(-3%, 0);
+  }
+
+  90% {
+    transform: translate(2%, 2%);
+  }
+
+  100% {
+    transform: translate(1%, 0);
+  }
+}
+
+#canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: transparent;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+}
+
+#canvas.ready {
+  opacity: 1;
+}
+
+.fallback-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://assets.codepen.io/7558/red-protocol-poster-03-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 1s ease-out;
+}
+
+.fallback-bg.active {
+  opacity: 1;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  padding: var(--gutter);
+  position: relative;
+  z-index: 10;
+  transition: filter 0.1s ease-out;
+}
+
+.text-element {
+  position: fixed;
+  font-family: var(--font-primary);
+  color: var(--color--foreground);
+  text-transform: uppercase;
+  z-index: 10;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.audio-enable {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #0a0a0a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  font-family: var(--font-primary);
+  font-size: 12px;
+  color: #c4d5bc;
+  text-transform: uppercase;
+  gap: 2rem;
+  text-align: center;
+  padding: 1rem;
+}
+
+.enable-button {
+  border: 1px solid #c4d5bc;
+  background: transparent;
+  color: #c4d5bc;
+  padding: 1rem 2rem;
+  font-family: var(--font-primary);
+  font-size: 12px;
+  text-transform: uppercase;
+  cursor: pointer;
+  letter-spacing: 0.1em;
+  transition: all 0.3s ease;
+}
+
+.enable-button:hover {
+  background: #c4d5bc;
+  color: #0a0a0a;
+}
+
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #0a0a0a;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  font-family: var(--font-primary);
+  font-size: 12px;
+  color: #c4d5bc;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 1;
+  transition: opacity 0.8s ease-out;
+}
+
+.preloader.fade-out {
+  opacity: 0;
+}
+
+.error-message {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: rgba(255, 0, 0, 0.8);
+  color: white;
+  padding: 10px;
+  font-size: 12px;
+  display: none;
+  z-index: 3000;
+}
+
+.description {
+  top: 120px;
+  left: 50px;
+  width: 360px;
+  font-size: 0.75rem;
+  line-height: 1.2;
+}
+
+.nav-links {
+  top: 50%;
+  left: 50px;
+  transform: translateY(-50%);
+}
+
+.nav-links a {
+  position: relative;
+  display: block;
+  margin-bottom: 8px;
+  color: var(--color--foreground);
+  text-decoration: none;
+  z-index: 1;
+  transition: color 0.3s ease;
+  padding: 4px 8px;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: var(--color--foreground);
+  z-index: -1;
+  transition: width 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-links a:hover {
+  color: #1a1a1a;
+}
+
+.footer {
+  bottom: 120px;
+  right: 50px;
+  font-size: 0.625rem;
+}
+
+.division {
+  bottom: 120px;
+  left: 50px;
+  font-size: 0.625rem;
+}
+
+.signal {
+  top: 50%;
+  right: 100px;
+  font-size: 0.625rem;
+  transform: translateY(-50%);
+}
+
+.central-text {
+  bottom: 30%;
+  left: 50%;
+  transform: translateX(-50%) translateY(0);
+  text-align: center;
+  font-size: 1.25rem;
+  line-height: 1.1;
+  white-space: nowrap;
+  width: max-content;
+}
+
+.dg.ac {
+  z-index: 3000 !important;
+  position: fixed !important;
+  top: 10px !important;
+  right: 10px !important;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .description,
+  .nav-links,
+  .division,
+  .performance {
+    left: 20px;
+  }
+
+  .footer,
+  .signal {
+    right: 20px;
+  }
+
+  .central-text {
+    font-size: 1rem;
+    white-space: normal;
+    max-width: 90%;
+  }
+
+  .description {
+    width: calc(100vw - 40px);
+    max-width: 300px;
+  }
+
+  /* Optimize GUI for mobile */
+  .dg.ac {
+    transform: scale(0.8);
+    transform-origin: top right;
+  }
+}
+
+@media (max-width: 480px) {
+  .central-text {
+    font-size: 0.9rem;
+  }
+
+  .description {
+    font-size: 0.7rem;
+  }
+
+  /* Further scale down GUI on very small screens */
+  .dg.ac {
+    transform: scale(0.7);
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .nav-links a:hover::after {
+    width: 0;
+  }
+
+  .nav-links a:active::after {
+    width: 100%;
+  }
+
+  .enable-button:hover {
+    background: transparent;
+    color: #c4d5bc;
+  }
+
+  .enable-button:active {
+    background: #c4d5bc;
+    color: #0a0a0a;
+  }
+}
+
+              

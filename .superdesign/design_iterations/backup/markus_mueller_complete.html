@@ -1,0 +1,585 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Markus Müller - Bauunternehmung</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;600;700;800;900&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif !important;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Roboto Slab', serif !important;
+            line-height: 1.2 !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        :root {
+            --primary-red: #DC342E;
+            --dark-gray: #32373c;
+            --light-gray: #f5f5f5;
+            --border-color: #e0e0e0;
+        }
+
+        /* Header Sticky */
+        .sticky-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Logo */
+        .logo-container img {
+            max-width: 200px;
+            height: auto;
+        }
+
+        /* Contact Icons */
+        .contact-info {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .contact-info a, .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #333;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .contact-info i {
+            color: var(--primary-red);
+        }
+
+        /* Navigation */
+        .main-nav {
+            background: linear-gradient(135deg, #f5b800 0%, #f59e00 100%);
+            padding: 0;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .main-nav > ul > li {
+            position: relative;
+        }
+
+        .main-nav > ul > li > a {
+            display: block;
+            padding: 15px 25px;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .main-nav > ul > li:hover > a {
+            background: rgba(0,0,0,0.1);
+        }
+
+        /* Dropdown */
+        .main-nav li ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 250px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            flex-direction: column;
+        }
+
+        .main-nav li:hover > ul {
+            display: flex;
+        }
+
+        .main-nav li ul li a {
+            color: #333;
+            padding: 12px 20px;
+            border-bottom: 1px solid var(--border-color);
+            transition: all 0.3s;
+        }
+
+        .main-nav li ul li a:hover {
+            background: var(--light-gray);
+            padding-left: 30px;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+                        url('https://bb91d3q.myrdbx.io/wp-content/uploads/2024/01/ziegelpfaehle-in-der-fabrik-platziert-1024x683.jpg');
+            background-size: cover;
+            background-position: center;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 80px 20px;
+        }
+
+        .hero-content h2 {
+            font-size: 42px !important;
+            font-weight: 700 !important;
+            margin-bottom: 20px !important;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        /* Red Divider Icon */
+        .red-divider {
+            display: inline-block;
+            margin: 20px 0;
+        }
+
+        /* Sections */
+        section {
+            padding: 60px 20px;
+        }
+
+        .section-white {
+            background: white;
+        }
+
+        .section-gray {
+            background: var(--light-gray);
+        }
+
+        .container-custom {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            align-items: center;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        /* Service Cards */
+        .service-card {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        .service-card svg {
+            width: 80px;
+            height: 80px;
+            fill: var(--primary-red);
+            margin: 20px auto;
+        }
+
+        .service-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .service-card h2 {
+            font-size: 22px !important;
+            color: var(--dark-gray);
+            margin: 15px 0 !important;
+        }
+
+        .service-card p {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Images */
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        /* Button */
+        .btn-primary {
+            display: inline-block;
+            background: var(--primary-red);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: #b52923;
+            transform: scale(1.05);
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            background: var(--primary-red);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .contact-info {
+                font-size: 12px;
+                gap: 15px;
+            }
+
+            .main-nav {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero-content h2 {
+                font-size: 28px !important;
+            }
+
+            .grid-2, .grid-3 {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Sticky Header -->
+<header class="sticky-header">
+    <!-- Top Bar with Logo and Contact -->
+    <div class="container-custom" style="padding: 20px;">
+        <div class="grid-2">
+            <div class="logo-container">
+                <a href="/">
+                    <img src="https://bb91d3q.myrdbx.io/wp-content/uploads/2022/12/cropped-Markus-Muller-Logo.png" alt="Markus Müller Logo">
+                </a>
+            </div>
+            <div class="contact-info" style="justify-content: flex-end;">
+                <a href="tel:023888008686">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>02388-8008686</span>
+                </a>
+                <span>
+                    <i class="fab fa-whatsapp"></i>
+                    <span>01511-7015050</span>
+                </span>
+                <a href="mailto:office@markus-mueller-bau.de">
+                    <i class="far fa-envelope"></i>
+                    <span>office@markus-mueller-bau.de</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <ul>
+            <li>
+                <a href="#1">Über uns</a>
+                <ul>
+                    <li><a href="#2">Sicherheit und Schulung</a></li>
+                    <li><a href="#3">Partnerschaft und Kooperation</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#leistungen">Leistungen</a>
+                <ul>
+                    <li><a href="#5">Neubau und Rohbau</a></li>
+                    <li><a href="#5">Umbau</a></li>
+                    <li><a href="#5">Industriebau</a></li>
+                    <li><a href="#6">Verblendarbeiten / Klinker</a></li>
+                    <li><a href="#6">Maurerarbeiten</a></li>
+                    <li><a href="#6">Betonarbeiten</a></li>
+                    <li><a href="#7">Fachwerke ausmauern</a></li>
+                    <li><a href="#7">Reparturen</a></li>
+                    <li><a href="#7">Gerüstbau</a></li>
+                    <li><a href="#8">Fundamente und Betonsohlen</a></li>
+                    <li><a href="#8">Stahlbetondecken und -wände</a></li>
+                    <li><a href="#8">Filigrandecken</a></li>
+                    <li><a href="#9">Bewehrungspakete</a></li>
+                    <li><a href="#9">Bamtec</a></li>
+                </ul>
+            </li>
+            <li><a href="/referenzen/">Referenzen</a></li>
+            <li><a href="/aktuelle-bauvorhaben/">Aktuelle Bauvorhaben</a></li>
+            <li><a href="/karriere/">Karriere</a></li>
+            <li><a href="/kontakt/">Kontakt</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="hero-content">
+        <h2>Bauunternehmung Markus Müller – Baukompetenz aus Tradition</h2>
+        <h2 style="font-size: 28px !important; font-weight: 400 !important; margin-top: 10px !important;">Meisterhafte Qualität und zuverlässige Handwerkskunst seit 2002</h2>
+        <p style="margin-top: 30px;">Entdecken Sie die Stärke handwerklicher Präzision mit der Bauunternehmung Markus Müller. Wir stehen für nachhaltiges Bauen, innovative Lösungen und eine persönliche Betreuung, die Sie von der ersten Kontaktaufname bis zur Fertigstellung begleitet. Erleben Sie Service, der bewegt – genau wie unser dynamischer Fuhrpark.</p>
+    </div>
+</section>
+
+<!-- Das Team Section -->
+<section id="1" class="section-white">
+    <div class="container-custom">
+        <div class="grid-2">
+            <div>
+                <h2 style="font-size: 32px !important; margin-bottom: 20px !important;">Das Team</h2>
+                <div class="red-divider">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 1 178 8">
+                        <path fill="#DC342E" stroke="#333" stroke-width=".2" d="M0 1h18v8H0zm20 0h18v8H20zm20 0h18v8H40zm20 0h18v8H60zm20 0h18v8H80zm20 0h18v8h-18zm20 0h18v8h-18zm20 0h18v8h-18zm20 0h18v8h-18z"></path>
+                    </svg>
+                </div>
+                <p>Wir, die Bauunternehmung Markus Müller, sind ein stolzes Familienunternehmen, das seit über 20 Jahren mit Qualität und Hingabe in der Baubranche überzeugt. Unser 27-köpfiges Team, bestehend aus Fachkräften wie Maurermeistern, erfahrenen Maurern, Bauhelfern, LKW-Fahrern und Büroangestellten, arbeitet Hand in Hand, um Visionen in Realität umzusetzen. Unser Inhaber Markus Müller ist das Herzstück dieses Teams. Er packt nicht nur regelmäßig selbst mit an und überwacht das Fundament unserer Projekte persönlich, sondern seine Leidenschaft zeigt sich auch in seinem direkten Einsatz auf den Baustellen. So bleibt unsere Arbeit stets geprägt von persönlicher Nähe und der Liebe zum Bauhandwerk.</p>
+            </div>
+            <div>
+                <img src="https://bb91d3q.myrdbx.io/wp-content/uploads/2024/01/ziegelpfaehle-in-der-fabrik-platziert-1024x683.jpg" alt="Baustelle">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sicherheit und Schulung Section -->
+<section id="2" class="section-gray">
+    <div class="container-custom">
+        <div class="grid-2">
+            <div>
+                <img src="https://bb91d3q.myrdbx.io/wp-content/uploads/2024/01/der-industriebauer-arbeitet-mit-einem-professionellen-winkelschleifer-um-ziegel-zu-schneiden-und-innenwaende-zu-bauen-elektriker-1024x621.jpg" alt="Bauarbeiter">
+            </div>
+            <div>
+                <h2 style="font-size: 32px !important; margin-bottom: 20px !important;">Sicherheit und Schulung</h2>
+                <div class="red-divider">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 1 178 8">
+                        <path fill="#DC342E" stroke="#333" stroke-width=".2" d="M0 1h18v8H0zm20 0h18v8H20zm20 0h18v8H40zm20 0h18v8H60zm20 0h18v8H80zm20 0h18v8h-18zm20 0h18v8h-18zm20 0h18v8h-18zm20 0h18v8h-18z"></path>
+                    </svg>
+                </div>
+                <p>Die Sicherheit unserer Mitarbeiter ist das Fundament unseres Erfolgs. Wir folgen streng den aktuellen Arbeitsschutzvorschriften und investieren in die kontinuierliche Weiterbildung unseres Teams. Jährliche Sicherheitsunterweisungen und Erste-Hilfe-Schulungen sind bei uns Standard, denn ein sicherer Arbeitsplatz ist die Basis für herausragende Bauleistungen.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Partnerschaft und Kooperation Section -->
+<section id="3" class="section-white">
+    <div class="container-custom">
+        <div class="grid-2">
+            <div>
+                <h2 style="font-size: 32px !important; margin-bottom: 20px !important;">Partnerschaft und Kooperation</h2>
+                <div class="red-divider">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 1 178 8">
+                        <path fill="#DC342E" stroke="#333" stroke-width=".2" d="M0 1h18v8H0zm20 0h18v8H20zm20 0h18v8H40zm20 0h18v8H60zm20 0h18v8H80zm20 0h18v8h-18zm20 0h18v8h-18zm20 0h18v8h-18zm20 0h18v8h-18z"></path>
+                    </svg>
+                </div>
+                <p>Unser Netzwerk ist unser Kapital. Wir pflegen eine enge Zusammenarbeit mit Architekten und sind stolze Partner von Institutionen wie der BG Bau, Soka Bau und der Handwerkskammer Hellweg-Lippe. Unser Engagement in der Ausbildung junger Fachkräfte zeigt sich durch die Kooperation mit lokalen Ausbildungszentren.</p>
+            </div>
+            <div>
+                <img src="https://bb91d3q.myrdbx.io/wp-content/uploads/2024/01/stahlstange-auf-baustelle-1024x683.jpg" alt="Stahlstangen">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Button Section -->
+<section class="section-gray" style="text-align: center; padding: 40px 20px;">
+    <a href="#" class="btn-primary">Mehr über unsere Projekte erfahren</a>
+</section>
+
+<!-- Leistungen Section - Grid mit 3 Spalten -->
+<section id="leistungen" class="section-white">
+    <div class="container-custom">
+        <h2 style="font-size: 36px !important; text-align: center; margin-bottom: 50px !important;">Unsere Leistungen</h2>
+
+        <div class="grid-3" id="5">
+            <!-- Neubau und Rohbau -->
+            <div class="service-card">
+                <h2>Neubau und Rohbau</h2>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M280 240H136c-13.3 0-24 10.7-24 24s10.7 24 24 24h144c13.3 0 24-10.7 24-24s-10.7-24-24-24zm0 96H136c-13.3 0-24 10.7-24 24s10.7 24 24 24h144c13.3 0 24-10.7 24-24s-10.7-24-24-24zM256 0C114.6 0 0 114.6 0 256s114.6 256 256 256 256-114.6 256-256S397.4 0 256 0zm0 464c-114.7 0-208-93.3-208-208S141.3 48 256 48s208 93.3 208 208-93.3 208-208 208zm120-208c0-13.3-10.7-24-24-24H280c-13.3 0-24 10.7-24 24v96c0 13.3 10.7 24 24 24h72c13.3 0 24-10.7 24-24v-96z"/></svg>
+                <p>Solide Grundlagen für Ihre Vision: Vom ersten Stein bis zum Rohbau übernehmen wir sämtliche Arbeiten mit Präzision und termingerechter Umsetzung.</p>
+            </div>
+
+            <!-- Umbau -->
+            <div class="service-card">
+                <h2>Umbau</h2>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M156.6 384.9L125.7 354c-8.5-8.5-11.5-20.8-7.7-32.2c3-8.9 7-20.5 11.8-33.8L24 288c-8.6 0-16.6-4.6-20.9-12.1s-4.2-16.7 .2-24.1l52.5-88.5c13-21.9 36.5-35.3 61.9-35.3l82.3 0c2.4-4 4.8-7.7 7.2-11.3C289.1-4.1 411.1-8.1 483.9 5.3c11.6 2.1 20.6 11.2 22.8 22.8c13.4 72.9 9.3 194.8-111.4 276.7c-3.5 2.4-7.3 4.8-11.3 7.2v82.3c0 25.4-13.4 49-35.3 61.9l-88.5 52.5c-7.4 4.4-16.6 4.5-24.1 .2s-12.1-12.2-12.1-20.9V380.8c-14.1 4.9-26.4 8.9-35.7 11.9c-11.2 3.6-23.4 .5-31.8-7.8zM384 168a40 40 0 1 0 0-80 40 40 0 1 0 0 80z"/></svg>
+                <p>Transformation mit Know-how: Wir gestalten Ihre Räume neu, ob Modernisierung, Erweiterung oder komplette Umgestaltung – wir machen es möglich.</p>
+            </div>
+
+            <!-- Industriebau -->
+            <div class="service-card">
+                <h2>Industriebau</h2>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M32 64C32 28.7 60.7 0 96 0H256c35.3 0 64 28.7 64 64V256h8c48.6 0 88 39.4 88 88v32c0 13.3 10.7 24 24 24s24-10.7 24-24V222c-27.6-7.1-48-32.2-48-62V96L384 64c-8.8-8.8-8.8-23.2 0-32s23.2-8.8 32 0l77.3 77.3c12 12 18.7 28.3 18.7 45.3V168v24 32V376c0 39.8-32.2 72-72 72s-72-32.2-72-72V344c0-22.1-17.9-40-40-40h-8V448c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32V64zM96 80v96c0 8.8 7.2 16 16 16H240c8.8 0 16-7.2 16-16V80c0-8.8-7.2-16-16-16H112c-8.8 0-16 7.2-16 16z"/></svg>
+                <p>Starke Strukturen für Industrie und Gewerbe: Wir realisieren robuste Bauwerke, die höchsten Anforderungen gerecht werden.</p>
+            </div>
+        </div>
+
+        <div class="grid-3" id="6" style="margin-top: 30px;">
+            <!-- Verblendarbeiten / Klinker -->
+            <div class="service-card">
+                <h2>Verblendarbeiten / Klinker</h2>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.4 151.7c.3 4.5 .3 9.1 .3 13.6 0 138.7-105.6 298.6-298.6 298.6-59.5 0-114.7-17.2-161.1-47.1 8.4 1 16.6 1.3 25.3 1.3 49.1 0 94.2-16.6 130.3-44.8-46.1-1-84.8-31.2-98.1-72.8 6.5 1 13 1.6 19.8 1.6 9.4 0 18.8-1.3 27.6-3.6-48.1-9.7-84.1-52-84.1-103v-1.3c14 7.8 30.2 12.7 47.4 13.3-28.3-18.8-46.8-51-46.8-87.4 0-19.5 5.2-37.4 14.3-53 51.7 63.7 129.3 105.3 216.4 109.8-1.6-7.8-2.6-15.9-2.6-24 0-57.8 46.8-104.9 104.9-104.9 30.2 0 57.5 12.7 76.7 33.1 23.7-4.5 46.5-13.3 66.6-25.3-7.8 24.4-24.4 44.8-46.1 57.8 21.1-2.3 41.6-8.1 60.4-16.2-14.3 20.8-32.2 39.3-52.6 54.3z"/></svg>
+                <p>Ästhetik trifft auf Beständigkeit: Unsere Klinkerarbeiten verleihen Ihrer Fassade einen zeitlosen und wertbeständigen Charakter.</p>
+            </div>
+
+            <!-- Maurerarbeiten -->
+            <div class="service-card">
+                <h2>Maurerarbeiten</h2>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M192 512C86 512 0 426 0 320C0 228.8 130.2 57.7 166.6 11.7C172.6 4.2 181.5 0 191.1 0h1.8c9.6 0 18.5 4.2 24.5 11.7C253.8 57.7 384 228.8 384 320c0 106-86 192-192 192zM96 336c0-8.8-7.2-16-16-16s-16 7.2-16 16c0 61.9 50.1 112 112 112c8.8 0 16-7.2 16-16s-7.2-16-16-16c-44.2 0-80-35.8-80-80z"/></svg>
+                <p>Präzision in jedem Stein: Ob Neubau oder Sanierung, unsere Maurerarbeiten schaffen dauerhafte Werte mit jedem gesetzten Stein.</p>
+            </div>
+
+            <!-- Betonarbeiten -->
+            <div class="service-card">
+                <h2>Betonarbeiten</h2>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M234.5 5.7c13.9-5 29.1-5 43.1 0l192 68.6C495 83.4 512 107.5 512 134.6V377.4c0 27-17 51.2-42.5 60.3l-192 68.6c-13.9 5-29.1 5-43.1 0l-192-68.6C17 428.6 0 404.5 0 377.4V134.6c0-27 17-51.2 42.5-60.3l192-68.6zM256 66L82.3 128 256 190l173.7-62L256 66zm32 368.6l160-57.1v-188L288 246.6v188z"/></svg>
+                <p>Die Kraft des Betons nutzen: Für tragende und nicht tragende Konstruktionen setzen wir auf höchste Qualität und fachgerechte Verarbeitung.</p>
+            </div>
+        </div>
+
+        <div class="grid-3" id="7" style="margin-top: 30px;">
+            <!-- Fachwerke ausmauern -->
+            <div class="service-card">
+                <h2>Fachwerke ausmauern</h2>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
+                <p>Bewahrung traditioneller Baukunst: Mit Respekt und Können füllen wir historische Fachwerke fachgerecht aus.</p>
+            </div>
+
+            <!-- Reparturen -->
+            <div class="service-card">
+                <h2>Reparturen</h2>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M78.6 5C69.1-2.4 55.6-1.5 47 7L7 47c-8.5 8.5-9.4 22-2.1 31.6l80 104c4.5 5.9 11.6 9.4 19 9.4h54.1l109 109c-14.7 29-10 65.4 14.3 89.6l112 112c12.5 12.5 32.8 12.5 45.3 0l64-64c12.5-12.5 12.5-32.8 0-45.3l-112-112c-24.2-24.2-60.6-29-89.6-14.3l-109-109V104c0-7.5-3.5-14.5-9.4-19L78.6 5zM19.9 396.1C7.2 408.8 0 426.1 0 444.1C0 481.6 30.4 512 67.9 512c18 0 35.3-7.2 48-19.9L233.7 374.3c-7.8-20.9-9-43.6-3.6-65.1l-61.7-61.7L19.9 396.1zM512 144c0-10.5-1.1-20.7-3.2-30.5c-2.4-11.2-16.1-14.1-24.2-6l-63.9 63.9c-3 3-7.1 4.7-11.3 4.7H352c-8.8 0-16-7.2-16-16V102.6c0-4.2 1.7-8.3 4.7-11.3l63.9-63.9c8.1-8.1 5.2-21.8-6-24.2C388.7 1.1 378.5 0 368 0C288.5 0 224 64.5 224 144l0 .8 85.3 85.3c36-9.1 75.8 .5 104 28.7L429 274.5c49-23 83-72.8 83-130.5zM56 432a24 24 0 1 1 48 0 24 24 0 1 1 -48 0z"/></svg>
+                <p>Schnelle und zuverlässige Instandsetzung: Unsere Reparaturdienste sorgen dafür, dass Ihre Immobilie schnell wieder in bestem Zustand ist.</p>
+            </div>
+
+            <!-- Gerüstbau -->
+            <div class="service-card">
+                <h2>Gerüstbau</h2>
+                <svg xmlns="http://www.w3.org/2000/svg" height="512" viewBox="0 0 609.62 609.62" width="512"><path d="m598.124 160.808-283.972-137.094c-3.538-15.02-17.742-25.026-33.077-23.301s-26.96 14.637-27.073 30.068v16.409l-86.363 95.507-86.362-95.507v-16.409c0-16.834-13.646-30.481-30.481-30.481s-30.481 13.647-30.481 30.481v520.047c-13.986 4.926-22.38 19.222-19.867 33.836s15.199 25.285 30.028 25.257h40.641c16.834 0 30.481-13.647 30.481-30.481-.034-3.469-.666-6.906-1.87-10.16h135.823c-1.203 3.254-1.836 6.691-1.87 10.16 0 16.834 13.647 30.481 30.481 30.481h132.084c11.223 0 20.321-9.098 20.321-20.321v-20.321c0-11.223-9.098-20.321-20.321-20.321v-274.329c11.223 0 20.321-9.098 20.321-20.321v-20.321h40.641v20.321c0 11.223 9.098 20.321 20.321 20.321v274.329c-11.223 0-20.321 9.098-20.321 20.321v20.321c0 11.223 9.098 20.321 20.321 20.321h101.603c11.223 0 20.321-9.098 20.321-20.321v-20.321c0-11.223-9.098-20.321-20.321-20.321v-274.329c11.223 0 20.321-9.098 20.321-20.321v-20.321c-.029-.899-.121-1.796-.274-2.682 6.416-3.555 10.408-10.303 10.435-17.638v-34.261c-.013-7.795-4.474-14.9-11.49-18.298zm-283.159 387.85v-274.329h20.321v274.329zm0-501.992 240.068 115.899h-240.068zm-40.641-16.185c0-5.611 4.549-10.16 10.16-10.16s10.16 4.549 10.16 10.16v518.177h-20.321v-518.177zm-20.321 300.746v160.635l-72.667-80.368zm-86.363 65.128-73.632-81.385h147.264zm86.363-101.705h-172.726v-20.321h172.726zm-100.059 116.844-72.667 80.317v-160.584zm13.696 15.139 73.632 81.384h-147.264zm-73.632-172.625 73.632-81.384 73.632 81.384zm-12.731 274.33h172.726v20.321h-172.726zm172.726-451.119v160.635l-72.667-80.368zm-100.059 80.266-72.667 80.317v-160.583zm-113.308-127.004c0-5.611 4.549-10.16 10.16-10.16s10.16 4.549 10.16 10.16v518.177h-20.32zm40.641 548.658c0 5.611-4.549 10.16-10.16 10.16h-40.641c-5.611 0-10.16-4.549-10.16-10.16s4.549-10.16 10.16-10.16h40.641c5.611 0 10.16 4.549 10.16 10.16zm213.368 10.161h-30.481c-5.611 0-10.16-4.549-10.16-10.16s4.549-10.16 10.16-10.16h40.641c5.611 0 10.16 4.549 10.16 10.16s-4.549 10.16-10.16 10.16zm101.603 0h-62.832c2.493-6.544 2.493-13.776 0-20.321h62.832zm-20.321-40.642h-20.321v-274.329h20.321zm20.321-294.65h-81.283v-20.321h81.283zm0-40.641h-81.283v-30.481h274.329v30.481zm101.603 60.962h20.321v274.329h-20.321zm81.283 314.971h-101.603v-20.321h101.603zm-20.321-40.642h-20.321v-274.329h20.321zm10.161-294.65h-91.443v-20.321h101.603v20.321z"/></svg>
+                <p>Sicherheit in jeder Höhe: Unser professioneller Gerüstbau ermöglicht es Handwerkern, sicher und effizient an Ihrem Projekt zu arbeiten.</p>
+            </div>
+        </div>
+
+        <div class="grid-3" id="8" style="margin-top: 30px;">
+            <!-- Fundamente und Betonsohlen -->
+            <div class="service-card">
+                <h2>Fundamente und Betonsohlen</h2>
+                <img src="https://bb91d3q.myrdbx.io/wp-content/uploads/2024/02/2-e1708432276462.png" alt="Fundamente">
+                <p>Stabiles Fundament für jedes Projekt: Wir liefern solide Betonsohlen, die als Grundlage für langlebige Konstruktionen dienen. Unsere Expertise gewährleistet die richtige Auslegung und Umsetzung aller Fundamentarbeiten nach höchsten Standards.</p>
+            </div>
+
+            <!-- Stahlbetondecken und -wände -->
+            <div class="service-card">
+                <h2>Stahlbetondecken und -wände</h2>
+                <img src="https://bb91d3q.myrdbx.io/wp-content/uploads/2024/02/1-e1708432371360.png" alt="Stahlbeton">
+                <p>Tragende Elemente mit Präzision: Unsere Stahlbetondecken und -wände vereinen Robustheit mit Genauigkeit. Wir sorgen für die optimale Integration tragender Strukturen in Ihrem Bauprojekt, von der Planung bis zur Fertigstellung.</p>
+            </div>
+
+            <!-- Filigrandecken -->
+            <div class="service-card">
+                <h2>Filigrandecken</h2>
+                <img src="https://bb91d3q.myrdbx.io/wp-content/uploads/2024/02/3-e1708432417205.png" alt="Filigrandecken">
+                <p>Effiziente Deckensysteme: Mit Filigrandecken bieten wir eine schnelle und effiziente Lösung für Geschossdecken. Sie ermöglichen eine flexible Gestaltung und sind ideal für Projekte, bei denen Zeit und Präzision entscheidend sind.</p>
+            </div>
+        </div>
+
+        <div class="grid-3" id="9" style="margin-top: 30px;">
+            <!-- Bewehrungspakete -->
+            <div class="service-card">
+                <h2>Bewehrungspakete</h2>
+                <svg xmlns="http://www.w3.org/2000/svg" height="512" viewBox="0 0 609.62 609.62" width="512"><path d="m589.294 60.962h-142.244c-5.611 0-10.16 4.549-10.16 10.16v50.802h-40.641c-5.611 0-10.16 4.549-10.16 10.16v50.802h-40.641c-5.611 0-10.16 4.549-10.16 10.16v50.802h-20.321v-213.367c-.002-16.834-13.649-30.481-30.483-30.481s-30.481 13.647-30.481 30.481v16.409l-86.363 95.446-86.363-95.446v-16.409c0-16.834-13.646-30.481-30.481-30.481s-30.481 13.647-30.481 30.481v520.047c-13.986 4.926-22.38 19.222-19.867 33.836s15.199 25.285 30.028 25.257h40.641c16.834 0 30.481-13.647 30.481-30.481-.034-3.469-.666-6.906-1.87-10.16h135.823c-1.203 3.254-1.836 6.691-1.87 10.16 0 16.834 13.647 30.481 30.481 30.481h40.641c16.834 0 30.481-13.647 30.481-30.481-.034-3.469-.666-6.906-1.869-10.16h255.878c11.223 0 20.321-9.098 20.321-20.321v-467.376c.001-11.223-9.097-20.321-20.32-20.321z"/></svg>
+                <p>Vorgefertigt für Effizienz: Unsere Bewehrungspakete sind maßgeschneidert und optimieren sowohl Zeit als auch Kosten auf der Baustelle.</p>
+            </div>
+
+            <!-- Bamtec -->
+            <div class="service-card">
+                <h2>Bamtec</h2>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M78.6 5C69.1-2.4 55.6-1.5 47 7L7 47c-8.5 8.5-9.4 22-2.1 31.6l80 104c4.5 5.9 11.6 9.4 19 9.4h54.1l109 109c-14.7 29-10 65.4 14.3 89.6l112 112c12.5 12.5 32.8 12.5 45.3 0l64-64c12.5-12.5 12.5-32.8 0-45.3l-112-112c-24.2-24.2-60.6-29-89.6-14.3l-109-109V104c0-7.5-3.5-14.5-9.4-19L78.6 5zM19.9 396.1C7.2 408.8 0 426.1 0 444.1C0 481.6 30.4 512 67.9 512c18 0 35.3-7.2 48-19.9L233.7 374.3c-7.8-20.9-9-43.6-3.6-65.1l-61.7-61.7L19.9 396.1z"/></svg>
+                <p>Innovative Bautechnik: Mit Bamtec setzen wir auf modernste Technologien für eine effiziente und qualitativ hochwertige Bauausführung.</p>
+            </div>
+
+            <!-- Platzhalter für Symmetrie -->
+            <div></div>
+        </div>
+    </div>
+</section>
+
+<script>
+// Mobile Menu Toggle (wenn gewünscht)
+document.addEventListener('DOMContentLoaded', function() {
+    // Smooth Scroll für Anker-Links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if(target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+});
+</script>
+
+</body>
+</html>
