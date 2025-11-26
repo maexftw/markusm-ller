@@ -1,0 +1,11 @@
+# Robots.txt for Bauunternehmung Markus Müller
+# https://bauunternehmung-mueller.de
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://bauunternehmung-mueller.de/sitemap.xml
+
+# Disallow admin/private areas (none currently)
+# Disallow: /admin/

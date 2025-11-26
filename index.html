@@ -5,7 +5,78 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Bauunternehmung Markus Müller - Meisterhafte Qualität und zuverlässige Handwerkskunst seit 2002. Ihr Partner für Neubau, Umbau, Industriebau und mehr.">
   <meta name="keywords" content="Bauunternehmung, Maurer, Betonarbeiten, Neubau, Rohbau, Welver, Hamm">
+  <meta name="author" content="Bauunternehmung Markus Müller">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#dc342e">
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:site_name" content="Bauunternehmung Markus Müller">
+  <meta property="og:title" content="Bauunternehmung Markus Müller - Baukompetenz aus Tradition">
+  <meta property="og:description" content="Meisterhafte Qualität und zuverlässige Handwerkskunst seit 2002. Ihr Partner für Neubau, Umbau, Industriebau und mehr in Welver und Umgebung.">
+  <meta property="og:image" content="images/og-image.jpg">
+  <meta property="og:url" content="https://bauunternehmung-mueller.de">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Bauunternehmung Markus Müller">
+  <meta name="twitter:description" content="Meisterhafte Qualität und zuverlässige Handwerkskunst seit 2002.">
+  <meta name="twitter:image" content="images/og-image.jpg">
+
   <title>Bauunternehmung Markus Müller - Baukompetenz aus Tradition</title>
+
+  <!-- Schema.org LocalBusiness (SEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://bauunternehmung-mueller.de",
+    "name": "Bauunternehmung Markus Müller",
+    "description": "Maurermeisterbetrieb für Neubau, Umbau, Industriebau, Betonarbeiten und mehr seit 2002.",
+    "url": "https://bauunternehmung-mueller.de",
+    "telephone": "+49-1511-7015050",
+    "email": "info@bauunternehmung-mueller.de",
+    "foundingDate": "2002",
+    "founder": {
+      "@type": "Person",
+      "name": "Markus Müller",
+      "jobTitle": "Maurermeister & Inhaber"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Vellinghauser Str. 15",
+      "addressLocality": "Welver",
+      "postalCode": "59514",
+      "addressCountry": "DE"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "51.6167",
+      "longitude": "7.9833"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "07:00",
+        "closes": "17:00"
+      }
+    ],
+    "areaServed": {
+      "@type": "GeoCircle",
+      "geoMidpoint": {
+        "@type": "GeoCoordinates",
+        "latitude": "51.6167",
+        "longitude": "7.9833"
+      },
+      "geoRadius": "50000"
+    },
+    "priceRange": "$$",
+    "image": "images/6.png",
+    "sameAs": []
+  }
+  </script>
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏗️</text></svg>">
@@ -166,6 +237,12 @@
       background-color: rgba(220, 52, 46, 0.05);
     }
 
+    /* Phone Number Hover Effect */
+    a[href^="tel:"]:hover span {
+      color: #d0d0d0 !important;
+      transition: color 0.25s ease-in-out;
+    }
+
     /* Nav Link Underline Effect */
     .nav-link {
       position: relative;
@@ -274,7 +351,7 @@
     <nav class="container mx-auto px-6 h-full flex items-center justify-between">
       <!-- Logo -->
       <a href="#" class="flex items-center">
-        <img src="images/6.png" alt="Bauunternehmung Markus Mueller Logo" class="h-12" style="filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));">
+        <img src="images/6.png" alt="Bauunternehmung Markus Mueller Logo" class="w-auto" decoding="async" style="height: 72px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));">
       </a>
 
       <!-- Desktop Navigation -->
@@ -330,16 +407,16 @@
   <!-- Main Content -->
   <main id="main-content">
     <!-- Hero Section -->
-    <section id="hero" class="relative min-h-[120vh] flex items-center justify-center overflow-hidden" style="margin-top: -80px; padding-top: 80px; background-color: #2a2a2a;">
+    <section id="hero" class="relative min-h-screen lg:min-h-[90vh] flex items-center justify-center overflow-hidden" style="margin-top: -80px; padding-top: 80px; background-color: #2a2a2a;">
       <!-- Background Image with Fallback -->
       <div class="absolute inset-0 z-0" style="background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);">
-        <img src="images/15.png" alt="" class="hero-bg w-full h-full object-cover" aria-hidden="true">
+        <img src="images/15.webp" alt="" class="hero-bg w-full h-full object-cover" width="1920" height="1080" fetchpriority="high" decoding="async" aria-hidden="true">
         <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(0,0,0,0.75) 0%, rgba(220,52,46,0.4) 100%);"></div>
       </div>
 
       <!-- Content -->
       <div class="container relative z-10 px-6 py-20 text-center text-white">
-        <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 stagger-1" style="animation: fadeInUp 0.6s ease-out 0.2s backwards; font-family: var(--font-heading); line-height: 1.1;">
+        <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 stagger-1" style="animation: fadeInUp 0.6s ease-out 0.2s backwards; font-family: var(--font-heading); line-height: 1.1; color: white;">
           Bauunternehmung Markus Müller
         </h1>
         <p class="text-2xl md:text-3xl font-semibold mb-4 stagger-2" style="animation: fadeInUp 0.6s ease-out 0.4s backwards; font-family: var(--font-heading); color: rgba(255,255,255,0.95);">
@@ -604,7 +681,7 @@
             <div class="grid md:grid-cols-2 gap-8 p-8">
               <div class="h-64 md:h-full overflow-hidden rounded-xl">
                 <div class="flex items-center justify-center h-full bg-white p-8">
-                <img src="images/bamtec-logo.jpg" alt="BAMTEC Logo" class="max-w-full max-h-full object-contain">
+                <img src="images/bamtec-logo.jpg" alt="BAMTEC Logo" class="max-w-full max-h-full object-contain" loading="lazy" decoding="async">
               </div>
               </div>
 
@@ -648,7 +725,7 @@
           <!-- Image -->
           <div class="animate-on-scroll">
             <div class="rounded-2xl overflow-hidden" style="box-shadow: var(--shadow-xl);">
-              <img src="images/11.jpg" alt="Bauunternehmung Müller Team" class="w-full h-full object-cover">
+              <img src="images/11.jpg" alt="Bauunternehmung Müller Team" class="w-full h-full object-cover" width="600" height="400" loading="lazy" decoding="async">
             </div>
           </div>
 
@@ -743,15 +820,15 @@
           </h3>
           <div class="flex flex-wrap justify-center items-center gap-6">
             <div class="px-6 py-4 rounded-xl border-2 transition-all hover:border-primary hover:shadow-lg bg-white" style="border-color: var(--border-light); min-width: 200px; min-height: 120px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;">
-              <img src="images/bgbau-logo.svg" alt="BG Bau Logo" class="max-w-[180px] max-h-[60px] object-contain">
+              <img src="images/bgbau-logo.svg" alt="BG Bau Logo" class="max-w-[180px] max-h-[60px] object-contain" loading="lazy" decoding="async">
               <div class="text-xs text-center" style="color: var(--text-tertiary);">Berufsgenossenschaft</div>
             </div>
             <div class="px-6 py-4 rounded-xl border-2 transition-all hover:border-primary hover:shadow-lg bg-white" style="border-color: var(--border-light); min-width: 200px; min-height: 120px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;">
-              <img src="images/sokabau-logo.svg" alt="Soka Bau Logo" class="max-w-[180px] max-h-[60px] object-contain">
+              <img src="images/sokabau-logo.svg" alt="Soka Bau Logo" class="max-w-[180px] max-h-[60px] object-contain" loading="lazy" decoding="async">
               <div class="text-xs text-center" style="color: var(--text-tertiary);">Sozialkasse</div>
             </div>
             <div class="px-6 py-4 rounded-xl border-2 transition-all hover:border-primary hover:shadow-lg bg-white" style="border-color: var(--border-light); min-width: 200px; min-height: 120px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;">
-              <img src="images/hwk-logo.svg" alt="HWK Hellweg-Lippe Logo" class="max-w-[180px] max-h-[60px] object-contain">
+              <img src="images/hwk-logo.svg" alt="HWK Hellweg-Lippe Logo" class="max-w-[180px] max-h-[60px] object-contain" loading="lazy" decoding="async">
               <div class="text-xs text-center" style="color: var(--text-tertiary);">Handwerkskammer</div>
             </div>
             <div class="px-8 py-4 rounded-xl border-2 transition-all hover:border-primary hover:shadow-md" style="border-color: var(--border-light); background-color: var(--surface); min-width: 180px; text-align: center;">
@@ -782,7 +859,7 @@
             <!-- Image -->
             <div class="animate-on-scroll">
               <div class="rounded-2xl overflow-hidden lg:sticky lg:top-24" style="box-shadow: var(--shadow-xl);">
-                <img src="images/5.jpg" alt="Markus Müller" class="w-full h-full object-cover">
+                <img src="images/5.jpg" alt="Markus Müller - Inhaber und Maurermeister" class="w-full h-full object-cover" width="125" height="150" loading="lazy" decoding="async">
               </div>
             </div>
 
@@ -922,7 +999,7 @@
           <!-- Nicole Bögge -->
           <div class="card-hover rounded-xl overflow-hidden border animate-on-scroll" style="background-color: var(--surface); border-color: var(--border-light); box-shadow: var(--shadow-card);">
             <div class="h-80 overflow-hidden">
-              <img src="images/4.jpg" alt="Nicole Bögge" class="w-full h-full object-contain" style="background-color: var(--surface);">
+              <img src="images/4.jpg" alt="Nicole Bögge - Büroteam" class="w-full h-full object-contain" loading="lazy" decoding="async" style="background-color: var(--surface);">
             </div>
             <div class="p-6 text-center">
               <h3 class="text-2xl font-bold mb-2" style="font-family: var(--font-heading); color: var(--text-primary);">
@@ -937,7 +1014,7 @@
           <!-- Kirsten Koepe-Menzel -->
           <div class="card-hover rounded-xl overflow-hidden border animate-on-scroll" style="background-color: var(--surface); border-color: var(--border-light); box-shadow: var(--shadow-card);">
             <div class="h-80 overflow-hidden">
-              <img src="images/3.jpg" alt="Kirsten Koepe-Menzel" class="w-full h-full object-contain" style="background-color: var(--surface);">
+              <img src="images/3.jpg" alt="Kirsten Koepe-Menzel - Büroteam" class="w-full h-full object-contain" loading="lazy" decoding="async" style="background-color: var(--surface);">
             </div>
             <div class="p-6 text-center">
               <h3 class="text-2xl font-bold mb-2" style="font-family: var(--font-heading); color: var(--text-primary);">
@@ -1072,16 +1149,10 @@
           <h3 class="text-xl font-bold mb-4" style="font-family: var(--font-heading);">Rechtliches</h3>
           <ul class="space-y-2">
             <li>
-              <span class="opacity-50" style="cursor: not-allowed;" title="In Vorbereitung">Impressum</span>
-              <span class="text-xs opacity-50 block">(In Vorbereitung)</span>
+              <a href="impressum.html" class="hover:text-primary transition-colors">Impressum</a>
             </li>
             <li>
-              <span class="opacity-50" style="cursor: not-allowed;" title="In Vorbereitung">Datenschutz</span>
-              <span class="text-xs opacity-50 block">(In Vorbereitung)</span>
-            </li>
-            <li>
-              <span class="opacity-50" style="cursor: not-allowed;" title="In Vorbereitung">AGB</span>
-              <span class="text-xs opacity-50 block">(In Vorbereitung)</span>
+              <a href="datenschutz.html" class="hover:text-primary transition-colors">Datenschutz</a>
             </li>
           </ul>
           <p class="text-xs opacity-75 mt-4">
@@ -1093,7 +1164,7 @@
       <!-- Copyright -->
       <div class="pt-8 border-t text-center" style="border-color: rgba(255,255,255,0.1);">
         <p class="opacity-75">
-          © 2024 Bauunternehmung Markus Müller | Alle Rechte vorbehalten
+          © 2025 Bauunternehmung Markus Müller | Alle Rechte vorbehalten
         </p>
       </div>
     </div>
