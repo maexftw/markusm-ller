@@ -234,13 +234,41 @@
 
     .btn-secondary:hover {
       transform: translateX(4px);
-      background-color: rgba(220, 52, 46, 0.05);
+      background-color: rgba(255, 255, 255, 0.15);
     }
 
-    /* Phone Number Hover Effect */
-    a[href^="tel:"]:hover span {
-      color: #d0d0d0 !important;
-      transition: color 0.25s ease-in-out;
+    /* Hero Secondary Button - White border variant */
+    .btn-secondary-hero {
+      transition: all 0.25s ease-in-out;
+    }
+
+    .btn-secondary-hero:hover {
+      background-color: rgba(255, 255, 255, 0.15);
+      transform: scale(1.03);
+    }
+
+    /* Phone Number Hover Effect - Header CTA */
+    .btn-primary:hover span,
+    .btn-primary:hover i {
+      opacity: 0.9;
+    }
+
+    /* Kontakt Section CTA Hover */
+    .cta-white:hover {
+      background-color: var(--background) !important;
+      transform: scale(1.03);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .cta-outline:hover {
+      background-color: rgba(255, 255, 255, 0.15);
+      transform: scale(1.03);
+    }
+
+    /* Mobile Menu Link Hover */
+    .mobile-menu-link:hover {
+      background-color: rgba(220, 52, 46, 0.08);
+      color: var(--primary) !important;
     }
 
     /* Nav Link Underline Effect */
@@ -312,14 +340,22 @@
       transform: translateX(0);
     }
 
-    /* Reduced Motion */
+    /* Reduced Motion - Accessibility */
     @media (prefers-reduced-motion: reduce) {
       *,
       *::before,
       *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
+        animation: none !important;
+        transition: none !important;
+      }
+
+      .hero-bg {
+        animation: none !important;
+      }
+
+      .animate-on-scroll {
+        opacity: 1 !important;
+        transform: none !important;
       }
     }
 
@@ -355,7 +391,7 @@
       </a>
 
       <!-- Desktop Navigation -->
-      <div class="hidden lg:flex items-center gap-8">
+      <div class="hidden lg:flex items-center gap-12">
         <a href="#leistungen" class="nav-link" style="color: var(--text-secondary);">Leistungen</a>
         <a href="#team" class="nav-link" style="color: var(--text-secondary);">Team</a>
         <a href="#expertise" class="nav-link" style="color: var(--text-secondary);">Expertise</a>
@@ -432,7 +468,7 @@
             <i class="fas fa-rocket"></i>
             <span>Projekt anfragen</span>
           </a>
-          <a href="#leistungen" class="btn-secondary px-8 py-4 rounded-lg font-bold text-lg text-white flex items-center gap-2 border-2" style="border-color: white; min-width: 200px;">
+          <a href="#leistungen" class="btn-secondary-hero px-8 py-4 rounded-lg font-bold text-lg text-white flex items-center gap-2 border-2" style="border-color: white; min-width: 200px;">
             <i class="fas fa-tools"></i>
             <span>Leistungen</span>
           </a>
@@ -1093,11 +1129,11 @@
           <!-- CTA Buttons (Alternative Kontaktmöglichkeiten) -->
           <p class="text-white text-lg mb-4 opacity-90">Oder kontaktieren Sie uns direkt:</p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="tel:015117015050" class="px-10 py-5 rounded-lg font-bold text-lg flex items-center justify-center gap-3 transition-all" style="background-color: white; color: var(--primary); min-height: 48px;">
+            <a href="tel:015117015050" class="cta-white px-10 py-5 rounded-lg font-bold text-lg flex items-center justify-center gap-3 transition-all" style="background-color: white; color: var(--primary); min-height: 48px;">
               <i class="fas fa-phone text-2xl"></i>
               <span>Jetzt anrufen</span>
             </a>
-            <a href="mailto:info@bauunternehmung-mueller.de?subject=Anfrage%20%C3%BCber%20Website" class="px-10 py-5 rounded-lg font-bold text-lg text-white flex items-center justify-center gap-3 border-2 transition-all" style="border-color: white; min-height: 48px;">
+            <a href="mailto:info@bauunternehmung-mueller.de?subject=Anfrage%20%C3%BCber%20Website" class="cta-outline px-10 py-5 rounded-lg font-bold text-lg text-white flex items-center justify-center gap-3 border-2 transition-all" style="border-color: white; min-height: 48px;">
               <i class="fas fa-envelope text-2xl"></i>
               <span>E-Mail senden</span>
             </a>
