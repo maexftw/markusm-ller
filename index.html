@@ -35,7 +35,7 @@
     "name": "Bauunternehmung Markus Müller",
     "description": "Maurermeisterbetrieb für Neubau, Umbau, Industriebau, Betonarbeiten und mehr seit 2002.",
     "url": "https://bauunternehmung-mueller.de",
-    "telephone": "+49-1511-7015050",
+    "telephone": "+49-1511-70150507",
     "email": "info@bauunternehmung-mueller.de",
     "foundingDate": "2002",
     "founder": {
@@ -58,9 +58,9 @@
     "openingHoursSpecification": [
       {
         "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        "opens": "07:00",
-        "closes": "17:00"
+        "dayOfWeek": ["Monday", "Wednesday", "Friday"],
+        "opens": "08:00",
+        "closes": "12:00"
       }
     ],
     "areaServed": {
@@ -400,9 +400,9 @@
       </div>
 
       <!-- CTA Button (Desktop) -->
-      <a href="tel:015117015050" class="hidden lg:flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-white btn-primary" style="background-color: var(--primary); height: 48px;">
+      <a href="tel:0151170150507" class="hidden lg:flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-white btn-primary" style="background-color: var(--primary); height: 48px;">
         <i class="fas fa-phone"></i>
-        <span>01511-7015050</span>
+        <span>01511-70150507</span>
       </a>
 
       <!-- Mobile Menu Button -->
@@ -431,9 +431,9 @@
           <a href="#kontakt" class="mobile-menu-link px-4 py-3 text-lg font-medium rounded-lg transition-colors" style="color: var(--text-primary); min-height: 48px; display: flex; align-items: center;">Kontakt</a>
 
           <!-- Mobile CTA - 48px height -->
-          <a href="tel:015117015050" class="mt-4 flex items-center justify-center gap-2 px-6 rounded-lg font-semibold text-white" style="background-color: var(--primary); min-height: 48px;">
+          <a href="tel:0151170150507" class="mt-4 flex items-center justify-center gap-2 px-6 rounded-lg font-semibold text-white" style="background-color: var(--primary); min-height: 48px;">
             <i class="fas fa-phone"></i>
-            <span>01511-7015050</span>
+            <span>01511-70150507</span>
           </a>
         </div>
       </div>
@@ -543,7 +543,7 @@
         <!-- Section Header -->
         <div class="text-center mb-16 animate-on-scroll">
           <h2 class="text-4xl md:text-5xl font-bold mb-4" style="font-family: var(--font-heading); color: var(--text-primary);">
-            Unsere Dienstleistungen
+            Unsere Leistungen
           </h2>
           <p class="text-xl" style="color: var(--text-secondary);">
             Vom ersten Spatenstich bis zur Fertigstellung – wir sind Ihr zuverlässiger Ausführungspartner
@@ -1103,23 +1103,41 @@
                 <i class="fas fa-phone"></i>
               </div>
               <h3 class="font-bold mb-2 text-white" style="font-family: var(--font-heading);">Telefon</h3>
-              <a href="tel:015117015050" class="text-white opacity-90 hover:opacity-100 transition-opacity block mb-1">
-                01511-7015050
-              </a>
-              <a href="tel:0170384398" class="text-white opacity-90 hover:opacity-100 transition-opacity block">
-                0170-384398
-              </a>
+              <div class="mb-2">
+                <span class="text-white opacity-75 text-sm block">Mobil:</span>
+                <a href="tel:0151170150507" class="text-white opacity-90 hover:opacity-100 transition-opacity block font-medium">
+                  01511-70150507
+                </a>
+              </div>
+              <div class="mb-2">
+                <span class="text-white opacity-75 text-sm block">Festnetz:</span>
+                <a href="tel:023888008686" class="text-white opacity-90 hover:opacity-100 transition-opacity block font-medium">
+                  02388-8008686
+                </a>
+              </div>
             </div>
+
+            <!-- Email (New Block for Visibility) -->
+            <div class="p-6 rounded-xl" style="background-color: rgba(255,255,255,0.1); backdrop-filter: blur(10px);">
+              <div class="text-4xl mb-4 text-white">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <h3 class="font-bold mb-2 text-white" style="font-family: var(--font-heading);">E-Mail</h3>
+              <a href="mailto:info@bauunternehmung-mueller.de" class="text-white opacity-90 hover:opacity-100 transition-opacity block break-all">
+                info@bauunternehmung-mueller.de
+              </a>
 
             <!-- Hours -->
             <div class="p-6 rounded-xl" style="background-color: rgba(255,255,255,0.1); backdrop-filter: blur(10px);">
               <div class="text-4xl mb-4 text-white">
                 <i class="fas fa-clock"></i>
               </div>
-              <h3 class="font-bold mb-2 text-white" style="font-family: var(--font-heading);">Öffnungszeiten</h3>
-              <p class="text-white opacity-90">
-                Mo-Fr: 07:00 - 17:00<br>
-                Sa: Nach Vereinbarung
+              <h3 class="font-bold mb-2 text-white" style="font-family: var(--font-heading);">Bürozeiten</h3>
+              <p class="text-white opacity-90 mb-2">
+                Mo, Mi, Fr: 08:00 - 12:00
+              </p>
+              <p class="text-white opacity-75 text-sm italic">
+                Das Büro ist nicht durchgehend besetzt.<br>Wir melden uns zeitnah zurück.
               </p>
             </div>
           </div>
@@ -1129,7 +1147,7 @@
           <!-- CTA Buttons (Alternative Kontaktmöglichkeiten) -->
           <p class="text-white text-lg mb-4 opacity-90">Oder kontaktieren Sie uns direkt:</p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="tel:015117015050" class="cta-white px-10 py-5 rounded-lg font-bold text-lg flex items-center justify-center gap-3 transition-all" style="background-color: white; color: var(--primary); min-height: 48px;">
+            <a href="tel:0151170150507" class="cta-white px-10 py-5 rounded-lg font-bold text-lg flex items-center justify-center gap-3 transition-all" style="background-color: white; color: var(--primary); min-height: 48px;">
               <i class="fas fa-phone text-2xl"></i>
               <span>Jetzt anrufen</span>
             </a>
@@ -1159,7 +1177,7 @@
             <p>Vellinghauser Str. 15</p>
             <p>59514 Welver</p>
             <p class="mt-4">
-              <a href="tel:015117015050" class="hover:text-primary transition-colors">Tel: 01511-7015050</a>
+              <a href="tel:0151170150507" class="hover:text-primary transition-colors">Tel: 01511-70150507</a>
             </p>
             <p>
               <a href="tel:0170384398" class="hover:text-primary transition-colors">Mobil: 0170-384398</a>
