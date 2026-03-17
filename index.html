@@ -90,7 +90,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap"
     rel="stylesheet">
 
   <!-- Font Awesome -->
@@ -192,6 +192,429 @@
     /* Hero Background Animation */
     .hero-bg {
       animation: kenBurns 60s ease-in-out infinite alternate;
+    }
+
+    .hero-shell {
+      position: relative;
+      isolation: isolate;
+    }
+
+    .hero-shell::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(120deg, rgba(18, 20, 24, 0.92) 0%, rgba(18, 20, 24, 0.76) 42%, rgba(135, 41, 33, 0.58) 100%),
+        radial-gradient(circle at 82% 22%, rgba(226, 84, 61, 0.34), transparent 32%),
+        linear-gradient(180deg, rgba(8, 10, 14, 0.24), rgba(8, 10, 14, 0.7));
+      z-index: 1;
+    }
+
+    .hero-shell::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+      background-size: min(8vw, 84px) min(8vw, 84px);
+      mask-image: linear-gradient(135deg, rgba(0, 0, 0, 0.9), transparent 82%);
+      opacity: 0.3;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+      align-items: end;
+      gap: clamp(2rem, 5vw, 5rem);
+      padding-block: clamp(7rem, 14vw, 11rem) clamp(4rem, 8vw, 6rem);
+    }
+
+    .eyebrow-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.8rem 1.15rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      border-radius: 999px;
+      color: rgba(255, 244, 236, 0.92);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .eyebrow-badge::before {
+      content: "";
+      width: 0.7rem;
+      height: 0.7rem;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #f4b08c 0%, #d4462f 100%);
+      box-shadow: 0 0 0 6px rgba(228, 84, 61, 0.18);
+    }
+
+    .hero-kicker {
+      margin-bottom: 1.25rem;
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(244, 224, 212, 0.82);
+      font-weight: 700;
+    }
+
+    .hero-title {
+      max-width: 10ch;
+      margin-bottom: 1.5rem;
+      font-family: var(--font-heading);
+      font-size: clamp(4rem, 9vw, 8.25rem);
+      line-height: 0.92;
+      letter-spacing: -0.045em;
+      color: #fbf6f0;
+      text-wrap: balance;
+    }
+
+    .hero-title-accent {
+      display: block;
+      color: #f3b48d;
+      font-style: italic;
+      font-weight: 600;
+    }
+
+    .hero-lead {
+      max-width: 42rem;
+      margin-bottom: 2rem;
+      font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+      line-height: 1.75;
+      color: rgba(251, 246, 240, 0.86);
+    }
+
+    .hero-proof {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero-proof-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      padding: 0.95rem 1.15rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: rgba(251, 246, 240, 0.92);
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .hero-proof-item i {
+      color: #f3b48d;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .btn-hero-primary,
+    .btn-hero-secondary {
+      min-width: 220px;
+      min-height: 58px;
+      justify-content: center;
+      border-radius: 999px;
+      font-size: 1rem;
+      letter-spacing: 0.01em;
+      transition: transform 0.3s var(--ease-out-expo), box-shadow 0.3s var(--ease-out-expo), background-color 0.3s ease;
+    }
+
+    .btn-hero-primary {
+      background: linear-gradient(135deg, #d4462f 0%, #8f241c 100%);
+      box-shadow: 0 18px 45px rgba(121, 33, 24, 0.38);
+    }
+
+    .btn-hero-primary:hover,
+    .btn-hero-primary:focus-visible {
+      transform: translateY(-3px);
+      box-shadow: 0 24px 52px rgba(121, 33, 24, 0.48);
+      color: white;
+    }
+
+    .btn-hero-secondary {
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      background: rgba(255, 255, 255, 0.04);
+      color: #fbf6f0;
+    }
+
+    .btn-hero-secondary:hover,
+    .btn-hero-secondary:focus-visible {
+      transform: translateY(-3px);
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+    }
+
+    .hero-aside {
+      position: relative;
+      z-index: 2;
+      padding: clamp(1.5rem, 2vw, 2rem);
+      background: linear-gradient(180deg, rgba(251, 246, 240, 0.14) 0%, rgba(251, 246, 240, 0.06) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 2rem;
+      box-shadow: 0 22px 80px rgba(0, 0, 0, 0.24);
+      backdrop-filter: blur(14px);
+    }
+
+    .hero-aside-label {
+      margin-bottom: 1rem;
+      color: rgba(251, 246, 240, 0.72);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .hero-aside-title {
+      margin-bottom: 1rem;
+      font-family: var(--font-heading);
+      font-size: clamp(1.9rem, 3vw, 2.8rem);
+      line-height: 0.95;
+      color: #fbf6f0;
+    }
+
+    .hero-aside-copy {
+      margin-bottom: 1.5rem;
+      color: rgba(251, 246, 240, 0.78);
+      line-height: 1.7;
+    }
+
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-metric {
+      padding: 1rem;
+      border-radius: 1.35rem;
+      background: rgba(15, 17, 20, 0.26);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .hero-metric strong {
+      display: block;
+      margin-bottom: 0.2rem;
+      font-family: var(--font-heading);
+      font-size: clamp(1.5rem, 3vw, 2.3rem);
+      color: #fbf6f0;
+    }
+
+    .hero-metric span {
+      color: rgba(251, 246, 240, 0.72);
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
+
+    .hero-aside-list {
+      display: grid;
+      gap: 0.85rem;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .hero-aside-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      color: rgba(251, 246, 240, 0.84);
+      line-height: 1.55;
+    }
+
+    .hero-aside-list i {
+      margin-top: 0.2rem;
+      color: #f3b48d;
+    }
+
+    .intro-premium {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 15% 18%, rgba(212, 70, 47, 0.08), transparent 24%),
+        linear-gradient(180deg, #f4eee7 0%, #efe5db 100%);
+    }
+
+    .intro-premium::before {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 auto;
+      width: min(38vw, 460px);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(143, 36, 28, 0.12), transparent 70%);
+      transform: translate(22%, 26%);
+      pointer-events: none;
+    }
+
+    .intro-layout {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+      gap: clamp(2rem, 5vw, 5rem);
+      align-items: start;
+    }
+
+    .section-kicker {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: var(--primary-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.8rem;
+      font-weight: 800;
+    }
+
+    .intro-title {
+      max-width: 12ch;
+      margin-bottom: 1.25rem;
+      font-family: var(--font-heading);
+      font-size: clamp(2.8rem, 6vw, 5.25rem);
+      line-height: 0.96;
+      letter-spacing: -0.04em;
+      color: var(--text-primary);
+    }
+
+    .intro-copy {
+      max-width: 42rem;
+      margin-bottom: 0;
+      font-size: clamp(1.05rem, 1.55vw, 1.25rem);
+      line-height: 1.8;
+      color: var(--text-secondary);
+    }
+
+    .usp-stack {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .usp-panel {
+      padding: 1.4rem 1.4rem 1.5rem;
+      border-radius: 1.5rem;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(143, 36, 28, 0.1);
+      box-shadow: 0 16px 38px rgba(53, 34, 24, 0.08);
+    }
+
+    .usp-panel strong {
+      display: block;
+      margin-bottom: 0.35rem;
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      line-height: 1;
+      color: var(--text-primary);
+    }
+
+    .usp-panel span {
+      display: block;
+      color: var(--text-secondary);
+      line-height: 1.55;
+    }
+
+    .usp-panel-highlight {
+      background: linear-gradient(160deg, #8f241c 0%, #d4462f 100%);
+      border-color: rgba(143, 36, 28, 0.22);
+      box-shadow: 0 20px 50px rgba(121, 33, 24, 0.22);
+      transform: translateX(clamp(0rem, 2vw, 1.5rem));
+    }
+
+    .usp-panel-highlight strong,
+    .usp-panel-highlight span {
+      color: #fbf6f0;
+    }
+
+    .usp-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.25rem;
+      margin-top: clamp(2.5rem, 6vw, 4rem);
+    }
+
+    .usp-card {
+      position: relative;
+      padding: 2rem 1.6rem;
+      border-radius: 1.8rem;
+      background: color-mix(in srgb, var(--surface) 85%, #f3e6db 15%);
+      border: 1px solid rgba(143, 36, 28, 0.1);
+      box-shadow: 0 18px 42px rgba(53, 34, 24, 0.09);
+    }
+
+    .usp-card i {
+      margin-bottom: 1.2rem;
+      font-size: 1.35rem;
+      color: var(--primary);
+    }
+
+    .usp-card h3 {
+      margin-bottom: 0.55rem;
+      font-size: 1.8rem;
+      line-height: 1;
+      color: var(--text-primary);
+    }
+
+    .usp-card p {
+      margin-bottom: 0;
+      font-size: 0.96rem;
+      line-height: 1.65;
+      color: var(--text-secondary);
+    }
+
+    @media (max-width: 1023px) {
+      .hero-content,
+      .intro-layout,
+      .usp-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-title,
+      .intro-title {
+        max-width: none;
+      }
+
+      .hero-aside,
+      .usp-panel-highlight {
+        transform: none;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .hero-content {
+        padding-block: 7rem 4rem;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn-hero-primary,
+      .btn-hero-secondary {
+        width: 100%;
+      }
+
+      .hero-metrics {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-proof {
+        flex-direction: column;
+      }
     }
 
     /* Scroll Animations */
@@ -496,112 +919,125 @@
   <!-- Main Content -->
   <main id="main-content">
     <!-- Hero Section -->
-    <section id="hero" class="relative min-h-screen lg:min-h-[90vh] flex items-center justify-center overflow-hidden"
-      style="margin-top: -80px; padding-top: 80px; background-color: #2a2a2a;">
+    <section id="hero" class="hero-shell relative min-h-screen lg:min-h-[92vh] flex items-center overflow-hidden"
+      style="margin-top: -80px; padding-top: 80px; background-color: #181a1f;">
       <!-- Background Image with Fallback -->
       <div class="absolute inset-0 z-0" style="background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);">
         <img src="images/15.webp" alt="" class="hero-bg w-full h-full object-cover" width="1920" height="1080"
           fetchpriority="high" decoding="async" aria-hidden="true">
-        <div class="absolute inset-0"
-          style="background: linear-gradient(135deg, rgba(0,0,0,0.75) 0%, rgba(220,52,46,0.4) 100%);"></div>
       </div>
 
       <!-- Content -->
-      <div class="container relative z-10 px-6 py-20 text-center text-white">
-        <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 stagger-1"
-          style="animation: fadeInUp 0.6s ease-out 0.2s backwards; font-family: var(--font-heading); line-height: 1.1; color: white;">
-          Bauunternehmung Markus Müller
-        </h1>
-        <p class="text-2xl md:text-3xl font-semibold mb-4 stagger-2"
-          style="animation: fadeInUp 0.6s ease-out 0.4s backwards; font-family: var(--font-heading); color: rgba(255,255,255,0.95);">
-          Baukompetenz aus Tradition
-        </p>
-        <p class="text-lg md:text-xl mb-12 max-w-3xl mx-auto stagger-3"
-          style="animation: fadeInUp 0.6s ease-out 0.6s backwards; color: rgba(255,255,255,0.9); line-height: 1.6;">
-          Meisterhafte Qualität und zuverlässige Handwerkskunst seit 2002
-        </p>
+      <div class="container hero-content px-6 text-white">
+        <div>
+          <span class="eyebrow-badge stagger-1" style="animation: fadeInUp 0.7s var(--ease-out-expo) 0.1s backwards;">Seit 2002 · Meisterbetrieb aus Welver</span>
+          <p class="hero-kicker stagger-1" style="animation: fadeInUp 0.7s var(--ease-out-expo) 0.16s backwards;">Massivbau · Umbau · Industriebau</p>
+          <h1 class="hero-title stagger-2" style="animation: fadeInUp 0.8s var(--ease-out-expo) 0.25s backwards;">
+            Bauen mit <span class="hero-title-accent">Substanz</span> und Haltung.
+          </h1>
+          <p class="hero-lead stagger-3" style="animation: fadeInUp 0.8s var(--ease-out-expo) 0.38s backwards;">
+            Für Bauherren, Unternehmen und Familien, die saubere Ausführung, verlässliche Abläufe und ein Team wollen,
+            das Verantwortung übernimmt – vom ersten Gespräch bis zur fertigen Baustelle.
+          </p>
 
-        <!-- CTA Buttons -->
-        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center stagger-4"
-          style="animation: fadeInUp 0.6s ease-out 0.8s backwards;">
-          <a href="#kontakt"
-            class="btn-primary px-8 py-4 rounded-lg font-bold text-lg text-white flex items-center gap-2 cta-pulse"
-            style="background-color: var(--primary); min-width: 200px;">
-            <i class="fas fa-rocket"></i>
-            <span>Projekt anfragen</span>
-          </a>
-          <a href="#leistungen"
-            class="btn-secondary-hero px-8 py-4 rounded-lg font-bold text-lg text-white flex items-center gap-2 border-2"
-            style="border-color: white; min-width: 200px;">
-            <i class="fas fa-tools"></i>
-            <span>Leistungen</span>
-          </a>
+          <div class="hero-proof stagger-3" style="animation: fadeInUp 0.8s var(--ease-out-expo) 0.46s backwards;">
+            <span class="hero-proof-item"><i class="fas fa-award"></i> Maurermeisterbetrieb</span>
+            <span class="hero-proof-item"><i class="fas fa-people-group"></i> Persönlich geführt</span>
+            <span class="hero-proof-item"><i class="fas fa-compass-drafting"></i> Präzise Umsetzung</span>
+          </div>
+
+          <div class="hero-actions stagger-4" style="animation: fadeInUp 0.8s var(--ease-out-expo) 0.56s backwards;">
+            <a href="#kontakt"
+              class="btn-primary btn-hero-primary font-bold text-white flex items-center gap-2 cta-pulse">
+              <i class="fas fa-arrow-up-right-from-square"></i>
+              <span>Projekt anfragen</span>
+            </a>
+            <a href="#leistungen"
+              class="btn-hero-secondary font-bold flex items-center gap-2">
+              <i class="fas fa-layer-group"></i>
+              <span>Leistungen ansehen</span>
+            </a>
+          </div>
         </div>
+
+        <aside class="hero-aside stagger-4" style="animation: fadeInRight 0.8s var(--ease-out-expo) 0.45s backwards;">
+          <p class="hero-aside-label">Warum Bauherren anfragen</p>
+          <h2 class="hero-aside-title">Klare Zusagen. Solide Ergebnisse.</h2>
+          <p class="hero-aside-copy">
+            Premium bedeutet hier nicht Show, sondern spürbare Qualität: strukturierte Kommunikation, saubere Details und
+            robuste Ausführung für Projekte, die langfristig bestehen sollen.
+          </p>
+          <div class="hero-metrics" aria-label="Kennzahlen des Unternehmens">
+            <div class="hero-metric">
+              <strong>20+</strong>
+              <span>Jahre Erfahrung im regionalen Bauhandwerk</span>
+            </div>
+            <div class="hero-metric">
+              <strong>1:1</strong>
+              <span>Persönliche Betreuung statt anonymer Übergaben</span>
+            </div>
+          </div>
+          <ul class="hero-aside-list">
+            <li><i class="fas fa-check"></i><span>Neubau, Umbau und Industriebau aus einer verlässlichen Hand</span></li>
+            <li><i class="fas fa-check"></i><span>Klare Abstimmung mit Auftraggebern, Planern und Gewerken</span></li>
+            <li><i class="fas fa-check"></i><span>Fokus auf tragfähige Qualität statt kurzlebiger Effekte</span></li>
+          </ul>
+        </aside>
       </div>
 
       <!-- Scroll Indicator -->
-      <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <div class="absolute bottom-8 left-1/2 z-[2] transform -translate-x-1/2 animate-bounce">
         <i class="fas fa-chevron-down text-white text-2xl"></i>
       </div>
     </section>
 
     <!-- Intro / USP Section -->
-    <section class="section" style="background-color: var(--background);">
+    <section class="section intro-premium">
       <div class="container mx-auto px-6">
-        <!-- Intro Text -->
-        <div class="max-w-4xl mx-auto text-center mb-16 animate-on-scroll">
-          <p class="text-xl leading-relaxed" style="color: var(--text-secondary);">
-            Entdecken Sie die Stärke handwerklicher Präzision mit der Bauunternehmung Markus Müller. Wir stehen für
-            nachhaltiges Bauen, innovative Lösungen und eine persönliche Betreuung, die Sie von der ersten
-            Kontaktaufnahme bis zur Fertigstellung begleitet. Erleben Sie Service, der bewegt – genau wie unser
-            dynamischer Fuhrpark.
-          </p>
+        <div class="intro-layout mb-16">
+          <div class="animate-on-scroll">
+            <span class="section-kicker">Premium im Auftritt. Präzise im Handwerk.</span>
+            <h2 class="intro-title">Ein Baupartner, der Vertrauen sichtbar macht.</h2>
+            <p class="intro-copy">
+              Bauunternehmung Markus Müller steht für belastbare Lösungen, ruhige Souveränität und handwerkliche
+              Konsequenz. Statt austauschbarer Standardoptik zeigt die Startseite jetzt klarer, wofür das Unternehmen
+              steht: Erfahrung, Verlässlichkeit und echte Verantwortung auf der Baustelle.
+            </p>
+          </div>
+
+          <div class="usp-stack animate-on-scroll">
+            <div class="usp-panel usp-panel-highlight">
+              <strong>Seit 2002</strong>
+              <span>Kontinuität, regionale Verankerung und ein Qualitätsanspruch, der nicht verhandelt wird.</span>
+            </div>
+            <div class="usp-panel">
+              <strong>Meistergeführt</strong>
+              <span>Direkte Ansprechpartner, kurze Wege und Entscheidungen mit fachlicher Substanz.</span>
+            </div>
+            <div class="usp-panel">
+              <strong>Verlässlich</strong>
+              <span>Saubere Umsetzung, klare Kommunikation und ein Auftritt, der Professionalität ausstrahlt.</span>
+            </div>
+          </div>
         </div>
 
-        <!-- USP Stats -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <!-- Stat 1 -->
-          <div class="card-hover p-8 rounded-xl text-center border animate-on-scroll"
-            style="background-color: var(--surface); border-color: var(--border-light); box-shadow: var(--shadow-card);">
-            <div class="text-5xl mb-4" style="color: var(--primary);">
-              <i class="fas fa-calendar-check"></i>
-            </div>
-            <div class="text-4xl font-bold mb-2" style="font-family: var(--font-heading); color: var(--text-primary);">
-              Seit 2002
-            </div>
-            <p class="text-sm font-medium" style="color: var(--text-secondary);">
-              Über 20 Jahre Erfahrung
-            </p>
+        <div class="usp-grid">
+          <div class="usp-card animate-on-scroll">
+            <i class="fas fa-calendar-check"></i>
+            <h3>20+ Jahre</h3>
+            <p>Erfahrung im Neubau, Umbau und in anspruchsvollen Beton- und Mauerwerksarbeiten.</p>
           </div>
 
-
-
-          <!-- Stat 3 -->
-          <div class="card-hover p-8 rounded-xl text-center border animate-on-scroll"
-            style="background-color: var(--surface); border-color: var(--border-light); box-shadow: var(--shadow-card);">
-            <div class="text-5xl mb-4" style="color: var(--primary);">
-              <i class="fas fa-award"></i>
-            </div>
-            <div class="text-4xl font-bold mb-2" style="font-family: var(--font-heading); color: var(--text-primary);">
-              Meister
-            </div>
-            <p class="text-sm font-medium" style="color: var(--text-secondary);">
-              Maurermeisterbetrieb
-            </p>
+          <div class="usp-card animate-on-scroll">
+            <i class="fas fa-award"></i>
+            <h3>Meisterbetrieb</h3>
+            <p>Fachliche Führung mit hohem Anspruch an Details, Ablauf und dauerhafte Qualität.</p>
           </div>
 
-          <!-- Stat 4 -->
-          <div class="card-hover p-8 rounded-xl text-center border animate-on-scroll"
-            style="background-color: var(--surface); border-color: var(--border-light); box-shadow: var(--shadow-card);">
-            <div class="text-5xl mb-4" style="color: var(--primary);">
-              <i class="fas fa-heart"></i>
-            </div>
-            <div class="text-4xl font-bold mb-2" style="font-family: var(--font-heading); color: var(--text-primary);">
-              Familie
-            </div>
-            <p class="text-sm font-medium" style="color: var(--text-secondary);">
-              Familienunternehmen
-            </p>
+          <div class="usp-card animate-on-scroll">
+            <i class="fas fa-heart"></i>
+            <h3>Persönlich</h3>
+            <p>Familiengeführt, direkt erreichbar und nah an den Anforderungen jedes einzelnen Projekts.</p>
           </div>
         </div>
       </div>

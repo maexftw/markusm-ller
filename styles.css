@@ -9,26 +9,26 @@
      COLORS - Baubranche Farbpalette
      ======================================== */
 
-  /* Primary - Müller Rot */
-  --primary: #dc342e;
-  --primary-hover: #c42d27;
-  --primary-light: #e85850;
-  --primary-dark: #b42922;
+  /* Primary - Müller Rot, vertieft und hochwertiger */
+  --primary: #d4462f;
+  --primary-hover: #ba3826;
+  --primary-light: #e68463;
+  --primary-dark: #8f241c;
 
   /* Neutrals - Weiß & Schwarztöne */
-  --background: #fafafa;
-  --surface: #ffffff;
-  --surface-elevated: #ffffff;
+  --background: #f4eee7;
+  --surface: #fbf8f3;
+  --surface-elevated: #fffdf9;
 
-  --text-primary: #1a1a1a;
-  --text-secondary: #4a4a4a;
-  --text-tertiary: #6a6a6a;
-  --text-on-primary: #ffffff;
+  --text-primary: #18161a;
+  --text-secondary: #5a4b42;
+  --text-tertiary: #7a685e;
+  --text-on-primary: #fbf6f0;
 
   /* Borders & Dividers */
-  --border-light: #e5e5e5;
-  --border-medium: #d1d1d1;
-  --border-dark: #b8b8b8;
+  --border-light: #e5d9cc;
+  --border-medium: #cfbdaa;
+  --border-dark: #ab9381;
 
   /* States */
   --success: #10b981;
@@ -45,9 +45,9 @@
      ======================================== */
 
   /* Font Families */
-  --font-heading: 'Outfit', sans-serif;
-  --font-body: 'Inter', sans-serif;
-  --font-accent: 'Space Grotesk', sans-serif;
+  --font-heading: 'Cormorant Garamond', serif;
+  --font-body: 'Manrope', sans-serif;
+  --font-accent: 'Manrope', sans-serif;
 
   /* Font Sizes - Fluid Typography */
   --text-xs: 0.75rem;      /* 12px */
@@ -116,15 +116,11 @@
      SHADOWS - Subtle & Professional
      ======================================== */
 
-  --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.08),
-               0 1px 2px -1px rgba(0, 0, 0, 0.08);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08),
-               0 2px 4px -2px rgba(0, 0, 0, 0.08);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08),
-               0 4px 6px -4px rgba(0, 0, 0, 0.08);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.08),
-               0 8px 10px -6px rgba(0, 0, 0, 0.08);
+  --shadow-xs: 0 1px 2px 0 rgba(31, 17, 8, 0.04);
+  --shadow-sm: 0 10px 24px rgba(61, 33, 18, 0.06);
+  --shadow-md: 0 16px 36px rgba(61, 33, 18, 0.08);
+  --shadow-lg: 0 24px 56px rgba(61, 33, 18, 0.12);
+  --shadow-xl: 0 34px 80px rgba(61, 33, 18, 0.16);
 
   /* Card Shadow - Hover Effect */
   --shadow-card: var(--shadow-sm);
@@ -142,6 +138,7 @@
   --ease-out: cubic-bezier(0, 0, 0.2, 1);
   --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
   --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 
   /* ========================================
      COMPONENTS - UX Optimized
@@ -206,13 +203,14 @@ body {
   line-height: var(--leading-normal);
   color: var(--text-primary);
   background-color: var(--background);
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.55) 0%, rgba(244, 238, 231, 0) 25%);
   overflow-x: hidden;
 }
 
 /* Typography Defaults */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  font-weight: var(--font-bold);
+  font-weight: 600;
   line-height: var(--leading-tight);
   color: var(--text-primary);
 }
@@ -238,6 +236,30 @@ a {
 
 a:hover {
   color: var(--primary-hover);
+}
+
+.nav-link {
+  position: relative;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.4rem;
+  width: 100%;
+  height: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: linear-gradient(90deg, var(--primary), color-mix(in srgb, var(--primary) 45%, #f1c7aa 55%));
+  transition: transform var(--transition-base);
+}
+
+.nav-link:hover::after,
+.nav-link:focus-visible::after {
+  transform: scaleX(1);
 }
 
 /* ========================================
