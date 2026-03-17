@@ -994,29 +994,30 @@
             style="font-family: var(--font-heading); color: var(--text-primary);">
             Unsere Partner
           </h3>
-          <div class="flex flex-wrap justify-center items-center gap-6">
-            <div class="px-6 py-4 rounded-xl border-2 transition-all hover:border-primary hover:shadow-lg bg-white"
-              style="border-color: var(--border-light); min-width: 200px; min-height: 120px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;">
-              <img src="images/bgbau-logo.svg" alt="BG Bau Logo" class="max-w-[180px] max-h-[60px] object-contain"
-                loading="lazy" decoding="async">
+          <div class="partner-grid">
+            <div class="partner-card">
+              <div class="partner-logo-wrap">
+                <img src="images/bgbau-logo.svg" alt="BG Bau Logo" loading="lazy" decoding="async">
+              </div>
               <div class="text-xs text-center" style="color: var(--text-tertiary);">Berufsgenossenschaft</div>
             </div>
-            <div class="px-6 py-4 rounded-xl border-2 transition-all hover:border-primary hover:shadow-lg bg-white"
-              style="border-color: var(--border-light); min-width: 200px; min-height: 120px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;">
-              <img src="images/sokabau-logo.svg" alt="Soka Bau Logo" class="max-w-[180px] max-h-[60px] object-contain"
-                loading="lazy" decoding="async">
+            <div class="partner-card">
+              <div class="partner-logo-wrap">
+                <img src="images/sokabau-logo.svg" alt="Soka Bau Logo" loading="lazy" decoding="async">
+              </div>
               <div class="text-xs text-center" style="color: var(--text-tertiary);">Sozialkasse</div>
             </div>
-            <div class="px-6 py-4 rounded-xl border-2 transition-all hover:border-primary hover:shadow-lg bg-white"
-              style="border-color: var(--border-light); min-width: 200px; min-height: 120px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;">
-              <img src="images/hwk-logo.svg" alt="HWK Hellweg-Lippe Logo"
-                class="max-w-[180px] max-h-[60px] object-contain" loading="lazy" decoding="async">
+            <div class="partner-card">
+              <div class="partner-logo-wrap">
+                <img src="images/hwk-logo.svg" alt="HWK Hellweg-Lippe Logo" loading="lazy" decoding="async">
+              </div>
               <div class="text-xs text-center" style="color: var(--text-tertiary);">Handwerkskammer</div>
             </div>
-            <div class="px-8 py-4 rounded-xl border-2 transition-all hover:border-primary hover:shadow-md"
-              style="border-color: var(--border-light); background-color: var(--surface); min-width: 180px; text-align: center;">
+            <div class="partner-card">
+              <div class="partner-logo-wrap">
               <div class="font-bold text-lg" style="font-family: var(--font-heading); color: var(--text-primary);">
                 Schöck Tronsole®</div>
+              </div>
               <div class="text-xs" style="color: var(--text-tertiary);">Zertifiziert</div>
             </div>
           </div>
@@ -1251,104 +1252,79 @@
     <!-- CTA / Kontakt Section -->
     <section id="kontakt" class="section relative overflow-hidden"
       style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);">
-      <div class="container relative z-10 mx-auto px-6 text-center">
-        <div class="max-w-3xl mx-auto animate-on-scroll">
-          <h2 class="text-4xl md:text-5xl font-bold mb-6 text-white" style="font-family: var(--font-heading);">
-            Starten Sie Ihr Projekt
-          </h2>
-          <p class="text-xl md:text-2xl mb-12 text-white opacity-95">
-            Sprechen Sie mit einem Experten!
-          </p>
+      <div class="container relative z-10 mx-auto px-6">
+        <div class="contact-shell animate-on-scroll">
+          <div class="contact-panel contact-primary">
+            <span class="contact-kicker">Kontakt</span>
+            <h2 class="contact-title text-4xl md:text-5xl font-bold" style="font-family: var(--font-heading);">
+              Sprechen Sie direkt mit uns über Ihr Bauprojekt
+            </h2>
+            <p class="contact-copy text-lg md:text-xl mb-0">
+              Schnell, persönlich und ohne Umwege. Nutzen Sie Telefon oder E-Mail – wir melden uns zeitnah zurück.
+            </p>
 
-          <!-- Contact Info -->
-          <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-            <!-- Address -->
-            <div class="glass-soft p-6 rounded-xl">
-              <div class="text-4xl mb-4 text-white">
-                <i class="fas fa-map-marker-alt"></i>
+            <div class="contact-list contact-copy">
+              <div class="contact-item">
+                <span class="contact-kicker">Adresse</span>
+                <p class="mb-0">Vellinghauser Str. 15<br>59514 Welver</p>
               </div>
-              <h3 class="font-bold mb-2 text-white" style="font-family: var(--font-heading);">Adresse</h3>
-              <p class="text-white opacity-90">
-                Vellinghauser Str. 15<br>
-                59514 Welver
-              </p>
-            </div>
-
-            <!-- Phone -->
-            <div class="glass-soft p-6 rounded-xl">
-              <div class="text-4xl mb-4 text-white">
-                <i class="fas fa-phone"></i>
+              <div class="contact-item">
+                <span class="contact-kicker">Bürozeiten</span>
+                <p class="mb-0">Mo, Mi, Fr: 08:00 - 12:00</p>
               </div>
-              <h3 class="font-bold mb-2 text-white" style="font-family: var(--font-heading);">Telefon</h3>
-              <div class="mb-2">
-                <span class="text-white opacity-75 text-sm block">Mobil Büro:</span>
-                <a href="tel:015117015050"
-                  class="text-white opacity-90 hover:opacity-100 transition-opacity block font-medium">
-                  01511-7015050
-                </a>
+              <div class="contact-item">
+                <span class="contact-kicker">Telefon</span>
+                <p class="mb-1"><a href="tel:015117015050">01511-7015050</a> <span class="opacity-75">Mobil Büro</span></p>
+                <p class="mb-1"><a href="tel:023888008686">02388-8008686</a> <span class="opacity-75">Festnetz</span></p>
+                <p class="mb-0"><a href="tel:023888008687">02388-8008687</a> <span class="opacity-75">Fax</span></p>
               </div>
-              <div class="mb-2">
-                <span class="text-white opacity-75 text-sm block">Festnetz:</span>
-                <a href="tel:023888008686"
-                  class="text-white opacity-90 hover:opacity-100 transition-opacity block font-medium">
-                  02388-8008686
-                </a>
+              <div class="contact-item">
+                <span class="contact-kicker">E-Mail</span>
+                <p class="mb-0"><a href="mailto:meistermarkus01@aol.com">meistermarkus01@aol.com</a></p>
               </div>
-              <div class="mb-2">
-                <span class="text-white opacity-75 text-sm block">Fax:</span>
-                <a href="tel:023888008687"
-                  class="text-white opacity-90 hover:opacity-100 transition-opacity block font-medium">
-                  02388-8008687
-                </a>
+              <div class="contact-item contact-item--full">
+                <span class="contact-kicker">Hinweis</span>
+                <p class="mb-0">Das Büro ist nicht immer besetzt. Hinterlassen Sie uns gern eine Nachricht – wir melden uns so schnell wie möglich zurück.</p>
               </div>
             </div>
 
-            <!-- Email -->
-            <div class="glass-soft p-6 rounded-xl">
-              <div class="text-4xl mb-4 text-white">
-                <i class="fas fa-envelope"></i>
-              </div>
-              <h3 class="font-bold mb-2 text-white" style="font-family: var(--font-heading);">E-Mail</h3>
-              <a href="mailto:meistermarkus01@aol.com"
-                class="text-white opacity-90 hover:opacity-100 transition-opacity block break-all">
-                meistermarkus01@aol.com
+            <div class="contact-actions">
+              <a href="tel:015117015050"
+                class="cta-white btn-refined px-10 py-5 rounded-lg font-bold text-lg flex items-center justify-center gap-3 transition-all"
+                style="background-color: white; color: var(--primary); min-height: 48px;">
+                <i class="fas fa-phone text-2xl"></i>
+                <span>Jetzt anrufen</span>
+              </a>
+              <a href="mailto:meistermarkus01@aol.com?subject=Anfrage%20%C3%BCber%20Website"
+                class="cta-outline btn-refined px-10 py-5 rounded-lg font-bold text-lg text-white flex items-center justify-center gap-3 border-2 transition-all"
+                style="border-color: rgba(255,255,255,0.7); min-height: 48px;">
+                <i class="fas fa-envelope text-2xl"></i>
+                <span>E-Mail senden</span>
               </a>
             </div>
 
-            <!-- Hours -->
-            <div class="glass-soft p-6 rounded-xl">
-              <div class="text-4xl mb-4 text-white">
-                <i class="fas fa-clock"></i>
-              </div>
-              <h3 class="font-bold mb-2 text-white" style="font-family: var(--font-heading);">Bürozeiten</h3>
-              <p class="text-white opacity-90 mb-2">
-                Mo, Mi, Fr: 08:00 - 12:00
-              </p>
-              <p class="text-white opacity-75 text-sm italic">
-                Das Büro ist nicht immer besetzt.<br>Wir melden uns zeitnah zurück.
-              </p>
+            <p class="contact-note mb-0">Am schnellsten erreichen Sie uns telefonisch.</p>
+          </div>
+
+          <aside class="contact-panel contact-sidebar">
+            <div>
+              <span class="contact-kicker">Warum dieser Bereich einfacher funktioniert</span>
+              <h3 class="text-2xl font-bold text-white mb-4" style="font-family: var(--font-heading);">Klare Wege statt vier gleichrangige Info-Karten</h3>
+              <ul class="contact-bullets">
+                <li><i class="fas fa-check-circle"></i><span>Die wichtigsten Kontaktwege stehen sofort sichtbar oben.</span></li>
+                <li><i class="fas fa-check-circle"></i><span>Zusatzinfos wie Bürozeiten und Adresse sind übersichtlich gruppiert.</span></li>
+                <li><i class="fas fa-check-circle"></i><span>Die zwei Hauptaktionen bleiben klar: anrufen oder schreiben.</span></li>
+              </ul>
             </div>
-          </div>
 
-
-
-          <!-- CTA Buttons (Alternative Kontaktmöglichkeiten) -->
-          <p class="text-white text-lg mb-4 opacity-90">Oder kontaktieren Sie uns direkt:</p>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="tel:015117015050"
-              class="cta-white btn-refined px-10 py-5 rounded-lg font-bold text-lg flex items-center justify-center gap-3 transition-all"
-              style="background-color: white; color: var(--primary); min-height: 48px;">
-              <i class="fas fa-phone text-2xl"></i>
-              <span>Jetzt anrufen</span>
-            </a>
-            <a href="mailto:meistermarkus01@aol.com?subject=Anfrage%20%C3%BCber%20Website"
-              class="cta-outline btn-refined px-10 py-5 rounded-lg font-bold text-lg text-white flex items-center justify-center gap-3 border-2 transition-all"
-              style="border-color: rgba(255,255,255,0.7); min-height: 48px;">
-              <i class="fas fa-envelope text-2xl"></i>
-              <span>E-Mail senden</span>
-            </a>
-          </div>
+            <div class="contact-highlight contact-copy">
+              <span class="contact-kicker">Direkter Ansprechpartner</span>
+              <p class="mb-2"><strong>Bauunternehmung Markus Müller</strong></p>
+              <p class="mb-0">Persönliche Betreuung vom ersten Gespräch bis zur Ausführung.</p>
+            </div>
+          </aside>
         </div>
+      </div>
       </div>
 
       <!-- Decorative Elements -->
