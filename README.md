@@ -48,7 +48,7 @@ Die Website wird automatisch bei jedem Push aktualisiert.
 
 - **Hero** - Eindrucksvoller Einstieg mit Call-to-Action
 - **USP Stats** - Zahlen & Fakten (Seit 2002, 27 Mitarbeiter, etc.)
-- **Services** - 12+ Dienstleistungen (Neubau, Umbau, Industriebau, etc.)
+- **Services** - 12+ Leistungen (Neubau, Umbau, Industriebau, etc.)
 - **BAMTEC** - Featured: Innovative Bewehrungstechnik
 - **Team** - Über das 27-köpfige Team
 - **Expertise** - Sicherheit, Schulung, Partnerschaften
@@ -104,8 +104,8 @@ Vellinghauser Str. 15
 59514 Welver
 
 Tel: [01511-7015050](tel:015117015050)
-Mobil: [0170-384398](tel:0170384398)
+Mobil: [0170-3843987](tel:01703843987)
 
 ---
 
-© 2024 Bauunternehmung Markus Müller | Alle Rechte vorbehalten
+© 2026 Bauunternehmung Markus Müller | Alle Rechte vorbehalten
