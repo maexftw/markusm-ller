@@ -508,31 +508,37 @@
 
       <!-- Content -->
       <div class="container relative z-10 px-6 py-20 text-center text-white">
+        <div class="section-eyebrow justify-center mx-auto stagger-1"
+          style="animation: fadeInUp 0.6s ease-out 0.12s backwards; color: rgba(255,255,255,0.84);">
+          Maurermeisterbetrieb seit 2002
+        </div>
+        <div class="hero-panel max-w-5xl mx-auto">
         <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 stagger-1"
           style="animation: fadeInUp 0.6s ease-out 0.2s backwards; font-family: var(--font-heading); line-height: 1.1; color: white;">
           Bauunternehmung Markus Müller
         </h1>
         <p class="text-2xl md:text-3xl font-semibold mb-4 stagger-2"
-          style="animation: fadeInUp 0.6s ease-out 0.4s backwards; font-family: var(--font-heading); color: rgba(255,255,255,0.95);">
+          style="animation: fadeInUp 0.6s ease-out 0.4s backwards; font-family: var(--font-heading); color: rgba(255,255,255,0.92); letter-spacing: -0.02em;">
           Baukompetenz aus Tradition
         </p>
         <p class="text-lg md:text-xl mb-12 max-w-3xl mx-auto stagger-3"
-          style="animation: fadeInUp 0.6s ease-out 0.6s backwards; color: rgba(255,255,255,0.9); line-height: 1.6;">
+          style="animation: fadeInUp 0.6s ease-out 0.6s backwards; color: rgba(255,255,255,0.82); line-height: 1.75; max-width: 42rem;">
           Meisterhafte Qualität und zuverlässige Handwerkskunst seit 2002
         </p>
+        </div>
 
         <!-- CTA Buttons -->
         <div class="flex flex-col sm:flex-row gap-4 justify-center items-center stagger-4"
           style="animation: fadeInUp 0.6s ease-out 0.8s backwards;">
           <a href="#kontakt"
-            class="btn-primary px-8 py-4 rounded-lg font-bold text-lg text-white flex items-center gap-2 cta-pulse"
+            class="btn-primary btn-refined px-8 py-4 rounded-lg font-bold text-lg text-white flex items-center gap-2"
             style="background-color: var(--primary); min-width: 200px;">
             <i class="fas fa-rocket"></i>
             <span>Projekt anfragen</span>
           </a>
           <a href="#leistungen"
-            class="btn-secondary-hero px-8 py-4 rounded-lg font-bold text-lg text-white flex items-center gap-2 border-2"
-            style="border-color: white; min-width: 200px;">
+            class="btn-secondary-hero btn-refined px-8 py-4 rounded-lg font-bold text-lg text-white flex items-center gap-2 border-2"
+            style="border-color: rgba(255,255,255,0.7); background-color: rgba(255,255,255,0.06); min-width: 200px;">
             <i class="fas fa-tools"></i>
             <span>Leistungen</span>
           </a>
@@ -540,7 +546,7 @@
       </div>
 
       <!-- Scroll Indicator -->
-      <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 opacity-75">
         <i class="fas fa-chevron-down text-white text-2xl"></i>
       </div>
     </section>
@@ -550,6 +556,7 @@
       <div class="container mx-auto px-6">
         <!-- Intro Text -->
         <div class="max-w-4xl mx-auto text-center mb-16 animate-on-scroll">
+          <div class="section-eyebrow justify-center mx-auto">Warum Bauunternehmung Müller</div>
           <p class="text-xl leading-relaxed" style="color: var(--text-secondary);">
             Entdecken Sie die Stärke handwerklicher Präzision mit der Bauunternehmung Markus Müller. Wir stehen für
             nachhaltiges Bauen, innovative Lösungen und eine persönliche Betreuung, die Sie von der ersten
@@ -611,12 +618,13 @@
     <section id="leistungen" class="section" style="background-color: var(--surface);">
       <div class="container mx-auto px-6">
         <!-- Section Header -->
-        <div class="text-center mb-16 animate-on-scroll">
-          <h2 class="text-4xl md:text-5xl font-bold mb-4"
+          <div class="text-center mb-16 animate-on-scroll">
+          <div class="section-eyebrow justify-center mx-auto">Leistungsprofil</div>
+          <h2 class="section-heading text-4xl md:text-5xl font-bold mb-4"
             style="font-family: var(--font-heading); color: var(--text-primary);">
             Unsere Leistungen
           </h2>
-          <p class="text-xl" style="color: var(--text-secondary);">
+          <p class="section-lead text-xl" style="color: var(--text-secondary);">
             Vom ersten Spatenstich bis zur Fertigstellung – wir sind Ihr zuverlässiger Ausführungspartner
           </p>
         </div>
@@ -624,11 +632,11 @@
         <!-- Services Grid -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           <!-- Service 1: Neubau & Rohbau -->
-          <div class="card-hover rounded-xl overflow-hidden border animate-on-scroll"
+          <div class="card-hover card-soft rounded-xl overflow-hidden border animate-on-scroll"
             style="background-color: var(--surface); border-color: var(--border-light); box-shadow: var(--shadow-card);">
             <div class="h-48 flex items-center justify-center"
-              style="background: linear-gradient(135deg, var(--surface) 0%, var(--background) 100%);"><i
-                class="fas fa-building text-7xl" style="color: var(--primary);"></i></div>
+              style="background: linear-gradient(135deg, rgba(220,52,46,0.03) 0%, var(--background) 100%);"><i
+                class="fas fa-building text-5xl icon-soft"></i></div>
             <div class="p-6">
               <h3 class="text-xl font-bold mb-2" style="font-family: var(--font-heading); color: var(--text-primary);">
                 Neubau & Rohbau
@@ -640,11 +648,11 @@
           </div>
 
           <!-- Service 2: Umbau -->
-          <div class="card-hover rounded-xl overflow-hidden border animate-on-scroll"
+          <div class="card-hover card-soft rounded-xl overflow-hidden border animate-on-scroll"
             style="background-color: var(--surface); border-color: var(--border-light); box-shadow: var(--shadow-card);">
             <div class="h-48 flex items-center justify-center"
-              style="background: linear-gradient(135deg, var(--surface) 0%, var(--background) 100%);"><i
-                class="fas fa-hammer text-7xl" style="color: var(--primary);"></i></div>
+              style="background: linear-gradient(135deg, rgba(220,52,46,0.03) 0%, var(--background) 100%);"><i
+                class="fas fa-hammer text-5xl icon-soft"></i></div>
             <div class="p-6">
               <h3 class="text-xl font-bold mb-2" style="font-family: var(--font-heading); color: var(--text-primary);">
                 Umbau
@@ -656,11 +664,11 @@
           </div>
 
           <!-- Service 3: Industriebau -->
-          <div class="card-hover rounded-xl overflow-hidden border animate-on-scroll"
+          <div class="card-hover card-soft rounded-xl overflow-hidden border animate-on-scroll"
             style="background-color: var(--surface); border-color: var(--border-light); box-shadow: var(--shadow-card);">
             <div class="h-48 flex items-center justify-center"
-              style="background: linear-gradient(135deg, var(--surface) 0%, var(--background) 100%);"><i
-                class="fas fa-industry text-7xl" style="color: var(--primary);"></i></div>
+              style="background: linear-gradient(135deg, rgba(220,52,46,0.03) 0%, var(--background) 100%);"><i
+                class="fas fa-industry text-5xl icon-soft"></i></div>
             <div class="p-6">
               <h3 class="text-xl font-bold mb-2" style="font-family: var(--font-heading); color: var(--text-primary);">
                 Industriebau
@@ -672,11 +680,11 @@
           </div>
 
           <!-- Service 4: Verblendarbeiten -->
-          <div class="card-hover rounded-xl overflow-hidden border animate-on-scroll"
+          <div class="card-hover card-soft rounded-xl overflow-hidden border animate-on-scroll"
             style="background-color: var(--surface); border-color: var(--border-light); box-shadow: var(--shadow-card);">
             <div class="h-48 flex items-center justify-center"
-              style="background: linear-gradient(135deg, var(--surface) 0%, var(--background) 100%);"><i
-                class="fas fa-th text-7xl" style="color: var(--primary);"></i></div>
+              style="background: linear-gradient(135deg, rgba(220,52,46,0.03) 0%, var(--background) 100%);"><i
+                class="fas fa-th text-5xl icon-soft"></i></div>
             <div class="p-6">
               <h3 class="text-xl font-bold mb-2" style="font-family: var(--font-heading); color: var(--text-primary);">
                 Verblendarbeiten / Klinker
@@ -688,11 +696,11 @@
           </div>
 
           <!-- Service 5: Maurerarbeiten -->
-          <div class="card-hover rounded-xl overflow-hidden border animate-on-scroll"
+          <div class="card-hover card-soft rounded-xl overflow-hidden border animate-on-scroll"
             style="background-color: var(--surface); border-color: var(--border-light); box-shadow: var(--shadow-card);">
             <div class="h-48 flex items-center justify-center"
-              style="background: linear-gradient(135deg, var(--surface) 0%, var(--background) 100%);"><i
-                class="fas fa-trowel-bricks text-7xl" style="color: var(--primary);"></i></div>
+              style="background: linear-gradient(135deg, rgba(220,52,46,0.03) 0%, var(--background) 100%);"><i
+                class="fas fa-trowel-bricks text-5xl icon-soft"></i></div>
             <div class="p-6">
               <h3 class="text-xl font-bold mb-2" style="font-family: var(--font-heading); color: var(--text-primary);">
                 Maurerarbeiten
@@ -704,11 +712,11 @@
           </div>
 
           <!-- Service 6: Betonarbeiten -->
-          <div class="card-hover rounded-xl overflow-hidden border animate-on-scroll"
+          <div class="card-hover card-soft rounded-xl overflow-hidden border animate-on-scroll"
             style="background-color: var(--surface); border-color: var(--border-light); box-shadow: var(--shadow-card);">
             <div class="h-48 flex items-center justify-center"
-              style="background: linear-gradient(135deg, var(--surface) 0%, var(--background) 100%);"><i
-                class="fas fa-cubes text-7xl" style="color: var(--primary);"></i></div>
+              style="background: linear-gradient(135deg, rgba(220,52,46,0.03) 0%, var(--background) 100%);"><i
+                class="fas fa-cubes text-5xl icon-soft"></i></div>
             <div class="p-6">
               <h3 class="text-xl font-bold mb-2" style="font-family: var(--font-heading); color: var(--text-primary);">
                 Betonarbeiten
@@ -720,11 +728,11 @@
           </div>
 
           <!-- Service 7: Fachwerke -->
-          <div class="card-hover rounded-xl overflow-hidden border animate-on-scroll"
+          <div class="card-hover card-soft rounded-xl overflow-hidden border animate-on-scroll"
             style="background-color: var(--surface); border-color: var(--border-light); box-shadow: var(--shadow-card);">
             <div class="h-48 flex items-center justify-center"
-              style="background: linear-gradient(135deg, var(--surface) 0%, var(--background) 100%);"><i
-                class="fas fa-th-large text-7xl" style="color: var(--primary);"></i></div>
+              style="background: linear-gradient(135deg, rgba(220,52,46,0.03) 0%, var(--background) 100%);"><i
+                class="fas fa-th-large text-5xl icon-soft"></i></div>
             <div class="p-6">
               <h3 class="text-xl font-bold mb-2" style="font-family: var(--font-heading); color: var(--text-primary);">
                 Fachwerke ausmauern
@@ -736,11 +744,11 @@
           </div>
 
           <!-- Service 8: Reparaturen -->
-          <div class="card-hover rounded-xl overflow-hidden border animate-on-scroll"
+          <div class="card-hover card-soft rounded-xl overflow-hidden border animate-on-scroll"
             style="background-color: var(--surface); border-color: var(--border-light); box-shadow: var(--shadow-card);">
             <div class="h-48 flex items-center justify-center"
-              style="background: linear-gradient(135deg, var(--surface) 0%, var(--background) 100%);"><i
-                class="fas fa-wrench text-7xl" style="color: var(--primary);"></i></div>
+              style="background: linear-gradient(135deg, rgba(220,52,46,0.03) 0%, var(--background) 100%);"><i
+                class="fas fa-wrench text-5xl icon-soft"></i></div>
             <div class="p-6">
               <h3 class="text-xl font-bold mb-2" style="font-family: var(--font-heading); color: var(--text-primary);">
                 Reparaturen
@@ -752,11 +760,11 @@
           </div>
 
           <!-- Service 9: Gerüstbau -->
-          <div class="card-hover rounded-xl overflow-hidden border animate-on-scroll"
+          <div class="card-hover card-soft rounded-xl overflow-hidden border animate-on-scroll"
             style="background-color: var(--surface); border-color: var(--border-light); box-shadow: var(--shadow-card);">
             <div class="h-48 flex items-center justify-center"
-              style="background: linear-gradient(135deg, var(--surface) 0%, var(--background) 100%);"><i
-                class="fas fa-grip-vertical text-7xl" style="color: var(--primary);"></i></div>
+              style="background: linear-gradient(135deg, rgba(220,52,46,0.03) 0%, var(--background) 100%);"><i
+                class="fas fa-grip-vertical text-5xl icon-soft"></i></div>
             <div class="p-6">
               <h3 class="text-xl font-bold mb-2" style="font-family: var(--font-heading); color: var(--text-primary);">
                 Gerüstbau
@@ -768,11 +776,11 @@
           </div>
 
           <!-- Service 10: Fundamente -->
-          <div class="card-hover rounded-xl overflow-hidden border animate-on-scroll"
+          <div class="card-hover card-soft rounded-xl overflow-hidden border animate-on-scroll"
             style="background-color: var(--surface); border-color: var(--border-light); box-shadow: var(--shadow-card);">
             <div class="h-48 flex items-center justify-center"
-              style="background: linear-gradient(135deg, var(--surface) 0%, var(--background) 100%);"><i
-                class="fas fa-mountain text-7xl" style="color: var(--primary);"></i></div>
+              style="background: linear-gradient(135deg, rgba(220,52,46,0.03) 0%, var(--background) 100%);"><i
+                class="fas fa-mountain text-5xl icon-soft"></i></div>
             <div class="p-6">
               <h3 class="text-xl font-bold mb-2" style="font-family: var(--font-heading); color: var(--text-primary);">
                 Fundamente & Betonsohlen
@@ -784,11 +792,11 @@
           </div>
 
           <!-- Service 11: Stahlbetondecken -->
-          <div class="card-hover rounded-xl overflow-hidden border animate-on-scroll"
+          <div class="card-hover card-soft rounded-xl overflow-hidden border animate-on-scroll"
             style="background-color: var(--surface); border-color: var(--border-light); box-shadow: var(--shadow-card);">
             <div class="h-48 flex items-center justify-center"
-              style="background: linear-gradient(135deg, var(--surface) 0%, var(--background) 100%);"><i
-                class="fas fa-layer-group text-7xl" style="color: var(--primary);"></i></div>
+              style="background: linear-gradient(135deg, rgba(220,52,46,0.03) 0%, var(--background) 100%);"><i
+                class="fas fa-layer-group text-5xl icon-soft"></i></div>
             <div class="p-6">
               <h3 class="text-xl font-bold mb-2" style="font-family: var(--font-heading); color: var(--text-primary);">
                 Stahlbetondecken & -wände
@@ -800,11 +808,11 @@
           </div>
 
           <!-- Service 12: Filigrandecken -->
-          <div class="card-hover rounded-xl overflow-hidden border animate-on-scroll"
+          <div class="card-hover card-soft rounded-xl overflow-hidden border animate-on-scroll"
             style="background-color: var(--surface); border-color: var(--border-light); box-shadow: var(--shadow-card);">
             <div class="h-48 flex items-center justify-center"
-              style="background: linear-gradient(135deg, var(--surface) 0%, var(--background) 100%);"><i
-                class="fas fa-border-all text-7xl" style="color: var(--primary);"></i></div>
+              style="background: linear-gradient(135deg, rgba(220,52,46,0.03) 0%, var(--background) 100%);"><i
+                class="fas fa-border-all text-5xl icon-soft"></i></div>
             <div class="p-6">
               <h3 class="text-xl font-bold mb-2" style="font-family: var(--font-heading); color: var(--text-primary);">
                 Filigrandecken
@@ -929,15 +937,16 @@
     <section id="expertise" class="section" style="background-color: var(--surface);">
       <div class="container mx-auto px-6">
         <!-- Section Header -->
-        <div class="text-center mb-16 animate-on-scroll">
-          <h2 class="text-4xl md:text-5xl font-bold mb-4"
-            style="font-family: var(--font-heading); color: var(--text-primary);">
-            Unsere Expertise
-          </h2>
-          <p class="text-xl max-w-3xl mx-auto" style="color: var(--text-secondary);">
-            Qualität, Sicherheit und verlässliche Partnerschaften bilden das Fundament unseres Erfolgs
-          </p>
-        </div>
+          <div class="text-center mb-16 animate-on-scroll">
+            <div class="section-eyebrow justify-center mx-auto">Vertrauen & Qualität</div>
+            <h2 class="section-heading text-4xl md:text-5xl font-bold mb-4"
+              style="font-family: var(--font-heading); color: var(--text-primary);">
+              Unsere Expertise
+            </h2>
+            <p class="section-lead text-xl max-w-3xl mx-auto" style="color: var(--text-secondary);">
+              Qualität, Sicherheit und verlässliche Partnerschaften bilden das Fundament unseres Erfolgs
+            </p>
+          </div>
 
         <!-- Expertise Cards -->
         <div class="grid md:grid-cols-2 gap-8 mb-16">
@@ -986,29 +995,30 @@
             style="font-family: var(--font-heading); color: var(--text-primary);">
             Unsere Partner
           </h3>
-          <div class="flex flex-wrap justify-center items-center gap-6">
-            <div class="px-6 py-4 rounded-xl border-2 transition-all hover:border-primary hover:shadow-lg bg-white"
-              style="border-color: var(--border-light); min-width: 200px; min-height: 120px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;">
-              <img src="images/bgbau-logo.svg" alt="BG Bau Logo" class="max-w-[180px] max-h-[60px] object-contain"
-                loading="lazy" decoding="async">
+          <div class="partner-grid">
+            <div class="partner-card">
+              <div class="partner-logo-wrap">
+                <img src="images/bgbau-logo.svg" alt="BG Bau Logo" loading="lazy" decoding="async">
+              </div>
               <div class="text-xs text-center" style="color: var(--text-tertiary);">Berufsgenossenschaft</div>
             </div>
-            <div class="px-6 py-4 rounded-xl border-2 transition-all hover:border-primary hover:shadow-lg bg-white"
-              style="border-color: var(--border-light); min-width: 200px; min-height: 120px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;">
-              <img src="images/sokabau-logo.svg" alt="Soka Bau Logo" class="max-w-[180px] max-h-[60px] object-contain"
-                loading="lazy" decoding="async">
+            <div class="partner-card">
+              <div class="partner-logo-wrap">
+                <img src="images/sokabau-logo.svg" alt="Soka Bau Logo" loading="lazy" decoding="async">
+              </div>
               <div class="text-xs text-center" style="color: var(--text-tertiary);">Sozialkasse</div>
             </div>
-            <div class="px-6 py-4 rounded-xl border-2 transition-all hover:border-primary hover:shadow-lg bg-white"
-              style="border-color: var(--border-light); min-width: 200px; min-height: 120px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;">
-              <img src="images/hwk-logo.svg" alt="HWK Hellweg-Lippe Logo"
-                class="max-w-[180px] max-h-[60px] object-contain" loading="lazy" decoding="async">
+            <div class="partner-card">
+              <div class="partner-logo-wrap">
+                <img src="images/hwk-logo.svg" alt="HWK Hellweg-Lippe Logo" loading="lazy" decoding="async">
+              </div>
               <div class="text-xs text-center" style="color: var(--text-tertiary);">Handwerkskammer</div>
             </div>
-            <div class="px-8 py-4 rounded-xl border-2 transition-all hover:border-primary hover:shadow-md"
-              style="border-color: var(--border-light); background-color: var(--surface); min-width: 180px; text-align: center;">
+            <div class="partner-card">
+              <div class="partner-logo-wrap">
               <div class="font-bold text-lg" style="font-family: var(--font-heading); color: var(--text-primary);">
                 Schöck Tronsole®</div>
+              </div>
               <div class="text-xs" style="color: var(--text-tertiary);">Zertifiziert</div>
             </div>
           </div>
@@ -1294,59 +1304,65 @@
               </div>
             </div>
 
-            <!-- Email -->
-            <div class="p-6 rounded-xl" style="background-color: rgba(255,255,255,0.1); backdrop-filter: blur(10px);">
-              <div class="text-4xl mb-4 text-white">
-                <i class="fas fa-envelope"></i>
-              </div>
-              <h3 class="font-bold mb-2 text-white" style="font-family: var(--font-heading);">E-Mail</h3>
-              <a href="mailto:meistermarkus01@aol.com"
-                class="text-white opacity-90 hover:opacity-100 transition-opacity block break-all">
-                meistermarkus01@aol.com
+            <div class="contact-actions">
+              <a href="tel:015117015050"
+                class="btn-refined px-10 py-5 rounded-lg font-bold text-lg flex items-center justify-center gap-3 transition-all"
+                style="background-color: var(--primary); color: white;">
+                <i class="fas fa-phone text-xl"></i>
+                <span>Jetzt anrufen</span>
+              </a>
+              <a href="mailto:meistermarkus01@aol.com?subject=Anfrage%20%C3%BCber%20Website"
+                class="btn-refined contact-action-secondary px-10 py-5 rounded-lg font-bold text-lg flex items-center justify-center gap-3 transition-all border"
+                style="border-color: color-mix(in srgb, var(--primary) 18%, var(--border-medium) 82%);">
+                <i class="fas fa-envelope text-xl"></i>
+                <span>E-Mail senden</span>
               </a>
             </div>
 
-            <!-- Hours -->
-            <div class="p-6 rounded-xl" style="background-color: rgba(255,255,255,0.1); backdrop-filter: blur(10px);">
-              <div class="text-4xl mb-4 text-white">
-                <i class="fas fa-clock"></i>
-              </div>
-              <h3 class="font-bold mb-2 text-white" style="font-family: var(--font-heading);">Bürozeiten</h3>
-              <p class="text-white opacity-90 mb-2">
-                Mo, Mi, Fr: 08:00 - 12:00
-              </p>
-              <p class="text-white opacity-75 text-sm italic">
-                Das Büro ist nicht immer besetzt.<br>Wir melden uns zeitnah zurück.
-              </p>
+            <p class="contact-note mb-0">Das Büro ist nicht immer besetzt. Wir melden uns zeitnah zurück.</p>
+          </div>
+
+          <aside class="contact-summary">
+            <div class="contact-meta">
+              <span class="contact-chip">Seit 2002</span>
+              <span class="contact-chip">Maurermeisterbetrieb</span>
+              <span class="contact-chip">Welver</span>
             </div>
-          </div>
 
+            <div class="contact-detail-list">
+              <div class="contact-detail">
+                <div class="contact-label">Telefon</div>
+                <div class="contact-value contact-inline-links">
+                  <div><a href="tel:015117015050">01511-7015050</a><span>Mobil Büro</span></div>
+                  <div><a href="tel:023888008686">02388-8008686</a><span>Festnetz</span></div>
+                  <div><a href="tel:023888008687">02388-8008687</a><span>Fax</span></div>
+                </div>
+              </div>
+              <div class="contact-detail">
+                <div class="contact-label">E-Mail</div>
+                <div class="contact-value">
+                  <a href="mailto:meistermarkus01@aol.com">meistermarkus01@aol.com</a>
+                </div>
+              </div>
+              <div class="contact-detail">
+                <div class="contact-label">Adresse</div>
+                <div class="contact-value">
+                  Vellinghauser Str. 15<br>
+                  59514 Welver
+                </div>
+              </div>
+              <div class="contact-detail">
+                <div class="contact-label">Bürozeiten</div>
+                <div class="contact-value">
+                  Mo, Mi, Fr: 08:00 - 12:00
+                </div>
+              </div>
+            </div>
 
-
-          <!-- CTA Buttons (Alternative Kontaktmöglichkeiten) -->
-          <p class="text-white text-lg mb-4 opacity-90">Oder kontaktieren Sie uns direkt:</p>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="tel:015117015050"
-              class="cta-white px-10 py-5 rounded-lg font-bold text-lg flex items-center justify-center gap-3 transition-all"
-              style="background-color: white; color: var(--primary); min-height: 48px;">
-              <i class="fas fa-phone text-2xl"></i>
-              <span>Jetzt anrufen</span>
-            </a>
-            <a href="mailto:meistermarkus01@aol.com?subject=Anfrage%20%C3%BCber%20Website"
-              class="cta-outline px-10 py-5 rounded-lg font-bold text-lg text-white flex items-center justify-center gap-3 border-2 transition-all"
-              style="border-color: white; min-height: 48px;">
-              <i class="fas fa-envelope text-2xl"></i>
-              <span>E-Mail senden</span>
-            </a>
-          </div>
+            <p class="contact-caption mb-0">Bauunternehmung Markus Müller – Baukompetenz aus Tradition.</p>
+          </aside>
         </div>
       </div>
-
-      <!-- Decorative Elements -->
-      <div class="absolute top-0 left-0 w-64 h-64 rounded-full opacity-10"
-        style="background: radial-gradient(circle, white 0%, transparent 70%); transform: translate(-50%, -50%);"></div>
-      <div class="absolute bottom-0 right-0 w-96 h-96 rounded-full opacity-10"
-        style="background: radial-gradient(circle, white 0%, transparent 70%); transform: translate(50%, 50%);"></div>
     </section>
   </main>
 
